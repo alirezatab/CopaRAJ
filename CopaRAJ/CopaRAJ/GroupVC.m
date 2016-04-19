@@ -7,6 +7,7 @@
 //
 
 #import "GroupVC.h"
+#import "Team.h"
 
 @interface GroupVC ()
 
@@ -16,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self createTournamentTeams];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +34,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)createTournamentTeams{
+  NSArray *teamsIntournament = @[@"Argentina", @"Bolivia"];
+  
+  
+}
 
 @end

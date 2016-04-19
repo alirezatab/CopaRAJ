@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Team : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
+- (instancetype)initTeamWithCountryName:(NSString *)countryName andFlagImageName:(NSString *)flagImageName;
 
 @end
 
