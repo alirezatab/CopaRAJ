@@ -9,13 +9,27 @@
 /* Begin PBXBuildFile section */
 		C2C5C00E1CC564D70010133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C00D1CC564D70010133B /* main.m */; };
 		C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0101CC564D70010133B /* AppDelegate.m */; };
-		C2C5C0141CC564D70010133B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0131CC564D70010133B /* ViewController.m */; };
 		C2C5C0171CC564D70010133B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C5C0151CC564D70010133B /* Main.storyboard */; };
 		C2C5C01A1CC564D70010133B /* CopaRAJ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0181CC564D70010133B /* CopaRAJ.xcdatamodeld */; };
 		C2C5C01C1CC564D70010133B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2C5C01B1CC564D70010133B /* Assets.xcassets */; };
 		C2C5C01F1CC564D70010133B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C5C01D1CC564D70010133B /* LaunchScreen.storyboard */; };
 		C2C5C02A1CC564D70010133B /* CopaRAJTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0291CC564D70010133B /* CopaRAJTests.m */; };
 		C2C5C0351CC564D70010133B /* CopaRAJUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0341CC564D70010133B /* CopaRAJUITests.m */; };
+		D82BF4E01CC5DB7C00E80C51 /* Match+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D82BF4D51CC5DB7C00E80C51 /* Match+CoreDataProperties.m */; };
+		D82BF4E11CC5DB7C00E80C51 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = D82BF4D71CC5DB7C00E80C51 /* Match.m */; };
+		D82BF4E21CC5DB7C00E80C51 /* Group+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D82BF4D91CC5DB7C00E80C51 /* Group+CoreDataProperties.m */; };
+		D82BF4E31CC5DB7C00E80C51 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = D82BF4DB1CC5DB7C00E80C51 /* Group.m */; };
+		D82BF4E41CC5DB7C00E80C51 /* Team+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D82BF4DD1CC5DB7C00E80C51 /* Team+CoreDataProperties.m */; };
+		D82BF4E51CC5DB7C00E80C51 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = D82BF4DF1CC5DB7C00E80C51 /* Team.m */; };
+		D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */; };
+		D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E81CC5DC9000E80C51 /* Group.storyboard */; };
+		D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4EB1CC5DCC200E80C51 /* Tourny.storyboard */; };
+		D8F2D0B91CC5935C003F8465 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0B81CC5935C003F8465 /* HomeVC.m */; };
+		D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */; };
+		D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */; };
+		D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C41CC5B6F9003F8465 /* GroupVC.m */; };
+		D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0CA1CC5B75F003F8465 /* GameVC.m */; };
+		D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,10 +52,8 @@
 /* Begin PBXFileReference section */
 		C2C5C0091CC564D70010133B /* CopaRAJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopaRAJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C5C00D1CC564D70010133B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C2C5C00F1CC564D70010133B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C2C5C0101CC564D70010133B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C2C5C0121CC564D70010133B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C2C5C0131CC564D70010133B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C2C5C00F1CC564D70010133B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CopaRAJ/AppDelegate.h; sourceTree = "<group>"; };
+		C2C5C0101CC564D70010133B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = CopaRAJ/AppDelegate.m; sourceTree = "<group>"; };
 		C2C5C0161CC564D70010133B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2C5C0191CC564D70010133B /* CopaRAJ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CopaRAJ.xcdatamodel; sourceTree = "<group>"; };
 		C2C5C01B1CC564D70010133B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +65,33 @@
 		C2C5C0301CC564D70010133B /* CopaRAJUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopaRAJUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C5C0341CC564D70010133B /* CopaRAJUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CopaRAJUITests.m; sourceTree = "<group>"; };
 		C2C5C0361CC564D70010133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D82BF4D41CC5DB7C00E80C51 /* Match+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Match+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D82BF4D51CC5DB7C00E80C51 /* Match+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Match+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D82BF4D61CC5DB7C00E80C51 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
+		D82BF4D71CC5DB7C00E80C51 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
+		D82BF4D81CC5DB7C00E80C51 /* Group+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Group+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D82BF4D91CC5DB7C00E80C51 /* Group+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Group+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D82BF4DA1CC5DB7C00E80C51 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		D82BF4DB1CC5DB7C00E80C51 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		D82BF4DC1CC5DB7C00E80C51 /* Team+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Team+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D82BF4DD1CC5DB7C00E80C51 /* Team+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Team+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D82BF4DE1CC5DB7C00E80C51 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		D82BF4DF1CC5DB7C00E80C51 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
+		D82BF4E91CC5DC9000E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
+		D82BF4EC1CC5DCC200E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tourny.storyboard; sourceTree = "<group>"; };
+		D8F2D0B71CC5935C003F8465 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeVC.h; path = ../HomeVC.h; sourceTree = "<group>"; };
+		D8F2D0B81CC5935C003F8465 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeVC.m; path = ../HomeVC.m; sourceTree = "<group>"; };
+		D8F2D0BD1CC59537003F8465 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		D8F2D0C01CC5B50F003F8465 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
+		D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
+		D8F2D0C31CC5B6F9003F8465 /* GroupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupVC.h; sourceTree = "<group>"; };
+		D8F2D0C41CC5B6F9003F8465 /* GroupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupVC.m; sourceTree = "<group>"; };
+		D8F2D0C91CC5B75F003F8465 /* GameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameVC.h; sourceTree = "<group>"; };
+		D8F2D0CA1CC5B75F003F8465 /* GameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameVC.m; sourceTree = "<group>"; };
+		D8F2D0CC1CC5B777003F8465 /* TourneyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourneyVC.h; sourceTree = "<group>"; };
+		D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourneyVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +122,8 @@
 		C2C5C0001CC564D70010133B = {
 			isa = PBXGroup;
 			children = (
+				C2C5C00F1CC564D70010133B /* AppDelegate.h */,
+				C2C5C0101CC564D70010133B /* AppDelegate.m */,
 				C2C5C00B1CC564D70010133B /* CopaRAJ */,
 				C2C5C0281CC564D70010133B /* CopaRAJTests */,
 				C2C5C0331CC564D70010133B /* CopaRAJUITests */,
@@ -103,11 +144,13 @@
 		C2C5C00B1CC564D70010133B /* CopaRAJ */ = {
 			isa = PBXGroup;
 			children = (
-				C2C5C00F1CC564D70010133B /* AppDelegate.h */,
-				C2C5C0101CC564D70010133B /* AppDelegate.m */,
-				C2C5C0121CC564D70010133B /* ViewController.h */,
-				C2C5C0131CC564D70010133B /* ViewController.m */,
-				C2C5C0151CC564D70010133B /* Main.storyboard */,
+				D82BF4F11CC5DD2000E80C51 /* Game Storyboard */,
+				D82BF4F01CC5DCF700E80C51 /* Group Storyboard */,
+				D82BF4EF1CC5DCE900E80C51 /* Tourny Storyboard */,
+				D82BF4EE1CC5DCD500E80C51 /* Main Storyboard */,
+				D8F2D0BC1CC593BD003F8465 /* Model */,
+				D8F2D0BB1CC5939F003F8465 /* View */,
+				D8F2D0BA1CC5937F003F8465 /* Controller */,
 				C2C5C01B1CC564D70010133B /* Assets.xcassets */,
 				C2C5C01D1CC564D70010133B /* LaunchScreen.storyboard */,
 				C2C5C0201CC564D70010133B /* Info.plist */,
@@ -141,6 +184,83 @@
 				C2C5C0361CC564D70010133B /* Info.plist */,
 			);
 			path = CopaRAJUITests;
+			sourceTree = "<group>";
+		};
+		D82BF4EE1CC5DCD500E80C51 /* Main Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C2C5C0151CC564D70010133B /* Main.storyboard */,
+			);
+			name = "Main Storyboard";
+			sourceTree = "<group>";
+		};
+		D82BF4EF1CC5DCE900E80C51 /* Tourny Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D82BF4EB1CC5DCC200E80C51 /* Tourny.storyboard */,
+			);
+			name = "Tourny Storyboard";
+			sourceTree = "<group>";
+		};
+		D82BF4F01CC5DCF700E80C51 /* Group Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D82BF4E81CC5DC9000E80C51 /* Group.storyboard */,
+			);
+			name = "Group Storyboard";
+			sourceTree = "<group>";
+		};
+		D82BF4F11CC5DD2000E80C51 /* Game Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */,
+			);
+			name = "Game Storyboard";
+			sourceTree = "<group>";
+		};
+		D8F2D0BA1CC5937F003F8465 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D8F2D0C31CC5B6F9003F8465 /* GroupVC.h */,
+				D8F2D0C41CC5B6F9003F8465 /* GroupVC.m */,
+				D8F2D0B71CC5935C003F8465 /* HomeVC.h */,
+				D8F2D0B81CC5935C003F8465 /* HomeVC.m */,
+				D8F2D0CC1CC5B777003F8465 /* TourneyVC.h */,
+				D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */,
+				D8F2D0C91CC5B75F003F8465 /* GameVC.h */,
+				D8F2D0CA1CC5B75F003F8465 /* GameVC.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D8F2D0BB1CC5939F003F8465 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D8F2D0BD1CC59537003F8465 /* HomeTableViewCell.h */,
+				D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */,
+				D8F2D0C01CC5B50F003F8465 /* GroupTableViewCell.h */,
+				D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D8F2D0BC1CC593BD003F8465 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D82BF4D41CC5DB7C00E80C51 /* Match+CoreDataProperties.h */,
+				D82BF4D51CC5DB7C00E80C51 /* Match+CoreDataProperties.m */,
+				D82BF4D61CC5DB7C00E80C51 /* Match.h */,
+				D82BF4D71CC5DB7C00E80C51 /* Match.m */,
+				D82BF4D81CC5DB7C00E80C51 /* Group+CoreDataProperties.h */,
+				D82BF4D91CC5DB7C00E80C51 /* Group+CoreDataProperties.m */,
+				D82BF4DA1CC5DB7C00E80C51 /* Group.h */,
+				D82BF4DB1CC5DB7C00E80C51 /* Group.m */,
+				D82BF4DC1CC5DB7C00E80C51 /* Team+CoreDataProperties.h */,
+				D82BF4DD1CC5DB7C00E80C51 /* Team+CoreDataProperties.m */,
+				D82BF4DE1CC5DB7C00E80C51 /* Team.h */,
+				D82BF4DF1CC5DB7C00E80C51 /* Team.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +369,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */,
+				D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */,
 				C2C5C01F1CC564D70010133B /* LaunchScreen.storyboard in Resources */,
 				C2C5C01C1CC564D70010133B /* Assets.xcassets in Resources */,
 				C2C5C0171CC564D70010133B /* Main.storyboard in Resources */,
+				D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,8 +400,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2C5C01A1CC564D70010133B /* CopaRAJ.xcdatamodeld in Sources */,
-				C2C5C0141CC564D70010133B /* ViewController.m in Sources */,
+				D82BF4E11CC5DB7C00E80C51 /* Match.m in Sources */,
+				D8F2D0B91CC5935C003F8465 /* HomeVC.m in Sources */,
+				D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */,
+				D82BF4E41CC5DB7C00E80C51 /* Team+CoreDataProperties.m in Sources */,
+				D82BF4E31CC5DB7C00E80C51 /* Group.m in Sources */,
+				D82BF4E01CC5DB7C00E80C51 /* Match+CoreDataProperties.m in Sources */,
+				D82BF4E21CC5DB7C00E80C51 /* Group+CoreDataProperties.m in Sources */,
+				D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */,
+				D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */,
+				D82BF4E51CC5DB7C00E80C51 /* Team.m in Sources */,
+				D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */,
 				C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */,
+				D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */,
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +463,22 @@
 				C2C5C01E1CC564D70010133B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D82BF4E81CC5DC9000E80C51 /* Group.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D82BF4E91CC5DC9000E80C51 /* Base */,
+			);
+			name = Group.storyboard;
+			sourceTree = "<group>";
+		};
+		D82BF4EB1CC5DCC200E80C51 /* Tourny.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D82BF4EC1CC5DCC200E80C51 /* Base */,
+			);
+			name = Tourny.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -503,6 +653,7 @@
 				C2C5C03B1CC564D70010133B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2C5C03C1CC564D70010133B /* Build configuration list for PBXNativeTarget "CopaRAJTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +662,7 @@
 				C2C5C03E1CC564D70010133B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2C5C03F1CC564D70010133B /* Build configuration list for PBXNativeTarget "CopaRAJUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +671,7 @@
 				C2C5C0411CC564D70010133B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

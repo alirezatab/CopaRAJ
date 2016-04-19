@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  HomeVC.h
 //  CopaRAJ
 //
-//  Created by ALIREZA TABRIZI on 4/18/16.
+//  Created by Richard Velazquez on 4/18/16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface HomeVC : UIViewController
 
 @end
-
