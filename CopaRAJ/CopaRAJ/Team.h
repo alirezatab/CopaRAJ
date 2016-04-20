@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Team : NSManagedObject
 
-- (instancetype)initTeamWithCountryName:(NSString *)countryName andFlagImageName:(NSString *)flagImageName;
+- (void)createDefaultTeamSettingsForTeam:(Team *)team andName:(NSString *)teamName;
 
 @end
 

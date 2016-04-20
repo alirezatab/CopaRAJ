@@ -12,24 +12,19 @@
 
 @implementation Team
 
-- (instancetype)initTeamWithCountryName:(NSString *)countryName andFlagImageName:(NSString *)flagImageName {
-  self = [super init];
+- (void)createDefaultTeamSettingsForTeam:(Team *)team andName:(NSString *)teamName {
+    team.countryName = teamName;
+    team.draws = [NSNumber numberWithInt:0];
+    team.flagImageName = teamName;
+    team.gamesPlayed = @"0";
+    team.goalsAgainst = @"0";
+    team.goalsFor = @"0";
+    team.id = @"0";
+    team.isTournamentWinner = [NSNumber numberWithInt:0];
+    team.losses = [NSNumber numberWithInt:0];
+    team.points = @"0";
+    team.wins = [NSNumber numberWithInt:0];
   
-  if (self) {
-    self.countryName = countryName;
-    self.draws = 0;
-    self.flagImageName = flagImageName;
-    self.gamesPlayed = @"0";
-    self.goalsAgainst = @"0";
-    self.goalsFor = @"0";
-    self.id = @"";
-    self.isTournamentWinner = FALSE;
-    self.losses = 0;
-    self.points = @"0";
-    self.wins =0;
-  }
-  
-  return self;
 }
 
 @end
