@@ -2,7 +2,7 @@
 //  Team+CoreDataProperties.h
 //  CopaRAJ
 //
-//  Created by James Rochabrun on 19-04-16.
+//  Created by Richard Velazquez on 4/20/16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *losses;
 @property (nullable, nonatomic, retain) NSString *points;
 @property (nullable, nonatomic, retain) NSNumber *wins;
+@property (nullable, nonatomic, retain) NSString *position;
 @property (nullable, nonatomic, retain) Group *group;
 @property (nullable, nonatomic, retain) NSSet<Match *> *matches;
 

@@ -119,10 +119,6 @@
     }
   }
   
-  for (Group *group in self.groups) {
-    [group createTeamNamesForGroup:group];
-  }
-  
   NSError *error;
   if ([self.moc save:&error]) {
     NSLog(@"Groups and their relationships to teams should be saved in Core Data");
@@ -152,7 +148,11 @@
       for (NSDictionary *team in table) {
         NSLog(@"The team from  Json is %@", team[@"team"]);
         [self updateTeamFromTeamArray:groupTeams WithLatestDictionary:team];
+        //[self updateMatchsArray: <your match array> withDictionary:<jsonDictionaryforIndividualMatch>]
       }
+    
+    //save here
+    //update tableview here
     }];
   
   [task resume];
@@ -168,7 +168,6 @@
       teamForDictionary = team;
     }
   }
-  
   teamForDictionary.wins = dictionary[@"wins"];
   teamForDictionary.points = dictionary[@"points"];
   teamForDictionary.losses = dictionary[@"losses"];
@@ -176,8 +175,6 @@
   teamForDictionary.goalsFor = dictionary[@"gf"];
   teamForDictionary.goalsAgainst = dictionary[@"ga"];
   teamForDictionary.gamesPlayed = dictionary[@"round"];
-  
-  
   
   NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
   

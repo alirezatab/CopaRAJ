@@ -2,7 +2,7 @@
 //  Group+CoreDataProperties.m
 //  CopaRAJ
 //
-//  Created by James Rochabrun on 19-04-16.
+//  Created by Richard Velazquez on 4/20/16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,11 +13,7 @@
 
 @implementation Group (CoreDataProperties)
 
-@dynamic firstPlaceTeamName;
-@dynamic fourthPlaceTeamName;
 @dynamic groupID;
-@dynamic secondPlaceTeamName;
-@dynamic thirdPlaceTeamName;
 @dynamic teams;
 
 @end

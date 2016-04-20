@@ -2,7 +2,7 @@
 //  Match+CoreDataProperties.m
 //  CopaRAJ
 //
-//  Created by James Rochabrun on 19-04-16.
+//  Created by Richard Velazquez on 4/20/16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,6 +13,7 @@
 
 @implementation Match (CoreDataProperties)
 
+@dynamic date;
 @dynamic groupCode;
 @dynamic hour;
 @dynamic id;
@@ -26,7 +27,6 @@
 @dynamic timeInGame;
 @dynamic visitingTeam;
 @dynamic visitorAbbr;
-@dynamic date;
 @dynamic teams;
 
 @end

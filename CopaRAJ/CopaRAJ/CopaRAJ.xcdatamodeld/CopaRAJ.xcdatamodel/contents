@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15D21" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Group" representedClassName="Group" syncable="YES">
-        <attribute name="firstPlaceTeamName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fourthPlaceTeamName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="groupID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="secondPlaceTeamName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="thirdPlaceTeamName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="group" inverseEntity="Team" syncable="YES"/>
     </entity>
     <entity name="Match" representedClassName="Match" syncable="YES">
@@ -37,13 +33,14 @@
         <attribute name="isTournamentWinner" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="losses" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="points" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wins" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="teams" inverseEntity="Group" syncable="YES"/>
         <relationship name="matches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Match" inverseName="teams" inverseEntity="Match" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Group" positionX="27" positionY="-79" width="128" height="133"/>
+        <element name="Group" positionX="27" positionY="-79" width="128" height="75"/>
         <element name="Match" positionX="513" positionY="-117" width="128" height="270"/>
-        <element name="Team" positionX="270" positionY="-261" width="128" height="253"/>
+        <element name="Team" positionX="270" positionY="-261" width="128" height="270"/>
     </elements>
 </model>

@@ -2,7 +2,7 @@
 //  Match+CoreDataProperties.h
 //  CopaRAJ
 //
-//  Created by James Rochabrun on 19-04-16.
+//  Created by Richard Velazquez on 4/20/16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Match (CoreDataProperties)
 
+@property (nullable, nonatomic, retain) NSDate *date;
 @property (nullable, nonatomic, retain) NSString *groupCode;
 @property (nullable, nonatomic, retain) NSString *hour;
 @property (nullable, nonatomic, retain) NSString *id;
@@ -28,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *timeInGame;
 @property (nullable, nonatomic, retain) NSString *visitingTeam;
 @property (nullable, nonatomic, retain) NSString *visitorAbbr;
-@property (nullable, nonatomic, retain) NSDate *date;
 @property (nullable, nonatomic, retain) NSSet<Team *> *teams;
 
 @end

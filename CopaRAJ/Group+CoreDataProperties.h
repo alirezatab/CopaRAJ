@@ -2,7 +2,7 @@
 //  Group+CoreDataProperties.h
 //  CopaRAJ
 //
-//  Created by James Rochabrun on 19-04-16.
+//  Created by Richard Velazquez on 4/20/16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,11 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Group (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *firstPlaceTeamName;
-@property (nullable, nonatomic, retain) NSString *fourthPlaceTeamName;
 @property (nullable, nonatomic, retain) NSString *groupID;
-@property (nullable, nonatomic, retain) NSString *secondPlaceTeamName;
-@property (nullable, nonatomic, retain) NSString *thirdPlaceTeamName;
 @property (nullable, nonatomic, retain) NSSet<Team *> *teams;
 
 @end
