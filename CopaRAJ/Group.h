@@ -1,17 +1,19 @@
 //
-//  Match.h
+//  Group.h
 //  CopaRAJ
 //
-//  Created by Richard Velazquez on 4/18/16.
+//  Created by James Rochabrun on 19-04-16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Team;
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Match : NSManagedObject
+@interface Group : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -19,4 +21,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Match+CoreDataProperties.h"
+#import "Group+CoreDataProperties.h"

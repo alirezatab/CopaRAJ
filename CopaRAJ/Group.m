@@ -1,16 +1,15 @@
 //
-//  Team.m
+//  Group.m
 //  CopaRAJ
 //
-//  Created by Richard Velazquez on 4/18/16.
+//  Created by James Rochabrun on 19-04-16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 
-#import "Team.h"
 #import "Group.h"
-#import "Match.h"
+#import "Team.h"
 
-@implementation Team
+@implementation Group
 
 // Insert code here to add functionality to your managed object subclass
 
