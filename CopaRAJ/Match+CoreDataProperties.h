@@ -2,7 +2,7 @@
 //  Match+CoreDataProperties.h
 //  CopaRAJ
 //
-//  Created by Richard Velazquez on 4/18/16.
+//  Created by James Rochabrun on 19-04-16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, retain) NSString *groupCode;
 @property (nullable, nonatomic, retain) NSString *id;
-@property (nullable, nonatomic, retain) NSString *kickoffTime;
 @property (nullable, nonatomic, retain) NSString *localAbbr;
 @property (nullable, nonatomic, retain) NSString *localTeam;
 @property (nullable, nonatomic, retain) NSString *location;
@@ -27,16 +26,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *timeInGame;
 @property (nullable, nonatomic, retain) NSString *visitingTeam;
 @property (nullable, nonatomic, retain) NSString *visitorAbbr;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *teams;
+@property (nullable, nonatomic, retain) NSString *hour;
+@property (nullable, nonatomic, retain) NSString *minute;
+@property (nullable, nonatomic, retain) NSSet<Team *> *teams;
 
 @end
 
 @interface Match (CoreDataGeneratedAccessors)
 
-- (void)addTeamsObject:(NSManagedObject *)value;
-- (void)removeTeamsObject:(NSManagedObject *)value;
-- (void)addTeams:(NSSet<NSManagedObject *> *)values;
-- (void)removeTeams:(NSSet<NSManagedObject *> *)values;
+- (void)addTeamsObject:(Team *)value;
+- (void)removeTeamsObject:(Team *)value;
+- (void)addTeams:(NSSet<Team *> *)values;
+- (void)removeTeams:(NSSet<Team *> *)values;
 
 @end
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15D21" minimumToolsVersion="Automatic">
     <entity name="Group" representedClassName="Group" syncable="YES">
         <attribute name="firstPlaceTeamName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fourthPlaceTeamName" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,11 +10,12 @@
     </entity>
     <entity name="Match" representedClassName="Match" syncable="YES">
         <attribute name="groupCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hour" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="kickoffTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localAbbr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localTeam" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="minute" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="penalties1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="penalties2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="String" syncable="YES"/>
@@ -41,7 +42,7 @@
     </entity>
     <elements>
         <element name="Group" positionX="27" positionY="-79" width="128" height="133"/>
-        <element name="Match" positionX="513" positionY="-117" width="128" height="238"/>
+        <element name="Match" positionX="513" positionY="-117" width="128" height="255"/>
         <element name="Team" positionX="270" positionY="-261" width="128" height="253"/>
     </elements>
 </model>

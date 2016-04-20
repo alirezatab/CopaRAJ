@@ -2,7 +2,7 @@
 //  Match+CoreDataProperties.m
 //  CopaRAJ
 //
-//  Created by Richard Velazquez on 4/18/16.
+//  Created by James Rochabrun on 19-04-16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,7 +15,6 @@
 
 @dynamic groupCode;
 @dynamic id;
-@dynamic kickoffTime;
 @dynamic localAbbr;
 @dynamic localTeam;
 @dynamic location;
@@ -25,6 +24,8 @@
 @dynamic timeInGame;
 @dynamic visitingTeam;
 @dynamic visitorAbbr;
+@dynamic hour;
+@dynamic minute;
 @dynamic teams;
 
 @end
