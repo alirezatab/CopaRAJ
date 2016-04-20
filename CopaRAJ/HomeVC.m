@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *teams;
-@property NSURL *url;
 
 
 @end
@@ -35,76 +34,89 @@
     self.matchesObject = [NSMutableArray new];
     
     
-//    [self getMatchesFromJson];
     [self pullMatchesFromCoreData];
+    [self getMatchesFromJson];
     
 //    [self pullTeamsFromCoreData];
+//    if (self.teams.count == 0) {
+//        [self createTournamentTeams];
+//    }
     
-    if (self.teams.count == 0) {
-        [self createTournamentTeams];
-    }
+
+
     
     NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
-
+    
 }
 
 //user gets the matches from the API
 - (void)getMatchesFromJson {
     
-    
-    for (int i=1; 5 < i; i++) {
+    for (int i = 1; i< 4; i++) {
         
-        NSString *stringUrl = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=matchs&format=json&tz=America/Chicago&lang=en&league=177&round=%i", i];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=matchs&format=json&tz=America/Chicago&lang=en&league=177&round=%i",i];
         
-        self.url = [NSURL URLWithString:stringUrl];
-    }
-    
-
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    NSURLSessionTask *task = [session dataTaskWithURL:self.url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSURL *url = [NSURL URLWithString:urlString];
         
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        self.matchesData = dictionary[@"match"];
+        NSURLSession *session = [NSURLSession sharedSession];
         
-        for (NSDictionary *match in self.matchesData) {
-            Match *matchObject = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
-            matchObject.localAbbr = match[@"local_abbr"];
-            matchObject.visitorAbbr = match[@"visitor_abbr"];
-            matchObject.hour = match[@"hour"];
-            matchObject.minute = match[@"minute"];
-            [self.matchesObject addObject:matchObject];
-        }
-//        NSLog(@"%@", self.matchesObject);
-
+        NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            self.matchesData = dictionary[@"match"];
+            
+            for (NSDictionary *match in self.matchesData) {
+                Match *matchObject = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
+                matchObject.localAbbr = match[@"local_abbr"];
+                matchObject.visitorAbbr = match[@"visitor_abbr"];
+                
+                NSLog(@"%@ vs %@ in round %@", matchObject.visitorAbbr, matchObject.localAbbr);
+                
+                matchObject.hour = match[@"hour"];
+                matchObject.minute = match[@"minute"];
+                
+                //testing
+                matchObject.groupCode = match[@"round"];
+                
+                
+                NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+                [dateFormat setDateFormat:@"yyyy/MM/dd"];
+                NSDate *date = [dateFormat dateFromString:match[@"date"]];
+                matchObject.date = date;
+                [self.matchesObject addObject:matchObject];
+            }
+            
             NSError *mocError;
             if([self.moc save:&mocError]){
-                NSLog(@"this was saved");
+                NSLog(@"this was saved and there are %lu", self.matchesObject.count);
             }else{
                 NSLog(@"an error has occurred,...%@", error);
             }
-        
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            //Run UI Updates
-//            NSLog(@"probando %@", self.matchesData);
-            [self.tableView reloadData];
-        });
-    }];
-    
-    [task resume];
+            
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                //Run UI Updates
+                [self.tableView reloadData];
+            });
+        }];
+        [task resume];
+    }
 }
 
 
-//getting results from coredata
 - (void)pullMatchesFromCoreData {
     
-    self.matchesObject = [NSMutableArray new];
     NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Match"];
+    
     NSError *error;
-    self.matchesObject = [[self.moc executeFetchRequest:request error:&error]mutableCopy];
+    
+    NSMutableArray *coreDataArray = [NSMutableArray new];
+    coreDataArray = [[self.moc executeFetchRequest:request error:&error]mutableCopy];
+    
     if(error == nil){
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+        self.matchesObject = [[coreDataArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
         [self.tableView reloadData];
+
     }else{
         NSLog(@"Error: %@", error);
     }
@@ -120,6 +132,9 @@
     Match *match = [self.matchesObject objectAtIndex:indexPath.row];
     cell.teamOneName.text = match.localAbbr;
     cell.teamTwoName.text = match.visitorAbbr;
+    
+    //testing
+    cell.locationLabel.text = match.groupCode;
     return cell;
 }
 
@@ -145,7 +160,7 @@
 
 - (void)createTournamentTeams {
     
-    NSArray *teamsIntournament = @[@"Argentina", @"Bolivia", @"Brazil", @"Chile", @"Columbia", @"Costa Rica", @"Ecuador", @"Haiti", @"Jamaica", @"Mexico", @"Panama", @"Paraguay", @"Peru", @"Uruguay", @"USA", @"Venezuela"];
+    NSArray *teamsIntournament = @[@"Argentina", @"Bolivia", @"Brazil", @"Chile", @"Colombia", @"Costa Rica", @"Ecuador", @"Haiti", @"Jamaica", @"Mexico", @"Panama", @"Paraguay", @"Peru", @"Uruguay", @"USA", @"Venezuela"];
     
     NSArray *teamAbbrevs = @[@"ARG", @"BOL", @"BRA", @"CHI", @"COL", @"CRC", @"ECU", @"HAI", @"JAM", @"MEX", @"PAN", @"PAR", @"PER", @"URU", @"USA", @"VEN"];
     
@@ -167,9 +182,7 @@
     } else {
         NSLog(@"failed because %@", error);
     }
-    
 }
-
 
 
 - (void)didReceiveMemoryWarning {

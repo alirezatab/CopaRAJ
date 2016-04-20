@@ -14,18 +14,19 @@
 @implementation Match (CoreDataProperties)
 
 @dynamic groupCode;
+@dynamic hour;
 @dynamic id;
 @dynamic localAbbr;
 @dynamic localTeam;
 @dynamic location;
+@dynamic minute;
 @dynamic penalties1;
 @dynamic penalties2;
 @dynamic score;
 @dynamic timeInGame;
 @dynamic visitingTeam;
 @dynamic visitorAbbr;
-@dynamic hour;
-@dynamic minute;
+@dynamic date;
 @dynamic teams;
 
 @end
