@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *teams;
+@property Match *matchObject;
 
 
 @end
@@ -33,24 +34,26 @@
     self.matchesData = [NSMutableArray new];
     self.matchesObject = [NSMutableArray new];
     
+    [self updateMatchesFromJson];
     
     [self pullMatchesFromCoreData];
-    [self getMatchesFromJson];
+    
+    if (self.matchesObject.count == 0) {
+    [self getMatchesFromJsonAndSaveInCoreData];
+    }else if (self.matchesObject.count > 0)
+    
     
     [self pullTeamsFromCoreData];
     if (self.teams.count == 0) {
         [self createTournamentTeams];
     }
     
-
-
-    
     NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
     
 }
 
 //user gets the matches from the API
-- (void)getMatchesFromJson {
+- (void)getMatchesFromJsonAndSaveInCoreData {
     
     for (int i = 1; i< 4; i++) {
         
@@ -66,24 +69,24 @@
             self.matchesData = dictionary[@"match"];
             
             for (NSDictionary *match in self.matchesData) {
-                Match *matchObject = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
-                matchObject.localAbbr = match[@"local_abbr"];
-                matchObject.visitorAbbr = match[@"visitor_abbr"];
                 
-                NSLog(@"%@ vs %@ in round %@", matchObject.visitorAbbr, matchObject.localAbbr);
-                
-                matchObject.hour = match[@"hour"];
-                matchObject.minute = match[@"minute"];
+                self.matchObject = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
+                self.matchObject.localAbbr = match[@"local_abbr"];
+                self.matchObject.visitorAbbr = match[@"visitor_abbr"];
                 
                 //testing
-                matchObject.groupCode = match[@"round"];
+                self.matchObject.groupCode = match[@"round"];
+                NSLog(@"%@ vs %@ in round %@", self.matchObject.visitorAbbr, self.matchObject.localAbbr, self.matchObject.groupCode);
                 
+                self.matchObject.hour = match[@"hour"];
+                self.matchObject.minute = match[@"minute"];
                 
                 NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
                 [dateFormat setDateFormat:@"yyyy/MM/dd"];
                 NSDate *date = [dateFormat dateFromString:match[@"date"]];
-                matchObject.date = date;
-                [self.matchesObject addObject:matchObject];
+                self.matchObject.date = date;
+                [self.matchesObject addObject:self.matchObject];
+
             }
             
             NSError *mocError;
@@ -100,6 +103,60 @@
         }];
         [task resume];
     }
+}
+
+- (void)updateMatchesFromJson {
+    
+    for (int i = 1; i< 4; i++) {
+        
+        NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=matchs&format=json&tz=America/Chicago&lang=en&league=177&round=%i",i];
+        
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        NSURLSession *session = [NSURLSession sharedSession];
+        
+        NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            self.matchesData = dictionary[@"match"];
+            
+            for (NSDictionary *match in self.matchesData) {
+                
+//                self.matchObject = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
+                self.matchObject.localAbbr = match[@"local_abbr"];
+                self.matchObject.visitorAbbr = match[@"visitor_abbr"];
+                
+                //testing
+                self.matchObject.groupCode = match[@"round"];
+                NSLog(@"%@ vs %@ in round %@", self.matchObject.visitorAbbr, self.matchObject.localAbbr, self.matchObject.groupCode);
+                
+                self.matchObject.hour = match[@"hour"];
+                self.matchObject.minute = match[@"minute"];
+                
+                NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+                [dateFormat setDateFormat:@"yyyy/MM/dd"];
+                NSDate *date = [dateFormat dateFromString:match[@"date"]];
+                self.matchObject.date = date;
+//                [self.matchesObject addObject:self.matchObject];
+            }
+            
+            NSError *mocError;
+            if([self.moc save:&mocError]){
+                NSLog(@"this was saved and there are %lu", self.matchesObject.count);
+            }else{
+                NSLog(@"an error has occurred,...%@", error);
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                //Run UI Updates
+                [self.tableView reloadData];
+            });
+        }];
+        [task resume];
+    }
+
+    
+    
 }
 
 
