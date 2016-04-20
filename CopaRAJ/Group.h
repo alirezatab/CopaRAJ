@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Group : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
-
+- (void)createDefaultGroupForGroup:(Group *)group withfirstTeam:(Team *)team1 andSecondTeam:(Team *)team2 andThirdTeam:(Team *)team3 andFourthTeam:(Team *)team4;
+- (void)createTeamNamesForGroup:(Group *)group;
 @end
 
 NS_ASSUME_NONNULL_END
