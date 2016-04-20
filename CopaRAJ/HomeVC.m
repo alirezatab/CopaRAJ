@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *teams;
+@property NSURL *url;
 
 
 @end
@@ -37,7 +38,7 @@
 //    [self getMatchesFromJson];
     [self pullMatchesFromCoreData];
     
-    [self pullTeamsFromCoreData];
+//    [self pullTeamsFromCoreData];
     
     if (self.teams.count == 0) {
         [self createTournamentTeams];
@@ -50,11 +51,19 @@
 //user gets the matches from the API
 - (void)getMatchesFromJson {
     
-    NSURL *url = [NSURL URLWithString:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&format=json&tz=America/Argentina_city&req=matchs&league=177&year=2016"];
+    
+    for (int i=1; 5 < i; i++) {
+        
+        NSString *stringUrl = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=matchs&format=json&tz=America/Chicago&lang=en&league=177&round=%i", i];
+        
+        self.url = [NSURL URLWithString:stringUrl];
+    }
+    
+
     
     NSURLSession *session = [NSURLSession sharedSession];
     
-    NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask *task = [session dataTaskWithURL:self.url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         self.matchesData = dictionary[@"match"];
@@ -67,11 +76,9 @@
             matchObject.minute = match[@"minute"];
             [self.matchesObject addObject:matchObject];
         }
-        
 //        NSLog(@"%@", self.matchesObject);
 
             NSError *mocError;
-            
             if([self.moc save:&mocError]){
                 NSLog(@"this was saved");
             }else{
@@ -101,8 +108,6 @@
     }else{
         NSLog(@"Error: %@", error);
     }
-    
-    
 }
 
 
