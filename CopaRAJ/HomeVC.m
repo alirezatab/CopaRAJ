@@ -37,10 +37,10 @@
     [self pullMatchesFromCoreData];
     [self getMatchesFromJson];
     
-//    [self pullTeamsFromCoreData];
-//    if (self.teams.count == 0) {
-//        [self createTournamentTeams];
-//    }
+    [self pullTeamsFromCoreData];
+    if (self.teams.count == 0) {
+        [self createTournamentTeams];
+    }
     
 
 
@@ -179,6 +179,7 @@
     
     NSError *error;
     if ([self.moc save:&error]) {
+        NSLog(@"teams was saved to coredata");
     } else {
         NSLog(@"failed because %@", error);
     }
