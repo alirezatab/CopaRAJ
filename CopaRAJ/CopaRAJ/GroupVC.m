@@ -151,8 +151,12 @@
         //[self updateMatchsArray: <your match array> withDictionary:<jsonDictionaryforIndividualMatch>]
       }
     
-    //save here
-    //update tableview here
+    NSError *saveError;
+    if ([self.moc save:&saveError]) {
+      NSLog(@"Teams updated");
+    } else {
+      NSLog(@"Team updates resulted in the following error: %@", saveError);
+    }
     }];
   
   [task resume];
@@ -175,6 +179,8 @@
   teamForDictionary.goalsFor = dictionary[@"gf"];
   teamForDictionary.goalsAgainst = dictionary[@"ga"];
   teamForDictionary.gamesPlayed = dictionary[@"round"];
+  teamForDictionary.position = dictionary[@"pos"];
+  teamForDictionary.draws = dictionary[@"draws"];
   
   NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
   
