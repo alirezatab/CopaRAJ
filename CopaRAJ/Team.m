@@ -24,8 +24,9 @@
     team.losses = [NSNumber numberWithInt:0];
     team.points = @"0";
     team.wins = [NSNumber numberWithInt:0];
-  
 }
+
+
 
 @end
 

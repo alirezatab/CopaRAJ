@@ -29,9 +29,10 @@
 
     [self pullTeamsFromCoreData];
     [self pullGroupsFromCoreData];
-    [self conductJsonSearchForGroup:[self.groups objectAtIndex:0]];
-    [self conductJsonSearchForGroup:[self.groups objectAtIndex:1]];
-    [self conductJsonSearchForGroup:[self.groups objectAtIndex:2]];
+  
+    for (Group *group in self.groups) {
+      [self conductJsonSearchForGroup:group];
+    }
 }
 
 - (void)pullTeamsFromCoreData {
@@ -132,63 +133,68 @@
 }
 
 - (void) conductJsonSearchForGroup: (Group *)group {
+  
+  NSMutableArray *groupTeams = [NSMutableArray new];
+  for (Team *team in group.teams) {
+    [groupTeams addObject:team];
+  }
+  
   NSString *searchVariable = [self returnGroupNameAsNumberForSearchFromName:group.groupID];
   
   NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=tables&format=json&tz=America/Chicago&lang=en&league=177&group=%@&year=2015", searchVariable];
   NSURL *url = [NSURL URLWithString: urlString];
-  
   NSURLSession *session = [NSURLSession sharedSession];
+  
   NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    NSMutableArray *table = dictionary[@"table"];
+      NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+      NSMutableArray *table = dictionary[@"table"];
     
-    for (NSDictionary *team in table) {
-      NSLog(@"%@", team[@"team"]);
-    }
-  }];
+      for (NSDictionary *team in table) {
+        NSLog(@"The team from  Json is %@", team[@"team"]);
+        [self updateTeamFromTeamArray:groupTeams WithLatestDictionary:team];
+      }
+    }];
   
   [task resume];
+}
+
+- (void)updateTeamFromTeamArray:(NSMutableArray *)teams WithLatestDictionary:(NSDictionary *)dictionary {
+  
+  NSString *teamNameFromDictionary = dictionary[@"team"];
+  Team *teamForDictionary;
+  
+  for (Team *team in teams) {
+    if ([team.countryName isEqualToString:teamNameFromDictionary]) {
+      teamForDictionary = team;
+    }
+  }
+  
+  teamForDictionary.wins = dictionary[@"wins"];
+  teamForDictionary.points = dictionary[@"points"];
+  teamForDictionary.losses = dictionary[@"losses"];
+  teamForDictionary.id = dictionary[@"id"];
+  teamForDictionary.goalsFor = dictionary[@"gf"];
+  teamForDictionary.goalsAgainst = dictionary[@"ga"];
+  teamForDictionary.gamesPlayed = dictionary[@"round"];
+  
+  
+  
+  NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
   
 }
 
 -(NSString *)returnGroupNameAsNumberForSearchFromName: (NSString *)groupName{
   
   NSString *groupNumber = @"";
+  
   if ([groupName  isEqualToString: @"A"]) {
     groupNumber = @"1";
-  }else if ([groupName  isEqualToString: @"B"]){
+  } else if ([groupName  isEqualToString: @"B"]){
     groupNumber = @"2";
   } else {
     groupNumber = @"3";
   }
   
   return groupNumber;
-
 }
-
-
-
-- (void)getGroupInfoFromAPIForGroup: (NSString *)groupName {
-  
-  NSString *group = [self returnGroupNameAsNumberForSearchFromName:groupName];
-  
-  NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=tables&format=json&tz=America/Chicago&lang=en&league=177&group=%@&year=2015", group];
-  NSURL *url = [NSURL URLWithString:urlString];
-  NSURLSession *session = [NSURLSession sharedSession];
-  
-  
-  NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    
-    NSArray *table = dictionary[@"table"];
-    
-    //create group objects setup relationships to teams and give teams their values
-    
-    
-  }];
-  
-  
-}
-
 @end
