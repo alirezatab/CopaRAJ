@@ -16,18 +16,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Match (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *groupCode;
+@property (nullable, nonatomic, retain) NSString *hour;
 @property (nullable, nonatomic, retain) NSString *id;
 @property (nullable, nonatomic, retain) NSString *localAbbr;
 @property (nullable, nonatomic, retain) NSString *localTeam;
 @property (nullable, nonatomic, retain) NSString *location;
+@property (nullable, nonatomic, retain) NSString *minute;
 @property (nullable, nonatomic, retain) NSString *penalties1;
 @property (nullable, nonatomic, retain) NSString *penalties2;
 @property (nullable, nonatomic, retain) NSString *score;
 @property (nullable, nonatomic, retain) NSString *timeInGame;
 @property (nullable, nonatomic, retain) NSString *visitingTeam;
 @property (nullable, nonatomic, retain) NSString *visitorAbbr;
-@property (nullable, nonatomic, retain) NSString *hour;
-@property (nullable, nonatomic, retain) NSString *minute;
+@property (nullable, nonatomic, retain) NSDate *date;
 @property (nullable, nonatomic, retain) NSSet<Team *> *teams;
 
 @end

@@ -9,6 +9,7 @@
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="group" inverseEntity="Team" syncable="YES"/>
     </entity>
     <entity name="Match" representedClassName="Match" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="groupCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hour" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,7 +43,7 @@
     </entity>
     <elements>
         <element name="Group" positionX="27" positionY="-79" width="128" height="133"/>
-        <element name="Match" positionX="513" positionY="-117" width="128" height="255"/>
+        <element name="Match" positionX="513" positionY="-117" width="128" height="270"/>
         <element name="Team" positionX="270" positionY="-261" width="128" height="253"/>
     </elements>
 </model>

@@ -2,7 +2,7 @@
 //  HomeVC.h
 //  CopaRAJ
 //
-//  Created by Richard Velazquez on 4/18/16.
+//  Created by James Rochabrun on 19-04-16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 
