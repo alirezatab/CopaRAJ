@@ -25,6 +25,15 @@
     BracketCell *cell = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     BracketCell *cellFinal = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CellFinal" forIndexPath:indexPath];
     
+    cell.layer.borderWidth = 1;
+    cell.layer.borderColor = [[UIColor whiteColor]CGColor];
+    
+    if (indexPath.row == 0) {
+        cell.homeTeamLabel.text = @"Group A Winner";
+        cell.visitorTeamLabel.text = @"Group B\n 2nd Place";
+    } else if (indexPath.row == 1){
+        
+    }
 //    cellFinal.GroupWinnerTeamLabel.text = @"Brazil";
 //    cellFinal.groupWinnerImageView.image = [UIImage imageNamed:@"Argentina"];
 //    cellFinal.groupWinnerScore.text = @"0";

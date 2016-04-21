@@ -337,7 +337,7 @@
 				TargetAttributes = {
 					C2C5C0081CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 2E2EPPUR37;
+						DevelopmentTeam = CD2SK749ZU;
 					};
 					C2C5C0241CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
@@ -581,6 +581,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -595,6 +596,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
