@@ -35,8 +35,6 @@
     for (Group *group in self.groups) {
       [self conductJsonSearchForGroup:group];
     }
-  
-    //self.tableView.alwaysBounceVertical = NO;
 }
 
 - (void)pullTeamsFromCoreData {
@@ -211,8 +209,12 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
   GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"teamCell" forIndexPath:indexPath];
+  Group *group = [self.groups objectAtIndex:indexPath.section];
+  NSArray *teamsInOrder = [group returnGroupTeamsOrderedByPointsForGroup:group];
+  
+  Team *cellTeam = [teamsInOrder objectAtIndex:indexPath.row];
 
-  cell.teamCountry.text = @"test";
+  cell.team = cellTeam;
   
   return cell;
 }
@@ -227,10 +229,13 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
   Group *group = [self.groups objectAtIndex:section];
-  return group.groupID;
+  NSString *sectionHeader = [NSString stringWithFormat:@"Group: %@                  GP       W        T         L        PTS ", group.groupID];
+  
+  return sectionHeader;
 }
 
-
+//groups is my array of sections
+//Now I need an array of teams for each group
 
 
 @end

@@ -12,13 +12,23 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
+
+- (void) setTeam:(Team *)team {
+  _team = team;
+  self.teamCountry.text = team.countryName;
+  self.teamImage.image = [UIImage imageNamed:team.abbreviationName];
+  NSLog(@"%@ is the team immage", team.abbreviationName);
+  self.teamGoals.text = team.goalsFor;
+  self.teamWins.text = [NSString stringWithFormat:@"%@", team.wins];
+  self.teamTies.text = [NSString stringWithFormat:@"%@", team.draws];
+  self.teamLosses.text = [NSString stringWithFormat:@"%@", team.losses];
+  self.teamPoints.text = team.points;
+}
+
 
 @end

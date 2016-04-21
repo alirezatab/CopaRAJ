@@ -255,11 +255,14 @@
     int index = 0;
     for (NSString *teamName in teamsIntournament) {
         NSString *abr = [teamAbbrevs objectAtIndex:index];
+      
+        self.team = [NSEntityDescription insertNewObjectForEntityForName:@"Team" inManagedObjectContext:self.moc];
+
         self.team.abbreviationName = abr;
         
-        self.team = [NSEntityDescription insertNewObjectForEntityForName:@"Team" inManagedObjectContext:self.moc];
         [self.team createDefaultTeamSettingsForTeam:self.team andName:teamName];
-        
+        self.team.flagImageName = self.team.abbreviationName;
+      
         
         index++;
 
