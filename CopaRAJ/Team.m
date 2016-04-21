@@ -15,7 +15,7 @@
 - (void)createDefaultTeamSettingsForTeam:(Team *)team andName:(NSString *)teamName {
     team.countryName = teamName;
     team.draws = [NSNumber numberWithInt:0];
-    team.flagImageName = teamName;
+    team.flagImageName = team.abbreviationName;
     team.gamesPlayed = @"0";
     team.goalsAgainst = @"0";
     team.goalsFor = @"0";

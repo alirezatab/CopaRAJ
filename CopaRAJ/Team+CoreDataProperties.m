@@ -2,7 +2,7 @@
 //  Team+CoreDataProperties.m
 //  CopaRAJ
 //
-//  Created by Richard Velazquez on 4/20/16.
+//  Created by James Rochabrun on 20-04-16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -24,8 +24,8 @@
 @dynamic isTournamentWinner;
 @dynamic losses;
 @dynamic points;
-@dynamic wins;
 @dynamic position;
+@dynamic wins;
 @dynamic group;
 @dynamic matches;
 
