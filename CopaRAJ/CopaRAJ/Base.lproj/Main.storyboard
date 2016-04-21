@@ -193,7 +193,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="izq-a9-pyn" secondAttribute="trailing" constant="-20" id="uuU-RB-0iH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Game" id="zb4-O1-TtV"/>
+                    <navigationItem key="navigationItem" title="Game" id="zb4-O1-TtV">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="uql-yp-Z50">
+                            <connections>
+                                <action selector="refreshData:" destination="BYZ-38-t0r" id="WOT-Bg-eTI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="TUr-j0-mMr" id="eU4-bW-Tvh"/>
                     </connections>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B84DCF21CC841D40021524F /* Match+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84DCEE1CC841D40021524F /* Match+CoreDataProperties.m */; };
+		7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84DCF41CC8421F0021524F /* Group+CoreDataProperties.m */; };
+		7B84DCFB1CC8421F0021524F /* Team+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84DCF81CC8421F0021524F /* Team+CoreDataProperties.m */; };
 		7BD056121CC70EA100BCB113 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0560A1CC70EA100BCB113 /* Team.m */; };
 		7BD056251CC73A9D00BCB113 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0561F1CC73A9D00BCB113 /* Group.m */; };
 		C2C5C00E1CC564D70010133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C00D1CC564D70010133B /* main.m */; };
@@ -26,10 +29,7 @@
 		D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C41CC5B6F9003F8465 /* GroupVC.m */; };
 		D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0CA1CC5B75F003F8465 /* GameVC.m */; };
 		D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */; };
-		D8F923CE1CC820BE00469D5D /* Match+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F923C51CC820BE00469D5D /* Match+CoreDataProperties.m */; };
 		D8F923CF1CC820BE00469D5D /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F923C71CC820BE00469D5D /* Match.m */; };
-		D8F923D01CC820BE00469D5D /* Group+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F923C91CC820BE00469D5D /* Group+CoreDataProperties.m */; };
-		D8F923D21CC820BE00469D5D /* Team+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F923CD1CC820BE00469D5D /* Team+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B84DCED1CC841D40021524F /* Match+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Match+CoreDataProperties.h"; path = "../Match+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7B84DCEE1CC841D40021524F /* Match+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Match+CoreDataProperties.m"; path = "../Match+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7B84DCF31CC8421F0021524F /* Group+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Group+CoreDataProperties.h"; path = "../Group+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7B84DCF41CC8421F0021524F /* Group+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Group+CoreDataProperties.m"; path = "../Group+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7B84DCF71CC8421F0021524F /* Team+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Team+CoreDataProperties.h"; path = "../Team+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7B84DCF81CC8421F0021524F /* Team+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Team+CoreDataProperties.m"; path = "../Team+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7BD056041CC70EA100BCB113 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = SOURCE_ROOT; };
 		7BD056091CC70EA100BCB113 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = SOURCE_ROOT; };
 		7BD0560A1CC70EA100BCB113 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = SOURCE_ROOT; };
@@ -86,13 +92,8 @@
 		D8F2D0CC1CC5B777003F8465 /* TourneyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourneyVC.h; sourceTree = "<group>"; };
 		D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourneyVC.m; sourceTree = "<group>"; };
 		D8F923C41CC820BE00469D5D /* Match+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Match+CoreDataProperties.h"; path = "../Match+CoreDataProperties.h"; sourceTree = "<group>"; };
-		D8F923C51CC820BE00469D5D /* Match+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Match+CoreDataProperties.m"; path = "../Match+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D8F923C61CC820BE00469D5D /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = ../Match.h; sourceTree = "<group>"; };
 		D8F923C71CC820BE00469D5D /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = ../Match.m; sourceTree = "<group>"; };
-		D8F923C81CC820BE00469D5D /* Group+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Group+CoreDataProperties.h"; path = "../Group+CoreDataProperties.h"; sourceTree = "<group>"; };
-		D8F923C91CC820BE00469D5D /* Group+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Group+CoreDataProperties.m"; path = "../Group+CoreDataProperties.m"; sourceTree = "<group>"; };
-		D8F923CC1CC820BE00469D5D /* Team+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Team+CoreDataProperties.h"; path = "../Team+CoreDataProperties.h"; sourceTree = "<group>"; };
-		D8F923CD1CC820BE00469D5D /* Team+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Team+CoreDataProperties.m"; path = "../Team+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,15 +250,16 @@
 			isa = PBXGroup;
 			children = (
 				D8F923C41CC820BE00469D5D /* Match+CoreDataProperties.h */,
-				D8F923C51CC820BE00469D5D /* Match+CoreDataProperties.m */,
 				D8F923C61CC820BE00469D5D /* Match.h */,
 				D8F923C71CC820BE00469D5D /* Match.m */,
-				D8F923C81CC820BE00469D5D /* Group+CoreDataProperties.h */,
-				D8F923C91CC820BE00469D5D /* Group+CoreDataProperties.m */,
+				7B84DCF31CC8421F0021524F /* Group+CoreDataProperties.h */,
+				7B84DCF41CC8421F0021524F /* Group+CoreDataProperties.m */,
+				7B84DCF71CC8421F0021524F /* Team+CoreDataProperties.h */,
+				7B84DCF81CC8421F0021524F /* Team+CoreDataProperties.m */,
+				7B84DCED1CC841D40021524F /* Match+CoreDataProperties.h */,
+				7B84DCEE1CC841D40021524F /* Match+CoreDataProperties.m */,
 				7BD0561E1CC73A9D00BCB113 /* Group.h */,
 				7BD0561F1CC73A9D00BCB113 /* Group.m */,
-				D8F923CC1CC820BE00469D5D /* Team+CoreDataProperties.h */,
-				D8F923CD1CC820BE00469D5D /* Team+CoreDataProperties.m */,
 				7BD056041CC70EA100BCB113 /* HomeVC.m */,
 				7BD056091CC70EA100BCB113 /* Team.h */,
 				7BD0560A1CC70EA100BCB113 /* Team.m */,
@@ -403,19 +405,19 @@
 			files = (
 				C2C5C01A1CC564D70010133B /* CopaRAJ.xcdatamodeld in Sources */,
 				D8F2D0B91CC5935C003F8465 /* HomeVC.m in Sources */,
-				D8F923D21CC820BE00469D5D /* Team+CoreDataProperties.m in Sources */,
+				7B84DCF21CC841D40021524F /* Match+CoreDataProperties.m in Sources */,
 				D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */,
 				D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */,
 				7BD056251CC73A9D00BCB113 /* Group.m in Sources */,
 				D8F923CF1CC820BE00469D5D /* Match.m in Sources */,
 				D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */,
+				7B84DCFB1CC8421F0021524F /* Team+CoreDataProperties.m in Sources */,
 				D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */,
-				D8F923D01CC820BE00469D5D /* Group+CoreDataProperties.m in Sources */,
 				C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */,
 				7BD056121CC70EA100BCB113 /* Team.m in Sources */,
 				D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */,
-				D8F923CE1CC820BE00469D5D /* Match+CoreDataProperties.m in Sources */,
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
+				7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
