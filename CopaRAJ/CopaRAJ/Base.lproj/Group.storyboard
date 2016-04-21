@@ -9,7 +9,7 @@
         <!--Group-->
         <scene sceneID="ERQ-bz-gNa">
             <objects>
-                <viewController id="r2e-Dn-gfr" customClass="GroupVC" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="r2e-Dn-gfr" customClass="GroupVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hVq-UE-v8Q"/>
                         <viewControllerLayoutGuide type="bottom" id="2eg-pW-y0a"/>
@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" rowHeight="52" id="WZc-HK-gBa" customClass="GroupTableViewCell">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="52"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WZc-HK-gBa" id="lZ9-6Y-E0Q">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="51"/>
@@ -121,7 +121,6 @@
                                             <outlet property="teamLosses" destination="hzM-N6-waQ" id="WGs-OR-tpK"/>
                                             <outlet property="teamPoints" destination="cbS-vq-EjF" id="C86-15-vgW"/>
                                             <outlet property="teamTies" destination="HYJ-nh-wQg" id="l9E-F4-H0S"/>
-                                            <outlet property="teamWines" destination="eoF-KR-WE3" id="2zO-aI-8Ou"/>
                                             <outlet property="teamWins" destination="rnD-fD-ji9" id="csV-Io-yTL"/>
                                         </connections>
                                     </tableViewCell>

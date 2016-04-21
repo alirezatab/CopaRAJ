@@ -18,5 +18,21 @@
   [group addTeamsObject:team4];
 }
 
-
+- (NSArray *)returnGroupTeamsOrderedByPointsForGroup:(Group *)group {
+  
+  NSMutableArray *teams = [NSMutableArray new];
+  
+  for (Team *team in group.teams) {
+    [teams addObject:team];
+  }
+  
+  NSSortDescriptor *sortDescriptor;
+  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"position"
+                                               ascending:YES];
+  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+  NSArray *sortedTeams = [teams sortedArrayUsingDescriptors:sortDescriptors];
+  
+  NSLog(@"the group is sorted like this First : %@ and Last: %@", sortedTeams.firstObject, sortedTeams.lastObject);
+  return sortedTeams;
+}
 @end

@@ -35,6 +35,9 @@
     for (Group *group in self.groups) {
       [self conductJsonSearchForGroup:group];
     }
+  for (Group *group in self.groups) {
+    NSArray *array = [group returnGroupTeamsOrderedByPointsForGroup:group];
+  }
 }
 
 - (void)pullTeamsFromCoreData {
@@ -62,7 +65,6 @@
   
   if (error == nil) {
     self.groups = [[NSMutableArray alloc]initWithArray:coreDataArray];
-    //[self.tableview reloadData];
   } else {
     NSLog(@"%@", error);
   }
@@ -70,12 +72,15 @@
   if (self.groups.count == 0) {
     NSLog(@"Core data doesn't have any Groups");
     [self setupDefaultGroups];
+  } else {
+    [self.tableView reloadData];
   }
 }
 
 - (void)setupDefaultGroups {
   [self createGroups];
   [self assignTeamsToGroups];
+  [self.tableView reloadData];
   
 }
 
@@ -156,6 +161,7 @@
     NSError *saveError;
     if ([self.moc save:&saveError]) {
       NSLog(@"Teams updated");
+      [self.tableView reloadData];
     } else {
       NSLog(@"Team updates resulted in the following error: %@", saveError);
     }
@@ -204,12 +210,26 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"teamCell"];
+  
+  GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"teamCell" forIndexPath:indexPath];
+
+  cell.teamCountry.text = @"test";
   
   return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  return 0;
+  return 4;
 }
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+  return self.groups.count;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+  Group *group = [self.groups objectAtIndex:section];
+  return group.groupID;
+}
+
+
 @end
