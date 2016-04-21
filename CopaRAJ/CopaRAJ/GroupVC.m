@@ -35,9 +35,8 @@
     for (Group *group in self.groups) {
       [self conductJsonSearchForGroup:group];
     }
-  for (Group *group in self.groups) {
-    NSArray *array = [group returnGroupTeamsOrderedByPointsForGroup:group];
-  }
+  
+    //self.tableView.alwaysBounceVertical = NO;
 }
 
 - (void)pullTeamsFromCoreData {
@@ -230,6 +229,8 @@
   Group *group = [self.groups objectAtIndex:section];
   return group.groupID;
 }
+
+
 
 
 @end
