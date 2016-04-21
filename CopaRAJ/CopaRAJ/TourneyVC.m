@@ -7,8 +7,9 @@
 //
 
 #import "TourneyVC.h"
+#import "BracketCell.h"
 
-@interface TourneyVC ()
+@interface TourneyVC () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
@@ -16,9 +17,76 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
+#pragma mark - CollectionView
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    BracketCell *cell = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    BracketCell *cellFinal = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CellFinal" forIndexPath:indexPath];
+    
+//    cellFinal.GroupWinnerTeamLabel.text = @"Brazil";
+//    cellFinal.groupWinnerImageView.image = [UIImage imageNamed:@"Argentina"];
+//    cellFinal.groupWinnerScore.text = @"0";
+    
+//    cell.HomeTeamLabel.text = @"Brazil";
+//    cell.groupWinnerImageView.image = [UIImage imageNamed:@"Argentina"];
+//    cell.groupWinnerScore.text = @"0";
+    if (indexPath.section == 3) {
+        return cellFinal;
+    } else{
+        return cell;
+    }
+}
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    if (section == 0) {
+        return 4;
+    } else if (section == 1){
+        return 2;
+    } else if (section == 2){
+        return 1;
+    } else {
+        return 1;
+    }
+}
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 4;
+}
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    //inse
+    return CGSizeMake(self.view.frame.size.width/1.5, ((self.view.frame.size.height - 60)/5));
+}
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    
+    if (section == 0) {
+        //self.view.frame.size.height/9
+        return UIEdgeInsetsMake(0, 20, 0, 0);
+        //return  UIEdgeInsetsMake((self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-self.tabBarController.tabBar.frame.size.height)/9, 10, 0, 10);
+    } else if (section == 1){
+        return UIEdgeInsetsMake(((self.view.frame.size.height - 60)/5)/2+20, 50, 70, 10);
+    } else if (section == 2){
+        return UIEdgeInsetsMake((self.view.frame.size.height)/3, 50, 50, 10);
+    } else {
+        return UIEdgeInsetsMake((self.view.frame.size.height)/3, 50, 0, self.view.frame.size.width/4);
+    }
+}
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    if (section == 1) {
+        return ((self.view.frame.size.height - 60)/5);
+    } else {
+        return 1;
+    }
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"index path: %@", indexPath);
+}
+
+#pragma mark - Json
+-(void) getPlayOffMatchesFromJson{
+    
+}
+
+#pragma mark - MemoryWarning
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

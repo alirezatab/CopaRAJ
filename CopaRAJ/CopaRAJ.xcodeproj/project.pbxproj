@@ -17,6 +17,7 @@
 		C2C5C01F1CC564D70010133B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C5C01D1CC564D70010133B /* LaunchScreen.storyboard */; };
 		C2C5C02A1CC564D70010133B /* CopaRAJTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0291CC564D70010133B /* CopaRAJTests.m */; };
 		C2C5C0351CC564D70010133B /* CopaRAJUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0341CC564D70010133B /* CopaRAJUITests.m */; };
+		C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C799FB1CC83B1A00D1BBBC /* BracketCell.m */; };
 		D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */; };
 		D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E81CC5DC9000E80C51 /* Group.storyboard */; };
 		D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4EB1CC5DCC200E80C51 /* Tourny.storyboard */; };
@@ -71,6 +72,8 @@
 		C2C5C0301CC564D70010133B /* CopaRAJUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopaRAJUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C5C0341CC564D70010133B /* CopaRAJUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CopaRAJUITests.m; sourceTree = "<group>"; };
 		C2C5C0361CC564D70010133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2C799FA1CC83B1A00D1BBBC /* BracketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketCell.h; sourceTree = "<group>"; };
+		C2C799FB1CC83B1A00D1BBBC /* BracketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketCell.m; sourceTree = "<group>"; };
 		D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		D82BF4E91CC5DC9000E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
 		D82BF4EC1CC5DCC200E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tourny.storyboard; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */,
 				D8F2D0C01CC5B50F003F8465 /* GroupTableViewCell.h */,
 				D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */,
+				C2C799FA1CC83B1A00D1BBBC /* BracketCell.h */,
+				C2C799FB1CC83B1A00D1BBBC /* BracketCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				D8F2D0B91CC5935C003F8465 /* HomeVC.m in Sources */,
 				D8F923D21CC820BE00469D5D /* Team+CoreDataProperties.m in Sources */,
 				D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */,
+				C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */,
 				D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */,
 				7BD056251CC73A9D00BCB113 /* Group.m in Sources */,
 				D8F923CF1CC820BE00469D5D /* Match.m in Sources */,
