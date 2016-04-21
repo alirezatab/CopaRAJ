@@ -10,11 +10,13 @@
 #import "Team.h"
 #import "AppDelegate.h"
 #import "Group.h"
+#import "GroupTableViewCell.h"
 
-@interface GroupVC ()
+@interface GroupVC ()<UITableViewDelegate, UITableViewDataSource>
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *teams;
 @property NSMutableArray *groups;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end
@@ -199,5 +201,15 @@
   }
   
   return groupNumber;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+  GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"teamCell"];
+  
+  return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  return 0;
 }
 @end
