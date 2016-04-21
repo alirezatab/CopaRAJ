@@ -28,19 +28,51 @@
     cell.layer.borderWidth = 1;
     cell.layer.borderColor = [[UIColor whiteColor]CGColor];
     
-    if (indexPath.row == 0) {
-        cell.homeTeamLabel.text = @"Group A Winner";
-        cell.visitorTeamLabel.text = @"Group B\n 2nd Place";
-    } else if (indexPath.row == 1){
-        
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            cell.homeTeamLabel.text = @"1A";
+            cell.homeTeamScore.text = @"";
+            cell.visitorTeamLabel.text = @"2B";
+            cell.visitorTeamScore.text = @"";
+        } else if (indexPath.row == 1){
+            cell.homeTeamLabel.text = @"1B";
+            cell.homeTeamScore.text = @"";
+            cell.visitorTeamLabel.text = @"2A";
+            cell.visitorTeamScore.text = @"";
+        } else if (indexPath.row == 2){
+            cell.homeTeamLabel.text = @"1D";
+            cell.homeTeamScore.text = @"";
+            cell.visitorTeamLabel.text = @"2C";
+            cell.visitorTeamScore.text = @"";
+        } else if (indexPath.row == 3){
+            cell.homeTeamLabel.text = @"1C";
+            cell.homeTeamScore.text = @"";
+            cell.visitorTeamLabel.text = @"2D";
+            cell.visitorTeamScore.text = @"";
+        }
+    } else if (indexPath.section == 1){
+        if (indexPath.row == 0) {
+            cell.homeTeamLabel.text = @"TBD";
+            cell.homeTeamScore.text = @"";
+            cell.visitorTeamLabel.text = @"TBD";
+            cell.visitorTeamScore.text = @"";
+        } else if (indexPath.row == 1){
+            cell.homeTeamLabel.text = @"TBD";
+            cell.homeTeamScore.text = @"";
+            cell.visitorTeamLabel.text = @"TBD";
+            cell.visitorTeamScore.text = @"";
+        }
+    } else if (indexPath.section == 2){
+        if (indexPath.row == 0) {
+            cell.homeTeamLabel.text = @"TBD";
+            cell.homeTeamScore.text = @"";
+            cell.visitorTeamLabel.text = @"TBD";
+            cell.visitorTeamScore.text = @"";
+        }
+    } else if (indexPath.section == 3){
+        cellFinal.winnerTeamLabel.text = @"CHAMPION";
     }
-//    cellFinal.GroupWinnerTeamLabel.text = @"Brazil";
-//    cellFinal.groupWinnerImageView.image = [UIImage imageNamed:@"Argentina"];
-//    cellFinal.groupWinnerScore.text = @"0";
-    
-//    cell.HomeTeamLabel.text = @"Brazil";
-//    cell.groupWinnerImageView.image = [UIImage imageNamed:@"Argentina"];
-//    cell.groupWinnerScore.text = @"0";
+
     if (indexPath.section == 3) {
         return cellFinal;
     } else{
