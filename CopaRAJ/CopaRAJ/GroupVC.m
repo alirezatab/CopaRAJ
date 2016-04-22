@@ -66,74 +66,71 @@
   }
   
   if (self.groups.count == 0) {
-    [self setupDefaultGroups];
+//   ******** [self setupDefaultGroups];
     //NSLog(@"Core data doesn't have any Groups");
   }
 }
 
-- (void) sortGroups {
-  
-}
 
 //deleted after merge
-- (void)setupDefaultGroups {
-  [self createGroups];
-  [self assignTeamsToGroups];
-  [self.tableView reloadData];
-}
+//- (void)setupDefaultGroups {
+//  [self createGroups];
+//  [self assignTeamsToGroups];
+//  [self.tableView reloadData];
+//}
 
 //deleted after merge
-- (void) createGroups {
-  
-  NSArray *groupNames = @[@"A", @"B", @"C"];
-  self.groups = [NSMutableArray new];
-  
-  for (NSString *groupName in groupNames) {
-    Group *group = [NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:self.moc];
-    group.groupID = groupName;
-    [self.groups addObject:group];
-  }
-}
+//- (void) createGroups {
+//  
+//  NSArray *groupNames = @[@"A", @"B", @"C"];
+//  self.groups = [NSMutableArray new];
+//  
+//  for (NSString *groupName in groupNames) {
+//    Group *group = [NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:self.moc];
+//    group.groupID = groupName;
+//    [self.groups addObject:group];
+//  }
+//}
 
 //deted after merge
-- (void) assignTeamsToGroups{
-  
-  for (Team *team in self.teams) {
-    
-    if ([team.countryName isEqualToString:@"Chile"] ||
-        [team.countryName isEqualToString:@"Bolivia"] ||
-        [team.countryName isEqualToString:@"Ecuador"] ||
-        [team.countryName isEqualToString:@"Mexico"]) {
-      
-      team.group = [self.groups objectAtIndex:0];
-      
-    } else if ([team.countryName isEqualToString:@"Argentina"] ||
-               [team.countryName isEqualToString:@"Paraguay"] ||
-               [team.countryName isEqualToString:@"Uruguay"] ||
-               [team.countryName isEqualToString:@"Jamaica"]) {
-      
-      team.group = [self.groups objectAtIndex:1];
-      
-    } else if ([team.countryName isEqualToString:@"Brazil"] ||
-               [team.countryName isEqualToString:@"Peru"] ||
-               [team.countryName isEqualToString:@"Colombia"] ||
-               [team.countryName isEqualToString:@"Venezuela"]) {
-      
-      team.group = [self.groups objectAtIndex:2];
-      
-    } else {
-      //for later
-    }
-  }
-  
-  NSError *error;
-  if ([self.moc save:&error]) {
-    NSLog(@"Groups and their relationships to teams should be saved in Core Data");
-  } else {
-    NSLog(@"failed because %@", error);
-  }
+//- (void) assignTeamsToGroups{
+//  
+//  for (Team *team in self.teams) {
+//    
+//    if ([team.countryName isEqualToString:@"Chile"] ||
+//        [team.countryName isEqualToString:@"Bolivia"] ||
+//        [team.countryName isEqualToString:@"Ecuador"] ||
+//        [team.countryName isEqualToString:@"Mexico"]) {
+//      
+//      team.group = [self.groups objectAtIndex:0];
+//      
+//    } else if ([team.countryName isEqualToString:@"Argentina"] ||
+//               [team.countryName isEqualToString:@"Paraguay"] ||
+//               [team.countryName isEqualToString:@"Uruguay"] ||
+//               [team.countryName isEqualToString:@"Jamaica"]) {
+//      
+//      team.group = [self.groups objectAtIndex:1];
+//      
+//    } else if ([team.countryName isEqualToString:@"Brazil"] ||
+//               [team.countryName isEqualToString:@"Peru"] ||
+//               [team.countryName isEqualToString:@"Colombia"] ||
+//               [team.countryName isEqualToString:@"Venezuela"]) {
+//      
+//      team.group = [self.groups objectAtIndex:2];
+//      
+//    } else {
+//      //for later
+//    }
+//  }
 
-}
+//  NSError *error;
+//  if ([self.moc save:&error]) {
+//    NSLog(@"Groups and their relationships to teams should be saved in Core Data");
+//  } else {
+//    NSLog(@"failed because %@", error);
+//  }
+//
+//}
 
 - (void) conductJsonSearchForGroup: (Group *)group {
   

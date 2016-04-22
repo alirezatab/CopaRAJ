@@ -68,9 +68,6 @@
        
         NSString *urlString = [NSString stringWithFormat:@"%@%i",urlBase, i];
         
-//        NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=matchs&format=json&tz=America/Chicago&lang=en&league=177&round=%i",i];
-        
-
         NSURL *url = [NSURL URLWithString:urlString];
         
         NSURLSession *session = [NSURLSession sharedSession];
@@ -83,11 +80,10 @@
             for (NSDictionary *matchData in matchesData) {
                 [self updateMatchesWithMatchData: matchData];
             }
-            [self pullTeamsFromCoreData];
-            
+//            [self pullTeamsFromCoreData];
             NSError *mocError;
             if([self.moc save:&mocError]){
-                NSLog(@"this was saved and there are %lu", (unsigned long)self.matchesObject.count);
+//                NSLog(@"this was saved and there are %lu", (unsigned long)self.matchesObject.count);
             }else{
                 NSLog(@"an error has occurred,...%@", error);
             }
@@ -122,7 +118,6 @@
     }
 }
 
-
 - (void)createNewMatch:(NSDictionary *)dictionary {
     
     Match *matchObject = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
@@ -145,8 +140,6 @@
         
     [self.matchesObject addObject:matchObject];
 }
-
-
 
 - (BOOL) checkIfMatchesAlreadyExist:(NSDictionary *)dictionary {
     NSMutableArray *matchIds = [NSMutableArray new];
@@ -183,7 +176,6 @@
             [dateFormat setDateFormat:@"yyyy/MM/dd"];
             NSDate *date = [dateFormat dateFromString:dictionary[@"date"]];
             matchingMatch.date = date;
-            
             //testing
             matchingMatch.groupCode = dictionary[@"round"];
         }
@@ -194,9 +186,7 @@
 - (void)pullMatchesFromCoreData {
     
     NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Match"];
-    
     NSError *error;
-    
     NSMutableArray *coreDataArray = [NSMutableArray new];
     coreDataArray = [[self.moc executeFetchRequest:request error:&error]mutableCopy];
     
@@ -226,16 +216,12 @@
     //testing
     cell.locationLabel.text = match.groupCode;
     
-    [self testLabelMatches:1 withArrayIndex:0];
-
     return cell;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
-
-
 
 
 - (void)pullTeamsFromCoreData {
@@ -245,13 +231,7 @@
     NSMutableArray *coreDataArray = [[self.moc executeFetchRequest:request error:&error]mutableCopy];
     
     if (error == nil) {
-        
         self.teams = [[NSMutableArray alloc]initWithArray:coreDataArray];
-        
-        for (Team *team in self.teams) {
-            NSLog(@"%@ was pulled up from coredata ", team.countryName);
-        }
-        
     } else {
         NSLog(@"%@", error);
     }
@@ -259,10 +239,8 @@
     if (self.teams.count == 0) {
         NSLog(@"Core data doesn't have any teams");
         [self createTournamentTeams];
-        
     }
 }
-
 
 - (void) createGroups {
     
@@ -286,19 +264,16 @@
     } else {
         NSLog(@"%@", error);
     }
-    
     if (self.groups.count == 0) {
         NSLog(@"Core data doesn't have any groups");
         [self setupDefaultGroups];
     }
 }
 
-
 - (void)setupDefaultGroups {
     [self createGroups];
     [self assignTeamsToGroups];
 }
-
 
 - (void) assignTeamsToGroups{
     
@@ -356,8 +331,6 @@
         
         [self.team createDefaultTeamSettingsForTeam:self.team andName:teamName];
         self.team.flagImageName = self.team.abbreviationName;
-      
-        
         self.team.flagImageName = self.team.abbreviationName;
         index++;
 
@@ -372,20 +345,10 @@
     }
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)refreshData:(UIBarButtonItem *)sender {
     [self getMatchesFromJsonAndSaveInCoreData];
     NSLog(@"the data is updated");
 }
-
-
-
-////////////////////////////////////////////////
 
 - (void)getPlayOffsFromJsonAndSaveInCoreData {
     
@@ -395,18 +358,12 @@
         
         NSString *urlString = [NSString stringWithFormat:@"%@%i",urlBase, i];
         
-        //        NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=matchs&format=json&tz=America/Chicago&lang=en&league=177&round=%i",i];
-        
         NSURL *url = [NSURL URLWithString:urlString];
         
         NSURLSession *session = [NSURLSession sharedSession];
         
         NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            
-            NSString *url = response.URL.absoluteString;
-            int index = [url characterAtIndex:urlBase.length] - '0';
-//            NSLog(@"index %i from %@", index, url);
-            
+
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             
             NSMutableArray *matchesData = [NSMutableArray new];
@@ -416,9 +373,6 @@
                 
                 [self updateMatchesWithMatchData: matchData];
             }
-            
-            [self pullTeamsFromCoreData];
-            
             NSError *mocError;
             if([self.moc save:&mocError]){
 //                NSLog(@"this was saved and there are %lu matches", self.matchesObject.count);
@@ -436,14 +390,12 @@
 }
 
 - (void) conductJsonSearchForGroup: (Group *)group {
-    
     NSMutableArray *groupTeams = [NSMutableArray new];
     for (Team *team in group.teams) {
         [groupTeams addObject:team];
     }
     
-    
-    NSString *searchVariable = [self returnGroupNameAsNumberForSearchFromName:group.groupID];
+    NSString *searchVariable = [Group returnGroupNameAsNumberForSearchFromName:group.groupID];
     
     NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=tables&format=json&tz=America/Chicago&lang=en&league=177&group=%@&year=2015", searchVariable];
     NSURL *url = [NSURL URLWithString: urlString];
@@ -456,39 +408,20 @@
         for (NSDictionary *team in table) {
 //            NSLog(@"The team from  Json is %@", team[@"team"]);
             [self updateTeamFromTeamArray:groupTeams WithLatestDictionary:team];
-            //[self updateMatchsArray: <your match array> withDictionary:<jsonDictionaryforIndividualMatch>]
         }
-        
-        NSError *saveError;
-        if ([self.moc save:&saveError]) {
-            NSLog(@"Teams updated");
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"Team updates resulted in the following error: %@", saveError);
-        }
-        
+
         dispatch_async(dispatch_get_main_queue(), ^(void){
             //Run UI Updates
+            NSError *saveError;
+            if ([self.moc save:&saveError]) {
+                NSLog(@"Teams updated");
+                [self.tableView reloadData];
+            } else {
+                NSLog(@"Team updates resulted in the following error: %@", saveError);
+            }
         });
     }];
-    
     [task resume];
-}
-
-
--(NSString *)returnGroupNameAsNumberForSearchFromName: (NSString *)groupName{
-    
-    NSString *groupNumber = @"";
-    
-    if ([groupName  isEqualToString: @"A"]) {
-        groupNumber = @"1";
-    } else if ([groupName  isEqualToString: @"B"]){
-        groupNumber = @"2";
-    } else {
-        groupNumber = @"3";
-    }
-    
-    return groupNumber;
 }
 
 - (void)updateTeamFromTeamArray:(NSMutableArray *)teams WithLatestDictionary:(NSDictionary *)dictionary {
@@ -510,14 +443,12 @@
     teamForDictionary.gamesPlayed = dictionary[@"round"];
     teamForDictionary.position = dictionary[@"pos"];
     teamForDictionary.draws = dictionary[@"draws"];
-    
 //    NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
 }
 
 - (void)testLabelMatches:(int)index withArrayIndex:(int)newindex
 {
     Group *group = [self.groups objectAtIndex:index];
-    NSLog(@"this is the group thats we are getting the team from %@", group );
     
     NSArray *sortedArray = [group returnGroupTeamsOrderedByPointsForGroup:group];
     
@@ -525,23 +456,6 @@
     
     NSLog(@"this is the team %@ from taht group", team.countryName);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @end

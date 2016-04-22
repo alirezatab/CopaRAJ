@@ -32,12 +32,11 @@
   NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
   NSArray *sortedTeams = [teams sortedArrayUsingDescriptors:sortDescriptors];
   
-  NSLog(@"the group is sorted like this First : %@ and Last: %@", sortedTeams.firstObject, sortedTeams.lastObject);
+//  NSLog(@"the group is sorted like this First : %@ and Last: %@", sortedTeams.firstObject, sortedTeams.lastObject);
   return sortedTeams;
 }
 
 + (NSString *)returnGroupNameAsNumberForSearchFromName: (NSString *)groupName {
-  
   NSString *groupNumber = @"";
   
   if ([groupName  isEqualToString: @"A"]) {
@@ -50,6 +49,9 @@
   
   return groupNumber;
 }
+
+
+
 
 @end
 
