@@ -39,23 +39,29 @@
     
     for (Group *group in self.groups) {
         [self conductJsonSearchForGroup:group];
-        //NSLog(@"%@", group.groupID);
     }
     NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
 }
 
 #pragma mark - CollectionView
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSLog(@"Cell for row was called");
     BracketCell *cell = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    BracketCell *cellFinal = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CellFinal" forIndexPath:indexPath];
+    //BracketCell *cellFinal = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CellFinal" forIndexPath:indexPath];
     
     cell.layer.borderWidth = 1;
     cell.layer.borderColor = [[UIColor whiteColor]CGColor];
     
-    for (int i = 0; i<3; i++) {
-        [self testLabelMatches:i withArrayIndex:0];
-        [self testLabelMatches:i withArrayIndex:1];
-    }
+    Match *cellMatch = [self.arrayOfPlayOffMatches objectAtIndex:indexPath.section];
+    cell.match = cellMatch;
+    
+    return cell;
+    
+//    for (int i = 0; i<3; i++) {
+//        [self testLabelMatches:i withArrayIndex:0];
+//        [self testLabelMatches:i withArrayIndex:1];
+//    }
     
 //    for (Group *group in self.groups) {
 //        for (Team *playoffTeam in self.playoffTeams){
@@ -73,43 +79,43 @@
 //        }
 //    }
     
-    if (indexPath.section == 0) {
-        Match *match = [self.matchesObject objectAtIndex:indexPath.row];
-        cell.homeTeamLabel.text = match.localAbbr;
-        cell.homeTeamScore.text = match.score;
-        cell.homeTeamImageView.image = [UIImage imageNamed:match.localAbbr];
-        
-        cell.visitorTeamLabel.text = match.visitorAbbr;
-        cell.visitorTeamScore.text = match.score;
-        cell.visitorTeamImageView.image = [UIImage imageNamed:match.visitorAbbr];
-    } else if (indexPath.section == 1){
-        if (indexPath.row == 0) {
-            cell.homeTeamLabel.text = @"TBD";
-            cell.homeTeamScore.text = @"";
-            cell.visitorTeamLabel.text = @"TBD";
-            cell.visitorTeamScore.text = @"";
-        } else if (indexPath.row == 1){
-            cell.homeTeamLabel.text = @"TBD";
-            cell.homeTeamScore.text = @"";
-            cell.visitorTeamLabel.text = @"TBD";
-            cell.visitorTeamScore.text = @"";
-        }
-    } else if (indexPath.section == 2){
-        if (indexPath.row == 0) {
-            cell.homeTeamLabel.text = @"TBD";
-            cell.homeTeamScore.text = @"";
-            cell.visitorTeamLabel.text = @"TBD";
-            cell.visitorTeamScore.text = @"";
-        }
-    } else if (indexPath.section == 3){
-        cellFinal.winnerTeamLabel.text = @"CHAMPION";
-    }
-    
-    if (indexPath.section == 3) {
-        return cellFinal;
-    } else{
-        return cell;
-    }
+//    if (indexPath.section == 0) {
+//        Match *match = [self.matchesObject objectAtIndex:indexPath.row];
+//        cell.homeTeamLabel.text = match.localAbbr;
+//        cell.homeTeamScore.text = match.score;
+//        cell.homeTeamImageView.image = [UIImage imageNamed:match.localAbbr];
+//        
+//        cell.visitorTeamLabel.text = match.visitorAbbr;
+//        cell.visitorTeamScore.text = match.score;
+//        cell.visitorTeamImageView.image = [UIImage imageNamed:match.visitorAbbr];
+//    } else if (indexPath.section == 1){
+//        if (indexPath.row == 0) {
+//            cell.homeTeamLabel.text = @"TBD";
+//            cell.homeTeamScore.text = @"";
+//            cell.visitorTeamLabel.text = @"TBD";
+//            cell.visitorTeamScore.text = @"";
+//        } else if (indexPath.row == 1){
+//            cell.homeTeamLabel.text = @"TBD";
+//            cell.homeTeamScore.text = @"";
+//            cell.visitorTeamLabel.text = @"TBD";
+//            cell.visitorTeamScore.text = @"";
+//        }
+//    } else if (indexPath.section == 2){
+//        if (indexPath.row == 0) {
+//            cell.homeTeamLabel.text = @"TBD";
+//            cell.homeTeamScore.text = @"";
+//            cell.visitorTeamLabel.text = @"TBD";
+//            cell.visitorTeamScore.text = @"";
+//        }
+//    } else if (indexPath.section == 3){
+//        cellFinal.winnerTeamLabel.text = @"CHAMPION";
+//    }
+//    
+//    if (indexPath.section == 3) {
+//        return cellFinal;
+//    } else{
+//        return cell;
+//    }
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (section == 0) {
@@ -151,12 +157,6 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"index path: %@", indexPath);
-}
-
-#pragma mark - MemoryWarning
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Core Data
@@ -272,6 +272,13 @@
     [self.playoffTeams addObject:team];
     NSLog(@"%@", team.abbreviationName);
 }
+
+#pragma mark - MemoryWarning
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 @end
 
 
