@@ -12,6 +12,7 @@
 		7B84DCFB1CC8421F0021524F /* Team+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84DCF81CC8421F0021524F /* Team+CoreDataProperties.m */; };
 		7BD056121CC70EA100BCB113 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0560A1CC70EA100BCB113 /* Team.m */; };
 		7BD056251CC73A9D00BCB113 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0561F1CC73A9D00BCB113 /* Group.m */; };
+		7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BD870B61CCA7F880020C125 /* playOffMatches.plist */; };
 		C2C5C00E1CC564D70010133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C00D1CC564D70010133B /* main.m */; };
 		C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0101CC564D70010133B /* AppDelegate.m */; };
 		C2C5C0171CC564D70010133B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C5C0151CC564D70010133B /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		7BD0561E1CC73A9D00BCB113 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		7BD0561F1CC73A9D00BCB113 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		7BD056261CC7477000BCB113 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		7BD870B61CCA7F880020C125 /* playOffMatches.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playOffMatches.plist; sourceTree = "<group>"; };
 		C2C5C0091CC564D70010133B /* CopaRAJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopaRAJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C5C00D1CC564D70010133B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2C5C00F1CC564D70010133B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CopaRAJ/AppDelegate.h; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				C2C5C01B1CC564D70010133B /* Assets.xcassets */,
 				C2C5C01D1CC564D70010133B /* LaunchScreen.storyboard */,
 				C2C5C0201CC564D70010133B /* Info.plist */,
+				7BD870B61CCA7F880020C125 /* playOffMatches.plist */,
 				C2C5C0181CC564D70010133B /* CopaRAJ.xcdatamodeld */,
 				C2C5C00C1CC564D70010133B /* Supporting Files */,
 			);
@@ -379,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */,
+				7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */,
 				D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */,
 				C2C5C01F1CC564D70010133B /* LaunchScreen.storyboard in Resources */,
 				C2C5C01C1CC564D70010133B /* Assets.xcassets in Resources */,
