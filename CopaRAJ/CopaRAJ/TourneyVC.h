@@ -10,4 +10,6 @@
 
 @interface TourneyVC : UIViewController
 
+@property NSArray *arrayOfPlayOffMatches;
+
 @end

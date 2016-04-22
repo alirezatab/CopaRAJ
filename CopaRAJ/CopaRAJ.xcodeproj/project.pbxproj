@@ -226,8 +226,8 @@
 		D8F2D0BA1CC5937F003F8465 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D8F2D0B81CC5935C003F8465 /* HomeVC.m */,
 				7BD056261CC7477000BCB113 /* HomeVC.h */,
+				D8F2D0B81CC5935C003F8465 /* HomeVC.m */,
 				D8F2D0C31CC5B6F9003F8465 /* GroupVC.h */,
 				D8F2D0C41CC5B6F9003F8465 /* GroupVC.m */,
 				D8F2D0C91CC5B75F003F8465 /* GameVC.h */,
@@ -339,6 +339,7 @@
 				TargetAttributes = {
 					C2C5C0081CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = CD2SK749ZU;
 					};
 					C2C5C0241CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
