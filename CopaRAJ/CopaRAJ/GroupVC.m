@@ -37,6 +37,7 @@
     }
 }
 
+
 - (void)pullTeamsFromCoreData {
   
   NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Team"];
@@ -48,10 +49,6 @@
   } else {
     NSLog(@"%@", error);
   }
-  
-  if (self.teams.count == 0) {
-    NSLog(@"Core data doesn't have any teams");
-  }
 }
 
 - (void)pullGroupsFromCoreData {
@@ -61,26 +58,31 @@
   NSMutableArray *coreDataArray = [[self.moc executeFetchRequest:request error:&error]mutableCopy];
   
   if (error == nil) {
-    self.groups = [[NSMutableArray alloc]initWithArray:coreDataArray];
+    self.groups = [NSMutableArray new];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"groupID" ascending:YES];
+    self.groups = [[coreDataArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
   } else {
     NSLog(@"%@", error);
   }
   
   if (self.groups.count == 0) {
-    NSLog(@"Core data doesn't have any Groups");
     [self setupDefaultGroups];
-  } else {
-    [self.tableView reloadData];
+    //NSLog(@"Core data doesn't have any Groups");
   }
 }
 
+- (void) sortGroups {
+  
+}
+
+//deleted after merge
 - (void)setupDefaultGroups {
   [self createGroups];
   [self assignTeamsToGroups];
   [self.tableView reloadData];
-  
 }
 
+//deleted after merge
 - (void) createGroups {
   
   NSArray *groupNames = @[@"A", @"B", @"C"];
@@ -93,6 +95,7 @@
   }
 }
 
+//deted after merge
 - (void) assignTeamsToGroups{
   
   for (Team *team in self.teams) {
@@ -139,7 +142,7 @@
     [groupTeams addObject:team];
   }
   
-  NSString *searchVariable = [self returnGroupNameAsNumberForSearchFromName:group.groupID];
+  NSString *searchVariable = [Group returnGroupNameAsNumberForSearchFromName:group.groupID];
   
   NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=tables&format=json&tz=America/Chicago&lang=en&league=177&group=%@&year=2015", searchVariable];
   NSURL *url = [NSURL URLWithString: urlString];
@@ -151,59 +154,22 @@
     
       for (NSDictionary *team in table) {
         NSLog(@"The team from  Json is %@", team[@"team"]);
-        [self updateTeamFromTeamArray:groupTeams WithLatestDictionary:team];
+        [Team updateTeamFromTeamArray:groupTeams WithLatestDictionary:team];
         //[self updateMatchsArray: <your match array> withDictionary:<jsonDictionaryforIndividualMatch>]
       }
     
-    NSError *saveError;
-    if ([self.moc save:&saveError]) {
-      NSLog(@"Teams updated");
-      [self.tableView reloadData];
-    } else {
-      NSLog(@"Team updates resulted in the following error: %@", saveError);
-    }
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+      NSError *saveError;
+      if ([self.moc save:&saveError]) {
+        NSLog(@"Teams updated");
+        [self.tableView reloadData];
+      } else {
+        NSLog(@"Team updates resulted in the following error: %@", saveError);
+      }
+    });
+  }];
   
   [task resume];
-}
-
-- (void)updateTeamFromTeamArray:(NSMutableArray *)teams WithLatestDictionary:(NSDictionary *)dictionary {
-  
-  NSString *teamNameFromDictionary = dictionary[@"team"];
-  Team *teamForDictionary;
-  
-  for (Team *team in teams) {
-    if ([team.countryName isEqualToString:teamNameFromDictionary]) {
-      teamForDictionary = team;
-    }
-  }
-  teamForDictionary.wins = dictionary[@"wins"];
-  teamForDictionary.points = dictionary[@"points"];
-  teamForDictionary.losses = dictionary[@"losses"];
-  teamForDictionary.id = dictionary[@"id"];
-  teamForDictionary.goalsFor = dictionary[@"gf"];
-  teamForDictionary.goalsAgainst = dictionary[@"ga"];
-  teamForDictionary.gamesPlayed = dictionary[@"round"];
-  teamForDictionary.position = dictionary[@"pos"];
-  teamForDictionary.draws = dictionary[@"draws"];
-  
-  NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
-  
-}
-
--(NSString *)returnGroupNameAsNumberForSearchFromName: (NSString *)groupName{
-  
-  NSString *groupNumber = @"";
-  
-  if ([groupName  isEqualToString: @"A"]) {
-    groupNumber = @"1";
-  } else if ([groupName  isEqualToString: @"B"]){
-    groupNumber = @"2";
-  } else {
-    groupNumber = @"3";
-  }
-  
-  return groupNumber;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -220,6 +186,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  
   return 4;
 }
 

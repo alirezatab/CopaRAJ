@@ -82,7 +82,7 @@
             
             NSError *mocError;
             if([self.moc save:&mocError]){
-                NSLog(@"this was saved and there are %lu", self.matchesObject.count);
+                NSLog(@"this was saved and there are %lu", (unsigned long)self.matchesObject.count);
             }else{
                 NSLog(@"an error has occurred,...%@", error);
             }

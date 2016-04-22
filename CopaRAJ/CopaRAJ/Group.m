@@ -35,4 +35,20 @@
   NSLog(@"the group is sorted like this First : %@ and Last: %@", sortedTeams.firstObject, sortedTeams.lastObject);
   return sortedTeams;
 }
+
++ (NSString *)returnGroupNameAsNumberForSearchFromName: (NSString *)groupName {
+  
+  NSString *groupNumber = @"";
+  
+  if ([groupName  isEqualToString: @"A"]) {
+    groupNumber = @"1";
+  } else if ([groupName  isEqualToString: @"B"]){
+    groupNumber = @"2";
+  } else {
+    groupNumber = @"3";
+  }
+  
+  return groupNumber;
+}
+
 @end
