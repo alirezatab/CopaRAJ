@@ -23,6 +23,8 @@
 @property NSMutableArray *teams;
 @property Team *team;
 @property NSMutableArray *groups;
+@property NSMutableArray *playOffMatchesFromPlist;
+@property NSMutableArray *playOffMatches;
 
 
 @end
@@ -36,13 +38,24 @@
     self.moc = appDelegate.managedObjectContext;
     self.matchesData = [NSMutableArray new];
     self.matchesObject = [NSMutableArray new];
+    self.playOffMatches = [NSMutableArray new];
     
     
     [self pullMatchesFromCoreData];
     
     [self getMatchesFromJsonAndSaveInCoreData];
     
-    [self getPlayOffsFromJsonAndSaveInCoreData];
+    
+    //I have to figure it out how to switch between this method
+    
+//    [self getPlayOffsFromJsonAndSaveInCoreData];
+    
+    //and this one
+    [self getMatchesFromPlist];
+    
+    //based on the date of the match etc.
+    
+    ///////////////////////////////////////////////////
     
     [self pullTeamsFromCoreData];
     
@@ -52,9 +65,9 @@
         [self conductJsonSearchForGroup:group];
     }
     
+//    [self firstGroup:0 withFirstTeam:0 secondGroup:1 withSecondTeam:1];
 
 //    NSLog(@"there are %lu groups", self.groups.count);
-    
     
     NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
 }
@@ -80,7 +93,6 @@
             for (NSDictionary *matchData in matchesData) {
                 [self updateMatchesWithMatchData: matchData];
             }
-//            [self pullTeamsFromCoreData];
             NSError *mocError;
             if([self.moc save:&mocError]){
 //                NSLog(@"this was saved and there are %lu", (unsigned long)self.matchesObject.count);
@@ -121,7 +133,7 @@
 - (void)createNewMatch:(NSDictionary *)dictionary {
     
     Match *matchObject = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
-    matchObject.score = dictionary[@"score"];
+    matchObject.score = dictionary[@"result"];
     matchObject.matchId = dictionary[@"id"];
     matchObject.hour = dictionary[@"hour"];
     matchObject.minute = dictionary[@"minute"];
@@ -129,7 +141,6 @@
     matchObject.visitorAbbr = dictionary[@"visitor_abbr"];
     matchObject.localTeam = dictionary[@"local"];
     matchObject.visitingTeam = dictionary[@"visitor"];
-    
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"yyyy/MM/dd"];
     NSDate *date = [dateFormat dateFromString:dictionary[@"date"]];
@@ -140,6 +151,7 @@
         
     [self.matchesObject addObject:matchObject];
 }
+
 
 - (BOOL) checkIfMatchesAlreadyExist:(NSDictionary *)dictionary {
     NSMutableArray *matchIds = [NSMutableArray new];
@@ -216,6 +228,7 @@
     //testing
     cell.locationLabel.text = match.groupCode;
     
+
     return cell;
 }
 
@@ -260,7 +273,8 @@
     NSMutableArray *coreDataArray = [[self.moc executeFetchRequest:request error:&error]mutableCopy];
     
     if (error == nil) {
-        self.groups = [[NSMutableArray alloc]initWithArray:coreDataArray];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"groupID" ascending:YES];
+        self.groups = [[coreDataArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
     } else {
         NSLog(@"%@", error);
     }
@@ -304,7 +318,6 @@
             //for later
         }
     }
-    
     NSError *error;
     if ([self.moc save:&error]) {
         NSLog(@"Groups and their relationships to teams should be saved in Core Data");
@@ -375,7 +388,7 @@
             }
             NSError *mocError;
             if([self.moc save:&mocError]){
-//                NSLog(@"this was saved and there are %lu matches", self.matchesObject.count);
+                NSLog(@"this was saved and there are %lu matches", self.matchesObject.count);
             }else{
                 NSLog(@"an error has occurred,...%@", error);
             }
@@ -446,16 +459,77 @@
 //    NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
 }
 
-- (void)testLabelMatches:(int)index withArrayIndex:(int)newindex
-{
-    Group *group = [self.groups objectAtIndex:index];
+- (void)getMatchesFromPlist {
     
-    NSArray *sortedArray = [group returnGroupTeamsOrderedByPointsForGroup:group];
+    //4 getting data from Plist, get the data from the external file
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"playOffMatches" ofType:@"plist"];
     
-    Team *team = [sortedArray objectAtIndex:newindex];
+    //this is only for checking if the file exists
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:path]) {
+        NSLog(@"The file exists");
+    } else {
+        NSLog(@"The file does not exist");
+    }
     
-    NSLog(@"this is the team %@ from taht group", team.countryName);
+    self.playOffMatchesFromPlist = [[[NSArray alloc] initWithContentsOfFile:path]mutableCopy];
+    
+    
+    for (NSDictionary *match in self.playOffMatchesFromPlist) {
+        Match *playOffMatch = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
+        playOffMatch.matchId = [match valueForKey:@"id"];
+        playOffMatch.localAbbr = [match valueForKey:@"local"];
+        playOffMatch.visitorAbbr = [match valueForKey:@"visitor"];
+        playOffMatch.location = [match valueForKey:@"location"];
+        playOffMatch.hour = [match valueForKey:@"time"];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"yyyy/MM/dd"];
+        NSDate *date = [dateFormat dateFromString:[match valueForKey:@"date"]];
+        playOffMatch.date = date;
+        
+        NSLog(@"this is the location %@ and the %@ and date %@" , playOffMatch.location, playOffMatch.matchId, playOffMatch.date);
+        
+        [self.playOffMatches addObject:playOffMatch];
+        
+        [self.matchesObject addObjectsFromArray:self.playOffMatches];
+    }
+    
+    NSLog(@"self.playOfmatches.count : %lu", self.playOffMatches.count);
+    NSLog(@"self.matchesObject.count : %lu", self.matchesObject.count);
+
+
+    
+    NSError *error;
+    
+    if([self.moc save:&error]){
+//        [self.tableView reloadData];
+    }else{
+        NSLog(@"an error has occurred,...%@", error);
+    }
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end
