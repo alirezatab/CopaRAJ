@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)createDefaultGroupForGroup:(Group *)group withfirstTeam:(Team *)team1 andSecondTeam:(Team *)team2 andThirdTeam:(Team *)team3 andFourthTeam:(Team *)team4;
 - (NSArray *)returnGroupTeamsOrderedByPointsForGroup:(Group *)group;
++ (NSString *)returnGroupNameAsNumberForSearchFromName: (NSString *)groupName;
 
 @end
 

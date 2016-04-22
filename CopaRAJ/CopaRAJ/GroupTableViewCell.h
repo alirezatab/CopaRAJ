@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Team.h"
 
 @interface GroupTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *teamImage;
@@ -16,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *teamTies;
 @property (weak, nonatomic) IBOutlet UILabel *teamLosses;
 @property (weak, nonatomic) IBOutlet UILabel *teamPoints;
-
+@property (nonatomic, strong) Team *team;
 
 
 @end

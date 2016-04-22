@@ -35,10 +35,8 @@
     for (Group *group in self.groups) {
       [self conductJsonSearchForGroup:group];
     }
-  for (Group *group in self.groups) {
-    NSArray *array = [group returnGroupTeamsOrderedByPointsForGroup:group];
-  }
 }
+
 
 - (void)pullTeamsFromCoreData {
   
@@ -51,10 +49,6 @@
   } else {
     NSLog(@"%@", error);
   }
-  
-  if (self.teams.count == 0) {
-    NSLog(@"Core data doesn't have any teams");
-  }
 }
 
 - (void)pullGroupsFromCoreData {
@@ -64,76 +58,79 @@
   NSMutableArray *coreDataArray = [[self.moc executeFetchRequest:request error:&error]mutableCopy];
   
   if (error == nil) {
-    self.groups = [[NSMutableArray alloc]initWithArray:coreDataArray];
+    self.groups = [NSMutableArray new];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"groupID" ascending:YES];
+    self.groups = [[coreDataArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
   } else {
     NSLog(@"%@", error);
   }
   
   if (self.groups.count == 0) {
-    NSLog(@"Core data doesn't have any Groups");
-    [self setupDefaultGroups];
-  } else {
-    [self.tableView reloadData];
+//   ******** [self setupDefaultGroups];
+    //NSLog(@"Core data doesn't have any Groups");
   }
 }
 
-- (void)setupDefaultGroups {
-  [self createGroups];
-  [self assignTeamsToGroups];
-  [self.tableView reloadData];
-  
-}
 
-- (void) createGroups {
-  
-  NSArray *groupNames = @[@"A", @"B", @"C"];
-  self.groups = [NSMutableArray new];
-  
-  for (NSString *groupName in groupNames) {
-    Group *group = [NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:self.moc];
-    group.groupID = groupName;
-    [self.groups addObject:group];
-  }
-}
+//deleted after merge
+//- (void)setupDefaultGroups {
+//  [self createGroups];
+//  [self assignTeamsToGroups];
+//  [self.tableView reloadData];
+//}
 
-- (void) assignTeamsToGroups{
-  
-  for (Team *team in self.teams) {
-    
-    if ([team.countryName isEqualToString:@"Chile"] ||
-        [team.countryName isEqualToString:@"Bolivia"] ||
-        [team.countryName isEqualToString:@"Ecuador"] ||
-        [team.countryName isEqualToString:@"Mexico"]) {
-      
-      team.group = [self.groups objectAtIndex:0];
-      
-    } else if ([team.countryName isEqualToString:@"Argentina"] ||
-               [team.countryName isEqualToString:@"Paraguay"] ||
-               [team.countryName isEqualToString:@"Uruguay"] ||
-               [team.countryName isEqualToString:@"Jamaica"]) {
-      
-      team.group = [self.groups objectAtIndex:1];
-      
-    } else if ([team.countryName isEqualToString:@"Brazil"] ||
-               [team.countryName isEqualToString:@"Peru"] ||
-               [team.countryName isEqualToString:@"Colombia"] ||
-               [team.countryName isEqualToString:@"Venezuela"]) {
-      
-      team.group = [self.groups objectAtIndex:2];
-      
-    } else {
-      //for later
-    }
-  }
-  
-  NSError *error;
-  if ([self.moc save:&error]) {
-    NSLog(@"Groups and their relationships to teams should be saved in Core Data");
-  } else {
-    NSLog(@"failed because %@", error);
-  }
+//deleted after merge
+//- (void) createGroups {
+//  
+//  NSArray *groupNames = @[@"A", @"B", @"C"];
+//  self.groups = [NSMutableArray new];
+//  
+//  for (NSString *groupName in groupNames) {
+//    Group *group = [NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:self.moc];
+//    group.groupID = groupName;
+//    [self.groups addObject:group];
+//  }
+//}
 
-}
+//deted after merge
+//- (void) assignTeamsToGroups{
+//  
+//  for (Team *team in self.teams) {
+//    
+//    if ([team.countryName isEqualToString:@"Chile"] ||
+//        [team.countryName isEqualToString:@"Bolivia"] ||
+//        [team.countryName isEqualToString:@"Ecuador"] ||
+//        [team.countryName isEqualToString:@"Mexico"]) {
+//      
+//      team.group = [self.groups objectAtIndex:0];
+//      
+//    } else if ([team.countryName isEqualToString:@"Argentina"] ||
+//               [team.countryName isEqualToString:@"Paraguay"] ||
+//               [team.countryName isEqualToString:@"Uruguay"] ||
+//               [team.countryName isEqualToString:@"Jamaica"]) {
+//      
+//      team.group = [self.groups objectAtIndex:1];
+//      
+//    } else if ([team.countryName isEqualToString:@"Brazil"] ||
+//               [team.countryName isEqualToString:@"Peru"] ||
+//               [team.countryName isEqualToString:@"Colombia"] ||
+//               [team.countryName isEqualToString:@"Venezuela"]) {
+//      
+//      team.group = [self.groups objectAtIndex:2];
+//      
+//    } else {
+//      //for later
+//    }
+//  }
+
+//  NSError *error;
+//  if ([self.moc save:&error]) {
+//    NSLog(@"Groups and their relationships to teams should be saved in Core Data");
+//  } else {
+//    NSLog(@"failed because %@", error);
+//  }
+//
+//}
 
 - (void) conductJsonSearchForGroup: (Group *)group {
   
@@ -142,7 +139,7 @@
     [groupTeams addObject:team];
   }
   
-  NSString *searchVariable = [self returnGroupNameAsNumberForSearchFromName:group.groupID];
+  NSString *searchVariable = [Group returnGroupNameAsNumberForSearchFromName:group.groupID];
   
   NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=tables&format=json&tz=America/Chicago&lang=en&league=177&group=%@&year=2015", searchVariable];
   NSURL *url = [NSURL URLWithString: urlString];
@@ -154,71 +151,39 @@
     
       for (NSDictionary *team in table) {
         NSLog(@"The team from  Json is %@", team[@"team"]);
-        [self updateTeamFromTeamArray:groupTeams WithLatestDictionary:team];
+        [Team updateTeamFromTeamArray:groupTeams WithLatestDictionary:team];
         //[self updateMatchsArray: <your match array> withDictionary:<jsonDictionaryforIndividualMatch>]
       }
     
-    NSError *saveError;
-    if ([self.moc save:&saveError]) {
-      NSLog(@"Teams updated");
-      [self.tableView reloadData];
-    } else {
-      NSLog(@"Team updates resulted in the following error: %@", saveError);
-    }
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+      NSError *saveError;
+      if ([self.moc save:&saveError]) {
+        NSLog(@"Teams updated");
+        [self.tableView reloadData];
+      } else {
+        NSLog(@"Team updates resulted in the following error: %@", saveError);
+      }
+    });
+  }];
   
   [task resume];
-}
-
-- (void)updateTeamFromTeamArray:(NSMutableArray *)teams WithLatestDictionary:(NSDictionary *)dictionary {
-  
-  NSString *teamNameFromDictionary = dictionary[@"team"];
-  Team *teamForDictionary;
-  
-  for (Team *team in teams) {
-    if ([team.countryName isEqualToString:teamNameFromDictionary]) {
-      teamForDictionary = team;
-    }
-  }
-  teamForDictionary.wins = dictionary[@"wins"];
-  teamForDictionary.points = dictionary[@"points"];
-  teamForDictionary.losses = dictionary[@"losses"];
-  teamForDictionary.id = dictionary[@"id"];
-  teamForDictionary.goalsFor = dictionary[@"gf"];
-  teamForDictionary.goalsAgainst = dictionary[@"ga"];
-  teamForDictionary.gamesPlayed = dictionary[@"round"];
-  teamForDictionary.position = dictionary[@"pos"];
-  teamForDictionary.draws = dictionary[@"draws"];
-  
-  NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
-  
-}
-
--(NSString *)returnGroupNameAsNumberForSearchFromName: (NSString *)groupName{
-  
-  NSString *groupNumber = @"";
-  
-  if ([groupName  isEqualToString: @"A"]) {
-    groupNumber = @"1";
-  } else if ([groupName  isEqualToString: @"B"]){
-    groupNumber = @"2";
-  } else {
-    groupNumber = @"3";
-  }
-  
-  return groupNumber;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
   GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"teamCell" forIndexPath:indexPath];
+  Group *group = [self.groups objectAtIndex:indexPath.section];
+  NSArray *teamsInOrder = [group returnGroupTeamsOrderedByPointsForGroup:group];
+  
+  Team *cellTeam = [teamsInOrder objectAtIndex:indexPath.row];
 
-  cell.teamCountry.text = @"test";
+  cell.team = cellTeam;
   
   return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  
   return 4;
 }
 
@@ -228,8 +193,13 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
   Group *group = [self.groups objectAtIndex:section];
-  return group.groupID;
+  NSString *sectionHeader = [NSString stringWithFormat:@"Group: %@                  GP       W        T         L        PTS ", group.groupID];
+  
+  return sectionHeader;
 }
+
+//groups is my array of sections
+//Now I need an array of teams for each group
 
 
 @end

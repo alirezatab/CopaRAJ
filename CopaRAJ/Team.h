@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Team : NSManagedObject
 
 - (void)createDefaultTeamSettingsForTeam:(Team *)team andName:(NSString *)teamName;
++ (void)updateTeamFromTeamArray:(NSMutableArray *)teams WithLatestDictionary:(NSDictionary *)dictionary;
 
 @end
 
