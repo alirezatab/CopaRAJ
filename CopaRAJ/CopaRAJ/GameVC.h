@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataManager.h"
 
 @interface GameVC : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *teamOneImage;

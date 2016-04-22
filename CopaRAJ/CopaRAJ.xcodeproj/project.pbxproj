@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BF664CBCF855F65CAB11982 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4547C9527B41BAC6DE0F39E4 /* libPods.a */; };
 		7B84DCF21CC841D40021524F /* Match+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84DCEE1CC841D40021524F /* Match+CoreDataProperties.m */; };
 		7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84DCF41CC8421F0021524F /* Group+CoreDataProperties.m */; };
 		7B84DCFB1CC8421F0021524F /* Team+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84DCF81CC8421F0021524F /* Team+CoreDataProperties.m */; };
@@ -31,6 +32,7 @@
 		D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0CA1CC5B75F003F8465 /* GameVC.m */; };
 		D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */; };
 		D8F923CF1CC820BE00469D5D /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F923C71CC820BE00469D5D /* Match.m */; };
+		D8F923DB1CC9EBE600469D5D /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F923DA1CC9EBE600469D5D /* DataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4547C9527B41BAC6DE0F39E4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B84DCED1CC841D40021524F /* Match+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Match+CoreDataProperties.h"; path = "../Match+CoreDataProperties.h"; sourceTree = "<group>"; };
 		7B84DCEE1CC841D40021524F /* Match+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Match+CoreDataProperties.m"; path = "../Match+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7B84DCF31CC8421F0021524F /* Group+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Group+CoreDataProperties.h"; path = "../Group+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		7BD0561E1CC73A9D00BCB113 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		7BD0561F1CC73A9D00BCB113 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		7BD056261CC7477000BCB113 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		8F890DEE3DED39E2DEF826A6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C2C5C0091CC564D70010133B /* CopaRAJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopaRAJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C5C00D1CC564D70010133B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2C5C00F1CC564D70010133B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CopaRAJ/AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +101,9 @@
 		D8F923C41CC820BE00469D5D /* Match+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Match+CoreDataProperties.h"; path = "../Match+CoreDataProperties.h"; sourceTree = "<group>"; };
 		D8F923C61CC820BE00469D5D /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = ../Match.h; sourceTree = "<group>"; };
 		D8F923C71CC820BE00469D5D /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = ../Match.m; sourceTree = "<group>"; };
+		D8F923D91CC9EBE600469D5D /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		D8F923DA1CC9EBE600469D5D /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		DB80665D68B95C4B1CCF0F99 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BF664CBCF855F65CAB11982 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +132,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28A6E26DD692E656E3C4DBA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4547C9527B41BAC6DE0F39E4 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C2C5C0001CC564D70010133B = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +149,8 @@
 				C2C5C0281CC564D70010133B /* CopaRAJTests */,
 				C2C5C0331CC564D70010133B /* CopaRAJUITests */,
 				C2C5C00A1CC564D70010133B /* Products */,
+				C3E363FFFA329CD23B93A45E /* Pods */,
+				28A6E26DD692E656E3C4DBA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +209,15 @@
 			path = CopaRAJUITests;
 			sourceTree = "<group>";
 		};
+		C3E363FFFA329CD23B93A45E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB80665D68B95C4B1CCF0F99 /* Pods.debug.xcconfig */,
+				8F890DEE3DED39E2DEF826A6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D82BF4EE1CC5DCD500E80C51 /* Main Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +261,8 @@
 				D8F2D0CA1CC5B75F003F8465 /* GameVC.m */,
 				D8F2D0CC1CC5B777003F8465 /* TourneyVC.h */,
 				D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */,
+				D8F923D91CC9EBE600469D5D /* DataManager.h */,
+				D8F923DA1CC9EBE600469D5D /* DataManager.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -279,9 +308,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2C5C0391CC564D70010133B /* Build configuration list for PBXNativeTarget "CopaRAJ" */;
 			buildPhases = (
+				FD30BE7D786BBDDAEBA18AD5 /* Check Pods Manifest.lock */,
 				C2C5C0051CC564D70010133B /* Sources */,
 				C2C5C0061CC564D70010133B /* Frameworks */,
 				C2C5C0071CC564D70010133B /* Resources */,
+				791290CDF7C7EEFF31B69D97 /* Embed Pods Frameworks */,
+				92176BDCF80AB072120715BC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -402,6 +434,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		791290CDF7C7EEFF31B69D97 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92176BDCF80AB072120715BC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD30BE7D786BBDDAEBA18AD5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C2C5C0051CC564D70010133B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -411,6 +491,7 @@
 				D8F2D0B91CC5935C003F8465 /* HomeVC.m in Sources */,
 				7B84DCF21CC841D40021524F /* Match+CoreDataProperties.m in Sources */,
 				D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */,
+				D8F923DB1CC9EBE600469D5D /* DataManager.m in Sources */,
 				C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */,
 				D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */,
 				7BD056251CC73A9D00BCB113 /* Group.m in Sources */,
@@ -577,6 +658,7 @@
 		};
 		C2C5C03A1CC564D70010133B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB80665D68B95C4B1CCF0F99 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -592,6 +674,7 @@
 		};
 		C2C5C03B1CC564D70010133B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F890DEE3DED39E2DEF826A6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
