@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "Team.h"
 #import "Group.h"
+#import "TourneyVC.h"
 
 
 
@@ -26,6 +27,7 @@
 @property NSMutableArray *playOffMatchesFromPlist;
 @property NSMutableArray *playOffMatches;
 
+@property NSMutableArray *playOffTeamsTest;
 
 @end
 
@@ -39,6 +41,8 @@
     self.matchesData = [NSMutableArray new];
     self.matchesObject = [NSMutableArray new];
     self.playOffMatches = [NSMutableArray new];
+    
+    self.playOffTeamsTest = [NSMutableArray new];
     
     
     [self pullMatchesFromCoreData];
@@ -150,6 +154,9 @@
     matchObject.groupCode = dictionary[@"round"];
         
     [self.matchesObject addObject:matchObject];
+    
+//    NSLog(@"self.matchesObject.count : %lu in the create method ", self.matchesObject.count);
+
 }
 
 
@@ -190,8 +197,11 @@
             matchingMatch.date = date;
             //testing
             matchingMatch.groupCode = dictionary[@"round"];
+            
         }
     }
+//    NSLog(@"self.matchesObject.count : %lu in the update method ", self.matchesObject.count);
+
 }
 
 
@@ -204,7 +214,9 @@
     
     if(error == nil){
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
-        self.matchesObject = [[coreDataArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
+        NSMutableArray *arr = [NSMutableArray new];
+        arr = [[coreDataArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
+        [self.matchesObject addObjectsFromArray:arr];
         [self.tableView reloadData];
 
     }else{
@@ -320,7 +332,7 @@
     }
     NSError *error;
     if ([self.moc save:&error]) {
-        NSLog(@"Groups and their relationships to teams should be saved in Core Data");
+//        NSLog(@"Groups and their relationships to teams should be saved in Core Data");
     } else {
         NSLog(@"failed because %@", error);
     }
@@ -352,7 +364,7 @@
     
     NSError *error;
     if ([self.moc save:&error]) {
-        NSLog(@"teams was saved to coredata");
+//        NSLog(@"teams was saved to coredata");
     } else {
         NSLog(@"failed because %@", error);
     }
@@ -456,15 +468,12 @@
     teamForDictionary.gamesPlayed = dictionary[@"round"];
     teamForDictionary.position = dictionary[@"pos"];
     teamForDictionary.draws = dictionary[@"draws"];
-//    NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
 }
 
 - (void)getMatchesFromPlist {
     
-    //4 getting data from Plist, get the data from the external file
     NSString *path = [[NSBundle mainBundle] pathForResource:@"playOffMatches" ofType:@"plist"];
     
-    //this is only for checking if the file exists
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:path]) {
         NSLog(@"The file exists");
@@ -474,43 +483,56 @@
     
     self.playOffMatchesFromPlist = [[[NSArray alloc] initWithContentsOfFile:path]mutableCopy];
     
-    
     for (NSDictionary *match in self.playOffMatchesFromPlist) {
-        Match *playOffMatch = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
-        playOffMatch.matchId = [match valueForKey:@"id"];
-        playOffMatch.localAbbr = [match valueForKey:@"local"];
-        playOffMatch.visitorAbbr = [match valueForKey:@"visitor"];
-        playOffMatch.location = [match valueForKey:@"location"];
-        playOffMatch.hour = [match valueForKey:@"time"];
         
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-        [dateFormat setDateFormat:@"yyyy/MM/dd"];
-        NSDate *date = [dateFormat dateFromString:[match valueForKey:@"date"]];
-        playOffMatch.date = date;
-        
-        NSLog(@"this is the location %@ and the %@ and date %@" , playOffMatch.location, playOffMatch.matchId, playOffMatch.date);
-        
-        [self.playOffMatches addObject:playOffMatch];
-        
-        [self.matchesObject addObjectsFromArray:self.playOffMatches];
+        if (![self checkIfMatchesAlreadyExist:match]){
+            Match *playOffMatch = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
+            playOffMatch.matchId = [match valueForKey:@"id"];
+            playOffMatch.localAbbr = [match valueForKey:@"local"];
+            playOffMatch.visitorAbbr = [match valueForKey:@"visitor"];
+            playOffMatch.location = [match valueForKey:@"location"];
+            playOffMatch.hour = [match valueForKey:@"time"];
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+            [dateFormat setDateFormat:@"yyyy/MM/dd"];
+            NSDate *date = [dateFormat dateFromString:[match valueForKey:@"date"]];
+            playOffMatch.date = date;
+            
+            NSError *error;
+            
+            if([self.moc save:&error]){
+                NSLog(@"HI");
+                [self.playOffMatches addObject:playOffMatch];
+            }else{
+                NSLog(@"an error has occurred,...%@", error);
+            }
+            
+        }
     }
+    
+    [self.matchesObject addObjectsFromArray:self.playOffMatches];
     
     NSLog(@"self.playOfmatches.count : %lu", self.playOffMatches.count);
     NSLog(@"self.matchesObject.count : %lu", self.matchesObject.count);
-
-
-    
-    NSError *error;
-    
-    if([self.moc save:&error]){
-//        [self.tableView reloadData];
-    }else{
-        NSLog(@"an error has occurred,...%@", error);
-    }
-    
-    
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"TournamentSegue"]) {
+        TourneyVC *desVC = segue.destinationViewController;
+        for (int i = 24; i < 32; i++ ){
+            [self.playOffTeamsTest addObject:self.matchesObject[i]];
+        }
+      
+        NSLog(@"%lu", (unsigned long)self.playOffTeamsTest.count);
+        for (Match *match in self.playOffTeamsTest) {
+            NSLog(@"%@  against %@", [match valueForKey:@"localAbbr"] , [match valueForKey:@"visitorAbbr"]);
+        }
+        
+        desVC.arrayOfPlayOffMatches = self.playOffTeamsTest;
+        //self.playOffMatches;
+    }
+}
 
 
 
