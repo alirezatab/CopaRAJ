@@ -182,7 +182,7 @@
         if([match.matchId isEqualToString:dictionary[@"id"]]) {
             
             Match *matchingMatch = match;
-            matchingMatch.score = dictionary[@"score"];
+            matchingMatch.score = dictionary[@"result"];
             matchingMatch.hour = dictionary[@"hour"];
             matchingMatch.minute = dictionary[@"minute"];
             matchingMatch.localAbbr = dictionary[@"local_abbr"];
@@ -374,11 +374,6 @@
     NSLog(@"the data is updated");
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    TourneyVC *desVC = segue.destinationViewController;
-    desVC.arrayOfPlayOffMatches = self.matchesObject;
-    //self.arrayOfPlayOffMatches;
-}
 - (void)getPlayOffsFromJsonAndSaveInCoreData {
     
     for (int i = 1; i< 4; i++) {
@@ -493,6 +488,7 @@
             Match *playOffMatch = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.moc];
             playOffMatch.matchId = [match valueForKey:@"id"];
             playOffMatch.localAbbr = [match valueForKey:@"local"];
+            NSLog(@"%@ is p list local team", playOffMatch.localAbbr);
             playOffMatch.visitorAbbr = [match valueForKey:@"visitor"];
             playOffMatch.location = [match valueForKey:@"location"];
             playOffMatch.hour = [match valueForKey:@"time"];
