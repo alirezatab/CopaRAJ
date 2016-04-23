@@ -7,20 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Match.h"
 
 @interface BracketCell : UICollectionViewCell
 
-@property (retain, nonatomic) IBOutlet UIImageView *homeTeamImageView;
-@property (retain, nonatomic) IBOutlet UILabel *homeTeamLabel;
-@property (retain, nonatomic) IBOutlet UILabel *homeTeamScore;
+@property (weak, nonatomic) IBOutlet UIImageView *homeTeamImageView;
+@property (weak, nonatomic) IBOutlet UILabel *homeTeamLabel;
+@property (weak, nonatomic) IBOutlet UILabel *homeTeamScore;
 
-@property (retain, nonatomic) IBOutlet UIImageView *visitorTeamImageView;
-@property (retain, nonatomic) IBOutlet UILabel *visitorTeamLabel;
-@property (retain, nonatomic) IBOutlet UILabel *visitorTeamScore;
+@property (weak, nonatomic) IBOutlet UIImageView *visitorTeamImageView;
+@property (weak, nonatomic) IBOutlet UILabel *visitorTeamLabel;
+@property (weak, nonatomic) IBOutlet UILabel *visitorTeamScore;
 
-@property (retain, nonatomic) IBOutlet UIImageView *winnerTeamImageView;
-@property (retain, nonatomic) IBOutlet UILabel *winnerTeamLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *winnerTeamImageView;
+@property (weak, nonatomic) IBOutlet UILabel *winnerTeamLabel;
 
-
+@property (nonatomic, strong) Match *match;
 
 @end

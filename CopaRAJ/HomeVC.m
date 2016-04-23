@@ -11,10 +11,9 @@
 #import "Match.h"
 #import "AppDelegate.h"
 #import "Team.h"
+#import "TourneyVC.h"
 #import "Group.h"
 #import "TourneyVC.h"
-
-
 
 @interface HomeVC ()<UITableViewDelegate, UITableViewDataSource>
 @property NSMutableArray *matchesData;
@@ -375,6 +374,11 @@
     NSLog(@"the data is updated");
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    TourneyVC *desVC = segue.destinationViewController;
+    desVC.arrayOfPlayOffMatches = self.matchesObject;
+    //self.arrayOfPlayOffMatches;
+}
 - (void)getPlayOffsFromJsonAndSaveInCoreData {
     
     for (int i = 1; i< 4; i++) {
