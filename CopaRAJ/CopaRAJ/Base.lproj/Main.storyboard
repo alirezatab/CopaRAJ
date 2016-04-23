@@ -36,7 +36,7 @@
                                     </barButtonItem>
                                     <barButtonItem title="Tournament" id="tEm-RK-T7A">
                                         <connections>
-                                            <segue destination="cje-vk-2tS" kind="show" animates="NO" id="i8c-xZ-DUE"/>
+                                            <segue destination="cje-vk-2tS" kind="show" identifier="TournamentSegue" animates="NO" id="i8c-xZ-DUE"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
