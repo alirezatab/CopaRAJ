@@ -48,35 +48,39 @@
     
     NSLog(@"Cell for row was called");
     BracketCell *cell = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    //BracketCell *cellFinal = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CellFinal" forIndexPath:indexPath];
+    BracketCell *cellFinal = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CellFinal" forIndexPath:indexPath];
     
     cell.layer.borderWidth = 1;
     cell.layer.borderColor = [[UIColor whiteColor]CGColor];
-    
-    Match *cellMatch = [self.arrayOfPlayOffMatches objectAtIndex:indexPath.section];
-    cell.match = cellMatch;
-    
-    return cell;
-    
+//    Match *cellMatch = [self.arrayOfPlayOffMatches objectAtIndex:indexPath.section];
+//    cell.match = cellMatch;
+//    return cell;
+    switch (indexPath.section) {
+        case 0:{
+            Match *cellMatch = [self.arrayOfPlayOffMatches objectAtIndex:indexPath.row];
+            cell.match = cellMatch;
+                return cell;
+        }
+        case 1:{
+            Match *cellMatch = [self.arrayOfPlayOffMatches objectAtIndex:indexPath.row+4];
+            cell.match = cellMatch;
+            return cell;
+        }
+        case 2:{
+            Match *cellMatch = [self.arrayOfPlayOffMatches objectAtIndex:indexPath.row+7];
+            cell.match = cellMatch;
+            return cell;
+        }
+        case 3:{
+            cellFinal.winnerTeamLabel.text = @"CHAMPION";
+            return cellFinal;
+        }
+        default:
+            break;
+    }
 //    for (int i = 0; i<3; i++) {
 //        [self testLabelMatches:i withArrayIndex:0];
 //        [self testLabelMatches:i withArrayIndex:1];
-//    }
-    
-//    for (Group *group in self.groups) {
-//        for (Team *playoffTeam in self.playoffTeams){
-//            NSLog(@"%@", playoffTeam.countryName);
-//            if ([playoffTeam.position containsString: @"1"]) {
-//                if ([group.groupID containsString:@"A"]) {
-//                    NSLog(@"%@", playoffTeam.countryName);
-//                    cell.homeTeamLabel.text = playoffTeam.countryName;
-              //  }
-//            } else if ([group.groupID containsString:@"B"]){
-//                
-//            } else if ([group.groupID containsString:@"C"]){
-//                
-//            }
-//        }
 //    }
     
 //    if (indexPath.section == 0) {
@@ -107,16 +111,11 @@
 //            cell.visitorTeamLabel.text = @"TBD";
 //            cell.visitorTeamScore.text = @"";
 //        }
-//    } else if (indexPath.section == 3){
-//        cellFinal.winnerTeamLabel.text = @"CHAMPION";
 //    }
-//    
-//    if (indexPath.section == 3) {
-//        return cellFinal;
-//    } else{
-//        return cell;
-//    }
+    
+    return cell;
 }
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (section == 0) {
         return 4;

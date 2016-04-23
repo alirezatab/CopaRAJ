@@ -39,12 +39,12 @@
     NSArray *seperatedScore = [match.score componentsSeparatedByString:@"-"];
     
     self.homeTeamImageView.image = [UIImage imageNamed:match.localAbbr];
-    self.homeTeamLabel.text = match.localTeam;
+    self.homeTeamLabel.text = match.localAbbr;
     NSLog(@"THIS IS THE SCORE %@", seperatedScore[0]);
     self.homeTeamScore.text = seperatedScore[0];
     
     self.visitorTeamImageView.image = [UIImage imageNamed:match.visitorAbbr];
-    self.visitorTeamLabel.text = match.visitingTeam;
+    self.visitorTeamLabel.text = match.visitorAbbr;
     NSLog(@"THIS IS THE SCORE %@", seperatedScore[1]);
     self.visitorTeamScore.text = seperatedScore[1];
 }
