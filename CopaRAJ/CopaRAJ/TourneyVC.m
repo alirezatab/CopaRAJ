@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     self.playoffTeams = [[NSMutableArray alloc]init];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     self.moc = appDelegate.managedObjectContext;

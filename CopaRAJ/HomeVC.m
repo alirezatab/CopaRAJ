@@ -34,6 +34,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
+
     // Do any additional setup after loading the view.
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     self.moc = appDelegate.managedObjectContext;
