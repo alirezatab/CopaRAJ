@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Match.h"
 
 @interface GameVC : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *teamOneImage;
@@ -18,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *teamTwoImage;
 @property (weak, nonatomic) IBOutlet UILabel *teamTwoName;
 @property (weak, nonatomic) IBOutlet UILabel *teamTwoScore;
+@property Match *match;
 
 @end
