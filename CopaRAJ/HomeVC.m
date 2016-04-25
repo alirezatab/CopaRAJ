@@ -75,6 +75,8 @@
 //    NSLog(@"there are %lu groups", self.groups.count);
     
     NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
+  
+  [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:9 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
 }
 
 //user gets the matches from the API
@@ -421,9 +423,9 @@
         [groupTeams addObject:team];
     }
     
-    NSString *searchVariable = [Group returnGroupNameAsNumberForSearchFromName:group.groupID];
+    NSString *groupID = [Group returnGroupNameAsNumberForSearchFromName:group.groupID];
     
-    NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=tables&format=json&tz=America/Chicago&lang=en&league=177&group=%@&year=2015", searchVariable];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.resultados-futbol.com/scripts/api/api.php?key=40b2f1fd2a56cbd88df8b2c9b291760f&req=tables&format=json&tz=America/Chicago&lang=en&league=177&group=%@&year=2015", groupID];
     NSURL *url = [NSURL URLWithString: urlString];
     NSURLSession *session = [NSURLSession sharedSession];
     
@@ -537,8 +539,29 @@
 }
 
 
-
-
+//for Ricky for later. This is the early stages of the auto scroll animation
+//dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//  NSLog(@"row 2");
+//  [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//  
+//  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//    NSLog(@"row 3");
+//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//    
+//    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//      NSLog(@"row 4");
+//      [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//      
+//      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        NSLog(@"row 5");
+//        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//      });
+//      
+//    });
+//  });
+//  
+//});
 
 
 
