@@ -19,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *teamTwoImage;
 @property (weak, nonatomic) IBOutlet UILabel *teamTwoName;
 @property (weak, nonatomic) IBOutlet UILabel *teamTwoScore;
-@property Match *match;
+@property NSNumber *matchID;
 
 @end

@@ -30,7 +30,7 @@
   self.navigationItem.hidesBackButton = YES;
   self.groups = [NSMutableArray new];
   [self createListeners];
-  
+  self.tableView.allowsSelection = NO;
 }
 
 #pragma FireBase
@@ -74,7 +74,6 @@
   if (self.groups.count > 0) {
     [self.tableView reloadData];
   }
-  
 }
 
 
@@ -133,6 +132,7 @@
   
   return sectionHeader;
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //************************************ OLD ********************************************************

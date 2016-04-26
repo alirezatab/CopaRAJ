@@ -211,18 +211,13 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"TournamentSegue"]) {
-        TourneyVC *desVC = segue.destinationViewController;
-        for (int i = 24; i < 32; i++ ){
-            [self.playOffTeamsTest addObject:self.matchesObject[i]];
-        }
-        desVC.arrayOfPlayOffMatches = self.playOffTeamsTest;
-    } else if ([segue.identifier isEqualToString:@"GameSegue"]){
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        GameVC *desVC = segue.destinationViewController;
-        Match *match = [self.matchesObject objectAtIndex:indexPath.row];
-        desVC.match = match;
-    }
+//    if ([segue.identifier isEqualToString:@"TournamentSegue"]) {
+//        TourneyVC *desVC = segue.destinationViewController;
+//        for (int i = 24; i < 32; i++ ){
+//            [self.playOffTeamsTest addObject:self.matchesObject[i]];
+//        }
+//        desVC.arrayOfPlayOffMatches = self.playOffTeamsTest;
+//    } 
 }
 
 - (void)storingDatesinAnArray {
