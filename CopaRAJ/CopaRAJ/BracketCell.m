@@ -10,43 +10,32 @@
 
 @implementation BracketCell
 
-
-//-(instancetype)initWithFrame:(CGRect)frame{
-//    self = [super initWithFrame:frame];
-//    if (self) {
-////        self.homeTeamLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width/3, frame.size.height)];
-////        self.homeTeamScore = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-////        self.homeTeamImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-////        
-////      
-////        
-////        self.visitorTeamLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width/3, frame.size.height)];
-////        self.visitorTeamScore = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-////        self.visitorTeamImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-////        
-////        
-////        self.winnerTeamLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width/3, frame.size.height)];
-////        self.winnerTeamImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-//    }
-//    return self;
-//}
-
--(void)setMatch:(Match *)match{
-    //NSLog(@"Set match was called");
-    _match = match;
+-(void)setFBMatch:(FBMatch *)FBMatch{
+    _FBMatch = FBMatch;
     
-    //NSString *scoreString = match.score;
-    NSArray *seperatedScore = [match.score componentsSeparatedByString:@"-"];
+    //NSLog(@"%@", FBMatch.local_abbr);
+    self.homeTeamImageView.image = [UIImage imageNamed:FBMatch.local_abbr];
+    self.homeTeamLabel.text = FBMatch.local;
+    self.homeTeamPenalty.text = FBMatch.pen1;
+    if ([FBMatch.local_goals isEqualToString: @"x"]){
+        FBMatch.local_goals = @"";
+    }
+    self.homeTeamScore.text = FBMatch.local_goals;
     
-    self.homeTeamImageView.image = [UIImage imageNamed:match.localAbbr];
-    self.homeTeamLabel.text = match.localAbbr;
-    NSLog(@"THIS IS THE SCORE %@", seperatedScore[0]);
-    self.homeTeamScore.text = seperatedScore[0];
-    
-    self.visitorTeamImageView.image = [UIImage imageNamed:match.visitorAbbr];
-    self.visitorTeamLabel.text = match.visitorAbbr;
-    NSLog(@"THIS IS THE SCORE %@", seperatedScore[1]);
-    self.visitorTeamScore.text = seperatedScore[1];
+    self.visitorTeamImageView.image = [UIImage imageNamed:FBMatch.visitor_abbr];
+    self.visitorTeamLabel.text = FBMatch.visitor;
+    self.visitorTeamPenalty.text = FBMatch.pen2;
+    if ([FBMatch.visitor_goals isEqualToString: @"x"]){
+        FBMatch.visitor_goals = @"";
+    }
+    self.visitorTeamScore.text = FBMatch.visitor_goals;
 }
-
 @end
+
+//NSString *scoreString = match.score;
+//NSArray *seperatedScore = [match.score componentsSeparatedByString:@"-"];
+//NSLog(@"THIS IS THE SCORE %@", seperatedScore[0]);
+//self.homeTeamScore.text = seperatedScore[0];
+
+//NSLog(@"THIS IS THE SCORE %@", seperatedScore[1]);
+//self.visitorTeamScore.text = seperatedScore[1];

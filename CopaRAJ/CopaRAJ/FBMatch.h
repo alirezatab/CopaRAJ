@@ -38,9 +38,7 @@
 @property NSUInteger local_rc; //red cards
 @property NSString *local_tactic;
 @property NSMutableArray *local_Lineup;
-@property NSUInteger pen1;
-
-
+@property NSNumber *pen1;
 
 
 //team visitor info
@@ -57,13 +55,7 @@
 @property NSUInteger visitor_rc; //red cards
 @property NSString *visitor_tactic;
 @property NSMutableArray *visitor_Lineup;
-@property NSUInteger pen2;
-
-
-
-
-
-
+@property NSNumber *pen2;
 
 
 @end
