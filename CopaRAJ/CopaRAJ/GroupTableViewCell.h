@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *teamTies;
 @property (weak, nonatomic) IBOutlet UILabel *teamLosses;
 @property (weak, nonatomic) IBOutlet UILabel *teamPoints;
-@property (nonatomic, strong) Team *team;
+
 
 
 @end

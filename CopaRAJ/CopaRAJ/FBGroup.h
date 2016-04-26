@@ -12,42 +12,48 @@
 @property NSString *groupLetter;
 @property NSString *groupRound;
 
-@property NSUInteger team1avg;
-@property NSUInteger team1Draws;
+@property NSNumber *team1avg;
+@property NSNumber *team1Draws;
 @property NSString *team1GA;
-@property NSUInteger team1Losses;
+@property NSNumber *team1Losses;
 @property NSString *team1Points;
 @property NSString *team1Pos;
 @property NSString *team1Team;
-@property NSUInteger *team1Wins;
+@property NSNumber *team1Wins;
+@property NSString *team1Gf;
 
 
-@property NSUInteger team2avg;
-@property NSUInteger team2Draws;
+@property NSNumber *team2avg;
+@property NSNumber* team2Draws;
 @property NSString *team2GA;
-@property NSUInteger team2Losses;
+@property NSNumber* team2Losses;
 @property NSString *team2Points;
 @property NSString *team2Pos;
 @property NSString *team2Team;
-@property NSUInteger *team2Wins;
+@property NSNumber *team2Wins;
+@property NSString *team2Gf;
 
-@property NSUInteger team3avg;
-@property NSUInteger team3Draws;
+@property NSNumber *team3avg;
+@property NSNumber *team3Draws;
 @property NSString *team3GA;
-@property NSUInteger team3Losses;
+@property NSNumber *team3Losses;
 @property NSString *team3Points;
 @property NSString *team3Pos;
 @property NSString *team3Team;
-@property NSUInteger *team3Wins;
+@property NSNumber *team3Wins;
+@property NSString *team3Gf;
 
-@property NSUInteger team4avg;
-@property NSUInteger team4Draws;
+@property NSNumber *team4avg;
+@property NSNumber *team4Draws;
 @property NSString *team4GA;
-@property NSUInteger team4Losses;
+@property NSNumber *team4Losses;
 @property NSString *team4Points;
 @property NSString *team4Pos;
 @property NSString *team4Team;
-@property NSUInteger *team4Wins;
+@property NSNumber *team4Wins;
+@property NSString *team4Gf;
+
++(FBGroup *)createGroupFromTable: (NSMutableArray*) table;
 
 
 
