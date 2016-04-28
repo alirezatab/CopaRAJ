@@ -22,6 +22,7 @@
 @property NSMutableArray *playoffTeams;
 @property NSMutableArray *matchesData;
 @property NSMutableArray *matchesObject;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *tourneyButton;
 
 
 @end
@@ -31,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    [self.tourneyButton setTintColor:[UIColor redColor]];
     self.playoffTeams = [[NSMutableArray alloc]init];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     self.moc = appDelegate.managedObjectContext;

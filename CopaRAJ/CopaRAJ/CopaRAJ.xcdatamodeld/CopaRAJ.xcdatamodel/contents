@@ -9,6 +9,7 @@
         <attribute name="groupCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hour" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localAbbr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localScore" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localTeam" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="matchId" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,6 +20,7 @@
         <attribute name="timeInGame" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="visitingTeam" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="visitorAbbr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitorScore" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="matches" inverseEntity="Team" syncable="YES"/>
     </entity>
     <entity name="Team" representedClassName="Team" syncable="YES">
@@ -40,7 +42,7 @@
     </entity>
     <elements>
         <element name="Group" positionX="27" positionY="-79" width="128" height="75"/>
-        <element name="Match" positionX="513" positionY="-117" width="128" height="270"/>
+        <element name="Match" positionX="513" positionY="-117" width="128" height="300"/>
         <element name="Team" positionX="270" positionY="-261" width="128" height="270"/>
     </elements>
 </model>

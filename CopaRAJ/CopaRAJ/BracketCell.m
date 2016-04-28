@@ -30,6 +30,16 @@
 //    }
 //    return self;
 //}
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    //changing the fonts for the groupVC
+    self.homeTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.homeTeamScore.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.visitorTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.visitorTeamScore.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.winnerTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+}
 
 -(void)setMatch:(Match *)match{
     //NSLog(@"Set match was called");

@@ -12,6 +12,14 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    //changing the fonts for the groupVC
+    self.teamCountry.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:12];
+    self.teamGoals.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.teamWins.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.teamTies.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.teamLosses.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.teamPoints.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -21,7 +29,7 @@
 - (void) setTeam:(Team *)team {
   _team = team;
   self.teamCountry.text = team.countryName;
-  self.teamImage.image = [UIImage imageNamed:team.abbreviationName];
+  self.teamImage.image = [UIImage imageNamed:team.countryName];
 //  NSLog(@"%@ is the team immage", team.abbreviationName);
   self.teamGoals.text = team.goalsFor;
   self.teamWins.text = [NSString stringWithFormat:@"%@", team.wins];

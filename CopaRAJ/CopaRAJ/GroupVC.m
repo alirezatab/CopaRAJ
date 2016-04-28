@@ -17,6 +17,7 @@
 @property NSMutableArray *teams;
 @property NSMutableArray *groups;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *groupButton;
 
 
 @end
@@ -26,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    [self.groupButton setTintColor:[UIColor redColor]];
 
   
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
@@ -193,12 +195,56 @@
   return self.groups.count;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-  Group *group = [self.groups objectAtIndex:section];
-  NSString *sectionHeader = [NSString stringWithFormat:@"Group: %@                  GP       W        T         L        PTS ", group.groupID];
-  
-  return sectionHeader;
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//  Group *group = [self.groups objectAtIndex:section];
+//  NSString *sectionHeader = [NSString stringWithFormat:@"Group: %@                  GP       W        T         L        PTS ", group.groupID];
+//  
+//  return sectionHeader;
+//}
+
+//change this and also check the tableview plain option in interfacebuilder
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
+    /* Create custom view to display section header... */
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 45)];
+    [label setFont:[UIFont fontWithName:@"GothamMedium" size:14]];
+    [label setTextAlignment:NSTextAlignmentJustified];
+   
+    [label setTextColor:[UIColor colorWithWhite:0.600 alpha:1.000]];
+      Group *group = [self.groups objectAtIndex:section];
+      NSString *sectionHeader = [NSString stringWithFormat:@"Group: %@              GP     W      T      L      PTS ", group.groupID];
+   
+    
+    [label setText:sectionHeader];
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor colorWithWhite:0.969 alpha:1.000]]; //your background
+    
+    return view;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //groups is my array of sections
 //Now I need an array of teams for each group
