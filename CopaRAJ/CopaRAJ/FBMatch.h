@@ -50,11 +50,11 @@
 @property NSString *visitor_pos;///possessiong %
 @property NSString *visitor_sot;///shots
 @property NSString *visitor_son;///shots on target
-@property NSUInteger visitor_soff;///offsides
+@property NSString *visitor_soff;///offsides
 @property NSString *visitor_frk;///free kicks
 @property NSString *visitor_blk; ///saves
 @property NSString *visitor_yc; ///yellow cards
-@property NSUInteger visitor_rc; ///red cards
+@property NSString *visitor_rc; ///red cards
 @property NSString *visitor_tactic;///
 @property NSMutableArray *visitor_Lineup;///
 @property NSString *pen2;//
@@ -69,6 +69,7 @@
 + (NSMutableArray *)returnLineupArrayUsingLineupData:(NSArray *)array;
 + (NSMutableArray *)createTimeLineWithMatch: (FBMatch *)match;
 - (NSMutableArray *)returnSubstitutionsWithArrayOfChanges: (NSMutableArray *)changes;
+- (void)updateMatch: (FBMatch *)match WithData: (NSDictionary *)data;
 
 
 
