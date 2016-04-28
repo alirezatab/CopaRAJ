@@ -30,9 +30,8 @@
 
 @property NSMutableArray *matchesData;
 @property NSMutableArray *matchesObject;
-<<<<<<< HEAD:finalCopaRaj/CopaRAJ/TourneyVC.m
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tourneyButton;
-=======
+
 @property NSMutableArray *playOffMatchesFromPlist;
 @property NSMutableArray *miniArray;
 
@@ -44,7 +43,6 @@
 @property FBMatch *matchW26W28;
 @property FBMatch *matchL29L30;
 @property FBMatch *matchW29W30;
->>>>>>> playoffBranch:CopaRAJ/CopaRAJ/TourneyVC.m
 
 @property BOOL isPlayOff;
 
@@ -59,11 +57,8 @@
     [super viewDidLoad];
     NSLog(@"view did load");
     self.navigationItem.hidesBackButton = YES;
-<<<<<<< HEAD:finalCopaRaj/CopaRAJ/TourneyVC.m
     [self.tourneyButton setTintColor:[UIColor redColor]];
-=======
-    
->>>>>>> playoffBranch:CopaRAJ/CopaRAJ/TourneyVC.m
+  
     self.playoffTeams = [[NSMutableArray alloc]init];
     self.matchesObject = [[NSMutableArray alloc]init];
     
