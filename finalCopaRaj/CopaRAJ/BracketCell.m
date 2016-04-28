@@ -41,32 +41,26 @@
     self.winnerTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
 }
 
-//-(void)setMatch:(Match *)match{
-//    //NSLog(@"Set match was called");
-//    _match = match;
-//    
-//    //NSString *scoreString = match.score;
-//    NSArray *seperatedScore = [match.score componentsSeparatedByString:@"-"];
-//-(void)setFBMatch:(FBMatch *)FBMatch{
-//    _FBMatch = FBMatch;
-//  
-//    //NSLog(@"%@", FBMatch.local_abbr);
-//    self.homeTeamImageView.image = [UIImage imageNamed:FBMatch.local_abbr];
-//    self.homeTeamLabel.text = FBMatch.local;
-//    self.homeTeamPenalty.text = FBMatch.pen1;
-//    if ([FBMatch.local_goals isEqualToString: @"x"]){
-//        FBMatch.local_goals = @"";
-//    }
-//    self.homeTeamScore.text = FBMatch.local_goals;
-//    
-//    self.visitorTeamImageView.image = [UIImage imageNamed:FBMatch.visitor_abbr];
-//    self.visitorTeamLabel.text = FBMatch.visitor;
-//    self.visitorTeamPenalty.text = FBMatch.pen2;
-//    if ([FBMatch.visitor_goals isEqualToString: @"x"]){
-//        FBMatch.visitor_goals = @"";
-//    }
-//    self.visitorTeamScore.text = FBMatch.visitor_goals;
-//}
+-(void)setFBMatch:(FBMatch *)FBMatch{
+    _FBMatch = FBMatch;
+  
+    //NSLog(@"%@", FBMatch.local_abbr);
+    self.homeTeamImageView.image = [UIImage imageNamed:FBMatch.local_abbr];
+    self.homeTeamLabel.text = FBMatch.local;
+    self.homeTeamPenalty.text = FBMatch.pen1;
+    if ([FBMatch.local_goals isEqualToString: @"x"]){
+        FBMatch.local_goals = @"";
+    }
+    self.homeTeamScore.text = FBMatch.local_goals;
+    
+    self.visitorTeamImageView.image = [UIImage imageNamed:FBMatch.visitor_abbr];
+    self.visitorTeamLabel.text = FBMatch.visitor;
+    self.visitorTeamPenalty.text = FBMatch.pen2;
+    if ([FBMatch.visitor_goals isEqualToString: @"x"]){
+        FBMatch.visitor_goals = @"";
+    }
+    self.visitorTeamScore.text = FBMatch.visitor_goals;
+}
 @end
 
 //NSString *scoreString = match.score;
