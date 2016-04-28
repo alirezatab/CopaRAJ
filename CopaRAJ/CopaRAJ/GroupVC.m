@@ -40,7 +40,7 @@
   [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
 
     NSMutableArray *groupData = snapshot.value;
-    [self updateGroupsArray:groupData];
+    [self updateGroupsArrayWithData:groupData];
     
   } withCancelBlock:^(NSError *error) {
     
@@ -49,7 +49,7 @@
   }];
 }
 
--(void)updateGroupsArray: (NSMutableArray *)array{
+-(void)updateGroupsArrayWithData: (NSMutableArray *)array{
   
   NSDictionary *group1Data = [array objectAtIndex:1];
   NSDictionary *group2Data = [array objectAtIndex:2];
