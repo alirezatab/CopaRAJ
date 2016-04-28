@@ -10,6 +10,7 @@
 
 @implementation BracketCell
 
+<<<<<<< HEAD:finalCopaRaj/CopaRAJ/BracketCell.m
 
 //-(instancetype)initWithFrame:(CGRect)frame{
 //    self = [super initWithFrame:frame];
@@ -47,16 +48,34 @@
     
     //NSString *scoreString = match.score;
     NSArray *seperatedScore = [match.score componentsSeparatedByString:@"-"];
+=======
+-(void)setFBMatch:(FBMatch *)FBMatch{
+    _FBMatch = FBMatch;
+>>>>>>> playoffBranch:CopaRAJ/CopaRAJ/BracketCell.m
     
-    self.homeTeamImageView.image = [UIImage imageNamed:match.localAbbr];
-    self.homeTeamLabel.text = match.localAbbr;
-    NSLog(@"THIS IS THE SCORE %@", seperatedScore[0]);
-    self.homeTeamScore.text = seperatedScore[0];
+    //NSLog(@"%@", FBMatch.local_abbr);
+    self.homeTeamImageView.image = [UIImage imageNamed:FBMatch.local_abbr];
+    self.homeTeamLabel.text = FBMatch.local;
+    self.homeTeamPenalty.text = FBMatch.pen1;
+    if ([FBMatch.local_goals isEqualToString: @"x"]){
+        FBMatch.local_goals = @"";
+    }
+    self.homeTeamScore.text = FBMatch.local_goals;
     
-    self.visitorTeamImageView.image = [UIImage imageNamed:match.visitorAbbr];
-    self.visitorTeamLabel.text = match.visitorAbbr;
-    NSLog(@"THIS IS THE SCORE %@", seperatedScore[1]);
-    self.visitorTeamScore.text = seperatedScore[1];
+    self.visitorTeamImageView.image = [UIImage imageNamed:FBMatch.visitor_abbr];
+    self.visitorTeamLabel.text = FBMatch.visitor;
+    self.visitorTeamPenalty.text = FBMatch.pen2;
+    if ([FBMatch.visitor_goals isEqualToString: @"x"]){
+        FBMatch.visitor_goals = @"";
+    }
+    self.visitorTeamScore.text = FBMatch.visitor_goals;
 }
-
 @end
+
+//NSString *scoreString = match.score;
+//NSArray *seperatedScore = [match.score componentsSeparatedByString:@"-"];
+//NSLog(@"THIS IS THE SCORE %@", seperatedScore[0]);
+//self.homeTeamScore.text = seperatedScore[0];
+
+//NSLog(@"THIS IS THE SCORE %@", seperatedScore[1]);
+//self.visitorTeamScore.text = seperatedScore[1];

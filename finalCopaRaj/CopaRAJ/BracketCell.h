@@ -8,20 +8,25 @@
 
 #import <UIKit/UIKit.h>
 #import "Match.h"
+#import "FBMatch.h"
+
 
 @interface BracketCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *homeTeamImageView;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamLabel;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamScore;
+@property (weak, nonatomic) IBOutlet UILabel *homeTeamPenalty;
 
 @property (weak, nonatomic) IBOutlet UIImageView *visitorTeamImageView;
 @property (weak, nonatomic) IBOutlet UILabel *visitorTeamLabel;
 @property (weak, nonatomic) IBOutlet UILabel *visitorTeamScore;
+@property (weak, nonatomic) IBOutlet UILabel *visitorTeamPenalty;
 
 @property (weak, nonatomic) IBOutlet UIImageView *winnerTeamImageView;
 @property (weak, nonatomic) IBOutlet UILabel *winnerTeamLabel;
 
-@property (nonatomic, strong) Match *match;
+
+@property (nonatomic, strong) FBMatch *FBMatch;
 
 @end
