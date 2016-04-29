@@ -70,6 +70,7 @@
 + (NSMutableArray *)createTimeLineWithMatch: (FBMatch *)match;
 - (NSMutableArray *)returnSubstitutionsWithArrayOfChanges: (NSMutableArray *)changes;
 - (void)updateMatch: (FBMatch *)match WithData: (NSDictionary *)data;
++ (void)updateMatchInArray: (NSMutableArray *)array withData:(NSDictionary *)data;
 
 
 

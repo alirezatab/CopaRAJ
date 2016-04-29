@@ -28,13 +28,13 @@
             [visitorChanges addObject:change];
         }
     }
-    NSLog(@"local changes: %@ ", localChanges);
-    NSLog(@"visitor changes: %@ ", visitorChanges);
+    //NSLog(@"local changes: %@ ", localChanges);
+    //NSLog(@"visitor changes: %@ ", visitorChanges);
     
     if (localChanges.count % 2 == 0) {
         match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
         NSMutableArray *arrayOfLocalSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:localChanges];
-        NSLog(@"local subs returned: %@", arrayOfLocalSubstitutionDictionaries);
+        //NSLog(@"local subs returned: %@", arrayOfLocalSubstitutionDictionaries);
         for (NSDictionary *sub in arrayOfLocalSubstitutionDictionaries) {
             [nonsortedArray addObject:sub];
         }
@@ -43,7 +43,7 @@
     if (visitorChanges.count % 2 == 0) {
         match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
         NSMutableArray *arrayOfVisitorSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:visitorChanges];
-        NSLog(@"visitor subs returned: %@", arrayOfVisitorSubstitutionDictionaries);
+        //NSLog(@"visitor subs returned: %@", arrayOfVisitorSubstitutionDictionaries);
         for (NSDictionary *sub in arrayOfVisitorSubstitutionDictionaries) {
             [nonsortedArray addObject:sub];
         }
@@ -51,7 +51,7 @@
     NSSortDescriptor *minute= [[NSSortDescriptor alloc] initWithKey:@"minute" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:minute];
     NSMutableArray *returnArray = [NSMutableArray arrayWithArray:[nonsortedArray sortedArrayUsingDescriptors:sortDescriptors]];
-    NSLog(@"RETURN THE CRAKEN!!!!! %@", returnArray);
+    //NSLog(@"RETURN THE CRAKEN!!!!! %@", returnArray);
     return returnArray;
     
 }
@@ -60,7 +60,7 @@
     
     for (NSDictionary *player in array) {
         [returnedArray addObject:player];
-        NSLog(@"%@", player);
+        //NSLog(@"%@", player);
     }
     return returnedArray;
 }
@@ -85,15 +85,15 @@
     
     NSDictionary *substitution = @{@"playerIn": [self.subIn objectForKey:@"player"], @"playerOut": [self.subOut objectForKey:@"player"], @"minute": [self.subOut objectForKey:@"minute"], @"team": [self.subOut objectForKey:@"team"], @"action": @"substitution"};
     [self.arrayOfSubstitutionDictionaries addObject:substitution];
-    NSLog(@"%@ subin", self.subIn);
-    NSLog(@"%@ subout", self.subOut);
-    NSLog(@"changes.count before removal: %lu",(unsigned long)changes.count);
+    //NSLog(@"%@ subin", self.subIn);
+    //NSLog(@"%@ subout", self.subOut);
+    //NSLog(@"changes.count before removal: %lu",(unsigned long)changes.count);
     [changes removeObject:self.subIn];
     [changes removeObject:self.subOut];
-    NSLog(@"changes.count after removal: %lu",(unsigned long)changes.count);
+    //NSLog(@"changes.count after removal: %lu",(unsigned long)changes.count);
     
     if (changes.count > 0) {
-        NSLog(@"array for return : %@", self.arrayOfSubstitutionDictionaries);
+        //NSLog(@"array for return : %@", self.arrayOfSubstitutionDictionaries);
         [self returnSubstitutionsWithArrayOfChanges:changes];
     }
     
@@ -238,11 +238,22 @@
             }
         }
     }//if there is extra data closing bracket
-    NSLog(@"%@", match);
-    NSLog(@"%@ is the status", match.status);
-    NSLog(@"%@ is the local_soff", match.local_soff);
-    NSLog(@"%@ is the local_rc", match.local_rc);
-    NSLog(@"%@ is the pen1", match.pen1);
-    NSLog(@"%@ is the pen1", match.pen2);
+    //NSLog(@"%@", match);
+    //NSLog(@"%@ is the status", match.status);
+    //NSLog(@"%@ is the local_soff", match.local_soff);
+    //NSLog(@"%@ is the local_rc", match.local_rc);
+    //NSLog(@"%@ is the pen1", match.pen1);
+    //NSLog(@"%@ is the pen1", match.pen2);
+}
+
+//else if match is playoff match
++ (void)updateMatchInArray: (NSMutableArray *)array withData:(NSDictionary *)data {
+  NSString *schedule = [data valueForKey:@"schedule"];
+  NSLog(@"%@ is schedule", schedule);
+    for (FBMatch *match in array) {
+    if ([match.schedule isEqualToString:schedule]) {
+      [match updateMatch:match WithData:data];
+    }
+  }
 }
 @end
