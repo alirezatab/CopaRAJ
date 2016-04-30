@@ -16,12 +16,18 @@
 @property NSString *live_minute;//
 @property NSString *playoffs;//
 @property NSString *schedule;//
+@property NSString *date;
+@property NSDate *nsdate;
+@property NSString *hour;
+@property NSString *minute;
 @property NSString *stadium;//
 @property NSString *status;//
 @property NSMutableArray *goals;
 @property NSMutableArray *cards;
 @property NSMutableArray *changes;//substitutions
 @property NSMutableArray *timeline;
+
+
 
 
 //team local info
@@ -71,7 +77,7 @@
 - (NSMutableArray *)returnSubstitutionsWithArrayOfChanges: (NSMutableArray *)changes;
 - (void)updateMatch: (FBMatch *)match WithData: (NSDictionary *)data;
 + (void)updateMatchInArray: (NSMutableArray *)array withData:(NSDictionary *)data;
-
+- (void)createDateInfoForMatch;
 
 
 

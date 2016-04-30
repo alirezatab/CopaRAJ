@@ -7,6 +7,7 @@
 //
 #import "FBMatch.h"
 @implementation FBMatch
+
 + (NSArray *)createTimeLineWithMatch: (FBMatch *)match {
     
     NSMutableArray *nonsortedArray = [NSMutableArray new];
@@ -112,12 +113,28 @@
     //  NSLog(@"%@ is the current minute of the match",match.live_minute);
     match.playoffs = [data valueForKey:@"playoffs"];
     //  NSLog(@"%@ is the playoffs of the match", match.playoffs);
-    match.schedule = [data valueForKey:@"schedule"];
-    //  NSLog(@"%@ is the scheduled time", match.schedule);
     match.stadium = [data valueForKey:@"stadium"];
     //  NSLog(@"%@ is the stadium name", match.stadium);
     match.status = [data valueForKey:@"status"];
     //  NSLog(@"%@ is the match status", match.status);
+    match.schedule = [data valueForKey:@"schedule"];
+    //  NSLog(@"%@ is the scheduled time", match.schedule);
+    NSArray *seperatedSchedule = [match.schedule componentsSeparatedByString:@" "];
+    match.date = seperatedSchedule[0];
+    NSDateFormatter *formater = [[NSDateFormatter alloc]init];
+    [formater setDateFormat:@"yyy/MM/dd"];
+    match.nsdate = [formater dateFromString:match.date];
+  
+  
+    //NSLog(@"THIS IS THE Date -%@-", match.date);
+    NSString *time =  seperatedSchedule[1];
+    NSArray *timeSeparated = [time componentsSeparatedByString:@":"];
+    match.hour = timeSeparated[0];
+    match.minute = timeSeparated[1];
+    //NSLog(@"%@: hour %@: minute %@:date",match.hour, match.minute, match.date);
+  
+  //NSLog(@"THIS IS THE SCORE %@", seperatedScore[1]);
+  //self.visitorTeamScore.text = seperatedScore[1];
     
     //Local team info that typically exisits before matches
     match.local = [data valueForKey:@"local"];
@@ -249,11 +266,26 @@
 //else if match is playoff match
 + (void)updateMatchInArray: (NSMutableArray *)array withData:(NSDictionary *)data {
   NSString *schedule = [data valueForKey:@"schedule"];
-  NSLog(@"%@ is schedule", schedule);
+  //NSLog(@"%@ is schedule", schedule);
     for (FBMatch *match in array) {
     if ([match.schedule isEqualToString:schedule]) {
       [match updateMatch:match WithData:data];
     }
   }
+}
+
+- (void)createDateInfoForMatch {
+  
+  NSArray *seperatedSchedule = [self.schedule componentsSeparatedByString:@" "];
+  self.date = seperatedSchedule[0];
+  
+  NSDateFormatter *formater = [[NSDateFormatter alloc]init];
+  [formater setDateFormat:@"yyy/MM/dd"];
+  self.nsdate = [formater dateFromString:self.date];
+  
+  NSString *time =  seperatedSchedule[1];
+  NSArray *timeSeparated = [time componentsSeparatedByString:@":"];
+  self.hour = timeSeparated[0];
+  self.minute = timeSeparated[1];
 }
 @end

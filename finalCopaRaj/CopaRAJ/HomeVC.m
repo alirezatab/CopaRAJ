@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *sliderImage;
 
 @property NSMutableArray *mathches;
+@property NSMutableArray *sortedMatches;
+@property NSMutableArray *finalArray;
 @property NSMutableArray *playoffMatches;
 @property NSArray *setMatchIDS;
 @property FBMatch *matchA1B2;
@@ -39,6 +41,7 @@
 @property FBMatch *matchL29L30;
 @property FBMatch *matchW29W30;
 
+
 @end
 
 @implementation HomeVC
@@ -46,10 +49,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    [self navigationBarSetting];
     [self.homeButton setTintColor:[UIColor whiteColor]];
     [self initNeededObjects];
-  
     [self updateMatchDataAndLoadTableView];
 }
 
@@ -58,6 +59,8 @@
   self.setMatchIDS = [NSArray new];
   self.setMatchIDS = [NSArray arrayWithObjects:@"347356",@"347351",@"347362",@"347347",@"347358",@"347342",@"347353",@"347364",@"347349",@"347344",@"347355",@"347350",@"347361", @"347346", @"347357", @"347352", @"347363", @"347348", @"347359", @"347343", @"347354", @"347365", @"347360", @"347345", nil];
   self.playoffMatches = [NSMutableArray new];
+  self.sortedMatches = [NSMutableArray new];
+  self.finalArray = [NSMutableArray new];
 
   }
 
@@ -88,7 +91,7 @@
     self.matchA1B2.schedule = [snapshot.value objectForKey:@"A1B2"];
     self.matchB1A2.local_abbr = @"A1";
     self.matchB1A2.visitor_abbr = @"B2";
-    NSLog(@"a1: %@ b2: %@ schedule: %@", self.matchA1B2.local, self.matchA1B2.visitor, self.matchA1B2.schedule);
+    //NSLog(@"a1: %@ b2: %@ schedule: %@", self.matchA1B2.local, self.matchA1B2.visitor, self.matchA1B2.schedule);
     [self.playoffMatches addObject:self.matchA1B2];
     
     self.matchB1A2.local = @"B1";
@@ -96,7 +99,7 @@
     self.matchB1A2.schedule = [snapshot.value objectForKey:@"B1A2"];
     self.matchB1A2.local_abbr = @"B1";
     self.matchB1A2.visitor_abbr = @"A2";
-    NSLog(@"b1: %@ a2: %@ schedule: %@", self.matchB1A2.local, self.matchB1A2.visitor, self.matchB1A2.schedule);
+    //NSLog(@"b1: %@ a2: %@ schedule: %@", self.matchB1A2.local, self.matchB1A2.visitor, self.matchB1A2.schedule);
     [self.playoffMatches addObject:self.matchB1A2];
 
     self.matchD1C2.local = @"D1";
@@ -104,7 +107,7 @@
     self.matchD1C2.schedule = [snapshot.value objectForKey:@"D1C2"];
     self.matchD1C2.local_abbr = @"D1";
     self.matchD1C2.visitor_abbr = @"C2";
-    NSLog(@"D1: %@ C2: %@ schedule: %@", self.matchD1C2.local, self.matchD1C2.visitor, self.matchD1C2.schedule);
+    //NSLog(@"D1: %@ C2: %@ schedule: %@", self.matchD1C2.local, self.matchD1C2.visitor, self.matchD1C2.schedule);
     [self.playoffMatches addObject:self.matchD1C2];
 
     
@@ -113,7 +116,7 @@
     self.matchC1D2.schedule = [snapshot.value objectForKey:@"C1D2"];
     self.matchC1D2.local_abbr = @"C1";
     self.matchC1D2.visitor_abbr = @"D2";
-    NSLog(@"C1: %@ D2: %@ schedule: %@", self.matchC1D2.local, self.matchC1D2.visitor, self.matchC1D2.schedule);
+    //NSLog(@"C1: %@ D2: %@ schedule: %@", self.matchC1D2.local, self.matchC1D2.visitor, self.matchC1D2.schedule);
     [self.playoffMatches addObject:self.matchC1D2];
 
     
@@ -122,7 +125,7 @@
     self.matchW25W27.schedule = [snapshot.value objectForKey:@"W25W27"];
     self.matchW25W27.local_abbr = @"W25";
     self.matchW25W27.visitor_abbr = @"W27";
-    NSLog(@"W25: %@ W27: %@ schedule: %@", self.matchW25W27.local, self.matchW25W27.visitor, self.matchW25W27.schedule);
+    //NSLog(@"W25: %@ W27: %@ schedule: %@", self.matchW25W27.local, self.matchW25W27.visitor, self.matchW25W27.schedule);
     [self.playoffMatches addObject:self.matchW25W27];
 
     
@@ -131,20 +134,30 @@
     self.matchW26W28.schedule = [snapshot.value objectForKey:@"W26W28"];
     self.matchW26W28.local_abbr = @"W26";
     self.matchW26W28.visitor_abbr = @"W28";
-    NSLog(@"W26: %@ W28: %@ schedule: %@", self.matchW26W28.local, self.matchW26W28.visitor, self.matchW26W28.schedule);
-    [self.playoffMatches addObject:self.matchW26W28];
+    //NSLog(@"W26: %@ W28: %@ schedule: %@", self.matchW26W28.local, self.matchW26W28.visitor, self.matchW26W28.schedule);
+    [self.playoffMatches addObject:self.matchW25W27];
 
     
-    self.matchW29W30.local = @"W290";
+    self.matchW29W30.local = @"W29";
     self.matchW29W30.visitor = @"W30";
     self.matchW29W30.schedule = [snapshot.value objectForKey:@"W29W30"];
     self.matchW29W30.local_abbr = @"W29";
     self.matchW29W30.visitor_abbr = @"W30";
-    NSLog(@"W29: %@ W30: %@ schedule: %@", self.matchW29W30.local, self.matchW29W30.visitor, self.matchW29W30.schedule);
+    //NSLog(@"W29: %@ W30: %@ schedule: %@", self.matchW29W30.local, self.matchW29W30.visitor, self.matchW29W30.schedule);
     [self.playoffMatches addObject:self.matchW29W30];
-    NSLog(@"%lu is the playoff match count", (unsigned long)self.playoffMatches.count);
+    //NSLog(@"%lu is the playoff match count", (unsigned long)self.playoffMatches.count);
 
+    self.matchL29L30.local = @"L29";
+    self.matchL29L30.visitor = @"L30";
+    self.matchL29L30.schedule = [snapshot.value objectForKey:@"L29L30"];
+    self.matchL29L30.local_abbr = @"L29";
+    self.matchL29L30.visitor_abbr = @"L30";
+    //NSLog(@"W29: %@ W30: %@ schedule: %@", self.matchW29W30.local, self.matchW29W30.visitor, self.matchW29W30.schedule);
+    [self.playoffMatches addObject:self.matchL29L30];
     
+    for (FBMatch *match in self.playoffMatches) {
+      [match createDateInfoForMatch];
+    }
     [self getMatchesFromFireBase];
     
   } withCancelBlock:^(NSError *error) {
@@ -155,25 +168,71 @@
 
 - (void)getMatchesFromFireBase {
   Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
-  
   [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
     for (id match in snapshot.value) {
       
       NSDictionary *matchData = [snapshot.value valueForKey:match];
-      if ([[matchData valueForKey:@"category_id"] isEqualToString:@"177"] && [self.setMatchIDS containsObject:match]) {
-        FBMatch *newMatch = [FBMatch new];
-        [newMatch updateMatch:newMatch WithData:matchData];
-        [self.mathches addObject:newMatch];
-        NSLog(@"%lu", (unsigned long)self.mathches.count);
-      } else if ([[matchData valueForKey:@"category_id"]isEqualToString:@"177"]){
-        [FBMatch updateMatchInArray:self.playoffMatches withData:matchData];
+      if ([[matchData valueForKey:@"category_id"] isEqualToString:@"177"]) {
+        
+        if ([self match:matchData alreadyExistsInArray:self.sortedMatches]) {
+          [FBMatch updateMatchInArray:self.sortedMatches withData:matchData];
+        } else if ([self.setMatchIDS containsObject:match]){
+          FBMatch *newFoundMatch = [FBMatch new];
+          [newFoundMatch updateMatch:newFoundMatch WithData:matchData];
+          [self.mathches addObject:newFoundMatch];
+        } else if ([[matchData valueForKey:@"category_id"]isEqualToString:@"177"]) {
+          [FBMatch updateMatchInArray:self.playoffMatches withData:matchData];
+        }
       }
     }
-    [self.mathches addObjectsFromArray:self.playoffMatches];
-    NSLog(@"%lu", self.mathches.count);
+    
+    if (self.sortedMatches.count != 32 && self.mathches.count == 24) {
+      [self.mathches addObjectsFromArray:self.playoffMatches];
+    }
+    
+    [self sortMatches];
+    for (FBMatch *match in self.sortedMatches) {
+      NSLog(@"%@", match.schedule);
+    }
+    [self createArraysForSectionHeaders];
+    [self.tableView reloadData];
+    
+  } withCancelBlock:^(NSError *error) {
+    [self presentErrorWithString:error.description];
   }];
 }
 
+- (void)createArraysForSectionHeaders {
+  
+  NSDate *matchDate;
+  
+  for (FBMatch *match  in self.sortedMatches) {
+    if (matchDate == nil) {
+      matchDate  = match.nsdate;
+      [self.finalArray addObject:[@[match]mutableCopy]];
+      
+    } else if ([matchDate compare:match.nsdate] == NSOrderedSame){
+      
+      [self.finalArray[self.finalArray.count - 1] addObject:match];
+    } else{
+      matchDate = match.nsdate;
+      [self.finalArray addObject:[@[match]mutableCopy]];
+    }
+  }
+}
+
+- (BOOL)match: (NSDictionary *)match alreadyExistsInArray:(NSMutableArray *)array {
+  
+  NSString *schedule = [match valueForKey:@"schedule"];
+
+  for (FBMatch *game in array) {
+    if ([game.schedule isEqualToString:schedule]) {
+      return true;
+    }
+  }
+  return false;
+  
+}
 
 - (void)presentErrorWithString: (NSString *)string {
   UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Error" message:string preferredStyle:UIAlertControllerStyleAlert];
@@ -187,42 +246,56 @@
   }];
 }
 
+- (void)sortMatches {
+  
+  
+  NSSortDescriptor *sortDescriptor;
+  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"schedule"
+                                               ascending:YES];
+  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+  self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
+}
+
 //////////////////tableview stuff/////////////////////////////////////////
 //
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  //return self.finalArray.count;
-  return 0;
+  return self.finalArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  //    NSArray *sections =[self.finalArray objectAtIndex:section];
-  //    //return sections.count;
-  return 0;
   
+  NSArray *sections =[self.finalArray objectAtIndex:section];
+  return sections.count;
 }
 
 
 //create setter
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-  //
-  //    //arr its a array of matches sorted by dates
-  //    //NSArray *arr = [self.finalArray objectAtIndex:indexPath.section];
-  //
-  //   // Match *match = [arr objectAtIndex:indexPath.row];
-  //
-  //    cell.teamOneName.text = match.localAbbr;
-  //    cell.teamTwoName.text = match.visitorAbbr;
-  //    cell.teamOneImage.image = [UIImage imageNamed:match.localTeam];
-  //    cell.teamTwoImage.image = [UIImage imageNamed:match.visitingTeam];
-  //    cell.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", match.hour, match.minute];
-  //    cell.teamOneScore.text = match.localScore;
-  //    cell.teamTwoScore.text = match.visitorScore;
-  //    cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.penalties1, match.penalties2];
-  //
-  //
-  //    //testing
-  //    cell.locationLabel.text = [NSString stringWithFormat:@"Levi's Stadium %@",  match.groupCode];
+
+  NSArray *arr = [self.finalArray objectAtIndex:indexPath.section];
+ 
+  FBMatch *match = [arr objectAtIndex:indexPath.row];
+  
+  cell.teamOneName.text = match.local_abbr;
+  cell.teamTwoName.text = match.visitor_abbr;
+  if ([match.local isEqualToString:@"Haití"]) {
+    cell.teamOneImage.image = [UIImage imageNamed:@"Haiti"];
+       } else {
+         cell.teamOneImage.image = [UIImage imageNamed:match.local];
+       }
+  if ([match.visitor isEqualToString:@"Haití"]) {
+    cell.teamTwoImage.image = [UIImage imageNamed:@"Haiti"];
+  } else {
+    cell.teamTwoImage.image = [UIImage imageNamed:match.visitor];
+  }
+  
+  cell.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", match.hour, match.minute];
+  cell.teamOneScore.text = match.local_goals;
+  cell.teamTwoScore.text = match.visitor_goals;
+  cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
+  
+  cell.locationLabel.text = [NSString stringWithFormat:@"Levi's Stadium %@",  match.groupCode];
   return cell;
 }
 
@@ -247,13 +320,14 @@
   NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
   [dateFormat setDateStyle:NSDateFormatterFullStyle];
   
-  // NSDate *date = [self.matchDatesWithNoDuplicates  objectAtIndex:section];
-  // NSString *sectionTitle = [dateFormat stringFromDate:date];    /* Section header is in 0th index... */
+  FBMatch *m = [[self.finalArray  objectAtIndex:section] firstObject];
+  NSDate *date = m.nsdate;
   
+  NSString *sectionTitle = [dateFormat stringFromDate:date];    /* Section header is in 0th index... */
   
-  //[label setText:sectionTitle];
-  //[view addSubview:label];
-  //[view setBackgroundColor:[UIColor colorWithWhite:0.969 alpha:1.000]]; //your background
+  [label setText:sectionTitle];
+  [view addSubview:label];
+  [view setBackgroundColor:[UIColor colorWithWhite:0.969 alpha:1.000]]; //your background
   
   return view;
 }
@@ -275,22 +349,7 @@
   }
 }
 
-- (void)navigationBarSetting {
-  
-  [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"stadium"] forBarMetrics:UIBarMetricsDefault];
-  self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-  
-  NSShadow *shadow = [[NSShadow alloc] init];
-  shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-  shadow.shadowOffset = CGSizeMake(0, 1);
-  
-  [[UINavigationBar appearance] setTitleTextAttributes:
-   [NSDictionary dictionaryWithObjectsAndKeys:[UIColor
-                                               colorWithRed: 245.0/255.0
-                                               green:245.0/255.0
-                                               blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName, shadow, NSShadowAttributeName,[UIFont fontWithName:@"GothamMedium" size:21.0], NSFontAttributeName, nil]];
-  
-}
+
 
 - (UIStatusBarStyle)preferredStatusBar {
   return UIStatusBarStyleLightContent;
@@ -298,18 +357,18 @@
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAYBE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-- (void)kickSoccerBall {
-  CGFloat f = (CGFloat)0;
-  [UIView animateWithDuration:10.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-    CGRect r = CGRectMake(f, f, self.sliderImage.frame.size.height, self.sliderImage.frame.size.width);
-    CGRect r1 = CGRectMake(self.slideView.frame.size.width, f, self.sliderImage.frame.size.height, self.sliderImage.frame.size.width);
-    [self.sliderImage setFrame:r];
-    
-    [self.sliderImage setFrame:r1];
-  } completion:^(BOOL finished) {
-    
-  }];
-}
+//- (void)kickSoccerBall {
+//  CGFloat f = (CGFloat)0;
+//  [UIView animateWithDuration:10.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+//    CGRect r = CGRectMake(f, f, self.sliderImage.frame.size.height, self.sliderImage.frame.size.width);
+//    CGRect r1 = CGRectMake(self.slideView.frame.size.width, f, self.sliderImage.frame.size.height, self.sliderImage.frame.size.width);
+//    [self.sliderImage setFrame:r];
+//    
+//    [self.sliderImage setFrame:r1];
+//  } completion:^(BOOL finished) {
+//    
+//  }];
+//}
 //- (void)storeDatesinAnArray {
 //  //storing all the dates in an array
 //  NSMutableArray *matchDates = [NSMutableArray new];
@@ -706,25 +765,11 @@
 //            NSMutableArray *matchesData = [NSMutableArray new];
 //            matchesData = dictionary[@"match"];
 //
-//            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+//            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"schedule" ascending:YES];
 //            NSMutableArray *sortedMatchesData = [NSMutableArray new];
 //            sortedMatchesData = [[matchesData sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
-//
-//
-//            for (NSDictionary *matchData in sortedMatchesData) {
-//                [self updateMatchesWithMatchData: matchData];
-//            }
-//            NSError *mocError;
-//            if([self.moc save:&mocError]){
-//            }else{
-//                NSLog(@"an error has occurred,...%@", error);
-//            }
-//
-//            dispatch_async(dispatch_get_main_queue(), ^(void){
-//                //Run UI Updates
-//                [self.tableView reloadData];
-//            });
-//        }];
+//          NSLog(@"%@", sortedMatchesData);
+//          }];
 //        [task resume];
 //    }
 //}
