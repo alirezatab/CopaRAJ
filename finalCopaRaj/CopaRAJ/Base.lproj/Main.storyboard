@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8gu-mv-4JN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8gu-mv-4JN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -46,7 +46,7 @@
                                 <color key="barTintColor" red="0.063018247485160828" green="0.18738099932670593" blue="0.23143103718757629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TUr-j0-mMr">
-                                <rect key="frame" x="0.0" y="108" width="600" height="432"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="476"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="106" id="Swl-V8-MwE" customClass="HomeTableViewCell">
@@ -161,32 +161,17 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="stU-c1-5fE"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w26-h3-hs1">
-                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="soccerBall" translatesAutoresizingMaskIntoConstraints="NO" id="q95-LU-Qfi">
-                                        <rect key="frame" x="319" y="1" width="44" height="44"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="ktr-aA-Thq"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="07C-lE-Wzk"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="izq-a9-pyn" secondAttribute="bottom" id="DwF-fk-ghX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TUr-j0-mMr" secondAttribute="trailing" constant="-20" id="FBc-mS-3RU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="w26-h3-hs1" secondAttribute="trailing" constant="-20" id="IgA-h9-v73"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Lq4-9f-Jmg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="izq-a9-pyn" secondAttribute="trailing" constant="-20" id="S8v-8N-uEE"/>
-                            <constraint firstItem="TUr-j0-mMr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="Wy4-2u-hTS"/>
-                            <constraint firstItem="w26-h3-hs1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="YkQ-7C-EfQ"/>
+                            <constraint firstItem="TUr-j0-mMr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Wy4-2u-hTS"/>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Yts-qR-SnT"/>
-                            <constraint firstItem="TUr-j0-mMr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="g1U-vu-h8D"/>
-                            <constraint firstItem="w26-h3-hs1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="izu-vT-Pn7"/>
+                            <constraint firstItem="TUr-j0-mMr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="g1U-vu-h8D"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="TUr-j0-mMr" secondAttribute="bottom" id="lsv-ma-OdN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TUr-j0-mMr" secondAttribute="trailing" constant="-20" id="wVa-4n-qHL"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="TUr-j0-mMr" secondAttribute="bottom" id="xxX-Af-ocd"/>
@@ -195,8 +180,6 @@
                     <navigationItem key="navigationItem" title="Copa America" id="zb4-O1-TtV"/>
                     <connections>
                         <outlet property="homeButton" destination="fUr-0o-Gsj" id="MjT-Jp-w3b"/>
-                        <outlet property="slideView" destination="w26-h3-hs1" id="gws-45-U5n"/>
-                        <outlet property="sliderImage" destination="q95-LU-Qfi" id="gUW-f5-adB"/>
                         <outlet property="tableView" destination="TUr-j0-mMr" id="eU4-bW-Tvh"/>
                     </connections>
                 </viewController>
@@ -251,7 +234,6 @@
     <resources>
         <image name="games" width="34" height="47"/>
         <image name="groups" width="39" height="47"/>
-        <image name="soccerBall" width="32" height="32"/>
         <image name="stadium" width="361" height="88"/>
         <image name="tournament" width="48" height="47"/>
     </resources>

@@ -34,6 +34,17 @@
   [self.groupButton setTintColor:[UIColor redColor]];
   [self createListeners];
   self.tableView.allowsSelection = NO;
+    
+    
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenWidth = screenSize.width;
+    CGFloat screenHeight = screenSize.height;
+    
+    
+    NSLog(@"%f width and , %f height", screenWidth , screenHeight );
+
+    NSLog(@"%f tableview width ", self.view.frame.size.width);
 }
 
 #pragma FireBase
@@ -130,21 +141,56 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenWidth = screenSize.width;
+    int labelWidth = (screenWidth - 150) /5;
+
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
+    
     /* Create custom view to display section header... */
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 45)];
-    [label setFont:[UIFont fontWithName:@"GothamMedium" size:14]];
-    [label setTextAlignment:NSTextAlignmentJustified];
-   
-    [label setTextColor:[UIColor colorWithWhite:0.600 alpha:1.000]];
-      FBGroup *group = [self.groups objectAtIndex:section];
-      NSString *sectionHeader = [NSString stringWithFormat:@"Group: %@              GP     W      T      L      PTS ", group.groupLetter];
-   
+    UILabel *groupLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,5,screenWidth/3.9, 45)];
+    UILabel *gpLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 5, labelWidth, 45)];
+    UILabel *wLabel = [[UILabel alloc] initWithFrame:CGRectMake(184, 5, labelWidth, 45)];
+    UILabel *tLabel = [[UILabel alloc] initWithFrame:CGRectMake(218, 5, labelWidth, 45)];
+    UILabel *lLabel = [[UILabel alloc] initWithFrame:CGRectMake(252, 5, labelWidth, 45)];
+    UILabel *ptsLabel = [[UILabel alloc] initWithFrame:CGRectMake(286, 5,labelWidth, 45)];
+
+    //setting the font, color &alignment for groupLabel
+    [groupLabel setFont:[UIFont fontWithName:@"GothamMedium" size:15]];
+    [groupLabel setTextColor:[UIColor colorWithWhite:0.600 alpha:1.000]];
+    [groupLabel setTextAlignment:NSTextAlignmentCenter];
     
-    [label setText:sectionHeader];
-    [view addSubview:label];
-    [view setBackgroundColor:[UIColor colorWithWhite:0.969 alpha:1.000]]; //your background
+    for (UILabel *label in @[gpLabel,wLabel,tLabel,lLabel,ptsLabel] ){
+        [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:13]];
+        [label setTextColor:[UIColor colorWithWhite:0.600 alpha:1.000]];
+        [label setTextAlignment:NSTextAlignmentCenter];
+    }
     
+    //set the color of the view
+    [view setBackgroundColor:[UIColor colorWithWhite:0.969 alpha:1.000]];//your background
+    
+    //getting the Group
+    FBGroup *group = [self.groups objectAtIndex:section];
+
+    //set the strings for the header labels
+    NSString *groupLetter = [NSString stringWithFormat: @"Group %@", group.groupLetter];
+    
+    [groupLabel setText: groupLetter];
+    [gpLabel setText: @"GP"];
+    [wLabel setText:@"W"];
+    [tLabel setText:@"T"];
+    [lLabel setText:@"L"];
+    [ptsLabel setText:@"PTS"];
+    
+    [view addSubview:groupLabel];
+    [view addSubview:gpLabel];
+    [view addSubview:wLabel];
+    [view addSubview:tLabel];
+    [view addSubview:lLabel];
+    [view addSubview:ptsLabel];
+
     return view;
 }
 
@@ -153,3 +199,9 @@
     return 50;
 }
 @end
+
+
+
+
+
+
