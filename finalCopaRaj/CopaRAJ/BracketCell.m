@@ -36,8 +36,12 @@
     //changing the fonts for the groupVC
     self.homeTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
     self.homeTeamScore.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.homeTeamPenalty.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    
     self.visitorTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
     self.visitorTeamScore.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.visitorTeamPenalty.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    
     self.winnerTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
 }
 
@@ -45,21 +49,36 @@
     _FBMatch = FBMatch;
   
     //NSLog(@"%@", FBMatch.local_abbr);
-    self.homeTeamImageView.image = [UIImage imageNamed:FBMatch.local_abbr];
+    self.homeTeamImageView.image = [UIImage imageNamed:FBMatch.local];
     self.homeTeamLabel.text = FBMatch.local;
-    self.homeTeamPenalty.text = FBMatch.pen1;
+    
+    self.visitorTeamImageView.image = [UIImage imageNamed:FBMatch.visitor];
+    self.visitorTeamLabel.text = FBMatch.visitor;
+    
+    if ([FBMatch.status isEqual:@1]) {
+        self.homeTeamPenalty.enabled = YES;
+        self.homeTeamPenalty.text = FBMatch.pen1;
+        
+        self.visitorTeamPenalty.enabled = YES;
+        self.visitorTeamPenalty.text = FBMatch.pen2;
+    } else {
+        self.homeTeamPenalty.enabled = NO;
+        self.homeTeamPenalty.hidden = YES;
+        
+        self.visitorTeamPenalty.enabled = NO;
+        self.visitorTeamPenalty.hidden = YES;
+    }
     if ([FBMatch.local_goals isEqualToString: @"x"]){
         FBMatch.local_goals = @"";
+    } else {
+        self.homeTeamScore.text = FBMatch.local_goals;
     }
-    self.homeTeamScore.text = FBMatch.local_goals;
     
-    self.visitorTeamImageView.image = [UIImage imageNamed:FBMatch.visitor_abbr];
-    self.visitorTeamLabel.text = FBMatch.visitor;
-    self.visitorTeamPenalty.text = FBMatch.pen2;
     if ([FBMatch.visitor_goals isEqualToString: @"x"]){
         FBMatch.visitor_goals = @"";
+    } else {
+        self.visitorTeamScore.text = FBMatch.visitor_goals;
     }
-    self.visitorTeamScore.text = FBMatch.visitor_goals;
 }
 @end
 
