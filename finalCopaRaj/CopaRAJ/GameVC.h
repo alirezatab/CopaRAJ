@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Match.h"
+#import "FBMatch.h"
 
 @interface GameVC : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *teamOneImage;
@@ -20,4 +21,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *teamTwoName;
 @property (weak, nonatomic) IBOutlet UILabel *teamTwoScore;
 @property NSNumber *matchID;
+@property FBMatch *match;
 @end
