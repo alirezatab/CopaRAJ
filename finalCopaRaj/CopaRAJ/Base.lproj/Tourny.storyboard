@@ -21,35 +21,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stadium-1" translatesAutoresizingMaskIntoConstraints="NO" id="xpv-gp-0kg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-dU-Q0U">
-                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="D9i-Nd-xI8"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Qep-Nq-iup"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dXg-HU-Mho"/>
-                                    <barButtonItem image="games" width="110" id="q8e-g2-4B7">
-                                        <connections>
-                                            <segue destination="RQT-Xj-YMP" kind="show" animates="NO" id="E7X-Aa-pFI"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem image="groups" width="110" id="ggG-Yg-R17">
-                                        <connections>
-                                            <segue destination="JQg-Da-tjf" kind="show" animates="NO" id="Csh-nR-7gl"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem image="tournament" width="110" id="zJ6-0O-uiw"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="n6V-h7-hlH"/>
-                                </items>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.1647058824" green="0.7725490196" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="D9i-Nd-xI8"/>
-                                    </mask>
-                                </variation>
-                            </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TXt-wg-6cT">
                                 <rect key="frame" x="0.0" y="64" width="600" height="476"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -246,8 +217,15 @@
                                                                     </view>
                                                                     <blurEffect style="light"/>
                                                                 </visualEffectView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-5q-mT7">
-                                                                    <rect key="frame" x="74" y="8" width="180" height="60"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tournament" translatesAutoresizingMaskIntoConstraints="NO" id="zyF-U2-4EY">
+                                                                    <rect key="frame" x="201" y="8" width="58" height="60"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="58" id="e4P-PB-Nom"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-5q-mT7" userLabel="Champion Label">
+                                                                    <rect key="frame" x="74" y="8" width="119" height="60"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -260,17 +238,20 @@
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="PuW-5q-mT7" secondAttribute="bottom" constant="8" id="0fe-n7-0kW"/>
                                                                 <constraint firstItem="obG-bh-Y6K" firstAttribute="top" secondItem="yjY-BZ-fu9" secondAttribute="top" constant="8" id="1vc-XU-2Op"/>
                                                                 <constraint firstAttribute="bottom" secondItem="2DK-0b-5iv" secondAttribute="bottom" id="57W-gj-Mgx"/>
                                                                 <constraint firstItem="2DK-0b-5iv" firstAttribute="top" secondItem="yjY-BZ-fu9" secondAttribute="top" id="9RU-We-of2"/>
                                                                 <constraint firstItem="obG-bh-Y6K" firstAttribute="leading" secondItem="yjY-BZ-fu9" secondAttribute="leading" constant="8" id="Bom-TM-e9P"/>
+                                                                <constraint firstAttribute="trailing" secondItem="zyF-U2-4EY" secondAttribute="trailing" constant="8" id="Dtu-Ad-fWb"/>
+                                                                <constraint firstItem="zyF-U2-4EY" firstAttribute="top" secondItem="yjY-BZ-fu9" secondAttribute="top" constant="8" id="EvK-dE-qRG"/>
+                                                                <constraint firstItem="zyF-U2-4EY" firstAttribute="leading" secondItem="PuW-5q-mT7" secondAttribute="trailing" constant="8" id="ExO-I3-CfN"/>
                                                                 <constraint firstAttribute="trailing" secondItem="2DK-0b-5iv" secondAttribute="trailing" id="GZZ-Gs-a0Y"/>
+                                                                <constraint firstAttribute="bottom" secondItem="zyF-U2-4EY" secondAttribute="bottom" constant="8" id="SDQ-gm-e7J"/>
+                                                                <constraint firstItem="PuW-5q-mT7" firstAttribute="leading" secondItem="obG-bh-Y6K" secondAttribute="trailing" constant="8" id="U4z-as-6eb"/>
                                                                 <constraint firstItem="2DK-0b-5iv" firstAttribute="leading" secondItem="yjY-BZ-fu9" secondAttribute="leading" id="YAP-r3-p5Y"/>
-                                                                <constraint firstItem="PuW-5q-mT7" firstAttribute="top" secondItem="yjY-BZ-fu9" secondAttribute="top" constant="8" id="jwn-bm-OtN"/>
                                                                 <constraint firstAttribute="bottom" secondItem="obG-bh-Y6K" secondAttribute="bottom" constant="8" id="nxj-UY-4mK"/>
-                                                                <constraint firstAttribute="trailing" secondItem="PuW-5q-mT7" secondAttribute="trailing" constant="13" id="orZ-6u-pI2"/>
-                                                                <constraint firstAttribute="bottom" secondItem="PuW-5q-mT7" secondAttribute="bottom" constant="8" id="xSb-TC-00w"/>
-                                                                <constraint firstItem="PuW-5q-mT7" firstAttribute="leading" secondItem="obG-bh-Y6K" secondAttribute="trailing" constant="8" id="xjN-sH-t4i"/>
+                                                                <constraint firstItem="PuW-5q-mT7" firstAttribute="top" secondItem="yjY-BZ-fu9" secondAttribute="top" constant="8" id="piO-8F-QsW"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -298,6 +279,35 @@
                                     <outlet property="delegate" destination="SuA-bu-kxJ" id="emR-YD-9GA"/>
                                 </connections>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-dU-Q0U">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="D9i-Nd-xI8"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Qep-Nq-iup"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dXg-HU-Mho"/>
+                                    <barButtonItem image="matchesButtonImage" width="110" id="q8e-g2-4B7">
+                                        <connections>
+                                            <segue destination="RQT-Xj-YMP" kind="show" animates="NO" id="E7X-Aa-pFI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="soccerBall" width="110" id="ggG-Yg-R17">
+                                        <connections>
+                                            <segue destination="JQg-Da-tjf" kind="show" animates="NO" id="Csh-nR-7gl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="BracketButtonIcon2" width="110" id="zJ6-0O-uiw"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="n6V-h7-hlH"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.098039215686274508" green="0.15294117647058825" blue="0.1764705882352941" alpha="0.27000000000000002" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="D9i-Nd-xI8"/>
+                                    </mask>
+                                </variation>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -321,6 +331,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="TXt-wg-6cT" id="68z-7R-6C0"/>
+                        <outlet property="playOffButton" destination="zJ6-0O-uiw" id="x2J-Gf-hTU"/>
                         <outlet property="tourneyButton" destination="ggG-Yg-R17" id="YiL-1p-ROt"/>
                     </connections>
                 </viewController>
@@ -346,8 +357,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="games" width="34" height="47"/>
-        <image name="groups" width="39" height="47"/>
+        <image name="BracketButtonIcon2" width="52" height="52"/>
+        <image name="matchesButtonImage" width="44" height="44"/>
+        <image name="soccerBall" width="32" height="32"/>
         <image name="stadium-1" width="5312" height="2988"/>
         <image name="tournament" width="48" height="47"/>
     </resources>
