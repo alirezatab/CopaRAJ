@@ -356,16 +356,30 @@
   } else {
     cell.teamTwoImage.image = [UIImage imageNamed:match.visitor];
   }
-
+  
+  //penalties
   if (match.pen1.integerValue > 0 || match.pen2.integerValue > 0 ) {
     cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
   } else {
     cell.penaltiesLabel.text = @"";
   }
-  cell.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", match.hour, match.minute];
-  cell.teamOneScore.text = match.local_goals;
-  cell.teamTwoScore.text = match.visitor_goals;
   
+  //time parameters
+  if ([match.status isEqualToString: @"-1"]) {
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", match.hour , match.minute];
+    cell.teamOneScore.text = @"";
+    cell.teamTwoScore.text = @"";
+  } else if ([match.status isEqualToString:@"0"]){
+    cell.timeLabel.text = match.live_minute;
+    cell.teamOneScore.text = match.local_goals;
+    cell.teamTwoScore.text = match.visitor_goals;
+  } else if ([match.status isEqualToString:@"1"])  {
+    cell.timeLabel.text = @"Final";
+    cell.teamOneScore.text = match.local_goals;
+    cell.teamTwoScore.text = match.visitor_goals;
+    
+  }
+
   cell.locationLabel.text = [NSString stringWithFormat:@"Levi's Stadium %@",  match.groupCode];
   
   return cell;
