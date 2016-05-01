@@ -37,13 +37,14 @@
 @property NSString *local_pos;///possessiong %
 @property NSString *local_sot;///shots
 @property NSString *local_son;///shots on target
-@property NSString *local_soff;///offsides
+@property NSString *local_off;///offsides
 @property NSString *local_frk;///free kicks
 @property NSString *local_blk; ///saves
 @property NSString *local_yc; ///yellow cards
 @property NSString *local_rc; ///red cards
 @property NSString *local_tactic;//
 @property NSMutableArray *local_Lineup;
+@property NSString *local_cor;
 @property NSNumber *pen1;//
 
 
@@ -56,11 +57,12 @@
 @property NSString *visitor_pos;///possessiong %
 @property NSString *visitor_sot;///shots
 @property NSString *visitor_son;///shots on target
-@property NSString *visitor_soff;///offsides
+@property NSString *visitor_off;///offsides
 @property NSString *visitor_frk;///free kicks
 @property NSString *visitor_blk; ///saves
 @property NSString *visitor_yc; ///yellow cards
 @property NSString *visitor_rc; ///red cards
+@property NSString *visitor_cor;
 @property NSString *visitor_tactic;///
 @property NSMutableArray *visitor_Lineup;///
 @property NSNumber *pen2;//

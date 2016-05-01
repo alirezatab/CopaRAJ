@@ -69,7 +69,7 @@
     
     //NSString *matchID = [NSString stringWithFormat:@"%@", self.matchID];
     //if matchID
-    NSString *thisWillBeThePassedMatchID = @"377717";
+    NSString *thisWillBeThePassedMatchID = @"37483";
     NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@", thisWillBeThePassedMatchID];
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
     [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -99,13 +99,25 @@
 - (void)displayMatchLabels {
     NSString *titleText = [NSString stringWithFormat:@"%@ vs %@" , self.match.local_abbr, self.match.visitor_abbr];
     self.title = titleText;
+  
+  if ([self.match.status isEqualToString: @"-1"]) {
     self.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", self.match.hour , self.match.minute];
+    self.teamOneScore.text = @"";
+    self.teamTwoScore.text = @"";
+  } else if ([self.match.status isEqualToString:@"0"]){
+    self.timeLabel.text = self.match.live_minute;
+    self.teamOneScore.text = self.match.local_goals;
+    self.teamTwoScore.text = self.match.visitor_goals;
+  } else if ([self.match.status isEqualToString:@"1"])  {
+    self.timeLabel.text = @"Game Over";
+    self.teamOneScore.text = self.match.local_goals;
+    self.teamTwoScore.text = self.match.visitor_goals;
+
+  }
     self.teamOneImage.image = [UIImage imageNamed:self.match.local];
     self.teamOneName.text = self.match.local;
-    self.teamOneScore.text = self.match.local_goals;
     self.teamTwoImage.image = [UIImage imageNamed:self.match.visitor];
     self.teamTwoName.text = self.match.visitor;
-    self.teamTwoScore.text = self.match.visitor_goals;
     self.matchDateLabel.text = self.match.date;
     NSArray *labels = @[self.timeLabel , self.teamOneName , self.teamOneScore , self.teamTwoName ,self.teamTwoScore , self.matchDateLabel];
     for (UILabel *label in labels){
@@ -121,9 +133,10 @@
     int i = 0;
     //TEAM A
     NSArray *lineUpLocalLabels = @[self.teamAPlayer1,self.teamAPlayer2,self.teamAPlayer3,self.teamAPlayer4,self.teamAPlayer5,self.teamAPlayer6,self.teamAPlayer7,self.teamAPlayer8,self.teamAPlayer9,self.teamAPlayer10,self.teamAPlayer11];
+  
     
-    for (FBMatch *match in self.match.local_Lineup) {
-        NSString *nick = [match valueForKey:@"nick"];
+    for (FBMatch *player in self.match.local_Lineup) {
+        NSString *nick = [player valueForKey:@"nick"];
         UILabel *label = [lineUpLocalLabels objectAtIndex:i];
         label.text = nick;
         [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:15]];
@@ -157,7 +170,7 @@
     self.local_posLabel.text = self.match.local_pos;
     self.local_sotLabel.text = self.match.local_sot;
     self.local_sonLabel.text = self.match.local_son;
-    self.local_soffLabel.text = [NSString stringWithFormat:@"%@" , self.match.local_soff];
+    self.local_soffLabel.text = [NSString stringWithFormat:@"%@" , self.match.local_off];
     self.local_frkLabel.text = self.match.local_frk;
     self.local_blkLabel.text = self.match.local_blk;
     self.local_ycLabel.text = self.match.local_yc;
@@ -168,7 +181,7 @@
     self.visitor_posLabel.text = self.match.visitor_pos;
     self.visitor_sotLabel.text = self.match.visitor_sot;
     self.visitor_sonLabel.text = self.match.visitor_son;
-    self.visitor_soffLabel.text =[NSString stringWithFormat:@"%@" , self.match.visitor_soff];
+    self.visitor_soffLabel.text =[NSString stringWithFormat:@"%@" , self.match.visitor_off];
     self.visitor_frkLabel.text = self.match.visitor_frk;
     self.visitor_blkSaves.text = self.match.visitor_blk;
     self.visitor_ycLabel.text = self.match.visitor_yc;

@@ -32,7 +32,7 @@
     //NSLog(@"local changes: %@ ", localChanges);
     //NSLog(@"visitor changes: %@ ", visitorChanges);
     
-    if (localChanges.count % 2 == 0) {
+    if (localChanges.count % 2 == 0 && localChanges.count > 1) {
         match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
         NSMutableArray *arrayOfLocalSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:localChanges];
         //NSLog(@"local subs returned: %@", arrayOfLocalSubstitutionDictionaries);
@@ -41,7 +41,7 @@
         }
     }
     
-    if (visitorChanges.count % 2 == 0) {
+    if (visitorChanges.count % 2 == 0 && visitorChanges.count > 1) {
         match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
         NSMutableArray *arrayOfVisitorSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:visitorChanges];
         //NSLog(@"visitor subs returned: %@", arrayOfVisitorSubstitutionDictionaries);
@@ -83,7 +83,8 @@
             }
         }
     }
-    
+  
+  if (self.subIn != nil && self.subOut != nil) {
     NSDictionary *substitution = @{@"playerIn": [self.subIn objectForKey:@"player"], @"playerOut": [self.subOut objectForKey:@"player"], @"minute": [self.subOut objectForKey:@"minute"], @"team": [self.subOut objectForKey:@"team"], @"action": @"substitution"};
     [self.arrayOfSubstitutionDictionaries addObject:substitution];
     //NSLog(@"%@ subin", self.subIn);
@@ -94,11 +95,13 @@
     //NSLog(@"changes.count after removal: %lu",(unsigned long)changes.count);
     
     if (changes.count > 0) {
-        //NSLog(@"array for return : %@", self.arrayOfSubstitutionDictionaries);
-        [self returnSubstitutionsWithArrayOfChanges:changes];
+      //NSLog(@"array for return : %@", self.arrayOfSubstitutionDictionaries);
+      [self returnSubstitutionsWithArrayOfChanges:changes];
     }
     
     return self.arrayOfSubstitutionDictionaries;
+  }
+  return nil;
 }
 - (void)updateMatch: (FBMatch *)match WithData: (NSDictionary *)data {
     
@@ -115,7 +118,7 @@
     //  NSLog(@"%@ is the playoffs of the match", match.playoffs);
     match.stadium = [data valueForKey:@"stadium"];
     //  NSLog(@"%@ is the stadium name", match.stadium);
-    match.status = [data valueForKey:@"status"];
+    match.status = [NSString stringWithFormat:@"%@",[data valueForKey:@"status"]];
     //  NSLog(@"%@ is the match status", match.status);
     match.schedule = [data valueForKey:@"schedule"];
     //  NSLog(@"%@ is the scheduled time", match.schedule);
@@ -158,8 +161,22 @@
     //NSLog(@"%@ is the visiting pens", match.pen2);
     match.visitor_tactic = [data valueForKey:@"visitor_tactic"];
     //NSLog(@"%@ is the local tactic", match.visitor_tactic);
-    
-    
+  
+  //lineup data
+  if ([[data valueForKey:@"isLineup"] isEqualToString:@"1"]) {
+    NSDictionary *lineups = [data valueForKey:@"lineups"];
+    match.local_tactic = [lineups valueForKey:@"local_tactic"];
+    //NSLog(@"%@ is the local tactic", match.local_tactic);
+    match.visitor_tactic = [lineups valueForKey:@"visitor_tactic"];
+    //NSLog(@"%@ is the visitor tactic", match.visitor_tactic);
+    NSArray *localLineup  = [lineups valueForKey:@"local"];
+    match.local_Lineup = [FBMatch returnLineupArrayUsingLineupData:localLineup];
+    //NSLog(@"%@ is the local lineup", match.local_Lineup);
+    NSArray *visitorLineup = [lineups valueForKey:@"visitor"];
+    match.visitor_Lineup = [FBMatch returnLineupArrayUsingLineupData:visitorLineup];
+    //NSLog(@"%@ is the visitor linup", match.visitor_Lineup);
+  }
+  
     //match extra Data
     NSArray *extra_Data = [data valueForKey:@"extra_data"];
     if (![extra_Data isEqual:[NSNull null]] && extra_Data.count > 0) {
@@ -175,7 +192,7 @@
         //NSLog(@"%@ is local RC", match.local_rc);
         match.local_pos = [localExtra objectForKey:@"pos"];
         //NSLog(@"%@ is local poss", match.local_pos);
-        match.local_soff = [localExtra objectForKey:@"soff"];
+        match.local_off = [localExtra objectForKey:@"off"];
         //NSLog(@"%@ is local soff", match.local_soff);
         match.local_frk = [localExtra objectForKey:@"frk"];
         //NSLog(@"%@ is local frk", smatch.local_frk);
@@ -183,7 +200,9 @@
         //NSLog(@"%@ is local blk", match.local_blk);
         match.local_yc = [localExtra objectForKey:@"yc"];
         //NSLog(@"%@ is local yc", match.local_yc);
-        
+        match.local_cor = [localExtra objectForKey:@"cor"];
+        //NSLog(@"%@ is local yc", match.local_cor);
+      
         NSDictionary *visitorExtra = [extra_Data objectAtIndex:2];
         match.visitor_pos = [visitorExtra objectForKey:@"pos"];
         //NSLog(@"%@ is visitor poss", match.visitor_pos);
@@ -195,7 +214,7 @@
         //NSLog(@"%@ is visitor RC", match.visitor_rc);
         match.visitor_pos = [visitorExtra objectForKey:@"pos"];
         //NSLog(@"%@ is visitor poss", match.visitor_pos);
-        match.visitor_soff = [visitorExtra objectForKey:@"soff"];
+        match.visitor_off = [visitorExtra objectForKey:@"off"];
         //NSLog(@"%@ is visitor soff", match.visitor_soff);
         match.visitor_frk = [visitorExtra objectForKey:@"frk"];
         //NSLog(@"%@ is visitor frk", smatch.visitor_frk);
@@ -203,19 +222,10 @@
         //NSLog(@"%@ is visitor blk", match.visitor_blk);
         match.visitor_yc = [visitorExtra objectForKey:@"yc"];
         //NSLog(@"%@ is visitor yc", match.visitor_yc);
-        
-        //lineup data
-        NSDictionary *lineups = [data valueForKey:@"lineups"];
-        match.local_tactic = [lineups valueForKey:@"local_tactic"];
-        //NSLog(@"%@ is the local tactic", match.local_tactic);
-        match.visitor_tactic = [lineups valueForKey:@"visitor_tactic"];
-        //NSLog(@"%@ is the visitor tactic", match.visitor_tactic);
-        NSArray *localLineup  = [lineups valueForKey:@"local"];
-        match.local_Lineup = [FBMatch returnLineupArrayUsingLineupData:localLineup];
-        //NSLog(@"%@ is the local lineup", match.local_Lineup);
-        NSArray *visitorLineup = [lineups valueForKey:@"visitor"];
-        match.visitor_Lineup = [FBMatch returnLineupArrayUsingLineupData:visitorLineup];
-        //NSLog(@"%@ is the visitor linup", match.visitor_Lineup);
+        match.visitor_cor = [localExtra objectForKey:@"cor"];
+        //NSLog(@"%@ is local yc", match.visitor_cor);
+      
+      
         
         //events
         NSDictionary *events = [data valueForKey:@"events"];
@@ -247,6 +257,7 @@
         }
         
         //timeline
+      NSLog(@"count of goals %lu", match.goals.count);
         if (match.goals.count <1 && match.cards.count < 1 && match.changes.count < 1) {
         } else {
             NSArray *timeLine = [FBMatch createTimeLineWithMatch: match];
@@ -254,6 +265,9 @@
                 match.timeline = [NSMutableArray arrayWithArray:[NSArray arrayWithArray:timeLine]];
             }
         }
+      
+      if ([match.status isEqualToString:@"-1"]) {
+      }
     }//if there is extra data closing bracket
     //NSLog(@"%@", match);
     //NSLog(@"%@ is the status", match.status);
