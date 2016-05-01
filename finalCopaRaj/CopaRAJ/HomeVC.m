@@ -137,8 +137,8 @@
     self.matchA1B2.local = @"A1";
     self.matchA1B2.visitor = @"B2";
     self.matchA1B2.schedule = [snapshot.value objectForKey:@"A1B2"];
-    self.matchB1A2.local_abbr = @"A1";
-    self.matchB1A2.visitor_abbr = @"B2";
+    self.matchA1B2.local_abbr = @"A1";
+    self.matchA1B2.visitor_abbr = @"B2";
     //NSLog(@"a1: %@ b2: %@ schedule: %@", self.matchA1B2.local, self.matchA1B2.visitor, self.matchA1B2.schedule);
     [self.playoffMatches addObject:self.matchA1B2];
     
@@ -183,7 +183,7 @@
     self.matchW26W28.local_abbr = @"W26";
     self.matchW26W28.visitor_abbr = @"W28";
     //NSLog(@"W26: %@ W28: %@ schedule: %@", self.matchW26W28.local, self.matchW26W28.visitor, self.matchW26W28.schedule);
-    [self.playoffMatches addObject:self.matchW25W27];
+    [self.playoffMatches addObject:self.matchW26W28];
 
     
     self.matchW29W30.local = @"W29";
@@ -343,7 +343,6 @@
   NSArray *arr = [self.finalArray objectAtIndex:indexPath.section];
  
   FBMatch *match = [arr objectAtIndex:indexPath.row];
-  
   cell.teamOneName.text = match.local_abbr;
   cell.teamTwoName.text = match.visitor_abbr;
   if ([match.local isEqualToString:@"Haití"]) {
