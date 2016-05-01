@@ -42,7 +42,7 @@
     self.visitorTeamScore.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
     self.visitorTeamPenalty.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
     
-    self.winnerTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.winnerTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:14];
 }
 
 -(void)setFBMatch:(FBMatch *)FBMatch{
@@ -57,10 +57,10 @@
     
     if ([FBMatch.status isEqual:@1]) {
         self.homeTeamPenalty.enabled = YES;
-        self.homeTeamPenalty.text = FBMatch.pen1;
+        self.homeTeamPenalty.text = [NSString stringWithFormat:@"P%@", FBMatch.pen1.stringValue];
         
         self.visitorTeamPenalty.enabled = YES;
-        self.visitorTeamPenalty.text = FBMatch.pen2;
+        self.visitorTeamPenalty.text = [NSString stringWithFormat:@"P%@", FBMatch.pen2.stringValue];;
     } else {
         self.homeTeamPenalty.enabled = NO;
         self.homeTeamPenalty.hidden = YES;

@@ -48,6 +48,7 @@
 @property int cellsForSection2;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tourneyButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffButton;
 
 
 @end
@@ -68,10 +69,10 @@
     self.cellsForSection1 = 2;
     self.cellsForSection2 = 1;
     
-
     self.navigationItem.hidesBackButton = YES;
-    [self.tourneyButton setTintColor:[UIColor redColor]];
-
+    //[self.tourneyButton setTintColor:[UIColor redColor]];
+    [self.playOffButton setTintColor:[UIColor redColor]];
+    
     self.playoffTeams = [[NSMutableArray alloc]init];
     self.matchesObject = [[NSMutableArray alloc]init];
 
@@ -108,13 +109,13 @@
 
     cell.layer.cornerRadius = 10.0;
     cell.contentView.layer.masksToBounds = YES;
-    cell.layer.borderWidth = 1.5;
-    cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+    //cell.layer.borderWidth = 1.5;
+    //cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
     
     cellFinal.layer.cornerRadius = 10.0;
     cellFinal.contentView.layer.masksToBounds = YES;
-    cellFinal.layer.borderWidth = 1.5;
-    cellFinal.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+    //cellFinal.layer.borderWidth = 1.5;
+    //cellFinal.layer.borderColor = [[UIColor lightGrayColor]CGColor];
     
     
     switch (indexPath.section) {
@@ -142,17 +143,13 @@
 //        BOOL isStrig = [self.matchW29W30.status isKindOfClass:[NSNumber class]];
 //        NSLog(@"%d", isStrig);
         if ([self.matchW29W30.status isEqual: @1]) {
-            NSString *localScore = self.matchW29W30.local_goals;
-            NSString *localPenalty = self.matchW29W30.pen1;
-            NSString *visitorScore = self.matchW29W30.visitor_goals;
-            NSString *visitorPenalty = self.matchW29W30.pen2;
-            NSInteger localScoreInt = [localScore integerValue];
-            NSInteger visitorScoreInt = [visitorScore integerValue];
-            NSInteger localPenaltyInt = [localPenalty integerValue];
-            NSInteger visitorPenaltyInt = [visitorPenalty integerValue];
+            NSInteger localScore = self.matchW29W30.local_goals.integerValue;
+            NSInteger localPenalty = self.matchW29W30.pen1.integerValue;
+            NSInteger visitorScore = self.matchW29W30.visitor_goals.integerValue;
+            NSInteger visitorPenalty = self.matchW29W30.pen2.integerValue;
             
-            if ((localScoreInt > visitorScoreInt) ||
-                localPenaltyInt > visitorPenaltyInt) {
+            if ((localScore > visitorScore) ||
+                localPenalty > visitorPenalty) {
                 cellFinal.winnerTeamLabel.text = self.matchW29W30.local;
                 cellFinal.winnerTeamImageView.image = [UIImage imageNamed:self.matchW29W30.local];
                 return cellFinal;
@@ -314,12 +311,18 @@
                     self.matchW29W30.local = snapshot.value[@"local"];
                     self.matchW29W30.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchW29W30.local_goals = snapshot.value[@"local_goals"];
-                   // self.matchW29W30.pen1 = snapshot.value[@"pen1"];
+                    self.matchW29W30.pen1 = snapshot.value[@"pen1"];
+                    BOOL isStrig = [self.matchW29W30.pen1 isKindOfClass:[NSNumber class]];
+                    NSLog(@"%d", isStrig);
+                    NSLog(@"FireBase gave pen1: %@", self.matchW29W30.pen1);
                     
                     self.matchW29W30.visitor = snapshot.value[@"visitor"];
                     self.matchW29W30.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchW29W30.visitor_goals = snapshot.value[@"visitor_goals"];
-                    //self.matchW29W30.pen2 = snapshot.value[@"pen2"];
+                    self.matchW29W30.pen2 = snapshot.value[@"pen2"];
+                    BOOL strig = [self.matchW29W30.pen2 isKindOfClass:[NSNumber class]];
+                    NSLog(@"%d", strig);
+                    NSLog(@"FireBase gave pen2: %@", self.matchW29W30.pen2);
                 }
                 NSLog(@"%@", snapshot.value[@"id"]);
                 [playoffTeams addObject:snapshot.value[@"id"]];
