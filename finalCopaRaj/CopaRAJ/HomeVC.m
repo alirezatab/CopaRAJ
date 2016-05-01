@@ -17,6 +17,7 @@
 #import "GameVC.h"
 #import "FBMatch.h"
 #import <Firebase/Firebase.h>
+#import "GroupVC.h"
 
 
 
@@ -24,8 +25,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeButton;
-@property (weak, nonatomic) IBOutlet UIView *slideView;
-@property (weak, nonatomic) IBOutlet UIImageView *sliderImage;
 
 @property NSMutableArray *mathches;
 @property NSMutableArray *sortedMatches;
@@ -40,6 +39,9 @@
 @property FBMatch *matchW26W28;
 @property FBMatch *matchL29L30;
 @property FBMatch *matchW29W30;
+@property NSDictionary *juneDates;
+@property BOOL didScrollToDate;
+
 
 
 @end
@@ -61,14 +63,55 @@
   self.playoffMatches = [NSMutableArray new];
   self.sortedMatches = [NSMutableArray new];
   self.finalArray = [NSMutableArray new];
-
-  }
+  self.juneDates = @{@"2016-06-04":@1, @"2016-06-05":@2, @"2016-06-06":@3, @"2016-06-07":@4, @"2016-06-08":@5, @"2016-06-09":@6, @"2016-06-10":@7, @"2016-06-11":@8, @"2016-06-12":@9, @"2016-06-13":@10, @"2016-06-14":@11, @"2016-06-15":@11, @"2016-06-16":@12, @"2016-06-17":@13, @"2016-06-18":@14, @"2016-06-19":@14, @"2016-06-20":@15, @"2016-06-21":@15, @"2016-06-22":@16, @"2016-06-23":@16, @"2016-06-24":@17, @"2016-06-25":@17, @"2016-06-26":@17, @"2016-06-27":@17, @"2016-06-28":@17};
+  self.didScrollToDate = false;
+  
+}
 
 - (void)updateMatchDataAndLoadTableView {
   [self populateDefaultPlayoffMatches];
 }
 
+- (void)matchesAreDoneLoading {
+  [self createArraysForSectionHeaders];
+  [self.tableView reloadData];
+  
+  
+  if (!self.didScrollToDate && self.finalArray.count >= 18) {
+    [self scrollToDate];
+    self.didScrollToDate = true;
+  };
+}
 
+- (void) scrollToDate {
+  
+  NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+  NSString *date = [dateFormatter stringFromDate:[NSDate date]];
+  NSLog(@"%@ is the current date", date);
+  
+   for (id juneDate in self.juneDates) {
+     if ([juneDate isEqualToString:date]) {
+       NSLog(@"passEd");
+       NSInteger section = [[self.juneDates objectForKey:juneDate]integerValue];
+       [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]atScrollPosition:UITableViewScrollPositionTop animated:NO];
+     }
+    
+  }
+
+}
+
+//- (int) returnSectionNumberWithDate: (NSString *)string {
+//  
+//  int matchingIndex;
+//  for (int i = 0; i < self.juneDates.count; i++) {
+//    NSString *date = [self.juneDates objectAtIndex:i];
+//    if ([date isEqualToString:string]) {
+//      matchingIndex = i;
+//    }
+//  }
+//  return 0;
+//}
 -(void) populateDefaultPlayoffMatches{
   
   self.matchA1B2 = [FBMatch new];
@@ -194,8 +237,9 @@
     for (FBMatch *match in self.sortedMatches) {
       NSLog(@"%@", match.schedule);
     }
-    [self createArraysForSectionHeaders];
-    [self.tableView reloadData];
+    //reloading table view
+    [self matchesAreDoneLoading];
+   
     
   } withCancelBlock:^(NSError *error) {
     [self presentErrorWithString:error.description];
@@ -254,6 +298,24 @@
                                                ascending:YES];
   NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
   self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
+}
+
+- (void) scrollAutomatically:(int) i
+{
+  __block int j = i;
+  [UIView animateWithDuration: 6//Change this to something more for slower scrolls
+                   animations: ^{
+                     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:j] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+                   }
+                   completion: ^(BOOL finished){
+                     j = j + 10;//Changing this number affects speed.
+                     if(j<=2999)//here you could provide the index of destination row
+                       [self scrollAutomatically:j];
+                     else
+                     {
+                       //I had some code here that popped up a UIAlertView.
+                     }
+                   }];
 }
 
 //////////////////tableview stuff/////////////////////////////////////////
@@ -346,6 +408,8 @@
     //GameVC *desVC = segue.destinationViewController;
     // Match *match = [self.matchesObject objectAtIndex:indexPath.row];
     //desVC.match = match;
+  } else if ([segue.identifier isEqualToString:@"Group"]){
+   
   }
 }
 

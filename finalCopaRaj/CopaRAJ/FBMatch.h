@@ -44,7 +44,7 @@
 @property NSString *local_rc; ///red cards
 @property NSString *local_tactic;//
 @property NSMutableArray *local_Lineup;
-@property NSString *pen1;//
+@property NSNumber *pen1;//
 
 
 
@@ -63,7 +63,7 @@
 @property NSString *visitor_rc; ///red cards
 @property NSString *visitor_tactic;///
 @property NSMutableArray *visitor_Lineup;///
-@property NSString *pen2;//
+@property NSNumber *pen2;//
 
 //recursion
 @property NSDictionary *subIn;
