@@ -161,12 +161,32 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="stU-c1-5fE"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBZ-fr-Pbx">
+                                <rect key="frame" x="0.0" y="492" width="600" height="48"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tournament" translatesAutoresizingMaskIntoConstraints="NO" id="UwI-aE-fN7">
+                                        <rect key="frame" x="278" y="3" width="44" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="6NQ-zV-qpR"/>
+                                            <constraint firstAttribute="width" constant="44" id="Nv0-zA-quz"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="FLc-Ed-26B"/>
+                                    <constraint firstItem="UwI-aE-fN7" firstAttribute="centerX" secondItem="BBZ-fr-Pbx" secondAttribute="centerX" id="GJm-ea-jY5"/>
+                                    <constraint firstItem="UwI-aE-fN7" firstAttribute="centerY" secondItem="BBZ-fr-Pbx" secondAttribute="centerY" id="VRg-hR-DPx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="07C-lE-Wzk"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="izq-a9-pyn" secondAttribute="bottom" id="DwF-fk-ghX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TUr-j0-mMr" secondAttribute="trailing" constant="-20" id="FBc-mS-3RU"/>
+                            <constraint firstItem="BBZ-fr-Pbx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="HDc-Il-AGH"/>
+                            <constraint firstItem="BBZ-fr-Pbx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="IeH-S5-7A5"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Lq4-9f-Jmg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="izq-a9-pyn" secondAttribute="trailing" constant="-20" id="S8v-8N-uEE"/>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Wy4-2u-hTS"/>
@@ -175,10 +195,12 @@
                             <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="TUr-j0-mMr" secondAttribute="bottom" id="lsv-ma-OdN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TUr-j0-mMr" secondAttribute="trailing" constant="-20" id="wVa-4n-qHL"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="TUr-j0-mMr" secondAttribute="bottom" id="xxX-Af-ocd"/>
+                            <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="BBZ-fr-Pbx" secondAttribute="bottom" id="z8U-Gp-BJB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Copa America" id="zb4-O1-TtV"/>
                     <connections>
+                        <outlet property="cupView" destination="BBZ-fr-Pbx" id="ikj-gI-KsS"/>
                         <outlet property="homeButton" destination="fUr-0o-Gsj" id="MjT-Jp-w3b"/>
                         <outlet property="tableView" destination="TUr-j0-mMr" id="eU4-bW-Tvh"/>
                     </connections>

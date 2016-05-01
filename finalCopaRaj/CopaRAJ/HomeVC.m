@@ -25,6 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeButton;
+@property (weak, nonatomic) IBOutlet UIView *cupView;
 
 @property NSMutableArray *mathches;
 @property NSMutableArray *sortedMatches;
@@ -65,7 +66,9 @@
   self.finalArray = [NSMutableArray new];
   self.juneDates = @{@"2016-06-04":@1, @"2016-06-05":@2, @"2016-06-06":@3, @"2016-06-07":@4, @"2016-06-08":@5, @"2016-06-09":@6, @"2016-06-10":@7, @"2016-06-11":@8, @"2016-06-12":@9, @"2016-06-13":@10, @"2016-06-14":@11, @"2016-06-15":@11, @"2016-06-16":@12, @"2016-06-17":@13, @"2016-06-18":@14, @"2016-06-19":@14, @"2016-06-20":@15, @"2016-06-21":@15, @"2016-06-22":@16, @"2016-06-23":@16, @"2016-06-24":@17, @"2016-06-25":@17, @"2016-06-26":@17, @"2016-06-27":@17, @"2016-06-28":@17};
   self.didScrollToDate = false;
-  
+  self.cupView.hidden = true;
+  [self.tableView addSubview:self.cupView];
+  [self.tableView sendSubviewToBack:self.cupView];
 }
 
 - (void)updateMatchDataAndLoadTableView {
@@ -81,6 +84,8 @@
     [self scrollToDate];
     self.didScrollToDate = true;
   };
+  
+  self.cupView.hidden = false;
 }
 
 - (void) scrollToDate {
@@ -363,6 +368,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)initializeRefreshControl
+{
+ 
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Leave Alone!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
