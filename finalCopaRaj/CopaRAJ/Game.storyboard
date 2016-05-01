@@ -304,6 +304,24 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Corner kicks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvC-Cz-hn0">
+                                        <rect key="frame" x="108" y="277" width="96" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz4-O5-Few">
+                                        <rect key="frame" x="214" y="277" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jan-iS-hFO">
+                                        <rect key="frame" x="58" y="277" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -504,12 +522,14 @@
                     <navigationItem key="navigationItem" id="1hn-95-Wq3"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="cornerKick" destination="dvC-Cz-hn0" id="NiV-bO-iLk"/>
                         <outlet property="eventsView" destination="dKa-91-TZH" id="ZQS-cg-xQG"/>
                         <outlet property="freeKickLabel" destination="oaU-i5-3Sj" id="Isw-Ue-CEE"/>
                         <outlet property="lineUpLocalFlag" destination="zNT-Rx-ohV" id="2qx-xf-T66"/>
                         <outlet property="lineUpVisitorFlag" destination="PvI-hP-K5c" id="Rqy-T5-FX4"/>
                         <outlet property="lineUpsView" destination="in0-0I-bKv" id="el8-JL-ecy"/>
                         <outlet property="local_blkLabel" destination="v1w-YF-gP5" id="Fwi-Er-AlF"/>
+                        <outlet property="local_cor" destination="jan-iS-hFO" id="60E-RJ-J7k"/>
                         <outlet property="local_frkLabel" destination="tNf-vw-Ts8" id="vw7-7E-tqt"/>
                         <outlet property="local_posLabel" destination="Oml-Jd-vxY" id="YEp-7V-CoM"/>
                         <outlet property="local_rcLabel" destination="Ol6-vf-eGD" id="Z68-vj-Fy3"/>
@@ -562,6 +582,7 @@
                         <outlet property="timeLabel" destination="9GX-fg-PQu" id="95t-9N-zn9"/>
                         <outlet property="versusLabel" destination="OPd-Va-3SB" id="AYa-0L-Wg9"/>
                         <outlet property="visitor_blkSaves" destination="CC1-Nc-Tm5" id="Cam-Lu-FeZ"/>
+                        <outlet property="visitor_cor" destination="oz4-O5-Few" id="NK0-OB-siL"/>
                         <outlet property="visitor_frkLabel" destination="mZY-oJ-XTa" id="IEv-Rh-SV8"/>
                         <outlet property="visitor_posLabel" destination="w6i-XW-b66" id="T3J-FI-XE4"/>
                         <outlet property="visitor_rcLabel" destination="KFf-L5-PF6" id="lcg-9C-T1N"/>

@@ -62,6 +62,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *local_blkLabel;
 @property (weak, nonatomic) IBOutlet UILabel *local_ycLabel;
 @property (weak, nonatomic) IBOutlet UILabel *local_rcLabel;
+@property (weak, nonatomic) IBOutlet UILabel *local_cor;
+
 
 //teamB stats
 @property (weak, nonatomic) IBOutlet UIImageView *teamBStatsFlag;
@@ -73,6 +75,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *visitor_blkSaves;
 @property (weak, nonatomic) IBOutlet UILabel *visitor_ycLabel;
 @property (weak, nonatomic) IBOutlet UILabel *visitor_rcLabel;
+@property (weak, nonatomic) IBOutlet UILabel *visitor_cor;
+
 
 //stats outlets
 @property (weak, nonatomic) IBOutlet UILabel *posessionLabel;
@@ -83,6 +87,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *savesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *yellowCardLabel;
 @property (weak, nonatomic) IBOutlet UILabel *redCardLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cornerKick;
 
 
 

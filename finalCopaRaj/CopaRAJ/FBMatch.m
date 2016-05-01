@@ -222,7 +222,7 @@
         //NSLog(@"%@ is visitor blk", match.visitor_blk);
         match.visitor_yc = [visitorExtra objectForKey:@"yc"];
         //NSLog(@"%@ is visitor yc", match.visitor_yc);
-        match.visitor_cor = [localExtra objectForKey:@"cor"];
+        match.visitor_cor = [visitorExtra objectForKey:@"cor"];
         //NSLog(@"%@ is local yc", match.visitor_cor);
       
       

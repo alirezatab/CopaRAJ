@@ -109,7 +109,7 @@
     self.teamOneScore.text = self.match.local_goals;
     self.teamTwoScore.text = self.match.visitor_goals;
   } else if ([self.match.status isEqualToString:@"1"])  {
-    self.timeLabel.text = @"Game Over";
+    self.timeLabel.text = @"Final";
     self.teamOneScore.text = self.match.local_goals;
     self.teamTwoScore.text = self.match.visitor_goals;
 
@@ -175,7 +175,8 @@
     self.local_blkLabel.text = self.match.local_blk;
     self.local_ycLabel.text = self.match.local_yc;
     self.local_rcLabel.text = [NSString stringWithFormat:@"%@" , self.match.local_rc];
-    
+    self.local_cor.text = self.match.local_cor;
+  
     //local team B stats
     self.teamBStatsFlag.image = [UIImage imageNamed:self.match.visitor];
     self.visitor_posLabel.text = self.match.visitor_pos;
@@ -186,6 +187,7 @@
     self.visitor_blkSaves.text = self.match.visitor_blk;
     self.visitor_ycLabel.text = self.match.visitor_yc;
     self.visitor_rcLabel.text = [NSString stringWithFormat:@"%@", self.match.visitor_rc];
+    self.visitor_cor.text = self.match.visitor_cor;
     
     //adding font color and size to the stats labels
     NSArray *labels = @[self.local_posLabel , self.local_sotLabel , self.local_sonLabel , self.local_soffLabel , self.local_frkLabel , self.local_blkLabel , self.local_ycLabel , self.local_rcLabel , self.visitor_posLabel , self.visitor_sotLabel , self.visitor_sonLabel , self.visitor_soffLabel , self.local_frkLabel , self.visitor_frkLabel , self.visitor_blkSaves , self.visitor_ycLabel , self.visitor_rcLabel , self.posessionLabel , self.shotsLabel, self.shotsTargetLabel , self.offSideLabel , self.freeKickLabel , self.savesLabel ,self.yellowCardLabel ,self.redCardLabel];
