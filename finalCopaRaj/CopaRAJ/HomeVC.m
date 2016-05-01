@@ -338,30 +338,36 @@
 
 //create setter
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
   HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
   NSArray *arr = [self.finalArray objectAtIndex:indexPath.section];
- 
   FBMatch *match = [arr objectAtIndex:indexPath.row];
   cell.teamOneName.text = match.local_abbr;
   cell.teamTwoName.text = match.visitor_abbr;
+  
+  //freaking Haiti
   if ([match.local isEqualToString:@"Haití"]) {
     cell.teamOneImage.image = [UIImage imageNamed:@"Haiti"];
-       } else {
-         cell.teamOneImage.image = [UIImage imageNamed:match.local];
-       }
+  } else {
+    cell.teamOneImage.image = [UIImage imageNamed:match.local];
+  }
   if ([match.visitor isEqualToString:@"Haití"]) {
     cell.teamTwoImage.image = [UIImage imageNamed:@"Haiti"];
   } else {
     cell.teamTwoImage.image = [UIImage imageNamed:match.visitor];
   }
-  
+
+  if (match.pen1.integerValue > 0 || match.pen2.integerValue > 0 ) {
+    cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
+  } else {
+    cell.penaltiesLabel.text = @"";
+  }
   cell.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", match.hour, match.minute];
   cell.teamOneScore.text = match.local_goals;
   cell.teamTwoScore.text = match.visitor_goals;
-  cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
   
   cell.locationLabel.text = [NSString stringWithFormat:@"Levi's Stadium %@",  match.groupCode];
+  
   return cell;
 }
 

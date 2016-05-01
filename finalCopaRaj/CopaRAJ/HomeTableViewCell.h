@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FBMatch.h"
 
 @interface HomeTableViewCell : UITableViewCell
 
