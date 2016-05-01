@@ -14,7 +14,7 @@
 #import "FBGroup.h"
 #import <Firebase/Firebase.h>
 
-@interface GroupVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface GroupVC ()<UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate>
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *teams;
 @property NSMutableArray *groups;
@@ -25,6 +25,11 @@
 @end
 
 @implementation GroupVC
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:NO];
+    self.navigationController.navigationBar.hidden = NO;
+}
 
 - (void)viewDidLoad {
 

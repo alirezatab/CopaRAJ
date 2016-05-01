@@ -20,6 +20,7 @@
 		7BD056121CC70EA100BCB113 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0560A1CC70EA100BCB113 /* Team.m */; };
 		7BD056251CC73A9D00BCB113 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0561F1CC73A9D00BCB113 /* Group.m */; };
 		7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BD870B61CCA7F880020C125 /* playOffMatches.plist */; };
+		C290DDFF1CD5FA18002FB7B6 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C290DDFE1CD5FA18002FB7B6 /* EventCell.m */; };
 		C2C5C00E1CC564D70010133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C00D1CC564D70010133B /* main.m */; };
 		C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0101CC564D70010133B /* AppDelegate.m */; };
 		C2C5C0171CC564D70010133B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C5C0151CC564D70010133B /* Main.storyboard */; };
@@ -79,6 +80,8 @@
 		7BD056261CC7477000BCB113 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7BD870B61CCA7F880020C125 /* playOffMatches.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playOffMatches.plist; sourceTree = "<group>"; };
 		920CE7D93A55FCC98810244D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C290DDFD1CD5FA18002FB7B6 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
+		C290DDFE1CD5FA18002FB7B6 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
 		C2C5C0091CC564D70010133B /* CopaRAJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopaRAJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C5C00D1CC564D70010133B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2C5C00F1CC564D70010133B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CopaRAJ/AppDelegate.h; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 		D8F2D0BB1CC5939F003F8465 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C290DDFD1CD5FA18002FB7B6 /* EventCell.h */,
+				C290DDFE1CD5FA18002FB7B6 /* EventCell.m */,
 				D8F2D0BD1CC59537003F8465 /* HomeTableViewCell.h */,
 				D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */,
 				D8F2D0C01CC5B50F003F8465 /* GroupTableViewCell.h */,
@@ -532,6 +537,7 @@
 				7B1FF1D51CD0152700B031B0 /* Match+CoreDataProperties.m in Sources */,
 				D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */,
 				C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */,
+				C290DDFF1CD5FA18002FB7B6 /* EventCell.m in Sources */,
 				7BD056121CC70EA100BCB113 /* Team.m in Sources */,
 				D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */,
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
