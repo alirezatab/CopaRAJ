@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="90d-1N-JLI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="90d-1N-JLI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-hi-jAI">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-hi-jAI">
                                 <rect key="frame" x="0.0" y="64" width="600" height="153"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WJb-nA-A3I">
@@ -80,10 +80,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKa-91-TZH">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dKa-91-TZH">
                                 <rect key="frame" x="0.0" y="267" width="600" height="333"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uAD-DB-Hn9">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uAD-DB-Hn9">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="333"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -151,7 +151,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heh-07-z89">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="heh-07-z89">
                                 <rect key="frame" x="0.0" y="267" width="600" height="333"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hgp-mz-1a4">
@@ -333,7 +333,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in0-0I-bKv">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in0-0I-bKv">
                                 <rect key="frame" x="0.0" y="267" width="600" height="333"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zNT-Rx-ohV">
@@ -480,10 +480,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gmr-rd-0IR">
-                                <rect key="frame" x="0.0" y="238" width="600" height="29"/>
+                                <rect key="frame" x="0.0" y="216" width="600" height="29"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="csE-UP-Dm9"/>
+                                    <constraint firstAttribute="height" constant="28" id="sxV-9C-dJr"/>
                                 </constraints>
                                 <segments>
                                     <segment title="LINEUPS"/>
@@ -498,24 +498,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gmr-rd-0IR" firstAttribute="leading" secondItem="u36-nC-Oog" secondAttribute="leadingMargin" constant="-20" id="882-H5-qdx"/>
                             <constraint firstItem="0S7-Cb-aGX" firstAttribute="top" secondItem="dKa-91-TZH" secondAttribute="bottom" id="BK7-FV-yPT"/>
                             <constraint firstItem="dKa-91-TZH" firstAttribute="leading" secondItem="u36-nC-Oog" secondAttribute="leadingMargin" constant="-20" id="C5B-sy-7C8"/>
-                            <constraint firstItem="ciD-hi-jAI" firstAttribute="trailing" secondItem="gmr-rd-0IR" secondAttribute="trailing" id="Ddj-dI-uGx"/>
                             <constraint firstItem="dKa-91-TZH" firstAttribute="top" secondItem="heh-07-z89" secondAttribute="top" id="FAY-B0-awQ"/>
                             <constraint firstItem="0S7-Cb-aGX" firstAttribute="top" secondItem="in0-0I-bKv" secondAttribute="bottom" id="JG4-IX-8vj"/>
-                            <constraint firstItem="ciD-hi-jAI" firstAttribute="leading" secondItem="gmr-rd-0IR" secondAttribute="leading" id="LC7-VN-HAp"/>
-                            <constraint firstItem="gmr-rd-0IR" firstAttribute="top" secondItem="ciD-hi-jAI" secondAttribute="bottom" constant="21" id="N8X-Fj-Ul6"/>
+                            <constraint firstItem="gmr-rd-0IR" firstAttribute="top" secondItem="ZyN-DK-Ck4" secondAttribute="bottom" constant="152" id="PCo-qV-fN9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="in0-0I-bKv" secondAttribute="trailing" constant="-20" id="Qdq-AJ-0qR"/>
-                            <constraint firstItem="gmr-rd-0IR" firstAttribute="leading" secondItem="u36-nC-Oog" secondAttribute="leadingMargin" constant="-20" id="TsI-b3-PHy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dKa-91-TZH" secondAttribute="trailing" constant="-20" id="Xp8-GJ-nG4"/>
                             <constraint firstAttribute="bottom" secondItem="ciD-hi-jAI" secondAttribute="bottom" constant="383" id="Y8m-DA-BFD"/>
-                            <constraint firstItem="heh-07-z89" firstAttribute="top" secondItem="gmr-rd-0IR" secondAttribute="bottom" constant="1" id="YDC-gh-OmT"/>
                             <constraint firstItem="0S7-Cb-aGX" firstAttribute="top" secondItem="heh-07-z89" secondAttribute="bottom" id="abv-Eh-y4C"/>
                             <constraint firstItem="dKa-91-TZH" firstAttribute="top" secondItem="in0-0I-bKv" secondAttribute="top" id="bp4-gT-VkI"/>
                             <constraint firstItem="heh-07-z89" firstAttribute="leading" secondItem="u36-nC-Oog" secondAttribute="leadingMargin" constant="-20" id="dmS-HS-bEB"/>
                             <constraint firstItem="in0-0I-bKv" firstAttribute="leading" secondItem="u36-nC-Oog" secondAttribute="leadingMargin" constant="-20" id="igp-Fw-F4u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="heh-07-z89" secondAttribute="trailing" constant="-20" id="maa-LB-rrR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gmr-rd-0IR" secondAttribute="trailing" constant="-20" id="nLM-cP-qrZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gmr-rd-0IR" secondAttribute="trailing" constant="-20" id="oiu-VA-bQi"/>
                             <constraint firstItem="ciD-hi-jAI" firstAttribute="top" secondItem="ZyN-DK-Ck4" secondAttribute="bottom" id="zpB-6P-uY3"/>
                         </constraints>
                     </view>
