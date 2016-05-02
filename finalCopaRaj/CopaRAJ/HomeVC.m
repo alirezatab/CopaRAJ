@@ -21,7 +21,7 @@
 
 
 
-@interface HomeVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface HomeVC ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeButton;
@@ -42,6 +42,9 @@
 @property FBMatch *matchW29W30;
 @property NSDictionary *juneDates;
 @property BOOL didScrollToDate;
+@property UIImageView *imageLeft;
+@property UIImageView *imageRight;
+
 
 
 
@@ -54,7 +57,11 @@
     self.navigationItem.hidesBackButton = YES;
     [self.homeButton setTintColor:[UIColor whiteColor]];
     [self initNeededObjects];
-    [self updateMatchDataAndLoadTableView];
+    [self callFireBase];
+}
+
+- (IBAction)testMethod:(id)sender {
+  
 }
 
 - (void) initNeededObjects {
@@ -67,57 +74,9 @@
   self.juneDates = @{@"2016-06-04":@1, @"2016-06-05":@2, @"2016-06-06":@3, @"2016-06-07":@4, @"2016-06-08":@5, @"2016-06-09":@6, @"2016-06-10":@7, @"2016-06-11":@8, @"2016-06-12":@9, @"2016-06-13":@10, @"2016-06-14":@11, @"2016-06-15":@11, @"2016-06-16":@12, @"2016-06-17":@13, @"2016-06-18":@14, @"2016-06-19":@14, @"2016-06-20":@15, @"2016-06-21":@15, @"2016-06-22":@16, @"2016-06-23":@16, @"2016-06-24":@17, @"2016-06-25":@17, @"2016-06-26":@17, @"2016-06-27":@17, @"2016-06-28":@17};
   self.didScrollToDate = false;
   self.cupView.hidden = true;
+  
   [self.tableView addSubview:self.cupView];
   [self.tableView sendSubviewToBack:self.cupView];
-}
-
-- (void)updateMatchDataAndLoadTableView {
-  [self populateDefaultPlayoffMatches];
-}
-
-- (void)matchesAreDoneLoading {
-  [self createArraysForSectionHeaders];
-  [self.tableView reloadData];
-  
-  
-  if (!self.didScrollToDate && self.finalArray.count >= 18) {
-    [self scrollToDate];
-    self.didScrollToDate = true;
-  };
-  
-  self.cupView.hidden = false;
-}
-
-- (void) scrollToDate {
-  
-  NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-  [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-  NSString *date = [dateFormatter stringFromDate:[NSDate date]];
-  NSLog(@"%@ is the current date", date);
-  
-   for (id juneDate in self.juneDates) {
-     if ([juneDate isEqualToString:date]) {
-       NSLog(@"passEd");
-       NSInteger section = [[self.juneDates objectForKey:juneDate]integerValue];
-       [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]atScrollPosition:UITableViewScrollPositionTop animated:NO];
-     }
-    
-  }
-
-}
-
-//- (int) returnSectionNumberWithDate: (NSString *)string {
-//  
-//  int matchingIndex;
-//  for (int i = 0; i < self.juneDates.count; i++) {
-//    NSString *date = [self.juneDates objectAtIndex:i];
-//    if ([date isEqualToString:string]) {
-//      matchingIndex = i;
-//    }
-//  }
-//  return 0;
-//}
--(void) populateDefaultPlayoffMatches{
   
   self.matchA1B2 = [FBMatch new];
   self.matchB1A2 = [FBMatch new];
@@ -128,11 +87,15 @@
   self.matchL29L30 = [FBMatch new];
   self.matchW29W30 = [FBMatch new];
   
+}
+
+
+- (void)callFireBase {
   Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/Playoff_Schedule"];
   // FireBase Listener
   [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
     
-
+    
     
     self.matchA1B2.local = @"A1";
     self.matchA1B2.visitor = @"B2";
@@ -149,7 +112,7 @@
     self.matchB1A2.visitor_abbr = @"A2";
     //NSLog(@"b1: %@ a2: %@ schedule: %@", self.matchB1A2.local, self.matchB1A2.visitor, self.matchB1A2.schedule);
     [self.playoffMatches addObject:self.matchB1A2];
-
+    
     self.matchD1C2.local = @"D1";
     self.matchD1C2.visitor = @"C2";
     self.matchD1C2.schedule = [snapshot.value objectForKey:@"D1C2"];
@@ -157,7 +120,7 @@
     self.matchD1C2.visitor_abbr = @"C2";
     //NSLog(@"D1: %@ C2: %@ schedule: %@", self.matchD1C2.local, self.matchD1C2.visitor, self.matchD1C2.schedule);
     [self.playoffMatches addObject:self.matchD1C2];
-
+    
     
     self.matchC1D2.local = @"C1";
     self.matchC1D2.visitor = @"D2";
@@ -166,7 +129,7 @@
     self.matchC1D2.visitor_abbr = @"D2";
     //NSLog(@"C1: %@ D2: %@ schedule: %@", self.matchC1D2.local, self.matchC1D2.visitor, self.matchC1D2.schedule);
     [self.playoffMatches addObject:self.matchC1D2];
-
+    
     
     self.matchW25W27.local = @"W25";
     self.matchW25W27.visitor = @"W27";
@@ -175,7 +138,7 @@
     self.matchW25W27.visitor_abbr = @"W27";
     //NSLog(@"W25: %@ W27: %@ schedule: %@", self.matchW25W27.local, self.matchW25W27.visitor, self.matchW25W27.schedule);
     [self.playoffMatches addObject:self.matchW25W27];
-
+    
     
     self.matchW26W28.local = @"W26";
     self.matchW26W28.visitor = @"W28";
@@ -184,7 +147,7 @@
     self.matchW26W28.visitor_abbr = @"W28";
     //NSLog(@"W26: %@ W28: %@ schedule: %@", self.matchW26W28.local, self.matchW26W28.visitor, self.matchW26W28.schedule);
     [self.playoffMatches addObject:self.matchW26W28];
-
+    
     
     self.matchW29W30.local = @"W29";
     self.matchW29W30.visitor = @"W30";
@@ -194,7 +157,7 @@
     //NSLog(@"W29: %@ W30: %@ schedule: %@", self.matchW29W30.local, self.matchW29W30.visitor, self.matchW29W30.schedule);
     [self.playoffMatches addObject:self.matchW29W30];
     //NSLog(@"%lu is the playoff match count", (unsigned long)self.playoffMatches.count);
-
+    
     self.matchL29L30.local = @"L29";
     self.matchL29L30.visitor = @"L30";
     self.matchL29L30.schedule = [snapshot.value objectForKey:@"L29L30"];
@@ -242,13 +205,38 @@
     for (FBMatch *match in self.sortedMatches) {
       NSLog(@"%@", match.schedule);
     }
-    //reloading table view
+    //reloading table view!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     [self matchesAreDoneLoading];
-   
+    
     
   } withCancelBlock:^(NSError *error) {
     [self presentErrorWithString:error.description];
   }];
+}
+
+- (void)sortMatches {
+  
+  NSSortDescriptor *sortDescriptor;
+  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"schedule"
+                                               ascending:YES];
+  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+  self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  self.imageLeft.hidden = true;
+  self.imageRight.hidden = true;
+}
+
+- (void)matchesAreDoneLoading {
+  [self createArraysForSectionHeaders];
+  [self.tableView reloadData];
+  
+  if (!self.didScrollToDate && self.finalArray.count >= 18) {
+    [self scrollToDate];
+    self.didScrollToDate = true;
+  };
+  self.cupView.hidden = false;
 }
 
 - (void)createArraysForSectionHeaders {
@@ -270,6 +258,33 @@
   }
 }
 
+- (void) scrollToDate {
+  
+  NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+  NSString *date = [dateFormatter stringFromDate:[NSDate date]];
+  NSLog(@"%@ is the current date", date);
+  
+   for (id juneDate in self.juneDates) {
+     if ([juneDate isEqualToString:date]) {
+       NSLog(@"passEd");
+       NSInteger section = [[self.juneDates objectForKey:juneDate]integerValue];
+       [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+        self.imageLeft = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
+        self.imageLeft.frame = CGRectMake(28, 70, 25, 25);
+        self.imageLeft.contentMode = UIViewContentModeScaleAspectFit;
+        [self.view addSubview:self.imageLeft];
+      
+        self.imageRight= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
+        self.imageRight.frame = CGRectMake(self.view.frame.size.width - 53, 70, 25, 25);
+        self.imageRight.contentMode = UIViewContentModeScaleAspectFit;
+        [self.view addSubview:self.imageRight];
+       
+     }
+    
+  }
+}
 - (BOOL)match: (NSDictionary *)match alreadyExistsInArray:(NSMutableArray *)array {
   
   NSString *schedule = [match valueForKey:@"schedule"];
@@ -295,33 +310,9 @@
   }];
 }
 
-- (void)sortMatches {
-  
-  
-  NSSortDescriptor *sortDescriptor;
-  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"schedule"
-                                               ascending:YES];
-  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-  self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
-}
 
-- (void) scrollAutomatically:(int) i
-{
-  __block int j = i;
-  [UIView animateWithDuration: 6//Change this to something more for slower scrolls
-                   animations: ^{
-                     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:j] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-                   }
-                   completion: ^(BOOL finished){
-                     j = j + 10;//Changing this number affects speed.
-                     if(j<=2999)//here you could provide the index of destination row
-                       [self scrollAutomatically:j];
-                     else
-                     {
-                       //I had some code here that popped up a UIAlertView.
-                     }
-                   }];
-}
+
+
 
 //////////////////tableview stuff/////////////////////////////////////////
 //
@@ -338,30 +329,56 @@
 
 //create setter
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
   HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
   NSArray *arr = [self.finalArray objectAtIndex:indexPath.section];
- 
   FBMatch *match = [arr objectAtIndex:indexPath.row];
   cell.teamOneName.text = match.local_abbr;
   cell.teamTwoName.text = match.visitor_abbr;
+  
+  //freaking Haiti
   if ([match.local isEqualToString:@"Haití"]) {
     cell.teamOneImage.image = [UIImage imageNamed:@"Haiti"];
-       } else {
-         cell.teamOneImage.image = [UIImage imageNamed:match.local];
-       }
+  } else {
+    cell.teamOneImage.image = [UIImage imageNamed:match.local];
+  }
   if ([match.visitor isEqualToString:@"Haití"]) {
     cell.teamTwoImage.image = [UIImage imageNamed:@"Haiti"];
   } else {
     cell.teamTwoImage.image = [UIImage imageNamed:match.visitor];
   }
   
-  cell.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", match.hour, match.minute];
-  cell.teamOneScore.text = match.local_goals;
-  cell.teamTwoScore.text = match.visitor_goals;
-  cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
+  //penalties
   
+  
+  //time parameters + score logic + penalties
+  if ([match.status isEqualToString: @"-1"]) {
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", match.hour , match.minute];
+    cell.teamOneScore.text = @"";
+    cell.teamTwoScore.text = @"";
+    cell.penaltiesLabel.text = @"";
+  } else if ([match.status isEqualToString:@"0"]){
+    cell.timeLabel.text = match.live_minute;
+    cell.teamOneScore.text = match.local_goals;
+    cell.teamTwoScore.text = match.visitor_goals;
+      if (match.pen1 == [NSNumber numberWithInteger:0] && match.pen2 == [NSNumber numberWithInteger:0] ) {
+        cell.penaltiesLabel.text = @"";
+      } else {
+      cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
+      }
+  } else if ([match.status isEqualToString:@"1"])  {
+    cell.timeLabel.text = @"Final";
+    cell.teamOneScore.text = match.local_goals;
+    cell.teamTwoScore.text = match.visitor_goals;
+      if (match.pen1 == [NSNumber numberWithInteger:0] && match.pen2 == [NSNumber numberWithInteger:0] ) {
+        cell.penaltiesLabel.text = @"";
+      } else {
+        cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
+    }
+  }
+
   cell.locationLabel.text = [NSString stringWithFormat:@"Levi's Stadium %@",  match.groupCode];
+  
   return cell;
 }
 
@@ -373,7 +390,6 @@
 {
  
 }
-
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Leave Alone!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

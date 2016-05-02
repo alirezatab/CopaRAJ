@@ -257,7 +257,7 @@
         }
         
         //timeline
-      NSLog(@"count of goals %lu", match.goals.count);
+      NSLog(@"count of goals %lu", (unsigned long)match.goals.count);
         if (match.goals.count <1 && match.cards.count < 1 && match.changes.count < 1) {
         } else {
             NSArray *timeLine = [FBMatch createTimeLineWithMatch: match];
