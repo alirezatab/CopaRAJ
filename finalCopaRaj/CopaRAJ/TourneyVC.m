@@ -219,10 +219,23 @@
     }
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"index path: %@", indexPath);
-    NSLog(@"%@", self.matchA1B2.matchID);
+  
+  if (indexPath.section != 3 && indexPath.section != 2) {
+    
+    FBMatch *match = [[self.matchesObject objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    [self segueToMatchVCWithMatch:match];
+    
+  } else if (indexPath.section == 2){
+    
+    FBMatch *match = [[self.matchesObject objectAtIndex:indexPath.section] objectAtIndex:indexPath.row + 1];
+    [self segueToMatchVCWithMatch:match];
+
+    }
+}
+- (void)segueToMatchVCWithMatch: (FBMatch *)match{
   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Game" bundle: [NSBundle mainBundle]];
   GameVC *viewController = (GameVC *)[storyboard instantiateViewControllerWithIdentifier:@"game"];
+  viewController.match = match;
   self.navigationController.navigationBarHidden = false;
   [self.navigationController pushViewController:viewController animated:YES];
 

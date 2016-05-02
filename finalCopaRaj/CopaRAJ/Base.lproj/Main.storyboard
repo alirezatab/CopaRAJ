@@ -152,7 +152,7 @@
                                             <outlet property="teamTwoName" destination="VyA-WJ-wNT" id="43D-mf-czf"/>
                                             <outlet property="teamTwoScore" destination="Rya-Is-SBu" id="uM5-R9-xyk"/>
                                             <outlet property="timeLabel" destination="aGF-yJ-YbP" id="zey-cN-m5r"/>
-                                            <segue destination="1Cu-HM-W9m" kind="show" animates="NO" id="WFn-tZ-cUj"/>
+                                            <segue destination="1Cu-HM-W9m" kind="show" identifier="matchDetails" animates="NO" id="WFn-tZ-cUj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
