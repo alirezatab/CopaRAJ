@@ -106,24 +106,27 @@
   NSLog(@"%@ is the current date", date);
   
    for (id juneDate in self.juneDates) {
-     if ([juneDate isEqualToString:@"2016-06-12"]) {
+     if ([juneDate isEqualToString:date]) {
        NSLog(@"passEd");
        NSInteger section = [[self.juneDates objectForKey:juneDate]integerValue];
        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+        self.imageLeft = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
+        self.imageLeft.frame = CGRectMake(28, 70, 25, 25);
+        self.imageLeft.contentMode = UIViewContentModeScaleAspectFit;
+        [self.view addSubview:self.imageLeft];
+      
+        self.imageRight= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
+        self.imageRight.frame = CGRectMake(self.view.frame.size.width - 53, 70, 25, 25);
+        self.imageRight.contentMode = UIViewContentModeScaleAspectFit;
+        [self.view addSubview:self.imageRight];
+       
      }
     
   }
   
   
-  self.imageLeft = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
-  self.imageLeft.frame = CGRectMake(28, 70, 25, 25);
-  self.imageLeft.contentMode = UIViewContentModeScaleAspectFit;
-  [self.view addSubview:self.imageLeft];
   
-  self.imageRight= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
-  self.imageRight.frame = CGRectMake(self.view.frame.size.width - 53, 70, 25, 25);
-  self.imageRight.contentMode = UIViewContentModeScaleAspectFit;
-  [self.view addSubview:self.imageRight];
   
 
 }
@@ -327,7 +330,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
   self.imageLeft.hidden = true;
-  self.imageRight.hidden = true; 
+  self.imageRight.hidden = true;
 }
 
 
