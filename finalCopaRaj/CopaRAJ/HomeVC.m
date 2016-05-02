@@ -21,7 +21,7 @@
 
 
 
-@interface HomeVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface HomeVC ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeButton;
@@ -42,6 +42,9 @@
 @property FBMatch *matchW29W30;
 @property NSDictionary *juneDates;
 @property BOOL didScrollToDate;
+@property UIImageView *imageLeft;
+@property UIImageView *imageRight;
+
 
 
 
@@ -55,6 +58,11 @@
     [self.homeButton setTintColor:[UIColor whiteColor]];
     [self initNeededObjects];
     [self updateMatchDataAndLoadTableView];
+
+}
+
+- (IBAction)testMethod:(id)sender {
+  
 }
 
 - (void) initNeededObjects {
@@ -67,8 +75,10 @@
   self.juneDates = @{@"2016-06-04":@1, @"2016-06-05":@2, @"2016-06-06":@3, @"2016-06-07":@4, @"2016-06-08":@5, @"2016-06-09":@6, @"2016-06-10":@7, @"2016-06-11":@8, @"2016-06-12":@9, @"2016-06-13":@10, @"2016-06-14":@11, @"2016-06-15":@11, @"2016-06-16":@12, @"2016-06-17":@13, @"2016-06-18":@14, @"2016-06-19":@14, @"2016-06-20":@15, @"2016-06-21":@15, @"2016-06-22":@16, @"2016-06-23":@16, @"2016-06-24":@17, @"2016-06-25":@17, @"2016-06-26":@17, @"2016-06-27":@17, @"2016-06-28":@17};
   self.didScrollToDate = false;
   self.cupView.hidden = true;
+  
   [self.tableView addSubview:self.cupView];
   [self.tableView sendSubviewToBack:self.cupView];
+  
 }
 
 - (void)updateMatchDataAndLoadTableView {
@@ -96,13 +106,25 @@
   NSLog(@"%@ is the current date", date);
   
    for (id juneDate in self.juneDates) {
-     if ([juneDate isEqualToString:date]) {
+     if ([juneDate isEqualToString:@"2016-06-12"]) {
        NSLog(@"passEd");
        NSInteger section = [[self.juneDates objectForKey:juneDate]integerValue];
        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]atScrollPosition:UITableViewScrollPositionTop animated:NO];
      }
     
   }
+  
+  
+  self.imageLeft = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
+  self.imageLeft.frame = CGRectMake(28, 70, 25, 25);
+  self.imageLeft.contentMode = UIViewContentModeScaleAspectFit;
+  [self.view addSubview:self.imageLeft];
+  
+  self.imageRight= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
+  self.imageRight.frame = CGRectMake(self.view.frame.size.width - 53, 70, 25, 25);
+  self.imageRight.contentMode = UIViewContentModeScaleAspectFit;
+  [self.view addSubview:self.imageRight];
+  
 
 }
 
@@ -233,7 +255,6 @@
         }
       }
     }
-    
     if (self.sortedMatches.count != 32 && self.mathches.count == 24) {
       [self.mathches addObjectsFromArray:self.playoffMatches];
     }
@@ -297,7 +318,6 @@
 
 - (void)sortMatches {
   
-  
   NSSortDescriptor *sortDescriptor;
   sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"schedule"
                                                ascending:YES];
@@ -305,23 +325,12 @@
   self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
 }
 
-- (void) scrollAutomatically:(int) i
-{
-  __block int j = i;
-  [UIView animateWithDuration: 6//Change this to something more for slower scrolls
-                   animations: ^{
-                     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:j] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-                   }
-                   completion: ^(BOOL finished){
-                     j = j + 10;//Changing this number affects speed.
-                     if(j<=2999)//here you could provide the index of destination row
-                       [self scrollAutomatically:j];
-                     else
-                     {
-                       //I had some code here that popped up a UIAlertView.
-                     }
-                   }];
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  self.imageLeft.hidden = true;
+  self.imageRight.hidden = true; 
 }
+
+
 
 //////////////////tableview stuff/////////////////////////////////////////
 //
@@ -358,26 +367,32 @@
   }
   
   //penalties
-  if (match.pen1.integerValue > 0 || match.pen2.integerValue > 0 ) {
-    cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
-  } else {
-    cell.penaltiesLabel.text = @"";
-  }
   
-  //time parameters
+  
+  //time parameters + score logic + penalties
   if ([match.status isEqualToString: @"-1"]) {
     cell.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", match.hour , match.minute];
     cell.teamOneScore.text = @"";
     cell.teamTwoScore.text = @"";
+    cell.penaltiesLabel.text = @"";
   } else if ([match.status isEqualToString:@"0"]){
     cell.timeLabel.text = match.live_minute;
     cell.teamOneScore.text = match.local_goals;
     cell.teamTwoScore.text = match.visitor_goals;
+      if (match.pen1 == [NSNumber numberWithInteger:0] && match.pen2 == [NSNumber numberWithInteger:0] ) {
+        cell.penaltiesLabel.text = @"";
+      } else {
+      cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
+      }
   } else if ([match.status isEqualToString:@"1"])  {
     cell.timeLabel.text = @"Final";
     cell.teamOneScore.text = match.local_goals;
     cell.teamTwoScore.text = match.visitor_goals;
-    
+      if (match.pen1 == [NSNumber numberWithInteger:0] && match.pen2 == [NSNumber numberWithInteger:0] ) {
+        cell.penaltiesLabel.text = @"";
+      } else {
+        cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
+    }
   }
 
   cell.locationLabel.text = [NSString stringWithFormat:@"Levi's Stadium %@",  match.groupCode];
@@ -393,7 +408,6 @@
 {
  
 }
-
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Leave Alone!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
