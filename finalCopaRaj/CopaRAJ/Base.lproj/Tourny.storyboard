@@ -287,7 +287,7 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dXg-HU-Mho"/>
-                                    <barButtonItem image="matchesButtonImage" width="110" id="q8e-g2-4B7">
+                                    <barButtonItem image="matchesButtonImage-1" width="110" id="q8e-g2-4B7">
                                         <connections>
                                             <segue destination="RQT-Xj-YMP" kind="show" animates="NO" id="E7X-Aa-pFI"/>
                                         </connections>
@@ -297,7 +297,7 @@
                                             <segue destination="JQg-Da-tjf" kind="show" animates="NO" id="Csh-nR-7gl"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="BracketButtonIcon2" width="110" id="zJ6-0O-uiw"/>
+                                    <barButtonItem image="BracketButtonIcon" width="110" id="zJ6-0O-uiw"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="n6V-h7-hlH"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,8 +357,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BracketButtonIcon2" width="52" height="52"/>
-        <image name="matchesButtonImage" width="44" height="44"/>
+        <image name="BracketButtonIcon" width="90" height="90"/>
+        <image name="matchesButtonImage-1" width="45" height="45"/>
         <image name="soccerBall" width="32" height="32"/>
         <image name="stadium-1" width="5312" height="2988"/>
         <image name="tournament" width="48" height="47"/>
