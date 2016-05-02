@@ -10,37 +10,17 @@
 
 @implementation BracketCell
 
-
-//-(instancetype)initWithFrame:(CGRect)frame{
-//    self = [super initWithFrame:frame];
-//    if (self) {
-////        self.homeTeamLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width/3, frame.size.height)];
-////        self.homeTeamScore = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-////        self.homeTeamImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-////        
-////      
-////        
-////        self.visitorTeamLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width/3, frame.size.height)];
-////        self.visitorTeamScore = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-////        self.visitorTeamImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-////        
-////        
-////        self.winnerTeamLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, frame.size.width/3, frame.size.height)];
-////        self.winnerTeamImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-//    }
-//    return self;
-//}
 - (void)awakeFromNib {
     [super awakeFromNib];
     
     //changing the fonts for the groupVC
     self.homeTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
     self.homeTeamScore.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
-    self.homeTeamPenalty.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.homeTeamPenalty.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:11];
     
     self.visitorTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
     self.visitorTeamScore.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
-    self.visitorTeamPenalty.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+    self.visitorTeamPenalty.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:11];
     
     self.winnerTeamLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:14];
 }
@@ -56,11 +36,20 @@
     self.visitorTeamLabel.text = FBMatch.visitor;
     
     if ([FBMatch.status isEqual:@1]) {
-        self.homeTeamPenalty.enabled = YES;
-        self.homeTeamPenalty.text = [NSString stringWithFormat:@"P%@", FBMatch.pen1.stringValue];
-        
-        self.visitorTeamPenalty.enabled = YES;
-        self.visitorTeamPenalty.text = [NSString stringWithFormat:@"P%@", FBMatch.pen2.stringValue];;
+        if (FBMatch.pen1 == [NSNumber numberWithInteger:0] && FBMatch.pen2 == [NSNumber numberWithInteger:0] ) {
+            self.homeTeamPenalty.enabled = NO;
+            self.homeTeamPenalty.hidden = YES;
+            self.visitorTeamPenalty.enabled = NO;
+            self.visitorTeamPenalty.hidden = YES;
+        } else {
+            self.homeTeamPenalty.enabled = YES;
+            self.homeTeamPenalty.hidden = NO;
+            self.homeTeamPenalty.text = [NSString stringWithFormat:@"P%@", FBMatch.pen1];
+            
+            self.visitorTeamPenalty.enabled = YES;
+            self.visitorTeamPenalty.hidden = NO;
+            self.visitorTeamPenalty.text = [NSString stringWithFormat:@"P%@", FBMatch.pen2];
+        }
     } else {
         self.homeTeamPenalty.enabled = NO;
         self.homeTeamPenalty.hidden = YES;
@@ -81,11 +70,3 @@
     }
 }
 @end
-
-//NSString *scoreString = match.score;
-//NSArray *seperatedScore = [match.score componentsSeparatedByString:@"-"];
-//NSLog(@"THIS IS THE SCORE %@", seperatedScore[0]);
-//self.homeTeamScore.text = seperatedScore[0];
-
-//NSLog(@"THIS IS THE SCORE %@", seperatedScore[1]);
-//self.visitorTeamScore.text = seperatedScore[1];

@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Copa America-->
+        <!--Copa Club-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeVC" sceneMemberID="viewController">
@@ -25,7 +25,7 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5PP-7U-Mzf"/>
-                                    <barButtonItem image="games" width="110" id="fUr-0o-Gsj">
+                                    <barButtonItem image="matchesButtonImage" width="110" id="fUr-0o-Gsj">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                     <barButtonItem image="groups" width="110" id="mwi-b8-qWT">
@@ -34,7 +34,7 @@
                                             <segue destination="JQg-Da-tjf" kind="show" animates="NO" id="AOD-aD-hfw"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="tournament" width="110" id="tEm-RK-T7A">
+                                    <barButtonItem image="BracketButtonIcon" width="110" id="tEm-RK-T7A">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="cje-vk-2tS" kind="show" identifier="TournamentSegue" animates="NO" id="i8c-xZ-DUE"/>
@@ -53,7 +53,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Swl-V8-MwE" id="ygE-3h-7mW">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3yO-DP-twc">
@@ -96,13 +96,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="penalties" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Mr-kZ2">
-                                                            <rect key="frame" x="178" y="0.0" width="88" height="49"/>
+                                                            <rect key="frame" x="178" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-Is-SBu">
-                                                            <rect key="frame" x="266" y="0.0" width="89" height="49"/>
+                                                            <rect key="frame" x="267" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -198,10 +198,12 @@
                             <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="BBZ-fr-Pbx" secondAttribute="bottom" id="z8U-Gp-BJB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Copa America" id="zb4-O1-TtV"/>
+                    <navigationItem key="navigationItem" title="Copa Club" id="zb4-O1-TtV"/>
                     <connections>
                         <outlet property="cupView" destination="BBZ-fr-Pbx" id="ikj-gI-KsS"/>
-                        <outlet property="homeButton" destination="fUr-0o-Gsj" id="MjT-Jp-w3b"/>
+                        <outlet property="groupStandingsButton" destination="mwi-b8-qWT" id="qXF-Fe-ahu"/>
+                        <outlet property="homeMatchesButton" destination="fUr-0o-Gsj" id="Ngj-rL-Usq"/>
+                        <outlet property="playOffMatchesButton" destination="tEm-RK-T7A" id="BEb-ga-3Xj"/>
                         <outlet property="tableView" destination="TUr-j0-mMr" id="eU4-bW-Tvh"/>
                     </connections>
                 </viewController>
@@ -226,7 +228,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsO-Ob-PRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="167"/>
+            <point key="canvasLocation" x="514" y="160"/>
         </scene>
         <!--Game-->
         <scene sceneID="7J8-cm-JoU">
@@ -234,7 +236,7 @@
                 <viewControllerPlaceholder storyboardName="Game" id="1Cu-HM-W9m" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55T-AU-plN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-261" y="977"/>
+            <point key="canvasLocation" x="1205.5" y="794"/>
         </scene>
         <!--Group-->
         <scene sceneID="RZJ-fw-8CH">
@@ -242,7 +244,7 @@
                 <viewControllerPlaceholder storyboardName="Group" id="JQg-Da-tjf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxE-ZB-Dxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="2530"/>
+            <point key="canvasLocation" x="1896.5" y="794"/>
         </scene>
         <!--UIViewController-SuA-bu-kxJ-->
         <scene sceneID="m2R-kQ-M5H">
@@ -250,12 +252,13 @@
                 <viewControllerPlaceholder storyboardIdentifier="UIViewController-SuA-bu-kxJ" storyboardName="Tourny" referencedIdentifier="UIViewController-SuA-bu-kxJ" id="cje-vk-2tS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9a8-t6-gGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-367" y="2436"/>
+            <point key="canvasLocation" x="514" y="794"/>
         </scene>
     </scenes>
     <resources>
-        <image name="games" width="34" height="47"/>
+        <image name="BracketButtonIcon" width="90" height="90"/>
         <image name="groups" width="39" height="47"/>
+        <image name="matchesButtonImage" width="45" height="45"/>
         <image name="stadium" width="361" height="88"/>
         <image name="tournament" width="48" height="47"/>
     </resources>

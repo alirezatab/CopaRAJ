@@ -24,7 +24,9 @@
 @interface HomeVC ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *homeButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *homeMatchesButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *groupStandingsButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
 @property (weak, nonatomic) IBOutlet UIView *cupView;
 
 @property NSMutableArray *mathches;
@@ -44,18 +46,19 @@
 @property BOOL didScrollToDate;
 @property UIImageView *imageLeft;
 @property UIImageView *imageRight;
-
-
-
-
 @end
+
 
 @implementation HomeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    [self.homeButton setTintColor:[UIColor whiteColor]];
+    
+    [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
+    [self.groupStandingsButton setTintColor:[UIColor grayColor]];
+    [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
+    
     [self initNeededObjects];
     [self callFireBase];
 }
@@ -421,27 +424,6 @@
   
   return view;
 }
-
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"TournamentSegue"]) {
-    //    TourneyVC *desVC = segue.destinationViewController;
-    //    for (int i = 24; i < 32; i++ ){
-    //      [self.playOffTeamsTest addObject:self.matchesObject[i]];
-    //   }
-    // desVC.arrayOfPlayOffMatches = self.playOffTeamsTest;
-  } else if ([segue.identifier isEqualToString:@"GameSegue"]){
-    // NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    //GameVC *desVC = segue.destinationViewController;
-    // Match *match = [self.matchesObject objectAtIndex:indexPath.row];
-    //desVC.match = match;
-  } else if ([segue.identifier isEqualToString:@"Group"]){
-   
-  }
-}
-
-
 
 - (UIStatusBarStyle)preferredStatusBar {
   return UIStatusBarStyleLightContent;
