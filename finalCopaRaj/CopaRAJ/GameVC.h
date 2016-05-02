@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *matchDateLabel;
 
 
-
 //team A LineUp
 @property (weak, nonatomic) IBOutlet UIImageView *teamAFlag;
 @property (weak, nonatomic) IBOutlet UILabel *teamAPlayer1;

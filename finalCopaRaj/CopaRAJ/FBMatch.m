@@ -85,7 +85,8 @@
     }
   
   if (self.subIn != nil && self.subOut != nil) {
-    NSDictionary *substitution = @{@"playerIn": [self.subIn objectForKey:@"player"], @"playerOut": [self.subOut objectForKey:@"player"], @"minute": [self.subOut objectForKey:@"minute"], @"team": [self.subOut objectForKey:@"team"], @"action": @"substitution"};
+      NSString *substitutionstring = @"substitution";
+    NSDictionary *substitution = @{@"playerIn": [self.subIn objectForKey:@"player"], @"playerOut": [self.subOut objectForKey:@"player"], @"minute": [self.subOut objectForKey:@"minute"], @"team": [self.subOut objectForKey:@"team"], @"action": substitutionstring};
     [self.arrayOfSubstitutionDictionaries addObject:substitution];
     //NSLog(@"%@ subin", self.subIn);
     //NSLog(@"%@ subout", self.subOut);

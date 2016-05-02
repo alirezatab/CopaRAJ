@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *actionImage;
 @property (weak, nonatomic) IBOutlet UILabel *outLabel;
 @property (weak, nonatomic) IBOutlet UILabel *inLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *teamFlagEvent;
+@property (weak, nonatomic) IBOutlet UIImageView *substitutionImage;
 
 @end

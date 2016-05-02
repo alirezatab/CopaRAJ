@@ -29,6 +29,7 @@
 
 - (IBAction)segmentedValueChanged:(UISegmentedControl *)sender {
 
+
     if (sender.selectedSegmentIndex == 0) {
         self.lineUpsView.hidden = NO;
         self.statsView.hidden = YES;
@@ -61,8 +62,7 @@
 //    NSLog(@"match %@", self.match);
     self.match.timeline = [NSMutableArray new];
     self.tableView.allowsSelection = NO;
-   
-    
+
 }
 
 - (void)listenToMatch {
@@ -119,17 +119,15 @@
     self.teamTwoImage.image = [UIImage imageNamed:self.match.visitor];
     self.teamTwoName.text = self.match.visitor;
     self.matchDateLabel.text = self.match.date;
-    NSArray *labels = @[self.timeLabel , self.teamOneName , self.teamOneScore , self.teamTwoName ,self.teamTwoScore , self.matchDateLabel];
+    NSArray *labels = @[self.timeLabel , self.teamOneName , self.teamOneScore , self.teamTwoName ,self.teamTwoScore , self.matchDateLabel , self.versusLabel , self.locationLabel];
     for (UILabel *label in labels){
         [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:16]];
-        [label setTextColor:[UIColor colorWithWhite:0.600 alpha:1.000]];
-
+        [label setTextColor:[UIColor whiteColor]];
     }
 }
 
 - (void)displayLineUpLabels {
 
-    
     int i = 0;
     //TEAM A
     NSArray *lineUpLocalLabels = @[self.teamAPlayer1,self.teamAPlayer2,self.teamAPlayer3,self.teamAPlayer4,self.teamAPlayer5,self.teamAPlayer6,self.teamAPlayer7,self.teamAPlayer8,self.teamAPlayer9,self.teamAPlayer10,self.teamAPlayer11];
@@ -139,8 +137,8 @@
         NSString *nick = [player valueForKey:@"nick"];
         UILabel *label = [lineUpLocalLabels objectAtIndex:i];
         label.text = nick;
-        [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:15]];
-        [label setTextColor:[UIColor colorWithWhite:0.600 alpha:1.000]];
+        [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:15]];
+        [label setTextColor:[UIColor whiteColor]];
         i++;
     }
     self.lineUpLocalFlag.image = [UIImage imageNamed:self.match.local];
@@ -153,8 +151,8 @@
         NSString *nick = [match valueForKey:@"nick"];
         UILabel *label = [lineUpVisitLabels objectAtIndex:x];
         label.text = nick;
-        [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:15]];
-        [label setTextColor:[UIColor colorWithWhite:0.600 alpha:1.000]];
+        [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:15]];
+        [label setTextColor:[UIColor whiteColor]];
         x++;
     }
     self.lineUpVisitorFlag.image = [UIImage imageNamed:self.match.visitor];
@@ -190,7 +188,7 @@
     self.visitor_cor.text = self.match.visitor_cor;
     
     //adding font color and size to the stats labels
-    NSArray *labels = @[self.local_posLabel , self.local_sotLabel , self.local_sonLabel , self.local_soffLabel , self.local_frkLabel , self.local_blkLabel , self.local_ycLabel , self.local_rcLabel , self.visitor_posLabel , self.visitor_sotLabel , self.visitor_sonLabel , self.visitor_soffLabel , self.local_frkLabel , self.visitor_frkLabel , self.visitor_blkSaves , self.visitor_ycLabel , self.visitor_rcLabel , self.posessionLabel , self.shotsLabel, self.shotsTargetLabel , self.offSideLabel , self.freeKickLabel , self.savesLabel ,self.yellowCardLabel ,self.redCardLabel];
+    NSArray *labels = @[self.local_posLabel , self.local_sotLabel , self.local_sonLabel , self.local_soffLabel , self.local_frkLabel , self.local_blkLabel , self.local_ycLabel , self.local_rcLabel , self.visitor_posLabel , self.visitor_sotLabel , self.visitor_sonLabel , self.visitor_soffLabel , self.local_frkLabel , self.visitor_frkLabel , self.visitor_blkSaves , self.visitor_ycLabel , self.visitor_rcLabel , self.posessionLabel , self.shotsLabel, self.shotsTargetLabel , self.offSideLabel , self.freeKickLabel , self.savesLabel ,self.yellowCardLabel ,self.redCardLabel , self.cornerKick , self.local_cor , self.visitor_cor];
     
     for (UILabel *label in labels){
         [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:16]];
@@ -201,14 +199,30 @@
 //display timeline labels
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    NSArray *reversedArray = [[self.match.timeline reverseObjectEnumerator] allObjects];
     
-    NSDictionary *event = [self.match.timeline objectAtIndex:indexPath.row];
+    
+    NSDictionary *event = [reversedArray objectAtIndex:indexPath.row];
+    
     cell.timeLabel.text = [NSString stringWithFormat:@"%@'",[event valueForKey:@"minute"]];
-    cell.playerLabel.text = [event valueForKey:@"player"];
-    cell.actionImage.image = [UIImage imageNamed:[event valueForKey:@"action"]];
-    cell.outLabel.text = [event valueForKey:@"playerOut"];
-    cell.inLabel.text = [event valueForKey:@"playerIn"];
+
+    if ([[event valueForKey:@"team"] isEqualToString: @"local"]) {
+        cell.teamFlagEvent.image = [UIImage imageNamed: self.match.local];
+    } else {
+        cell.teamFlagEvent.image = [UIImage imageNamed: self.match.visitor];
+    }
     
+    BOOL b = [event objectForKey:@"player"];
+
+    if(b){
+        cell.playerLabel.text = [event valueForKey:@"player"];
+    } else {
+        cell.playerLabel.text = @"(out) - (in)";
+    }
+    
+    cell.actionImage.image = [UIImage imageNamed:[event valueForKey:@"action"]];
+    cell.inLabel.text = [event valueForKey:@"playerIn"];
+    cell.outLabel.text = [event valueForKey:@"playerOut"];
     return cell;
 }
 
