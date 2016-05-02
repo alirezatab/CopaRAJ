@@ -30,7 +30,7 @@
     returnedGroup.team1Team= [team1 objectForKey:@"team"];
     returnedGroup.team1Wins = [team1 objectForKey:@"wins"];
     returnedGroup.team1Gf = [team1 objectForKey:@"gf"];
-    NSLog(@"Team 1: %@", returnedGroup.team1Gf);
+    NSLog(@"Team 1 GP: %@ Team 1 W: %@ Team 1 T: %@ Team 1 L: %@ Team 1 pts: %@", returnedGroup.groupRound, returnedGroup.team1Wins, returnedGroup.team1Draws, returnedGroup.team1Losses, returnedGroup.team1Points);
   
   
   

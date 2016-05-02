@@ -64,7 +64,7 @@
   } withCancelBlock:^(NSError *error) {
     
       NSLog(@"%@", error.description);
-      //tell user to reconnect to unternet
+      //tell user to reconnect to internet
   }];
 }
 
@@ -105,31 +105,38 @@
   if (indexPath.row == 0) {
     cell.teamImage.image = [UIImage imageNamed:group.team1Team];
     cell.teamCountry.text = group.team1Team;
-    cell.teamGoals.text = group.team1Gf;
+    cell.teamGoals.text = group.groupRound;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team1Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team1Draws];
+    cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team1Losses];
+    cell.teamPoints.text = [NSString stringWithFormat:@"%@", group.team1Points];
     
   } else if (indexPath.row == 1) {
     cell.teamImage.image = [UIImage imageNamed:group.team2Team];
     cell.teamCountry.text = group.team2Team;
-    cell.teamGoals.text = group.team2Gf;
+    cell.teamGoals.text = group.groupRound;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team2Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team2Draws];
-    
-  } else if (indexPath.row == 2){
+    cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team2Losses];
+    cell.teamPoints.text = [NSString stringWithFormat:@"%@", group.team2Points];
+
+} else if (indexPath.row == 2){
     cell.teamImage.image = [UIImage imageNamed:group.team3Team];
     cell.teamCountry.text = group.team3Team;
-    cell.teamGoals.text = group.team3Gf;
+    cell.teamGoals.text = group.groupRound;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team3Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team3Draws];
-    
+    cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team3Losses];
+    cell.teamPoints.text = [NSString stringWithFormat:@"%@", group.team3Points];
+
   } else {
     cell.teamImage.image = [UIImage imageNamed:group.team4Team];
     cell.teamCountry.text = group.team4Team;
-    cell.teamGoals.text = group.team4Gf;
+    cell.teamGoals.text = group.groupRound;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team4Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team4Draws];
-    
+    cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team4Losses];
+    cell.teamPoints.text = [NSString stringWithFormat:@"%@", group.team4Points];
   }
   
   return cell;
