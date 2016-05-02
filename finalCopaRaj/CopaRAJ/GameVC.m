@@ -27,59 +27,34 @@
 
 @implementation GameVC
 
-- (IBAction)segmentedValueChanged:(UISegmentedControl *)sender {
 
-
-    if (sender.selectedSegmentIndex == 0) {
-        self.lineUpsView.hidden = NO;
-        self.statsView.hidden = YES;
-        self.eventsView.hidden = YES;
-    } else if(sender.selectedSegmentIndex == 1) {
-        self.lineUpsView.hidden = YES;
-        self.statsView.hidden = NO;
-        self.eventsView.hidden = YES;
-    } else if(sender.selectedSegmentIndex == 2) {
-        self.lineUpsView.hidden = YES;
-        self.statsView.hidden = YES;
-        self.eventsView.hidden = NO;
-   }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //this gets taken out after segue works ....code below
-    self.match = [FBMatch new];
+    
+    self.tableView.allowsSelection = NO;
+    self.navigationController.navigationBar.hidden = NO;
     
     if (self.match.matchID) {
-        //listen to match
+        [self listenToMatch];
     } else {
-        //update match  view with passed match data
+        [self displayLineUpLabels];
+        [self displayMatchLabels];
+        [self displayStatsLabels];
     }
-    [self listenToMatch];
-    
-    //else {
-    //use passed match data
-//    NSLog(@"match %@", self.match);
     self.match.timeline = [NSMutableArray new];
-    self.tableView.allowsSelection = NO;
-  self.navigationController.navigationBar.hidden = NO;
-
+    
 }
 
 - (void)listenToMatch {
     
-    //NSString *matchID = [NSString stringWithFormat:@"%@", self.matchID];
-    //if matchID
-    NSString *thisWillBeThePassedMatchID = @"37483";
-    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@", thisWillBeThePassedMatchID];
+    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@", self.match.matchID];
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
     [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         
         NSDictionary *matchDetails = snapshot.value;
         [self.match updateMatch:self.match WithData:matchDetails];
         
-        //match exists from Firebase and is updated. update the view accordingly
-        //call update match
         [self displayLineUpLabels];
         [self displayMatchLabels];
         [self displayStatsLabels];
@@ -91,9 +66,6 @@
     } withCancelBlock:^(NSError *error) {
         NSLog(@"%@", error.description);
         
-        //call update match
-        //firebase failed but the match exists because you clicked the cell from homeVC
-        //[self upadte];
     }];
 }
 
@@ -232,6 +204,23 @@
     return self.match.timeline.count;
 }
 
+- (IBAction)segmentedValueChanged:(UISegmentedControl *)sender {
+    
+    
+    if (sender.selectedSegmentIndex == 0) {
+        self.lineUpsView.hidden = NO;
+        self.statsView.hidden = YES;
+        self.eventsView.hidden = YES;
+    } else if(sender.selectedSegmentIndex == 1) {
+        self.lineUpsView.hidden = YES;
+        self.statsView.hidden = YES;
+        self.eventsView.hidden = NO;
+    } else if(sender.selectedSegmentIndex == 2) {
+        self.lineUpsView.hidden = YES;
+        self.statsView.hidden = NO;
+        self.eventsView.hidden = YES;
+    }
+}
 
 
  
