@@ -28,7 +28,7 @@
                                     <barButtonItem image="matchesButtonImage" width="110" id="fUr-0o-Gsj">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
-                                    <barButtonItem image="groups" width="110" id="mwi-b8-qWT">
+                                    <barButtonItem image="GroupsButtonIcon" width="110" id="mwi-b8-qWT">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="JQg-Da-tjf" kind="show" animates="NO" id="AOD-aD-hfw"/>
@@ -257,7 +257,7 @@
     </scenes>
     <resources>
         <image name="BracketButtonIcon" width="90" height="90"/>
-        <image name="groups" width="39" height="47"/>
+        <image name="GroupsButtonIcon" width="90" height="90"/>
         <image name="matchesButtonImage" width="45" height="45"/>
         <image name="stadium" width="361" height="88"/>
         <image name="tournament" width="48" height="47"/>

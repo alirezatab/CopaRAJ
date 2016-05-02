@@ -30,7 +30,7 @@
                                             <segue destination="Lb7-cj-dRv" kind="show" animates="NO" id="VuY-DM-XJs"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="groups" width="110" id="wvP-qG-KLK"/>
+                                    <barButtonItem image="GroupsButtonIcon" width="110" id="wvP-qG-KLK"/>
                                     <barButtonItem image="BracketButtonIcon" width="110" id="oSs-er-qd3">
                                         <connections>
                                             <segue destination="fX9-Az-4S2" kind="show" animates="NO" id="GBb-N7-igI"/>
@@ -184,7 +184,7 @@
     </scenes>
     <resources>
         <image name="BracketButtonIcon" width="90" height="90"/>
-        <image name="groups" width="39" height="47"/>
+        <image name="GroupsButtonIcon" width="90" height="90"/>
         <image name="matchesButtonImage" width="45" height="45"/>
     </resources>
 </document>

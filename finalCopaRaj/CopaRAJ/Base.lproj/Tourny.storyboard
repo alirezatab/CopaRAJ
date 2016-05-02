@@ -292,7 +292,7 @@
                                             <segue destination="RQT-Xj-YMP" kind="show" animates="NO" id="E7X-Aa-pFI"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="soccerBall" width="110" id="ggG-Yg-R17">
+                                    <barButtonItem image="GroupsButtonIcon" width="110" id="ggG-Yg-R17">
                                         <connections>
                                             <segue destination="JQg-Da-tjf" kind="show" animates="NO" id="Csh-nR-7gl"/>
                                         </connections>
@@ -359,8 +359,8 @@
     </scenes>
     <resources>
         <image name="BracketButtonIcon" width="90" height="90"/>
+        <image name="GroupsButtonIcon" width="90" height="90"/>
         <image name="matchesButtonImage" width="45" height="45"/>
-        <image name="soccerBall" width="32" height="32"/>
         <image name="stadium-1" width="5312" height="2988"/>
         <image name="tournament" width="48" height="47"/>
     </resources>
