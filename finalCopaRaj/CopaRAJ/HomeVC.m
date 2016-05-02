@@ -18,6 +18,7 @@
 #import "FBMatch.h"
 #import <Firebase/Firebase.h>
 #import "GroupVC.h"
+#import "GameVC.h"
 
 
 
@@ -315,7 +316,17 @@
 
 
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"matchDetails"]) {
+    GameVC *destVC = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSArray *arr = [self.finalArray objectAtIndex:indexPath.section];
+    FBMatch *loggedMatch = [arr objectAtIndex:indexPath.row];
+    destVC.match = [arr objectAtIndex:indexPath.row];
+  }
+  
+  
+}
 
 //////////////////tableview stuff/////////////////////////////////////////
 //
