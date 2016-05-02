@@ -62,6 +62,7 @@
 //    NSLog(@"match %@", self.match);
     self.match.timeline = [NSMutableArray new];
     self.tableView.allowsSelection = NO;
+  self.navigationController.navigationBar.hidden = NO;
 
 }
 

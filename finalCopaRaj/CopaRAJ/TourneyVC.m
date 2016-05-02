@@ -14,6 +14,7 @@
 #import <Firebase/Firebase.h>
 #import "FBMatch.h"
 #import "GameVC.h"
+#import "GameVC.h"
 @interface TourneyVC () <UICollectionViewDelegate, UICollectionViewDataSource, UINavigationBarDelegate>
 //plug back in when everyone merges
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -220,7 +221,11 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"index path: %@", indexPath);
     NSLog(@"%@", self.matchA1B2.matchID);
-    // [self performSegueWithIdentifier:@"TournamentToDetail" sender:self];
+  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Game" bundle: [NSBundle mainBundle]];
+  GameVC *viewController = (GameVC *)[storyboard instantiateViewControllerWithIdentifier:@"game"];
+  self.navigationController.navigationBarHidden = false;
+  [self.navigationController pushViewController:viewController animated:YES];
+
 }
 
 -(void) populatePlayoffTeams{
