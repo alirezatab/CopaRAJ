@@ -19,7 +19,10 @@
 @property NSMutableArray *teams;
 @property NSMutableArray *groups;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *groupButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *homeMatchesButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *groupStandingsButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
 
 
 @end
@@ -36,7 +39,11 @@
   [super viewDidLoad];
   self.navigationItem.hidesBackButton = YES;
   self.groups = [NSMutableArray new];
-  [self.groupButton setTintColor:[UIColor redColor]];
+
+    [self.homeMatchesButton setTintColor:[UIColor grayColor]];
+    [self.groupStandingsButton setTintColor:[UIColor whiteColor]];
+    [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
+    
   [self createListeners];
   self.tableView.allowsSelection = NO;
 }

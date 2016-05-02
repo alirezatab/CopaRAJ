@@ -47,11 +47,13 @@
 @property int cellsForSection1;
 @property int cellsForSection2;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *homeMatchesButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tourneyButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffButton;
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
 
 @end
+
+
 @implementation TourneyVC
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -70,8 +72,10 @@
     self.cellsForSection2 = 1;
     
     self.navigationItem.hidesBackButton = YES;
-    //[self.tourneyButton setTintColor:[UIColor redColor]];
-    [self.playOffButton setTintColor:[UIColor redColor]];
+    
+    [self.homeMatchesButton setTintColor:[UIColor grayColor]];
+    [self.tourneyButton setTintColor:[UIColor grayColor]];
+    [self.playOffMatchesButton setTintColor:[UIColor whiteColor]];
     
     self.playoffTeams = [[NSMutableArray alloc]init];
     self.matchesObject = [[NSMutableArray alloc]init];
@@ -222,7 +226,7 @@
 -(void) populatePlayoffTeams{
     //dispatch_queue_t playoffReached = dispatch_queue_create("populatePlayoffTeams", NULL);
     //dispatch_async(playoffReached, ^{
-        Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/tests/matches"];
+        Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
         [ref observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
             //    [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
             NSNumber *isPlayoffsNum = snapshot.value[@"playoffs"];
@@ -235,74 +239,90 @@
                 NSLog(@"%@", self.matchA1B2.schedule);
                 if ([self.matchA1B2.schedule isEqualToString: snapshot.value[@"schedule"]]) {
                     self.matchA1B2.matchID = snapshot.value[@"id"];
+                    self.matchA1B2.status = snapshot.value[@"status"];
                     
                     self.matchA1B2.local = snapshot.value[@"local"];
                     self.matchA1B2.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchA1B2.local_goals = snapshot.value[@"local_goals"];
+                    self.matchA1B2.pen1 = snapshot.value[@"pen1"];
+                    
                     
                     self.matchA1B2.visitor = snapshot.value[@"visitor"];
                     self.matchA1B2.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchA1B2.visitor_goals = snapshot.value[@"visitor_goals"];
+                    self.matchA1B2.pen2 = snapshot.value[@"pen2"];
                     
                    // [self.collectionView reloadData];
                 } else if ([self.matchB1A2.schedule isEqualToString: snapshot.value[@"schedule"]]){
                     self.matchB1A2.matchID = snapshot.value[@"id"];
+                    self.matchB1A2.status = snapshot.value[@"status"];
                     
                     self.matchB1A2.local = snapshot.value[@"local"];
                     self.matchB1A2.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchB1A2.local_goals = snapshot.value[@"local_goals"];
+                    self.matchB1A2.pen1 = snapshot.value[@"pen1"];
                     
                     self.matchB1A2.visitor = snapshot.value[@"visitor"];
                     self.matchB1A2.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchB1A2.visitor_goals = snapshot.value[@"visitor_goals"];
-                    
+                    self.matchB1A2.pen2 = snapshot.value[@"pen2"];
                    // [self.collectionView reloadData];
                 } else if ([self.matchD1C2.schedule isEqualToString: snapshot.value[@"schedule"]]){
                     self.matchD1C2.matchID = snapshot.value[@"id"];
+                    self.matchD1C2.status = snapshot.value[@"status"];
                     
                     self.matchD1C2.local = snapshot.value[@"local"];
                     self.matchD1C2.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchD1C2.local_goals = snapshot.value[@"local_goals"];
+                    self.matchD1C2.pen1 = snapshot.value[@"pen1"];
                     
                     self.matchD1C2.visitor = snapshot.value[@"visitor"];
                     self.matchD1C2.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchD1C2.visitor_goals = snapshot.value[@"visitor_goals"];
-                    
+                    self.matchD1C2.pen2 = snapshot.value[@"pen2"];
                    // [self.collectionView reloadData];
                 } else if ([self.matchC1D2.schedule isEqualToString: snapshot.value[@"schedule"]]){
                     self.matchC1D2.matchID = snapshot.value[@"id"];
+                    self.matchC1D2.status = snapshot.value[@"status"];
                     
                     self.matchC1D2.local = snapshot.value[@"local"];
                     self.matchC1D2.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchC1D2.local_goals = snapshot.value[@"local_goals"];
+                    self.matchC1D2.pen1 = snapshot.value[@"pen1"];
                     
                     self.matchC1D2.visitor = snapshot.value[@"visitor"];
                     self.matchC1D2.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchC1D2.visitor_goals = snapshot.value[@"visitor_goals"];
-                    
+                    self.matchC1D2.pen2 = snapshot.value[@"pen2"];
                   //  [self.collectionView reloadData];
                 } else if ([self.matchW25W27.schedule isEqualToString: snapshot.value[@"schedule"]]){
                     //NSLog(@"Match ID: %@\n is at: %@", snapshot.value[@"id"], snapshot.value[@"schedule"]);
                     self.matchW25W27.matchID = snapshot.value[@"id"];
+                    self.matchW25W27.status = snapshot.value[@"status"];
                     
                     self.matchW25W27.local = snapshot.value[@"local"];
                     self.matchW25W27.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchW25W27.local_goals = snapshot.value[@"local_goals"];
+                    self.matchW25W27.pen1 = snapshot.value[@"pen1"];
                     
                     self.matchW25W27.visitor = snapshot.value[@"visitor"];
                     self.matchW25W27.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchW25W27.visitor_goals = snapshot.value[@"visitor_goals"];
+                    self.matchW25W27.pen2 = snapshot.value[@"pen2"];
                 } else if ([self.matchW26W28.schedule isEqualToString: snapshot.value[@"schedule"]]){
                     //NSLog(@"Match ID: %@\n is at: %@", snapshot.value[@"id"], snapshot.value[@"schedule"]);
                     self.matchW26W28.matchID = snapshot.value[@"id"];
+                    self.matchW26W28.status = snapshot.value[@"status"];
                     
                     self.matchW26W28.local = snapshot.value[@"local"];
                     self.matchW26W28.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchW26W28.local_goals = snapshot.value[@"local_goals"];
+                    self.matchW26W28.pen1 = snapshot.value[@"pen1"];
                     
                     self.matchW26W28.visitor = snapshot.value[@"visitor"];
                     self.matchW26W28.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchW26W28.visitor_goals = snapshot.value[@"visitor_goals"];
+                    self.matchW26W28.pen2 = snapshot.value[@"pen2"];
                 } else if ([self.matchW29W30.schedule isEqualToString: snapshot.value[@"schedule"]]){
                     //NSLog(@"Match ID: %@\n is at: %@", snapshot.value[@"id"], snapshot.value[@"schedule"]);
                     self.matchW29W30.matchID = snapshot.value[@"id"];

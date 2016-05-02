@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Tournament-->
+        <!--Playoffs-->
         <scene sceneID="CEJ-Vc-SAs">
             <objects>
                 <viewController storyboardIdentifier="UIViewController-SuA-bu-kxJ" automaticallyAdjustsScrollViewInsets="NO" id="SuA-bu-kxJ" customClass="TourneyVC" sceneMemberID="viewController">
@@ -287,7 +287,7 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dXg-HU-Mho"/>
-                                    <barButtonItem image="matchesButtonImage-1" width="110" id="q8e-g2-4B7">
+                                    <barButtonItem image="matchesButtonImage" width="110" id="q8e-g2-4B7">
                                         <connections>
                                             <segue destination="RQT-Xj-YMP" kind="show" animates="NO" id="E7X-Aa-pFI"/>
                                         </connections>
@@ -301,7 +301,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="n6V-h7-hlH"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.098039215686274508" green="0.15294117647058825" blue="0.1764705882352941" alpha="0.27000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.062745098039215685" green="0.18823529411764706" blue="0.23137254901960785" alpha="0.27000000000000002" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="D9i-Nd-xI8"/>
@@ -327,11 +327,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="TXt-wg-6cT" secondAttribute="trailing" constant="-20" id="w3i-S0-xWO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tournament" id="DtQ-f0-ERU"/>
+                    <navigationItem key="navigationItem" title="Playoffs" id="DtQ-f0-ERU"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="TXt-wg-6cT" id="68z-7R-6C0"/>
-                        <outlet property="playOffButton" destination="zJ6-0O-uiw" id="x2J-Gf-hTU"/>
+                        <outlet property="homeMatchesButton" destination="q8e-g2-4B7" id="1M9-aa-fpl"/>
+                        <outlet property="playOffMatchesButton" destination="zJ6-0O-uiw" id="cYL-es-lMj"/>
                         <outlet property="tourneyButton" destination="ggG-Yg-R17" id="YiL-1p-ROt"/>
                     </connections>
                 </viewController>
@@ -358,7 +359,7 @@
     </scenes>
     <resources>
         <image name="BracketButtonIcon" width="90" height="90"/>
-        <image name="matchesButtonImage-1" width="45" height="45"/>
+        <image name="matchesButtonImage" width="45" height="45"/>
         <image name="soccerBall" width="32" height="32"/>
         <image name="stadium-1" width="5312" height="2988"/>
         <image name="tournament" width="48" height="47"/>
