@@ -39,17 +39,6 @@
   [self.groupButton setTintColor:[UIColor redColor]];
   [self createListeners];
   self.tableView.allowsSelection = NO;
-    
-    
-    CGRect screenBound = [[UIScreen mainScreen] bounds];
-    CGSize screenSize = screenBound.size;
-    CGFloat screenWidth = screenSize.width;
-    CGFloat screenHeight = screenSize.height;
-    
-    
-    NSLog(@"%f width and , %f height", screenWidth , screenHeight );
-
-    NSLog(@"%f tableview width ", self.view.frame.size.width);
 }
 
 #pragma FireBase

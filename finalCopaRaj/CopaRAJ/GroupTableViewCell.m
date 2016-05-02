@@ -14,12 +14,12 @@
     [super awakeFromNib];
     
     //changing the fonts for the groupVC
-    self.teamCountry.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:18];
-    self.teamGoals.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
-    self.teamWins.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
-    self.teamTies.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
-    self.teamLosses.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
-    self.teamPoints.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:16];
+  self.teamCountry.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:9];
+    self.teamGoals.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:12];
+    self.teamWins.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:12];
+    self.teamTies.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:12];
+    self.teamLosses.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:12];
+    self.teamPoints.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:12];
     //assigning the distances programatically
     
     
