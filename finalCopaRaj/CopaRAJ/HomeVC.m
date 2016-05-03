@@ -48,6 +48,7 @@
 @property UIButton *buttonRight;
 @property UIButton *buttonLeft;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property int intCalls;
 @end
 
 
@@ -55,6 +56,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.intCalls = 0;
     self.navigationItem.hidesBackButton = YES;
     
     [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
@@ -186,13 +188,19 @@
 - (void)getMatchesFromFireBase {
   Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
   [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+    
+    self.sortedMatches = [NSMutableArray new];
+    self.finalArray = [NSMutableArray new];
     for (id match in snapshot.value) {
+      
       
       NSDictionary *matchData = [snapshot.value valueForKey:match];
       if ([[matchData valueForKey:@"category_id"] isEqualToString:@"177"]) {
         
-        if ([self match:matchData alreadyExistsInArray:self.sortedMatches]) {
-          [FBMatch updateMatchInArray:self.sortedMatches withData:matchData];
+        if ([self match:matchData alreadyExistsInArray:self.mathches]) {
+          //self.intCalls++;
+          NSLog(@"%i", self.intCalls);
+          [FBMatch updateMatchInArray:self.mathches withData:matchData];
         } else if ([self.setMatchIDS containsObject:match]){
           FBMatch *newFoundMatch = [FBMatch new];
           [newFoundMatch updateMatch:newFoundMatch WithData:matchData];
@@ -203,14 +211,11 @@
       }
     }
     
-    if (self.sortedMatches.count != 32 && self.mathches.count == 24) {
+    if (self.mathches.count == 24) {
       [self.mathches addObjectsFromArray:self.playoffMatches];
     }
     
     [self sortMatches];
-    for (FBMatch *match in self.sortedMatches) {
-      NSLog(@"%@", match.schedule);
-    }
     //reloading table view!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     [self matchesAreDoneLoading];
     
@@ -218,33 +223,6 @@
   } withCancelBlock:^(NSError *error) {
     [self presentErrorWithString:error.description];
   }];
-}
-
-- (void)sortMatches {
-  
-  NSSortDescriptor *sortDescriptor;
-  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"schedule"
-                                               ascending:YES];
-  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-  self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
-}
-
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  self.buttonRight.hidden = true;
-  self.buttonLeft.hidden = true;
-}
-
-- (void)matchesAreDoneLoading {
-  [self.activityIndicator stopAnimating];
-  self.activityIndicator.hidden = true;
-  [self createArraysForSectionHeaders];
-  [self.tableView reloadData];
-  
-  if (!self.didScrollToDate && self.finalArray.count >= 18) {
-    [self scrollToDate];
-    self.didScrollToDate = true;
-  };
-  self.cupView.hidden = false;
 }
 
 - (void)createArraysForSectionHeaders {
@@ -265,6 +243,36 @@
     }
   }
 }
+
+- (void)sortMatches {
+  
+  NSSortDescriptor *sortDescriptor;
+  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"schedule"
+                                               ascending:YES];
+  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+  self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
+  NSLog(@"count of sorted matches: %lu",(unsigned long)self.sortedMatches.count);
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  self.buttonRight.hidden = true;
+  self.buttonLeft.hidden = true;
+}
+
+- (void)matchesAreDoneLoading {
+  [self.activityIndicator stopAnimating];
+  self.activityIndicator.hidden = true;
+  [self createArraysForSectionHeaders];
+  [self.tableView reloadData];
+  
+  if (!self.didScrollToDate && self.finalArray.count >= 18) {
+    [self scrollToDate];
+    self.didScrollToDate = true;
+  };
+  self.cupView.hidden = false;
+}
+
+
 
 - (void) scrollToDate {
   
