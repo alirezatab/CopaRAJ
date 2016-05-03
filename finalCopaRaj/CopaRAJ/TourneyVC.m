@@ -95,19 +95,11 @@
     [self.matchesObject addObjectsFromArray:@[@[self.matchA1B2, self.matchB1A2, self.matchD1C2, self.matchC1D2], @[self.matchW25W27, self.matchW26W28], @[self.matchL29L30, self.matchW29W30], @[]]];
 
     NSLog(@"%lu", (unsigned long)self.matchesObject.count);
-
-    // URL that fire base accesses
-    //    Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
-    //    NSLog(@"%lu", self.matchesObject.count);
 }
 
-//-(void)viewDidDisappear:(BOOL)animated{
-//    [super viewDidDisappear:YES];
-//    self.navigationController.navigationBar.hidden = NO;
-//}
-
 #pragma mark - CollectionView
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                 cellForItemAtIndexPath:(NSIndexPath *)indexPath{
   
     BracketCell *cell = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     BracketCell *cellFinal = (BracketCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CellFinal" forIndexPath:indexPath];
@@ -121,7 +113,6 @@
     cellFinal.contentView.layer.masksToBounds = YES;
     //cellFinal.layer.borderWidth = 1.5;
     //cellFinal.layer.borderColor = [[UIColor lightGrayColor]CGColor];
-    
     
     switch (indexPath.section) {
     case 0:{
@@ -144,7 +135,6 @@
         return cell;
     }
     case 3:{
-        
 //        BOOL isStrig = [self.matchW29W30.status isKindOfClass:[NSNumber class]];
 //        NSLog(@"%d", isStrig);
         if ([self.matchW29W30.status isEqual: @1]) {
@@ -173,26 +163,34 @@
     }
     return cell;
 }
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+-(NSInteger)collectionView:(UICollectionView *)collectionView
+    numberOfItemsInSection:(NSInteger)section{
+    
     if (section == 0) {
-    return self.cellsForSection0;
+        return self.cellsForSection0;
     } else if (section == 1){
-    return self.cellsForSection1;
+        return self.cellsForSection1;
     } else if (section == 2){
-    return self.cellsForSection2;
+        return self.cellsForSection2;
     } else {
-    return self.cellsForSection2;
+        return self.cellsForSection2;
     }
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return self.matchesObject.count;
 }
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+-(CGSize)collectionView:(UICollectionView *)collectionView
+                 layout:(UICollectionViewLayout *)collectionViewLayout
+ sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     self.cellWidth = self.collectionView.frame.size.width/1.5;
     self.cellHeight = (self.collectionView.frame.size.height-self.topInset-self.bottomInset-60)/4;
     return CGSizeMake(self.cellWidth, self.cellHeight);
 }
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView
+                       layout:(UICollectionViewLayout *)collectionViewLayout
+       insetForSectionAtIndex:(NSInteger)section{
+    
     if (section == 0) {
         return UIEdgeInsetsMake(self.topInset, 30, self.bottomInset, 0);
     } else if (section == 1){
@@ -204,7 +202,9 @@
         return UIEdgeInsetsMake(self.view.frame.size.height/3, 50, 50, 50);
     }
 }
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+-(CGFloat)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     
     if (section == 0) {
         NSLog(@"cell Height: %f", self.cellHeight);
@@ -218,17 +218,16 @@
         return self.minimumInteritemSpacing;
     }
 }
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-  
-  if (indexPath.section != 3 && indexPath.section != 2) {
+-(void)collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    FBMatch *match = [[self.matchesObject objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    [self segueToMatchVCWithMatch:match];
-    
-  } else if (indexPath.section == 2){
-    
-    FBMatch *match = [[self.matchesObject objectAtIndex:indexPath.section] objectAtIndex:indexPath.row + 1];
-    [self segueToMatchVCWithMatch:match];
+    if (indexPath.section != 3 && indexPath.section != 2) {
+        FBMatch *match = [[self.matchesObject objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        [self segueToMatchVCWithMatch:match];
+        
+    } else if (indexPath.section == 2){
+        FBMatch *match = [[self.matchesObject objectAtIndex:indexPath.section] objectAtIndex:indexPath.row + 1];
+        [self segueToMatchVCWithMatch:match];
 
     }
 }
@@ -240,7 +239,6 @@
   [self.navigationController pushViewController:viewController animated:YES];
 
 }
-
 -(void) populatePlayoffTeams{
     //dispatch_queue_t playoffReached = dispatch_queue_create("populatePlayoffTeams", NULL);
     //dispatch_async(playoffReached, ^{
@@ -263,7 +261,6 @@
                     self.matchA1B2.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchA1B2.local_goals = snapshot.value[@"local_goals"];
                     self.matchA1B2.pen1 = snapshot.value[@"pen1"];
-                    
                     
                     self.matchA1B2.visitor = snapshot.value[@"visitor"];
                     self.matchA1B2.visitor_abbr = snapshot.value[@"visitor_abbr"];
@@ -367,13 +364,11 @@
                 NSLog(@"%lu", (unsigned long)self.playoffTeams.count);
                 [self.collectionView reloadData];
             }
-            
         } withCancelBlock:^(NSError *error) {
             NSLog(@"%@", error.description);
         }];
    // });
 }
-
 -(void) createDefaultPlayoffMatches{
     //dispatch_queue_t playoffReached = dispatch_queue_create("createDefaultTeams", NULL);
     //dispatch_async(playoffReached, ^{
@@ -419,43 +414,17 @@
 //});
 }
 
-//-(FBMatch *) createPlayOffMatch:(NSDictionary *)dictionary{
-//    FBMatch *matchObject = [FBMatch new];
-//
-//    matchObject.matchID = dictionary[@"id"];
-//    //NSLog(@"local Team: %@", matchObject.matchID);
-//    matchObject.local = dictionary[@"local"];
-//    //NSLog(@"local Team: %@", matchObject.local);
-//    matchObject.local_abbr = dictionary[@"local_abbr"];
-//    //NSLog(@"local Team_abbr: %@", matchObject.local_abbr);
-//    matchObject.local_goals = dictionary[@"local_goals"];
-//    //NSLog(@"local Team goals: %@", matchObject.local_goals);
-//    matchObject.pen1 = dictionary[@"pen1"];
-//    //NSLog(@"local Team penalty: %@", matchObject.pen1);
-//
-//    matchObject.visitor = dictionary[@"visitor"];
-//    //NSLog(@"visitor Team: %@", matchObject.visitor);
-//    matchObject.visitor_abbr = dictionary[@"visitor_abbr"];
-//    //NSLog(@"visitor Team_abbr: %@", matchObject.visitor_abbr);
-//    matchObject.visitor_goals = dictionary[@"visitor_goals"];
-//    //NSLog(@"visitor Team goals: %@", matchObject.visitor_goals);
-//    matchObject.pen2 = dictionary[@"pen2"];
-//    //NSLog(@"visitor Team penalty: %@", matchObject.pen2);
-//
-//    return matchObject;
-//}
 #pragma mark - MemoryWarning
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
-
 - (IBAction)prepareForUnwind:(UIStoryboard *)segue{
     
 }
-
 #pragma mark - Segue
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue
+                sender:(id)sender{
   //    GameVC *desVC = segue.destinationViewController;
   //    NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
   //    NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
