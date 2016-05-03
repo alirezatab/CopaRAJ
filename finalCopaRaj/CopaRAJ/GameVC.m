@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *lineUpLocalFlag;
 @property (weak, nonatomic) IBOutlet UIImageView *lineUpVisitorFlag;
+@property NSDate *date;
+@property (weak, nonatomic) IBOutlet UITextView *countDownTextView;
 
 @end
 
@@ -33,10 +35,12 @@
     [super viewDidLoad];
     
     self.tableView.allowsSelection = NO;
-    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.hidden = YES;
     
     if (self.match.matchID) {
         [self listenToMatch];
+        [self eventsImageAppear];
+
     } else {
         [self displayLineUpLabels];
         [self displayMatchLabels];
@@ -44,7 +48,42 @@
     }
     self.match.timeline = [NSMutableArray new];
     
+    //setting the countdown
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    self.date = [dateFormat dateFromString:self.match.date];
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
+
+- (void)eventsImageAppear {
+    self.tableView.hidden = YES;
+}
+
+- (void)updateCounter:(NSTimer *)tmr
+{
+    NSTimeInterval iv = [self.date  timeIntervalSinceNow];
+    
+    int days = iv / (60 * 60 * 24);
+    iv -= days * (60 * 60 * 24);
+    int hours = iv / (60 * 60);
+    iv -= hours * (60 * 60);
+    int minutes = iv / 60;
+    iv -= minutes *60;
+    int seconds = iv;
+    
+    NSString *countdown = [NSString stringWithFormat:@"%02d Days \n%02d Hours \n%02d Minutes \n%02d Seconds \n until Game!!", days, hours, minutes, seconds];
+    
+    self.countDownTextView.text = countdown;
+    
+    [self.countDownTextView setFont:[UIFont fontWithName:@"GOTHAM Narrow" size:22]];
+    [self.countDownTextView setTextColor:[UIColor whiteColor]];
+    [self.countDownTextView setTextAlignment:NSTextAlignmentCenter];
+    
+    if (days + hours + minutes + seconds <= 0) {
+        [tmr invalidate];
+    }
+}
+
 
 - (void)listenToMatch {
     
@@ -70,6 +109,7 @@
 }
 
 - (void)displayMatchLabels {
+    
     NSString *titleText = [NSString stringWithFormat:@"%@ vs %@" , self.match.local_abbr, self.match.visitor_abbr];
     self.title = titleText;
   
@@ -100,38 +140,54 @@
 }
 
 - (void)displayLineUpLabels {
-
-    int i = 0;
-    //TEAM A
-    NSArray *lineUpLocalLabels = @[self.teamAPlayer1,self.teamAPlayer2,self.teamAPlayer3,self.teamAPlayer4,self.teamAPlayer5,self.teamAPlayer6,self.teamAPlayer7,self.teamAPlayer8,self.teamAPlayer9,self.teamAPlayer10,self.teamAPlayer11];
-  
     
-    for (FBMatch *player in self.match.local_Lineup) {
-        NSString *nick = [player valueForKey:@"nick"];
-        UILabel *label = [lineUpLocalLabels objectAtIndex:i];
-        label.text = nick;
-        [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:15]];
-        [label setTextColor:[UIColor whiteColor]];
-        i++;
-    }
+    //TEAM A
+    
+    int i = 0;
+    NSArray *lineUpLocalLabels = @[self.teamAPlayer1,self.teamAPlayer2,self.teamAPlayer3,self.teamAPlayer4,self.teamAPlayer5,self.teamAPlayer6,self.teamAPlayer7,self.teamAPlayer8,self.teamAPlayer9,self.teamAPlayer10,self.teamAPlayer11];
+    
     self.lineUpLocalFlag.image = [UIImage imageNamed:self.match.local];
     
-    int x = 0;
+    if (self.match.local_Lineup) {
+        for (FBMatch *player in self.match.local_Lineup) {
+            NSString *nick = [player valueForKey:@"nick"];
+            UILabel *label = [lineUpLocalLabels objectAtIndex:i];
+            label.text = nick;
+            [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:15]];
+            [label setTextColor:[UIColor whiteColor]];
+            i++;
+        }
+    } else{
+        for (UILabel *label  in lineUpLocalLabels) {
+            [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:15]];
+            [label setTextColor:[UIColor whiteColor]];
+        }
+    }
+    
     //TEAM B
+    int x = 0;
+    
     NSArray *lineUpVisitLabels = @[self.teamBPLayer1,self.teamBPlayer2,self.teamBPlayer3,self.teamBPlayer4,self.teamBPlayer5,self.teamBPlayer6,self.teamBPlayer7,self.teamBPlayer8,self.teamBPlayer9,self.teamBPlayer10,self.teamBPlayer11];
     
-    for (FBMatch *match in self.match.visitor_Lineup) {
-        NSString *nick = [match valueForKey:@"nick"];
-        UILabel *label = [lineUpVisitLabels objectAtIndex:x];
-        label.text = nick;
-        [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:15]];
-        [label setTextColor:[UIColor whiteColor]];
-        x++;
-    }
     self.lineUpVisitorFlag.image = [UIImage imageNamed:self.match.visitor];
     
+    if (self.match.visitor_Lineup) {
+        for (FBMatch *match in self.match.visitor_Lineup) {
+            NSString *nick = [match valueForKey:@"nick"];
+            UILabel *label = [lineUpVisitLabels objectAtIndex:x];
+            label.text = nick;
+            [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:15]];
+            [label setTextColor:[UIColor whiteColor]];
+            x++;
+        }
+    } else{
+        for (UILabel *label  in lineUpVisitLabels) {
+            [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:15]];
+            [label setTextColor:[UIColor whiteColor]];
+        }
+    }
     NSLog(@"%@ vs %@" , self.match.local , self.match.visitor);
-
+    
 }
 
 - (void) displayStatsLabels {
@@ -164,8 +220,8 @@
     NSArray *labels = @[self.local_posLabel , self.local_sotLabel , self.local_sonLabel , self.local_soffLabel , self.local_frkLabel , self.local_blkLabel , self.local_ycLabel , self.local_rcLabel , self.visitor_posLabel , self.visitor_sotLabel , self.visitor_sonLabel , self.visitor_soffLabel , self.local_frkLabel , self.visitor_frkLabel , self.visitor_blkSaves , self.visitor_ycLabel , self.visitor_rcLabel , self.posessionLabel , self.shotsLabel, self.shotsTargetLabel , self.offSideLabel , self.freeKickLabel , self.savesLabel ,self.yellowCardLabel ,self.redCardLabel , self.cornerKick , self.local_cor , self.visitor_cor];
     
     for (UILabel *label in labels){
-        [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:16]];
-        [label setTextColor:[UIColor colorWithWhite:0.600 alpha:1.000]];
+        [label setFont:[UIFont fontWithName:@"Gotham Narrow" size:15]];
+        [label setTextColor:[UIColor whiteColor]];
     }
 }
 
@@ -180,9 +236,9 @@
     cell.timeLabel.text = [NSString stringWithFormat:@"%@'",[event valueForKey:@"minute"]];
 
     if ([[event valueForKey:@"team"] isEqualToString: @"local"]) {
-        cell.teamFlagEvent.image = [UIImage imageNamed: self.match.local];
+        cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.local];
     } else {
-        cell.teamFlagEvent.image = [UIImage imageNamed: self.match.visitor];
+        cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.visitor];
     }
     
     BOOL b = [event objectForKey:@"player"];
@@ -206,21 +262,23 @@
 
 - (IBAction)segmentedValueChanged:(UISegmentedControl *)sender {
     
-    
     if (sender.selectedSegmentIndex == 0) {
-        self.lineUpsView.hidden = NO;
-        self.statsView.hidden = YES;
-        self.eventsView.hidden = YES;
-    } else if(sender.selectedSegmentIndex == 1) {
         self.lineUpsView.hidden = YES;
         self.statsView.hidden = YES;
         self.eventsView.hidden = NO;
-    } else if(sender.selectedSegmentIndex == 2) {
+    } else if(sender.selectedSegmentIndex == 1) {
         self.lineUpsView.hidden = YES;
         self.statsView.hidden = NO;
         self.eventsView.hidden = YES;
+    } else if(sender.selectedSegmentIndex == 2) {
+        self.lineUpsView.hidden = NO;
+        self.statsView.hidden = YES;
+        self.eventsView.hidden = YES;
     }
 }
+
+
+
 
 
  
