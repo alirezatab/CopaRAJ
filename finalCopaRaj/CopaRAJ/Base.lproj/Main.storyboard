@@ -161,6 +161,13 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="stU-c1-5fE"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GTo-ma-pIC">
+                                <rect key="frame" x="0.0" y="290" width="600" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="3ed-f7-a72"/>
+                                    <constraint firstAttribute="height" constant="20" id="bVe-El-rIq"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBZ-fr-Pbx">
                                 <rect key="frame" x="0.0" y="492" width="600" height="48"/>
                                 <subviews>
@@ -183,6 +190,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="07C-lE-Wzk"/>
+                            <constraint firstItem="GTo-ma-pIC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3YZ-zx-API"/>
+                            <constraint firstItem="GTo-ma-pIC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C5Z-RZ-ENg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="izq-a9-pyn" secondAttribute="bottom" id="DwF-fk-ghX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TUr-j0-mMr" secondAttribute="trailing" constant="-20" id="FBc-mS-3RU"/>
                             <constraint firstItem="BBZ-fr-Pbx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="HDc-Il-AGH"/>
@@ -200,6 +209,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Copa Club" id="zb4-O1-TtV"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="GTo-ma-pIC" id="18X-HL-b6y"/>
                         <outlet property="cupView" destination="BBZ-fr-Pbx" id="ikj-gI-KsS"/>
                         <outlet property="groupStandingsButton" destination="mwi-b8-qWT" id="qXF-Fe-ahu"/>
                         <outlet property="homeMatchesButton" destination="fUr-0o-Gsj" id="Ngj-rL-Usq"/>

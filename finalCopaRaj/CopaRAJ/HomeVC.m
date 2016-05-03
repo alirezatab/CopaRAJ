@@ -45,8 +45,10 @@
 @property FBMatch *matchW29W30;
 @property NSDictionary *juneDates;
 @property BOOL didScrollToDate;
-@property UIImageView *imageLeft;
-@property UIImageView *imageRight;
+@property UIButton *buttonRight;
+@property UIButton *buttonLeft;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property int intCalls;
 @end
 
 
@@ -54,6 +56,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.intCalls = 0;
     self.navigationItem.hidesBackButton = YES;
     
     [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
@@ -62,6 +65,7 @@
     
     [self initNeededObjects];
     [self callFireBase];
+    [self.activityIndicator startAnimating];
 }
 
 - (IBAction)testMethod:(id)sender {
@@ -184,13 +188,19 @@
 - (void)getMatchesFromFireBase {
   Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
   [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+    
+    self.sortedMatches = [NSMutableArray new];
+    self.finalArray = [NSMutableArray new];
     for (id match in snapshot.value) {
+      
       
       NSDictionary *matchData = [snapshot.value valueForKey:match];
       if ([[matchData valueForKey:@"category_id"] isEqualToString:@"177"]) {
         
-        if ([self match:matchData alreadyExistsInArray:self.sortedMatches]) {
-          [FBMatch updateMatchInArray:self.sortedMatches withData:matchData];
+        if ([self match:matchData alreadyExistsInArray:self.mathches]) {
+          //self.intCalls++;
+          NSLog(@"%i", self.intCalls);
+          [FBMatch updateMatchInArray:self.mathches withData:matchData];
         } else if ([self.setMatchIDS containsObject:match]){
           FBMatch *newFoundMatch = [FBMatch new];
           [newFoundMatch updateMatch:newFoundMatch WithData:matchData];
@@ -201,14 +211,11 @@
       }
     }
     
-    if (self.sortedMatches.count != 32 && self.mathches.count == 24) {
+    if (self.mathches.count == 24) {
       [self.mathches addObjectsFromArray:self.playoffMatches];
     }
     
     [self sortMatches];
-    for (FBMatch *match in self.sortedMatches) {
-      NSLog(@"%@", match.schedule);
-    }
     //reloading table view!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     [self matchesAreDoneLoading];
     
@@ -216,31 +223,6 @@
   } withCancelBlock:^(NSError *error) {
     [self presentErrorWithString:error.description];
   }];
-}
-
-- (void)sortMatches {
-  
-  NSSortDescriptor *sortDescriptor;
-  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"schedule"
-                                               ascending:YES];
-  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-  self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
-}
-
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  self.imageLeft.hidden = true;
-  self.imageRight.hidden = true;
-}
-
-- (void)matchesAreDoneLoading {
-  [self createArraysForSectionHeaders];
-  [self.tableView reloadData];
-  
-  if (!self.didScrollToDate && self.finalArray.count >= 18) {
-    [self scrollToDate];
-    self.didScrollToDate = true;
-  };
-  self.cupView.hidden = false;
 }
 
 - (void)createArraysForSectionHeaders {
@@ -262,6 +244,36 @@
   }
 }
 
+- (void)sortMatches {
+  
+  NSSortDescriptor *sortDescriptor;
+  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"schedule"
+                                               ascending:YES];
+  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+  self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
+  NSLog(@"count of sorted matches: %lu",(unsigned long)self.sortedMatches.count);
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  self.buttonRight.hidden = true;
+  self.buttonLeft.hidden = true;
+}
+
+- (void)matchesAreDoneLoading {
+  [self.activityIndicator stopAnimating];
+  self.activityIndicator.hidden = true;
+  [self createArraysForSectionHeaders];
+  [self.tableView reloadData];
+  
+  if (!self.didScrollToDate && self.finalArray.count >= 18) {
+    [self scrollToDate];
+    self.didScrollToDate = true;
+  };
+  self.cupView.hidden = false;
+}
+
+
+
 - (void) scrollToDate {
   
   NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -274,21 +286,33 @@
        NSLog(@"passEd");
        NSInteger section = [[self.juneDates objectForKey:juneDate]integerValue];
        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]atScrollPosition:UITableViewScrollPositionTop animated:NO];
-    
-        self.imageLeft = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
-        self.imageLeft.frame = CGRectMake(28, 70, 25, 25);
-        self.imageLeft.contentMode = UIViewContentModeScaleAspectFit;
-        [self.view addSubview:self.imageLeft];
-      
-        self.imageRight= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"up"]];
-        self.imageRight.frame = CGRectMake(self.view.frame.size.width - 53, 70, 25, 25);
-        self.imageRight.contentMode = UIViewContentModeScaleAspectFit;
-        [self.view addSubview:self.imageRight];
-       
+       [self loadUpButtons];
      }
-    
   }
 }
+-(void)loadUpButtons {
+  self.buttonLeft = [UIButton buttonWithType:UIButtonTypeCustom];
+  [self.buttonLeft addTarget:self
+                       action:@selector(onUpPressed)
+             forControlEvents:UIControlEventTouchUpInside];
+  [self.buttonLeft setImage:[UIImage imageNamed:@"up"] forState:UIControlStateNormal];
+  self.buttonLeft.frame = CGRectMake(30, 75, 16, 16);
+  [self.view addSubview:self.buttonLeft];
+  
+  self.buttonRight = [UIButton buttonWithType:UIButtonTypeCustom];
+  [self.buttonRight addTarget:self
+                      action:@selector(onUpPressed)
+            forControlEvents:UIControlEventTouchUpInside];
+  [self.buttonRight setImage:[UIImage imageNamed:@"up"] forState:UIControlStateNormal];
+  self.buttonRight.frame = CGRectMake(self.view.frame.size.width - 51, 75, 16, 16);
+  [self.view addSubview:self.buttonRight];
+}
+
+-(void) onUpPressed {
+  [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]atScrollPosition:UITableViewScrollPositionTop animated:YES];
+
+}
+
 - (BOOL)match: (NSDictionary *)match alreadyExistsInArray:(NSMutableArray *)array {
   
   NSString *schedule = [match valueForKey:@"schedule"];
@@ -321,7 +345,6 @@
     GameVC *destVC = segue.destinationViewController;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     NSArray *arr = [self.finalArray objectAtIndex:indexPath.section];
-    FBMatch *loggedMatch = [arr objectAtIndex:indexPath.row];
     destVC.match = [arr objectAtIndex:indexPath.row];
   }
   
