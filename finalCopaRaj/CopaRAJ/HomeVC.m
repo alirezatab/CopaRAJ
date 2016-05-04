@@ -394,8 +394,13 @@
   
   //time parameters + score logic + penalties
   if ([match.status isEqualToString: @"-1"]) {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"HH:mm";
+    NSDate *date = [dateFormatter dateFromString:[NSString stringWithFormat:@"%@:%@", match.hour, match.minute]];
+    dateFormatter.dateFormat = @"hh:mm a";
+    NSString *dateString = [dateFormatter stringFromDate:date];
     
-   cell.timeLabel.text = [NSString stringWithFormat:@"%@:%@ P.M. ET", match.hour , match.minute];
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@ ET", dateString];
     cell.teamOneScore.text = @"";
     cell.teamTwoScore.text = @"";
     cell.penaltiesLabel.text = @"";
