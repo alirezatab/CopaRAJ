@@ -49,6 +49,15 @@
             [nonsortedArray addObject:sub];
         }
     }
+  
+    for (NSDictionary *other in match.others) {
+      [nonsortedArray addObject:other];
+    }
+  
+    for (NSDictionary *occasion in match.occasions) {
+      [nonsortedArray addObject:occasion];
+    }
+  
     NSSortDescriptor *minute= [[NSSortDescriptor alloc] initWithKey:@"minute" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:minute];
     NSMutableArray *returnArray = [NSMutableArray arrayWithArray:[nonsortedArray sortedArrayUsingDescriptors:sortDescriptors]];
@@ -253,26 +262,37 @@
         for (NSDictionary *goal in goals) {
             [match.goals addObject:goal];
         }
+      
+      //occasions
+      NSArray *occasions = [events valueForKey:@"occasions"];
+      match.occasions = [NSMutableArray new];
+      
+      for (NSDictionary *occasion in occasions) {
+        if (![[occasion valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Tiro al palo"]) {
+          [match.occasions addObject:occasion];
+        }
+      }
+      
+      //others
+      NSArray *others = [events valueForKey:@"others"];
+      match.others = [NSMutableArray new];
+      for (NSDictionary *other in others) {
+        if (![[other valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[other valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[other valueForKey:@"action"] isEqualToString:@"Tiro al palo"]) {
+          [match.others addObject:other];
+        }
+      }
+      
         
         //timeline
       NSLog(@"count of goals %lu", (unsigned long)match.goals.count);
-        if (match.goals.count <1 && match.cards.count < 1 && match.changes.count < 1) {
+        if (match.goals.count <1 && match.cards.count < 1 && match.changes.count < 1 && match.occasions.count < 1 && match.others.count < 1) {
         } else {
             NSArray *timeLine = [FBMatch createTimeLineWithMatch: match];
             if (timeLine.count > 0) {
                 match.timeline = [NSMutableArray arrayWithArray:[NSArray arrayWithArray:timeLine]];
             }
         }
-      
-      if ([match.status isEqualToString:@"-1"]) {
-      }
     }//if there is extra data closing bracket
-    //NSLog(@"%@", match);
-    //NSLog(@"%@ is the status", match.status);
-    //NSLog(@"%@ is the local_soff", match.local_soff);
-    //NSLog(@"%@ is the local_rc", match.local_rc);
-    //NSLog(@"%@ is the pen1", match.pen1);
-    //NSLog(@"%@ is the pen1", match.pen2);
 }
 
 //else if match is playoff match
