@@ -8,63 +8,7 @@
 #import "FBMatch.h"
 @implementation FBMatch
 
-+ (NSArray *)createTimeLineWithMatch: (FBMatch *)match {
-    
-    NSMutableArray *nonsortedArray = [NSMutableArray new];
-    
-    for (NSDictionary *goal in match.goals) {
-        [nonsortedArray addObject:goal];
-    }
-    //cards
-    for (NSDictionary *cards in match.cards) {
-        [nonsortedArray addObject:cards];
-    }
-    //substitutions
-    NSMutableArray *localChanges = [NSMutableArray new];
-    NSMutableArray *visitorChanges = [NSMutableArray new];
-    for (NSDictionary *change in match.changes) {
-        if ([[change valueForKey:@"team"] isEqualToString:@"local"]) {
-            [localChanges addObject:change];
-        } else {
-            [visitorChanges addObject:change];
-        }
-    }
-    //NSLog(@"local changes: %@ ", localChanges);
-    //NSLog(@"visitor changes: %@ ", visitorChanges);
-    
-    if (localChanges.count % 2 == 0 && localChanges.count > 1) {
-        match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
-        NSMutableArray *arrayOfLocalSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:localChanges];
-        //NSLog(@"local subs returned: %@", arrayOfLocalSubstitutionDictionaries);
-        for (NSDictionary *sub in arrayOfLocalSubstitutionDictionaries) {
-            [nonsortedArray addObject:sub];
-        }
-    }
-    
-    if (visitorChanges.count % 2 == 0 && visitorChanges.count > 1) {
-        match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
-        NSMutableArray *arrayOfVisitorSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:visitorChanges];
-        //NSLog(@"visitor subs returned: %@", arrayOfVisitorSubstitutionDictionaries);
-        for (NSDictionary *sub in arrayOfVisitorSubstitutionDictionaries) {
-            [nonsortedArray addObject:sub];
-        }
-    }
-  
-    for (NSDictionary *other in match.others) {
-      [nonsortedArray addObject:other];
-    }
-  
-    for (NSDictionary *occasion in match.occasions) {
-      [nonsortedArray addObject:occasion];
-    }
-  
-    NSSortDescriptor *minute= [[NSSortDescriptor alloc] initWithKey:@"minute" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:minute];
-    NSMutableArray *returnArray = [NSMutableArray arrayWithArray:[nonsortedArray sortedArrayUsingDescriptors:sortDescriptors]];
-    //NSLog(@"RETURN THE CRAKEN!!!!! %@", returnArray);
-    return returnArray;
-    
-}
+
 + (NSMutableArray *)returnLineupArrayUsingLineupData:(NSArray *)array {
     NSMutableArray *returnedArray = [NSMutableArray new];
     
@@ -79,8 +23,12 @@
     self.subIn = nil;
     self.subOut = nil;
     for (int i = 0; i < changes.count; i++) {
-        NSDictionary *event = [changes objectAtIndex:i];
+        NSMutableDictionary *event = [changes objectAtIndex:i];
         if (self.subIn == nil && [[event objectForKey:@"action"] isEqualToString:[NSMutableString stringWithFormat:@"Entra en el partido"]]) {
+          int minute = [[event objectForKey:@"minute"] integerValue];
+          NSNumber *num = [NSNumber numberWithInteger:minute];
+          NSDictionary *minuteDict = @{@"minuteF":num};
+          [event addEntriesFromDictionary:minuteDict];
             self.subIn = event;
             if (self.subOut != nil) {
                 break;
@@ -94,8 +42,9 @@
     }
   
   if (self.subIn != nil && self.subOut != nil) {
+  
       NSString *substitutionstring = @"substitution";
-    NSDictionary *substitution = @{@"playerIn": [self.subIn objectForKey:@"player"], @"playerOut": [self.subOut objectForKey:@"player"], @"minute": [self.subOut objectForKey:@"minute"], @"team": [self.subOut objectForKey:@"team"], @"action": substitutionstring};
+    NSDictionary *substitution = @{@"playerIn": [self.subIn objectForKey:@"player"], @"playerOut": [self.subOut objectForKey:@"player"], @"minute": [self.subOut objectForKey:@"minute"], @"team": [self.subOut objectForKey:@"team"], @"action": substitutionstring, @"minuteF":[self.subIn objectForKey:@"minuteF"]};
     [self.arrayOfSubstitutionDictionaries addObject:substitution];
     //NSLog(@"%@ subin", self.subIn);
     //NSLog(@"%@ subout", self.subOut);
@@ -242,16 +191,27 @@
         NSArray *cards = [events valueForKey:@"cards"];
         //NSLog(@"Cards: %@", cards);
         match.cards = [NSMutableArray new];
-        for (NSDictionary *card in cards) {
-            [match.cards addObject:card];
+        for (NSMutableDictionary *card in cards) {
+          
+          int minute = [[card objectForKey:@"minute"] integerValue];
+          NSNumber *num = [NSNumber numberWithInteger:minute];
+          NSDictionary *minuteDict = @{@"minuteF":num};
+          [card addEntriesFromDictionary:minuteDict];
+          [match.cards addObject:card];
+          
         }
         
         //--Substitutions
         NSArray *changes = [events valueForKey:@"changes"];
         //NSLog(@"Changes!!!!!: %@",changes);
         match.changes = [NSMutableArray new];
-        for (NSDictionary *change in changes) {
-            [match.changes addObject:change];
+        for (NSMutableDictionary *change in changes) {
+            ;
+          int minute = [[change objectForKey:@"minute"] integerValue];
+          NSNumber *num = [NSNumber numberWithInteger:minute];
+          NSDictionary *minuteDict = @{@"minuteF":num};
+          [change addEntriesFromDictionary:minuteDict];
+          [match.changes addObject:change];
         }
         // NSLog(@"match.changes == %@", match.changes);
         
@@ -259,16 +219,25 @@
         NSArray *goals = [events valueForKey:@"goals"];
         //NSLog(@"Goals: %@",goals);
         match.goals = [NSMutableArray new];
-        for (NSDictionary *goal in goals) {
-            [match.goals addObject:goal];
+        for (NSMutableDictionary *goal in goals) {
+          int minute = [[goal objectForKey:@"minute"] integerValue];
+          NSNumber *num = [NSNumber numberWithInteger:minute];
+          NSDictionary *minuteDict = @{@"minuteF":num};
+          [goal addEntriesFromDictionary:minuteDict];
+          [match.goals addObject:goal];
         }
       
       //occasions
       NSArray *occasions = [events valueForKey:@"occasions"];
       match.occasions = [NSMutableArray new];
       
-      for (NSDictionary *occasion in occasions) {
+      for (NSMutableDictionary *occasion in occasions) {
         if (![[occasion valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Tiro al palo"]) {
+          
+          int minute = [[occasion objectForKey:@"minute"] integerValue];
+          NSNumber *num = [NSNumber numberWithInteger:minute];
+          NSDictionary *minuteDict = @{@"minuteF":num};
+          [occasion addEntriesFromDictionary:minuteDict];
           [match.occasions addObject:occasion];
         }
       }
@@ -276,8 +245,13 @@
       //others
       NSArray *others = [events valueForKey:@"others"];
       match.others = [NSMutableArray new];
-      for (NSDictionary *other in others) {
+      for (NSMutableDictionary *other in others) {
         if (![[other valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[other valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[other valueForKey:@"action"] isEqualToString:@"Tiro al palo"]) {
+          
+          int minute = [[other objectForKey:@"minute"] integerValue];
+          NSNumber *num = [NSNumber numberWithInteger:minute];
+          NSDictionary *minuteDict = @{@"minuteF":num};
+          [other addEntriesFromDictionary:minuteDict];
           [match.others addObject:other];
         }
       }
@@ -293,6 +267,64 @@
             }
         }
     }//if there is extra data closing bracket
+}
+
++ (NSArray *)createTimeLineWithMatch: (FBMatch *)match {
+  
+  NSMutableArray *nonsortedArray = [NSMutableArray new];
+  
+  for (NSDictionary *goal in match.goals) {
+    [nonsortedArray addObject:goal];
+  }
+  //cards
+  for (NSDictionary *cards in match.cards) {
+    [nonsortedArray addObject:cards];
+  }
+  //substitutions
+  NSMutableArray *localChanges = [NSMutableArray new];
+  NSMutableArray *visitorChanges = [NSMutableArray new];
+  for (NSDictionary *change in match.changes) {
+    if ([[change valueForKey:@"team"] isEqualToString:@"local"]) {
+      [localChanges addObject:change];
+    } else {
+      [visitorChanges addObject:change];
+    }
+  }
+  //NSLog(@"local changes: %@ ", localChanges);
+  //NSLog(@"visitor changes: %@ ", visitorChanges);
+  
+  if (localChanges.count % 2 == 0 && localChanges.count > 1) {
+    match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
+    NSMutableArray *arrayOfLocalSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:localChanges];
+    //NSLog(@"local subs returned: %@", arrayOfLocalSubstitutionDictionaries);
+    for (NSDictionary *sub in arrayOfLocalSubstitutionDictionaries) {
+      [nonsortedArray addObject:sub];
+    }
+  }
+  
+  if (visitorChanges.count % 2 == 0 && visitorChanges.count > 1) {
+    match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
+    NSMutableArray *arrayOfVisitorSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:visitorChanges];
+    //NSLog(@"visitor subs returned: %@", arrayOfVisitorSubstitutionDictionaries);
+    for (NSDictionary *sub in arrayOfVisitorSubstitutionDictionaries) {
+      [nonsortedArray addObject:sub];
+    }
+  }
+  
+  for (NSDictionary *other in match.others) {
+    [nonsortedArray addObject:other];
+  }
+  
+  for (NSDictionary *occasion in match.occasions) {
+    [nonsortedArray addObject:occasion];
+  }
+  
+  NSSortDescriptor *minute= [[NSSortDescriptor alloc] initWithKey:@"minuteF" ascending:YES];
+  NSArray *sortDescriptors = [NSArray arrayWithObject:minute];
+  NSMutableArray *returnArray = [NSMutableArray arrayWithArray:[nonsortedArray sortedArrayUsingDescriptors:sortDescriptors]];
+  NSLog(@"RETURN THE CRAKEN!!!!! %@", returnArray);
+  return returnArray;
+  
 }
 
 //else if match is playoff match
