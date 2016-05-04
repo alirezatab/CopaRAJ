@@ -51,6 +51,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeMatchesButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tourneyButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -64,7 +65,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.activityIndicator startAnimating];
+  [self.activityIndicator setHidesWhenStopped:true];
+  
     self.topInset = 10;
     self.bottomInset = 10;
     
@@ -366,6 +369,7 @@
                 [playoffTeams addObject:snapshot.value[@"id"]];
                 NSLog(@"%lu", (unsigned long)self.playoffTeams.count);
                 [self.collectionView reloadData];
+              [self.activityIndicator stopAnimating];
             }
             
         } withCancelBlock:^(NSError *error) {
