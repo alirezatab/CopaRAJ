@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *groupStandingsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -38,11 +39,13 @@
 
   [super viewDidLoad];
   self.navigationItem.hidesBackButton = YES;
+  [self.activityIndicator startAnimating];
+  [self.activityIndicator setHidesWhenStopped:YES];
   self.groups = [NSMutableArray new];
 
-    [self.homeMatchesButton setTintColor:[UIColor grayColor]];
-    [self.groupStandingsButton setTintColor:[UIColor whiteColor]];
-    [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
+  [self.homeMatchesButton setTintColor:[UIColor grayColor]];
+  [self.groupStandingsButton setTintColor:[UIColor whiteColor]];
+  [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
     
   [self createListeners];
   self.tableView.allowsSelection = NO;
@@ -88,6 +91,7 @@
   
   if (self.groups.count > 0) {
     [self.tableView reloadData];
+    [self.activityIndicator stopAnimating];
   }
   
 }

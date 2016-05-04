@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r2e-Dn-gfr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r2e-Dn-gfr">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -157,21 +157,31 @@
                                     <outlet property="delegate" destination="r2e-Dn-gfr" id="aDD-dQ-92a"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="p2h-Hj-ahT">
+                                <rect key="frame" x="0.0" y="290" width="600" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="Shy-Tw-kU7"/>
+                                    <constraint firstAttribute="height" constant="20" id="gcD-6K-HsL"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sRT-W3-p9J" firstAttribute="top" secondItem="hVq-UE-v8Q" secondAttribute="bottom" id="4hF-FQ-GTA"/>
                             <constraint firstItem="Eet-vr-Vt0" firstAttribute="top" secondItem="sRT-W3-p9J" secondAttribute="bottom" id="HRC-em-pXY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Eet-vr-Vt0" secondAttribute="trailing" constant="-20" id="Sgn-Eg-Os4"/>
+                            <constraint firstItem="p2h-Hj-ahT" firstAttribute="centerY" secondItem="75T-eU-7iI" secondAttribute="centerY" id="UYk-32-aF6"/>
                             <constraint firstItem="2eg-pW-y0a" firstAttribute="top" secondItem="Eet-vr-Vt0" secondAttribute="bottom" id="dTu-8z-F4F"/>
                             <constraint firstItem="sRT-W3-p9J" firstAttribute="leading" secondItem="75T-eU-7iI" secondAttribute="leadingMargin" constant="-20" id="ftP-sL-hZJ"/>
                             <constraint firstItem="Eet-vr-Vt0" firstAttribute="leading" secondItem="75T-eU-7iI" secondAttribute="leadingMargin" constant="-20" id="gbz-NJ-OY1"/>
+                            <constraint firstItem="p2h-Hj-ahT" firstAttribute="centerX" secondItem="75T-eU-7iI" secondAttribute="centerX" id="iVV-Zm-AhW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sRT-W3-p9J" secondAttribute="trailing" constant="-20" id="yRr-xe-sD7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Groups" id="yqF-3b-ZrL"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="p2h-Hj-ahT" id="V7a-vE-6DP"/>
                         <outlet property="groupStandingsButton" destination="wvP-qG-KLK" id="Tpt-7K-dqS"/>
                         <outlet property="homeMatchesButton" destination="7KO-fe-cdt" id="Gcc-zr-LrP"/>
                         <outlet property="playOffMatchesButton" destination="oSs-er-qd3" id="1oh-JO-lu1"/>
