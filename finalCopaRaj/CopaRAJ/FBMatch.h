@@ -25,7 +25,10 @@
 @property NSMutableArray *goals;
 @property NSMutableArray *cards;
 @property NSMutableArray *changes;//substitutions
+@property NSMutableArray *occasions;
 @property NSMutableArray *timeline;
+@property NSMutableArray *others;
+
 
 
 
