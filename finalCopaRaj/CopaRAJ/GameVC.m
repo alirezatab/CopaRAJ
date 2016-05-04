@@ -39,7 +39,7 @@
     
     if (self.match.matchID) {
         [self listenToMatch];
-        [self eventsImageAppear];
+        [self eventsTableViewAppears];
 
     } else {
         [self displayLineUpLabels];
@@ -53,11 +53,21 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     self.date = [dateFormat dateFromString:self.match.date];
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+    
+    NSLog(@"HELLO STATUS =  %@   %lu", self.match.status , (unsigned long)self.match.timeline.count);
+    
 }
 
-- (void)eventsImageAppear {
-    self.tableView.hidden = NO;
+- (void)eventsTableViewAppears {
+    
+    int matchStatus = [self.match.status  intValue];
+    if(matchStatus == -1){
+        self.tableView.hidden = NO;
+    }
+    
 }
+
+
 
 - (void)updateCounter:(NSTimer *)tmr
 {
@@ -87,7 +97,7 @@
 
 - (void)listenToMatch {
     
-    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/377719"];
+    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@", self.match.matchID];
                      //self.match.matchID];
                      //self.match.matchID];
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
@@ -254,30 +264,31 @@
     EventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     NSArray *reversedArray = [[self.match.timeline reverseObjectEnumerator] allObjects];
     
-    
     NSDictionary *event = [reversedArray objectAtIndex:indexPath.row];
     
     cell.timeLabel.text = [NSString stringWithFormat:@"%@'",[event valueForKey:@"minute"]];
 
     if ([[event valueForKey:@"team"] isEqualToString: @"local"]) {
-        cell.eventsTeamFlag.image = [UIImage imageNamed:@"Bolivia"];//[UIImage imageNamed: self.match.local];
+        cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.local];
     } else {
-        cell.eventsTeamFlag.image = [UIImage imageNamed:@"Brazil"];//[UIImage imageNamed: self.match.visitor];
+        cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.visitor];
     }
     
-    BOOL b = [event objectForKey:@"player"];
+    BOOL isPLayer = [event objectForKey:@"player"];
     
-    if(b){
+    if(isPLayer){
         cell.playerLabel.text = [event valueForKey:@"player"];
     } else {
         cell.playerLabel.text = @"replaced By";
     }
     
+    cell.backgroundColor = [UIColor colorWithRed:0.063 green:0.188 blue:0.231 alpha:0.9];
+    
     cell.actionImage.image = [UIImage imageNamed:[event valueForKey:@"action"]];
     cell.inLabel.text = [event valueForKey:@"playerOut"];
     cell.outLabel.text = [event valueForKey:@"playerIn"];
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.contentView.frame.size.height - 1.0, cell.contentView.frame.size.width, 1)];
-    lineView.backgroundColor = [UIColor colorWithWhite:0.333 alpha:0.291]
+    lineView.backgroundColor = [UIColor colorWithWhite:0.111 alpha:0.000]
     ;
     [cell.contentView addSubview:lineView];
     return cell;

@@ -14,15 +14,20 @@
     [super awakeFromNib];
     // Initialization code
     self.timeLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:13];
-    self.playerLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:13];
-    self.outLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:13];
-    self.inLabel.font = [UIFont fontWithName:@"GOTHAM MEDIUM" size:13];
+    [self.timeLabel setTextColor:[UIColor whiteColor]];
+
+    self.playerLabel.font = [UIFont fontWithName:@"GOTHAM Narrow" size:14];
+    [self.playerLabel setTextColor:[UIColor whiteColor]];
     
-    self.timeLabel.tintColor = [UIColor colorWithWhite:0.600 alpha:1.000];
+    self.outLabel.font = [UIFont fontWithName:@"GOTHAM Narrow" size:14];
+    [self.outLabel setTextColor:[UIColor whiteColor]];
+    
+    self.inLabel.font = [UIFont fontWithName:@"GOTHAM Narrow" size:14];
+    [self.inLabel setTextColor:[UIColor whiteColor]];
     
     
-    [self.timeLabel setTextColor:[UIColor colorWithWhite:0.600 alpha:1.000]];
-     
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
