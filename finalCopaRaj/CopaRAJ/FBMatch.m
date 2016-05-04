@@ -123,18 +123,15 @@
     //  NSLog(@"%@ is the match status", match.status);
     match.schedule = [data valueForKey:@"schedule"];
     //  NSLog(@"%@ is the scheduled time", match.schedule);
-    NSArray *seperatedSchedule = [match.schedule componentsSeparatedByString:@" "];
-    match.date = seperatedSchedule[0];
-    NSDateFormatter *formater = [[NSDateFormatter alloc]init];
-    [formater setDateFormat:@"yyy/MM/dd"];
-    match.nsdate = [formater dateFromString:match.date];
+  
+    [match createDateInfoForMatch];
   
   
     //NSLog(@"THIS IS THE Date -%@-", match.date);
-    NSString *time =  seperatedSchedule[1];
-    NSArray *timeSeparated = [time componentsSeparatedByString:@":"];
-    match.hour = timeSeparated[0];
-    match.minute = timeSeparated[1];
+//    NSString *time =  seperatedSchedule[1];
+//    NSArray *timeSeparated = [time componentsSeparatedByString:@":"];
+//    match.hour = timeSeparated[0];
+//    match.minute = timeSeparated[1];
     //NSLog(@"%@: hour %@: minute %@:date",match.hour, match.minute, match.date);
   
   //NSLog(@"THIS IS THE SCORE %@", seperatedScore[1]);
@@ -291,16 +288,28 @@
 
 - (void)createDateInfoForMatch {
   
-  NSArray *seperatedSchedule = [self.schedule componentsSeparatedByString:@" "];
-  self.date = seperatedSchedule[0];
+ 
+  NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+  formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+  formatter.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Madrid"];
+  self.nsdate = [formatter dateFromString:self.schedule];
   
-  NSDateFormatter *formater = [[NSDateFormatter alloc]init];
-  [formater setDateFormat:@"yyy/MM/dd"];
-  self.nsdate = [formater dateFromString:self.date];
   
-  NSString *time =  seperatedSchedule[1];
+  NSDateFormatter *eastern = [[NSDateFormatter alloc]init];
+  eastern.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+  eastern.timeZone = [NSTimeZone timeZoneWithName:@"America/New_York"];
+  NSLog(@"MAdrid time: %@", self.schedule);
+  NSLog(@"NSDATe gmt : %@", self.nsdate);
+  NSLog(@"%@ is the eastern time", [eastern stringFromDate:self.nsdate]);
+  
+  NSString *easternTime =  [eastern stringFromDate:self.nsdate];
+  NSArray *scheduleSeparated = [easternTime componentsSeparatedByString:@" "];
+  self.date = scheduleSeparated[0];
+  NSString *time = scheduleSeparated[1];
   NSArray *timeSeparated = [time componentsSeparatedByString:@":"];
   self.hour = timeSeparated[0];
   self.minute = timeSeparated[1];
 }
+
+
 @end

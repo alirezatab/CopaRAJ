@@ -227,18 +227,18 @@
 
 - (void)createArraysForSectionHeaders {
   
-  NSDate *matchDate;
+  NSString *matchDate;
   
   for (FBMatch *match  in self.sortedMatches) {
     if (matchDate == nil) {
-      matchDate  = match.nsdate;
+      matchDate  = match.date;
       [self.finalArray addObject:[@[match]mutableCopy]];
       
-    } else if ([matchDate compare:match.nsdate] == NSOrderedSame){
+    } else if ([matchDate isEqualToString: match.date]){
       
       [self.finalArray[self.finalArray.count - 1] addObject:match];
     } else{
-      matchDate = match.nsdate;
+      matchDate = match.date;
       [self.finalArray addObject:[@[match]mutableCopy]];
     }
   }
@@ -351,6 +351,10 @@
   
 }
 
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+  
+}
+
 //////////////////tableview stuff/////////////////////////////////////////
 //
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -390,7 +394,8 @@
   
   //time parameters + score logic + penalties
   if ([match.status isEqualToString: @"-1"]) {
-    cell.timeLabel.text = [NSString stringWithFormat:@"%@ : %@", match.hour , match.minute];
+    
+   cell.timeLabel.text = [NSString stringWithFormat:@"%@:%@ P.M. ET", match.hour , match.minute];
     cell.teamOneScore.text = @"";
     cell.teamTwoScore.text = @"";
     cell.penaltiesLabel.text = @"";
