@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "BOL.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "bolivia@2x.png",
       "scale" : "2x"
     },
     {

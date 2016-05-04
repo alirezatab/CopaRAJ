@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "CRC.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "haiti@2x.png",
       "scale" : "2x"
     },
     {
