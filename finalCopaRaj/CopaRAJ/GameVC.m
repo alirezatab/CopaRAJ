@@ -52,7 +52,7 @@
     //setting the countdown
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
-    self.date = [dateFormat dateFromString:self.match.date];
+    self.date = self.match.nsdate;
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
     
     NSLog(@"THIS IS the array timeline %@ ", self.match.timeline);
@@ -97,7 +97,7 @@
 
 - (void)listenToMatch {
   
-    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/377717"];
+    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/377718"];
                      //self.match.matchID];
 
 
@@ -186,11 +186,11 @@
             [label setTextColor:[UIColor whiteColor]];
         }
     }
-    
     //TEAM B
     int x = 0;
     
     NSArray *lineUpVisitLabels = @[self.teamBPLayer1,self.teamBPlayer2,self.teamBPlayer3,self.teamBPlayer4,self.teamBPlayer5,self.teamBPlayer6,self.teamBPlayer7,self.teamBPlayer8,self.teamBPlayer9,self.teamBPlayer10,self.teamBPlayer11];
+    NSLog(@"LINEUPS %@" , self.match.visitor_Lineup );
     
     self.lineUpVisitorFlag.image = [UIImage imageNamed:self.match.visitor];
     
