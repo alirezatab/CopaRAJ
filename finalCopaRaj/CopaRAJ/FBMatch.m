@@ -9,73 +9,73 @@
 @implementation FBMatch
 
 
-+ (NSArray *)createTimeLineWithMatch: (FBMatch *)match {
-    
-    NSMutableArray *nonsortedArray = [NSMutableArray new];
-    
-    for (NSDictionary *goal in match.goals) {
-        [nonsortedArray addObject:goal];
-    }
-    
-    //kickoff
-    NSDictionary *kickOff = @{
-                              @"action" : @"kickoff",
-                              @"minute" : @"0"
-                              };
-    
-    [nonsortedArray addObject:kickOff];
-    
-    
-    //cards
-    for (NSDictionary *cards in match.cards) {
-        [nonsortedArray addObject:cards];
-    }
-    //substitutions
-    NSMutableArray *localChanges = [NSMutableArray new];
-    NSMutableArray *visitorChanges = [NSMutableArray new];
-    for (NSDictionary *change in match.changes) {
-        if ([[change valueForKey:@"team"] isEqualToString:@"local"]) {
-            [localChanges addObject:change];
-        } else {
-            [visitorChanges addObject:change];
-        }
-    }
-    //NSLog(@"local changes: %@ ", localChanges);
-    //NSLog(@"visitor changes: %@ ", visitorChanges);
-    
-    if (localChanges.count % 2 == 0 && localChanges.count > 1) {
-        match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
-        NSMutableArray *arrayOfLocalSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:localChanges];
-        //NSLog(@"local subs returned: %@", arrayOfLocalSubstitutionDictionaries);
-        for (NSDictionary *sub in arrayOfLocalSubstitutionDictionaries) {
-            [nonsortedArray addObject:sub];
-        }
-    }
-    
-    if (visitorChanges.count % 2 == 0 && visitorChanges.count > 1) {
-        match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
-        NSMutableArray *arrayOfVisitorSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:visitorChanges];
-        //NSLog(@"visitor subs returned: %@", arrayOfVisitorSubstitutionDictionaries);
-        for (NSDictionary *sub in arrayOfVisitorSubstitutionDictionaries) {
-            [nonsortedArray addObject:sub];
-        }
-    }
-  
-    for (NSDictionary *other in match.others) {
-      [nonsortedArray addObject:other];
-    }
-  
-    for (NSDictionary *occasion in match.occasions) {
-      [nonsortedArray addObject:occasion];
-    }
-  
-    NSSortDescriptor *minute= [[NSSortDescriptor alloc] initWithKey:@"minute" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:minute];
-    NSMutableArray *returnArray = [NSMutableArray arrayWithArray:[nonsortedArray sortedArrayUsingDescriptors:sortDescriptors]];
-    //NSLog(@"RETURN THE CRAKEN!!!!! %@", returnArray);
-    return returnArray;
-    
-}
+//+ (NSArray *)createTimeLineWithMatch: (FBMatch *)match {
+//    
+//    NSMutableArray *nonsortedArray = [NSMutableArray new];
+//    
+//    for (NSDictionary *goal in match.goals) {
+//        [nonsortedArray addObject:goal];
+//    }
+//    
+//    //kickoff
+//    NSDictionary *kickOff = @{
+//                              @"action" : @"kickoff",
+//                              @"minute" : @"0"
+//                              };
+//    
+//    [nonsortedArray addObject:kickOff];
+//    
+//    
+//    //cards
+//    for (NSDictionary *cards in match.cards) {
+//        [nonsortedArray addObject:cards];
+//    }
+//    //substitutions
+//    NSMutableArray *localChanges = [NSMutableArray new];
+//    NSMutableArray *visitorChanges = [NSMutableArray new];
+//    for (NSDictionary *change in match.changes) {
+//        if ([[change valueForKey:@"team"] isEqualToString:@"local"]) {
+//            [localChanges addObject:change];
+//        } else {
+//            [visitorChanges addObject:change];
+//        }
+//    }
+//    //NSLog(@"local changes: %@ ", localChanges);
+//    //NSLog(@"visitor changes: %@ ", visitorChanges);
+//    
+//    if (localChanges.count % 2 == 0 && localChanges.count > 1) {
+//        match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
+//        NSMutableArray *arrayOfLocalSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:localChanges];
+//        //NSLog(@"local subs returned: %@", arrayOfLocalSubstitutionDictionaries);
+//        for (NSDictionary *sub in arrayOfLocalSubstitutionDictionaries) {
+//            [nonsortedArray addObject:sub];
+//        }
+//    }
+//    
+//    if (visitorChanges.count % 2 == 0 && visitorChanges.count > 1) {
+//        match.arrayOfSubstitutionDictionaries = [NSMutableArray new];
+//        NSMutableArray *arrayOfVisitorSubstitutionDictionaries = [match returnSubstitutionsWithArrayOfChanges:visitorChanges];
+//        //NSLog(@"visitor subs returned: %@", arrayOfVisitorSubstitutionDictionaries);
+//        for (NSDictionary *sub in arrayOfVisitorSubstitutionDictionaries) {
+//            [nonsortedArray addObject:sub];
+//        }
+//    }
+//  
+//    for (NSDictionary *other in match.others) {
+//      [nonsortedArray addObject:other];
+//    }
+//  
+//    for (NSDictionary *occasion in match.occasions) {
+//      [nonsortedArray addObject:occasion];
+//    }
+//  
+//    NSSortDescriptor *minute= [[NSSortDescriptor alloc] initWithKey:@"minute" ascending:YES];
+//    NSArray *sortDescriptors = [NSArray arrayWithObject:minute];
+//    NSMutableArray *returnArray = [NSMutableArray arrayWithArray:[nonsortedArray sortedArrayUsingDescriptors:sortDescriptors]];
+//    //NSLog(@"RETURN THE CRAKEN!!!!! %@", returnArray);
+//    return returnArray;
+//    
+//}
 
 + (NSMutableArray *)returnLineupArrayUsingLineupData:(NSArray *)array {
     NSMutableArray *returnedArray = [NSMutableArray new];
