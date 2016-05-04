@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8gu-mv-4JN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8gu-mv-4JN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -152,7 +152,7 @@
                                             <outlet property="teamTwoName" destination="VyA-WJ-wNT" id="43D-mf-czf"/>
                                             <outlet property="teamTwoScore" destination="Rya-Is-SBu" id="uM5-R9-xyk"/>
                                             <outlet property="timeLabel" destination="aGF-yJ-YbP" id="zey-cN-m5r"/>
-                                            <segue destination="1Cu-HM-W9m" kind="show" identifier="matchDetails" animates="NO" id="WFn-tZ-cUj"/>
+                                            <segue destination="1Cu-HM-W9m" kind="presentation" identifier="matchDetails" id="WFn-tZ-cUj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -266,9 +266,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BracketButtonIcon" width="90" height="90"/>
-        <image name="GroupsButtonIcon" width="90" height="90"/>
-        <image name="matchesButtonImage" width="45" height="45"/>
+        <image name="BracketButtonIcon" width="50" height="50"/>
+        <image name="GroupsButtonIcon" width="50" height="50"/>
+        <image name="matchesButtonImage" width="50" height="50"/>
         <image name="stadium" width="361" height="88"/>
         <image name="tournament" width="48" height="47"/>
     </resources>

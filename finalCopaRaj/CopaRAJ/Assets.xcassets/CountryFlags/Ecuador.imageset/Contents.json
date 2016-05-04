@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ECU.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ecuador@2x.png",
       "scale" : "2x"
     },
     {

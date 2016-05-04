@@ -87,7 +87,8 @@
 
 - (void)listenToMatch {
     
-    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@", self.match.matchID];
+    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@",self.match.matchID];
+                     //self.match.matchID];
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
     [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         
@@ -109,7 +110,6 @@
 }
 
 - (void)displayMatchLabels {
-    
     NSString *titleText = [NSString stringWithFormat:@"%@ vs %@" , self.match.local_abbr, self.match.visitor_abbr];
     self.title = titleText;
   
@@ -127,10 +127,10 @@
     self.teamTwoScore.text = self.match.visitor_goals;
 
   }
-    self.teamOneImage.image = [UIImage imageNamed:self.match.local];
-    self.teamOneName.text = self.match.local;
-    self.teamTwoImage.image = [UIImage imageNamed:self.match.visitor];
-    self.teamTwoName.text = self.match.visitor;
+    self.teamOneImage.image = [UIImage imageNamed:@"Colombia"];//[UIImage imageNamed:self.match.local];
+    self.teamOneName.text = self.match.local_abbr;
+    self.teamTwoImage.image = [UIImage imageNamed:@"Peru"];//[UIImage imageNamed:self.match.visitor];
+    self.teamTwoName.text = self.match.visitor_abbr;
     self.matchDateLabel.text = self.match.date;
     NSArray *labels = @[self.timeLabel , self.teamOneName , self.teamOneScore , self.teamTwoName ,self.teamTwoScore , self.matchDateLabel , self.versusLabel , self.locationLabel];
     for (UILabel *label in labels){
@@ -146,7 +146,7 @@
     int i = 0;
     NSArray *lineUpLocalLabels = @[self.teamAPlayer1,self.teamAPlayer2,self.teamAPlayer3,self.teamAPlayer4,self.teamAPlayer5,self.teamAPlayer6,self.teamAPlayer7,self.teamAPlayer8,self.teamAPlayer9,self.teamAPlayer10,self.teamAPlayer11];
     
-    self.lineUpLocalFlag.image = [UIImage imageNamed:self.match.local];
+    self.lineUpLocalFlag.image = [UIImage imageNamed:@"Argentina"];/////[UIImage imageNamed:self.match.local];
     
     if (self.match.local_Lineup) {
         for (FBMatch *player in self.match.local_Lineup) {
@@ -169,7 +169,7 @@
     
     NSArray *lineUpVisitLabels = @[self.teamBPLayer1,self.teamBPlayer2,self.teamBPlayer3,self.teamBPlayer4,self.teamBPlayer5,self.teamBPlayer6,self.teamBPlayer7,self.teamBPlayer8,self.teamBPlayer9,self.teamBPlayer10,self.teamBPlayer11];
     
-    self.lineUpVisitorFlag.image = [UIImage imageNamed:self.match.visitor];
+    self.lineUpVisitorFlag.image = [UIImage imageNamed:@"Bolivia"];//[UIImage imageNamed:self.match.visitor];
     
     if (self.match.visitor_Lineup) {
         for (FBMatch *match in self.match.visitor_Lineup) {
@@ -236,9 +236,9 @@
     cell.timeLabel.text = [NSString stringWithFormat:@"%@'",[event valueForKey:@"minute"]];
 
     if ([[event valueForKey:@"team"] isEqualToString: @"local"]) {
-        cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.local];
+        cell.eventsTeamFlag.image = [UIImage imageNamed:@"Bolivia"];//[UIImage imageNamed: self.match.local];
     } else {
-        cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.visitor];
+        cell.eventsTeamFlag.image = [UIImage imageNamed:@"Brazil"];//[UIImage imageNamed: self.match.visitor];
     }
     
     BOOL b = [event objectForKey:@"player"];
@@ -246,9 +246,9 @@
     if(b){
         cell.playerLabel.text = [event valueForKey:@"player"];
     } else {
-        cell.playerLabel.text = @"(out) - (in)";
+        cell.playerLabel.text = @"";
     }
-    
+
     cell.actionImage.image = [UIImage imageNamed:[event valueForKey:@"action"]];
     cell.inLabel.text = [event valueForKey:@"playerIn"];
     cell.outLabel.text = [event valueForKey:@"playerOut"];
