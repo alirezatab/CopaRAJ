@@ -55,18 +55,19 @@
     self.date = [dateFormat dateFromString:self.match.date];
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
     
-    NSLog(@"HELLO STATUS =  %@   %lu", self.match.status , (unsigned long)self.match.timeline.count);
+    NSLog(@"THIS IS the array timeline %@ ", self.match.timeline);
     
 }
 
 - (void)eventsTableViewAppears {
-  
+    
     int matchStatus = [self.match.status  intValue];
-    if(matchStatus == -1){
+    if(matchStatus == 0){
         self.tableView.hidden = YES;
+    } else {
+        self.tableView.hidden = NO;
     }
 }
-
 
 - (void)updateCounter:(NSTimer *)tmr
 {
@@ -96,7 +97,8 @@
 
 - (void)listenToMatch {
   
-    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@", self.match.matchID];
+    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/377717"];
+                     //self.match.matchID];
 
 
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
