@@ -33,7 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.match.timeline = [NSMutableArray new];
+
     self.tableView.allowsSelection = NO;
     self.navigationController.navigationBar.hidden = YES;
     
@@ -46,7 +47,7 @@
         [self displayMatchLabels];
         [self displayStatsLabels];
     }
-    self.match.timeline = [NSMutableArray new];
+
     
     //setting the countdown
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -59,14 +60,12 @@
 }
 
 - (void)eventsTableViewAppears {
-    
+  
     int matchStatus = [self.match.status  intValue];
     if(matchStatus == -1){
-        self.tableView.hidden = NO;
+        self.tableView.hidden = YES;
     }
-    
 }
-
 
 
 - (void)updateCounter:(NSTimer *)tmr
@@ -99,8 +98,7 @@
   
     NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@", self.match.matchID];
 
-                     //self.match.matchID];
-                     //self.match.matchID];
+
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
     [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         
@@ -271,8 +269,10 @@
 
     if ([[event valueForKey:@"team"] isEqualToString: @"local"]) {
         cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.local];
-    } else {
+    } else if ([[event valueForKey:@"team"] isEqualToString: @"visitor"]) {
         cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.visitor];
+    } else{
+        cell.eventsTeamFlag.image = [UIImage imageNamed:@""];
     }
     
     BOOL isPLayer = [event objectForKey:@"player"];
@@ -280,7 +280,7 @@
     if(isPLayer){
         cell.playerLabel.text = [event valueForKey:@"player"];
     } else {
-        cell.playerLabel.text = @"replaced By";
+        cell.playerLabel.text = @"replaced by";
     }
     
     cell.backgroundColor = [UIColor colorWithRed:0.063 green:0.188 blue:0.231 alpha:0.9];

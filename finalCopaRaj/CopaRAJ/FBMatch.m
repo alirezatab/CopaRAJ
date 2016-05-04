@@ -15,6 +15,16 @@
     for (NSDictionary *goal in match.goals) {
         [nonsortedArray addObject:goal];
     }
+    
+    //kickoff
+    NSDictionary *kickOff = @{
+                              @"action" : @"kickoff",
+                              @"minute" : @"0"
+                              };
+    
+    [nonsortedArray addObject:kickOff];
+    
+    
     //cards
     for (NSDictionary *cards in match.cards) {
         [nonsortedArray addObject:cards];
@@ -284,14 +294,12 @@
       
         
         //timeline
-      NSLog(@"count of goals %lu", (unsigned long)match.goals.count);
-        if (match.goals.count <1 && match.cards.count < 1 && match.changes.count < 1 && match.occasions.count < 1 && match.others.count < 1) {
-        } else {
-            NSArray *timeLine = [FBMatch createTimeLineWithMatch: match];
+
+    NSArray *timeLine = [FBMatch createTimeLineWithMatch: match];
             if (timeLine.count > 0) {
                 match.timeline = [NSMutableArray arrayWithArray:[NSArray arrayWithArray:timeLine]];
             }
-        }
+
     }//if there is extra data closing bracket
 }
 
