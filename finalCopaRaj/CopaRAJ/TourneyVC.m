@@ -16,7 +16,6 @@
 #import "GameVC.h"
 #import "GameVC.h"
 @interface TourneyVC () <UICollectionViewDelegate, UICollectionViewDataSource, UINavigationBarDelegate>
-//plug back in when everyone merges
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *teams;
@@ -36,17 +35,14 @@
 @property FBMatch *matchL29L30;
 @property FBMatch *matchW29W30;
 @property BOOL isPlayOff;
-//@property Match *match;
-//@property Team *team;
-
 @property double cellHeight;
 @property double cellWidth;
-@property CGFloat topInset;
-@property CGFloat bottomInset;
 @property double minimumInteritemSpacing;
 @property int cellsForSection0;
 @property int cellsForSection1;
 @property int cellsForSection2;
+@property CGFloat topInset;
+@property CGFloat bottomInset;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeMatchesButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tourneyButton;
@@ -99,16 +95,7 @@
     [self.matchesObject addObjectsFromArray:@[@[self.matchA1B2, self.matchB1A2, self.matchD1C2, self.matchC1D2], @[self.matchW25W27, self.matchW26W28], @[self.matchL29L30, self.matchW29W30], @[]]];
     
     NSLog(@"%lu", (unsigned long)self.matchesObject.count);
-    
-    // URL that fire base accesses
-    //    Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
-    //    NSLog(@"%lu", self.matchesObject.count);
 }
-
-//-(void)viewDidDisappear:(BOOL)animated{
-//    [super viewDidDisappear:YES];
-//    self.navigationController.navigationBar.hidden = NO;
-//}
 
 #pragma mark - CollectionView
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -148,9 +135,6 @@
         return cell;
     }
     case 3:{
-        
-//        BOOL isStrig = [self.matchW29W30.status isKindOfClass:[NSNumber class]];
-//        NSLog(@"%d", isStrig);
         if ([self.matchW29W30.status isEqual: @1]) {
             NSInteger localScore = self.matchW29W30.local_goals.integerValue;
             NSInteger localPenalty = self.matchW29W30.pen1.integerValue;
@@ -246,11 +230,8 @@
 }
 
 -(void) populatePlayoffTeams{
-    //dispatch_queue_t playoffReached = dispatch_queue_create("populatePlayoffTeams", NULL);
-    //dispatch_async(playoffReached, ^{
         Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
         [ref observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
-            //    [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
             NSNumber *isPlayoffsNum = snapshot.value[@"playoffs"];
             self.isPlayOff = isPlayoffsNum.boolValue;
             NSLog(@"%d", self.isPlayOff);
@@ -262,23 +243,24 @@
                 if ([self.matchA1B2.schedule isEqualToString: snapshot.value[@"schedule"]]) {
                     self.matchA1B2.matchID = snapshot.value[@"id"];
                     self.matchA1B2.status = snapshot.value[@"status"];
-                    
+                    self.matchA1B2.stadium = snapshot.value[@"stadium"];
+
                     self.matchA1B2.local = snapshot.value[@"local"];
                     self.matchA1B2.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchA1B2.local_goals = snapshot.value[@"local_goals"];
                     self.matchA1B2.pen1 = snapshot.value[@"pen1"];
                     
-                    
                     self.matchA1B2.visitor = snapshot.value[@"visitor"];
                     self.matchA1B2.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchA1B2.visitor_goals = snapshot.value[@"visitor_goals"];
                     self.matchA1B2.pen2 = snapshot.value[@"pen2"];
+               
                     
-                   // [self.collectionView reloadData];
                 } else if ([self.matchB1A2.schedule isEqualToString: snapshot.value[@"schedule"]]){
                     self.matchB1A2.matchID = snapshot.value[@"id"];
                     self.matchB1A2.status = snapshot.value[@"status"];
-                    
+                    self.matchB1A2.stadium = snapshot.value[@"stadium"];
+
                     self.matchB1A2.local = snapshot.value[@"local"];
                     self.matchB1A2.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchB1A2.local_goals = snapshot.value[@"local_goals"];
@@ -288,10 +270,12 @@
                     self.matchB1A2.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchB1A2.visitor_goals = snapshot.value[@"visitor_goals"];
                     self.matchB1A2.pen2 = snapshot.value[@"pen2"];
-                   // [self.collectionView reloadData];
+             
+                    
                 } else if ([self.matchD1C2.schedule isEqualToString: snapshot.value[@"schedule"]]){
                     self.matchD1C2.matchID = snapshot.value[@"id"];
                     self.matchD1C2.status = snapshot.value[@"status"];
+                    self.matchD1C2.stadium = snapshot.value[@"stadium"];
                     
                     self.matchD1C2.local = snapshot.value[@"local"];
                     self.matchD1C2.local_abbr = snapshot.value[@"local_abbr"];
@@ -302,10 +286,12 @@
                     self.matchD1C2.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchD1C2.visitor_goals = snapshot.value[@"visitor_goals"];
                     self.matchD1C2.pen2 = snapshot.value[@"pen2"];
-                   // [self.collectionView reloadData];
+               
+                    
                 } else if ([self.matchC1D2.schedule isEqualToString: snapshot.value[@"schedule"]]){
                     self.matchC1D2.matchID = snapshot.value[@"id"];
                     self.matchC1D2.status = snapshot.value[@"status"];
+                    self.matchC1D2.stadium = snapshot.value[@"stadium"];
                     
                     self.matchC1D2.local = snapshot.value[@"local"];
                     self.matchC1D2.local_abbr = snapshot.value[@"local_abbr"];
@@ -316,11 +302,12 @@
                     self.matchC1D2.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchC1D2.visitor_goals = snapshot.value[@"visitor_goals"];
                     self.matchC1D2.pen2 = snapshot.value[@"pen2"];
-                  //  [self.collectionView reloadData];
+
+                    
                 } else if ([self.matchW25W27.schedule isEqualToString: snapshot.value[@"schedule"]]){
-                    //NSLog(@"Match ID: %@\n is at: %@", snapshot.value[@"id"], snapshot.value[@"schedule"]);
                     self.matchW25W27.matchID = snapshot.value[@"id"];
                     self.matchW25W27.status = snapshot.value[@"status"];
+                    self.matchW25W27.stadium = snapshot.value[@"stadium"];
                     
                     self.matchW25W27.local = snapshot.value[@"local"];
                     self.matchW25W27.local_abbr = snapshot.value[@"local_abbr"];
@@ -331,10 +318,12 @@
                     self.matchW25W27.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchW25W27.visitor_goals = snapshot.value[@"visitor_goals"];
                     self.matchW25W27.pen2 = snapshot.value[@"pen2"];
+               
+                
                 } else if ([self.matchW26W28.schedule isEqualToString: snapshot.value[@"schedule"]]){
-                    //NSLog(@"Match ID: %@\n is at: %@", snapshot.value[@"id"], snapshot.value[@"schedule"]);
                     self.matchW26W28.matchID = snapshot.value[@"id"];
                     self.matchW26W28.status = snapshot.value[@"status"];
+                    self.matchW26W28.stadium = snapshot.value[@"stadium"];
                     
                     self.matchW26W28.local = snapshot.value[@"local"];
                     self.matchW26W28.local_abbr = snapshot.value[@"local_abbr"];
@@ -345,10 +334,12 @@
                     self.matchW26W28.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchW26W28.visitor_goals = snapshot.value[@"visitor_goals"];
                     self.matchW26W28.pen2 = snapshot.value[@"pen2"];
+             
+                
                 } else if ([self.matchW29W30.schedule isEqualToString: snapshot.value[@"schedule"]]){
-                    //NSLog(@"Match ID: %@\n is at: %@", snapshot.value[@"id"], snapshot.value[@"schedule"]);
                     self.matchW29W30.matchID = snapshot.value[@"id"];
                     self.matchW29W30.status = snapshot.value[@"status"];
+                    self.matchW29W30.stadium = snapshot.value[@"stadium"];
                     
                     self.matchW29W30.local = snapshot.value[@"local"];
                     self.matchW29W30.local_abbr = snapshot.value[@"local_abbr"];
@@ -366,6 +357,8 @@
                     NSLog(@"%d", strig);
                     NSLog(@"FireBase gave pen2: %@", self.matchW29W30.pen2);
                 }
+              
+                
                 NSLog(@"%@", snapshot.value[@"id"]);
                 [playoffTeams addObject:snapshot.value[@"id"]];
                 NSLog(@"%lu", (unsigned long)self.playoffTeams.count);
@@ -376,7 +369,6 @@
         } withCancelBlock:^(NSError *error) {
             NSLog(@"%@", error.description);
         }];
-   // });
 }
 
 -(void) createDefaultPlayoffMatches{
@@ -480,7 +472,6 @@
     formatter.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Madrid"];
     match.nsdate = [formatter dateFromString:match.schedule];
   
-  
     NSDateFormatter *eastern = [[NSDateFormatter alloc]init];
     eastern.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     eastern.timeZone = [NSTimeZone timeZoneWithName:@"America/New_York"];
@@ -494,39 +485,14 @@
   
 }
 
-//-(FBMatch *) createPlayOffMatch:(NSDictionary *)dictionary{
-//    FBMatch *matchObject = [FBMatch new];
-//
-//    matchObject.matchID = dictionary[@"id"];
-//    //NSLog(@"local Team: %@", matchObject.matchID);
-//    matchObject.local = dictionary[@"local"];
-//    //NSLog(@"local Team: %@", matchObject.local);
-//    matchObject.local_abbr = dictionary[@"local_abbr"];
-//    //NSLog(@"local Team_abbr: %@", matchObject.local_abbr);
-//    matchObject.local_goals = dictionary[@"local_goals"];
-//    //NSLog(@"local Team goals: %@", matchObject.local_goals);
-//    matchObject.pen1 = dictionary[@"pen1"];
-//    //NSLog(@"local Team penalty: %@", matchObject.pen1);
-//
-//    matchObject.visitor = dictionary[@"visitor"];
-//    //NSLog(@"visitor Team: %@", matchObject.visitor);
-//    matchObject.visitor_abbr = dictionary[@"visitor_abbr"];
-//    //NSLog(@"visitor Team_abbr: %@", matchObject.visitor_abbr);
-//    matchObject.visitor_goals = dictionary[@"visitor_goals"];
-//    //NSLog(@"visitor Team goals: %@", matchObject.visitor_goals);
-//    matchObject.pen2 = dictionary[@"pen2"];
-//    //NSLog(@"visitor Team penalty: %@", matchObject.pen2);
-//
-//    return matchObject;
-//}
 #pragma mark - MemoryWarning
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
 
+ #pragma mark - UnwindSegue
 - (IBAction)prepareForUnwind:(UIStoryboard *)segue{
-    
 }
 
 #pragma mark - Segue
