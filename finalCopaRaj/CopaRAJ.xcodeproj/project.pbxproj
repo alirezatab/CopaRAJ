@@ -182,7 +182,8 @@
 			children = (
 				7BC9FF961CDB30F500711636 /* Localizable.strings */,
 			);
-			path = en.lproj;
+			name = en.lproj;
+			path = CopaRAJ/en.lproj;
 			sourceTree = "<group>";
 		};
 		7BC9FF981CDB30F500711636 /* es.lproj */ = {
@@ -194,7 +195,8 @@
 				7BC9FF9F1CDB30F500711636 /* Main.strings */,
 				7BC9FFA11CDB30F500711636 /* Tourny.strings */,
 			);
-			path = es.lproj;
+			name = es.lproj;
+			path = CopaRAJ/es.lproj;
 			sourceTree = "<group>";
 		};
 		AB2EC1386A82B6049026018A /* Pods */ = {
@@ -211,6 +213,8 @@
 			children = (
 				C2C5C00F1CC564D70010133B /* AppDelegate.h */,
 				C2C5C0101CC564D70010133B /* AppDelegate.m */,
+				7BC9FF981CDB30F500711636 /* es.lproj */,
+				7BC9FF951CDB30F500711636 /* en.lproj */,
 				C2C5C00B1CC564D70010133B /* CopaRAJ */,
 				C2C5C0281CC564D70010133B /* CopaRAJTests */,
 				C2C5C0331CC564D70010133B /* CopaRAJUITests */,
@@ -330,8 +334,6 @@
 				D8F2D0C31CC5B6F9003F8465 /* GroupVC.h */,
 				D8F2D0C41CC5B6F9003F8465 /* GroupVC.m */,
 				D8F2D0C91CC5B75F003F8465 /* GameVC.h */,
-				7BC9FF951CDB30F500711636 /* en.lproj */,
-				7BC9FF981CDB30F500711636 /* es.lproj */,
 				D8F2D0CA1CC5B75F003F8465 /* GameVC.m */,
 				D8F2D0CC1CC5B777003F8465 /* TourneyVC.h */,
 				D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */,
@@ -746,7 +748,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -784,7 +786,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -799,7 +801,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.download.CopaRAJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -815,7 +817,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.download.CopaRAJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";

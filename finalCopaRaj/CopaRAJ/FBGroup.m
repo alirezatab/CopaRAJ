@@ -39,7 +39,7 @@
     returnedGroup.team2Gf = [team2 objectForKey:@"gf"];
     returnedGroup.team2Round = [team2 objectForKey:@"round"];
 
-    NSLog(@"Team 2: %@", returnedGroup.team2Gf);
+//    NSLog(@"Team 2: %@", returnedGroup.team2Gf);
   
     returnedGroup.team3avg = [team3 objectForKey:@"avg"];
     returnedGroup.team3Draws = [team3 objectForKey:@"draws"];
@@ -51,7 +51,7 @@
     returnedGroup.team3Gf = [team3 objectForKey:@"gf"];
     returnedGroup.team3Round = [team3 objectForKey:@"round"];
 
-    NSLog(@"Team 3: %@", returnedGroup.team3Gf);
+//    NSLog(@"Team 3: %@", returnedGroup.team3Gf);
   
     returnedGroup.team4avg = [team4 objectForKey:@"avg"];
     returnedGroup.team4Draws = [team4 objectForKey:@"draws"];
@@ -62,7 +62,7 @@
     returnedGroup.team4Wins = [team4 objectForKey:@"wins"];
     returnedGroup.team4Gf = [team4 objectForKey:@"gf"];
     returnedGroup.team4Round = [team4 objectForKey:@"round"];
-    NSLog(@"Team 4: %@", returnedGroup.team4Gf);
+//    NSLog(@"Team 4: %@", returnedGroup.team4Gf);
 
     return returnedGroup;
 }
