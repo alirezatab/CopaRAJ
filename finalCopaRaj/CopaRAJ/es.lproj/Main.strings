@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "location"; ObjectID = "2GH-3N-QdP"; */
+"2GH-3N-QdP.text" = "location";
+
+/* Class = "UILabel"; text = "Team 1"; ObjectID = "HLM-EO-Jr9"; */
+"HLM-EO-Jr9.text" = "Team 1";
+
+/* Class = "UILabel"; text = "P1"; ObjectID = "PLF-ED-9lV"; */
+"PLF-ED-9lV.text" = "P1";
+
+/* Class = "UILabel"; text = "P2"; ObjectID = "Rya-Is-SBu"; */
+"Rya-Is-SBu.text" = "P2";
+
+/* Class = "UILabel"; text = "Team 2 "; ObjectID = "VyA-WJ-wNT"; */
+"VyA-WJ-wNT.text" = "Team 2 ";
+
+/* Class = "UILabel"; text = "penalties"; ObjectID = "WgK-Mr-kZ2"; */
+"WgK-Mr-kZ2.text" = "penalties";
+
+/* Class = "UILabel"; text = "COPA CLUB"; ObjectID = "Z29-Km-XyQ"; */
+"Z29-Km-XyQ.text" = "COPA CLUB";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "aGF-yJ-YbP"; */
+"aGF-yJ-YbP.text" = "Time";
+
+/* Class = "UINavigationItem"; title = "Copa Club"; ObjectID = "zb4-O1-TtV"; */
+"zb4-O1-TtV.title" = "Copa Club";

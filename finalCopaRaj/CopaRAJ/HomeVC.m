@@ -60,6 +60,7 @@
     self.navigationItem.hidesBackButton = YES;
     
     [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
+    [self.homeMatchesButton setImage: [UIImage imageNamed:NSLocalizedString(@"imageName", nil)]];
     [self.groupStandingsButton setTintColor:[UIColor grayColor]];
     [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
     

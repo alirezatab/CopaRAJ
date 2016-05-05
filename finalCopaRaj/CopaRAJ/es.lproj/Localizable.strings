@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  CopaRAJ
+
+  Created by James Rochabrun on 04-05-16.
+  Copyright © 2016 AR-T.com, Inc. All rights reserved.
+*/
+
+"Tournament Champion" = "CAMPEÓN";
+"Groups" = "Grupos";
+"Group" = "Grupo";
+"GP" = "PJ";
+"W" = "G";
+"T" = "E";
+"L" = "P";
+"Pts" = "Pts";
+"United States" = "Estados Unidos";
+"EVENTS" = "EVENTOS";
+"STATS" = "ESTADÍSTICAS";
+"LINEUPS" = "ALINEACIÓN";
+"possession" = "posesión";
+"Shots" = "Disparos";
+"Shots on target" = "Tiros al arco";
+"offsides" = "fuera de juego";
+"free kicks" = "tiros libres";
+"saves" = "atajadas";
+"yellow cards" = "tarjetas amarillas";
+"red cards" = "tarjetas rojas";
+"Corner kicks" = "saques de esquina";
+"player 1" = "jugador 1";
+"player 1" = "jugador 1";
+"player 2" = "jugador 2";
+"player 3" = "jugador 3";
+"player 4" = "jugador 4";
+"player 5" = "jugador 5";
+"player 6" = "jugador 6";
+"player 7" = "jugador 7";
+"player 8" = "jugador 8";
+"player 9" = "jugador 9";
+"player 10" = "jugador 10";
+"player 11" = "jugador 11";
+"until kickoff" = "Para este partido";
+"replaced by" = "reemplazado por";
+"imageName" = "Juegos";
+
+
+
+
