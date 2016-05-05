@@ -93,7 +93,7 @@
     for (int i = 0; i < changes.count; i++) {
         NSMutableDictionary *event = [changes objectAtIndex:i];
         if (self.subIn == nil && [[event objectForKey:@"action"] isEqualToString:[NSMutableString stringWithFormat:@"Entra en el partido"]]) {
-          int minute = [[event objectForKey:@"minute"] integerValue];
+          NSInteger minute = [[event objectForKey:@"minute"] integerValue];
           NSNumber *num = [NSNumber numberWithInteger:minute];
           NSDictionary *minuteDict = @{@"minuteF":num};
           [event addEntriesFromDictionary:minuteDict];
@@ -261,7 +261,7 @@
         match.cards = [NSMutableArray new];
         for (NSMutableDictionary *card in cards) {
           
-          int minute = [[card objectForKey:@"minute"] integerValue];
+          NSInteger minute = [[card objectForKey:@"minute"] integerValue];
           NSNumber *num = [NSNumber numberWithInteger:minute];
           NSDictionary *minuteDict = @{@"minuteF":num};
           [card addEntriesFromDictionary:minuteDict];
@@ -275,7 +275,7 @@
         match.changes = [NSMutableArray new];
         for (NSMutableDictionary *change in changes) {
             ;
-          int minute = [[change objectForKey:@"minute"] integerValue];
+          NSInteger minute = [[change objectForKey:@"minute"] integerValue];
           NSNumber *num = [NSNumber numberWithInteger:minute];
           NSDictionary *minuteDict = @{@"minuteF":num};
           [change addEntriesFromDictionary:minuteDict];
@@ -288,7 +288,7 @@
         //NSLog(@"Goals: %@",goals);
         match.goals = [NSMutableArray new];
         for (NSMutableDictionary *goal in goals) {
-          int minute = [[goal objectForKey:@"minute"] integerValue];
+          NSInteger minute = [[goal objectForKey:@"minute"] integerValue];
           NSNumber *num = [NSNumber numberWithInteger:minute];
           NSDictionary *minuteDict = @{@"minuteF":num};
           [goal addEntriesFromDictionary:minuteDict];
@@ -302,7 +302,7 @@
       for (NSMutableDictionary *occasion in occasions) {
         if (![[occasion valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Tiro al palo"]) {
           
-          int minute = [[occasion objectForKey:@"minute"] integerValue];
+          NSInteger minute = [[occasion objectForKey:@"minute"] integerValue];
           NSNumber *num = [NSNumber numberWithInteger:minute];
           NSDictionary *minuteDict = @{@"minuteF":num};
           [occasion addEntriesFromDictionary:minuteDict];
@@ -316,7 +316,7 @@
       for (NSMutableDictionary *other in others) {
         if (![[other valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[other valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[other valueForKey:@"action"] isEqualToString:@"Tiro al palo"]) {
           
-          int minute = [[other objectForKey:@"minute"] integerValue];
+          NSInteger minute = [[other objectForKey:@"minute"] integerValue];
           NSNumber *num = [NSNumber numberWithInteger:minute];
           NSDictionary *minuteDict = @{@"minuteF":num};
           [other addEntriesFromDictionary:minuteDict];
@@ -338,6 +338,15 @@
 + (NSArray *)createTimeLineWithMatch: (FBMatch *)match {
   
   NSMutableArray *nonsortedArray = [NSMutableArray new];
+    
+        NSDictionary *kickOff = @{
+                                  @"action" : @"kickoff",
+                                  @"minute" : @"0",
+                                  @"minuteF": @0
+                                  };
+    
+        [nonsortedArray addObject:kickOff];
+    
   
   for (NSDictionary *goal in match.goals) {
     [nonsortedArray addObject:goal];

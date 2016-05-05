@@ -28,41 +28,35 @@
 @end
 
 @implementation GameVC
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.match.timeline = [NSMutableArray new];
 
     self.tableView.allowsSelection = NO;
     self.navigationController.navigationBar.hidden = YES;
-    
-    if (self.match.matchID) {
-        [self listenToMatch];
-        [self eventsTableViewAppears];
+    self.locationLabel.text = self.match.stadium;
 
+    [self eventsTableViewAppears];
+
+    if (self.match.matchID) {
+       [self listenToMatch];
     } else {
         [self displayLineUpLabels];
         [self displayMatchLabels];
         [self displayStatsLabels];
     }
 
-    
     //setting the countdown
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     self.date = self.match.nsdate;
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
     
-    NSLog(@"THIS IS the array timeline %@ ", self.match.timeline);
-    
 }
 
 - (void)eventsTableViewAppears {
-    
     int matchStatus = [self.match.status  intValue];
-    if(matchStatus == 0){
+    if(matchStatus == -1){
         self.tableView.hidden = YES;
     } else {
         self.tableView.hidden = NO;
@@ -81,11 +75,11 @@
     iv -= minutes *60;
     int seconds = iv;
     
-    NSString *countdown = [NSString stringWithFormat:@"%02d Days \n%02d Hours \n%02d Minutes \n%02d Seconds \n until Game!!", days, hours, minutes, seconds];
+    NSString *countdown = [NSString stringWithFormat:@"%02d d : %02d h : %02d m : %02d s \nTo the Kickoff", days, hours, minutes, seconds];
     
     self.countDownTextView.text = countdown;
     
-    [self.countDownTextView setFont:[UIFont fontWithName:@"GOTHAM Narrow" size:22]];
+    [self.countDownTextView setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:23]];
     [self.countDownTextView setTextColor:[UIColor whiteColor]];
     [self.countDownTextView setTextAlignment:NSTextAlignmentCenter];
     
@@ -94,12 +88,9 @@
     }
 }
 
-
 - (void)listenToMatch {
   
-    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/377718"];
-                     //self.match.matchID];
-
+    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@", self.match.matchID];
 
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
     [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -117,7 +108,6 @@
         
     } withCancelBlock:^(NSError *error) {
         NSLog(@"%@", error.description);
-        
     }];
 }
 
@@ -146,9 +136,21 @@
     self.teamTwoScore.text = self.match.visitor_goals;
 
   }
-    self.teamOneImage.image = [UIImage imageNamed:self.match.local];
+    
+    if ([self.match.local isEqualToString:@"Haití"]) {
+        self.teamOneImage.image = [UIImage imageNamed:@"Haiti"];
+    } else {
+        self.teamOneImage.image = [UIImage imageNamed:self.match.local];
+    }
+    
+    
+    if ([self.match.visitor isEqualToString:@"Haití"]) {
+        self.teamTwoImage.image = [UIImage imageNamed:@"Haiti"];
+    } else {
+        self.teamTwoImage.image = [UIImage imageNamed:self.match.visitor];
+    }
+    
     self.teamOneName.text = self.match.local_abbr;
-    self.teamTwoImage.image = [UIImage imageNamed:self.match.visitor];
     self.teamTwoName.text = self.match.visitor_abbr;
     self.matchDateLabel.text = self.match.date;
     NSArray *labels = @[self.timeLabel , self.teamOneName ,self.teamTwoName, self.matchDateLabel , self.versusLabel , self.locationLabel];
@@ -156,9 +158,9 @@
         [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:16]];
         [label setTextColor:[UIColor whiteColor]];
     }
-    [self.teamOneScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:30]];
+    [self.teamOneScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:25]];
     [self.teamOneScore setTextColor: [UIColor whiteColor]];
-    [self.teamTwoScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:30]];
+    [self.teamTwoScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:25]];
     [self.teamTwoScore setTextColor:[UIColor whiteColor]];
 }
 
@@ -169,8 +171,11 @@
     int i = 0;
     NSArray *lineUpLocalLabels = @[self.teamAPlayer1,self.teamAPlayer2,self.teamAPlayer3,self.teamAPlayer4,self.teamAPlayer5,self.teamAPlayer6,self.teamAPlayer7,self.teamAPlayer8,self.teamAPlayer9,self.teamAPlayer10,self.teamAPlayer11];
     
-    self.lineUpLocalFlag.image =[UIImage imageNamed:self.match.local];
-    
+    if ([self.match.local isEqualToString:@"Haití"]) {
+        self.lineUpLocalFlag.image = [UIImage imageNamed:@"Haiti"];
+    } else {
+        self.lineUpLocalFlag.image =[UIImage imageNamed:self.match.local];
+    }
     if (self.match.local_Lineup) {
         for (FBMatch *player in self.match.local_Lineup) {
             NSString *nick = [player valueForKey:@"nick"];
@@ -192,7 +197,11 @@
     NSArray *lineUpVisitLabels = @[self.teamBPLayer1,self.teamBPlayer2,self.teamBPlayer3,self.teamBPlayer4,self.teamBPlayer5,self.teamBPlayer6,self.teamBPlayer7,self.teamBPlayer8,self.teamBPlayer9,self.teamBPlayer10,self.teamBPlayer11];
     NSLog(@"LINEUPS %@" , self.match.visitor_Lineup );
     
-    self.lineUpVisitorFlag.image = [UIImage imageNamed:self.match.visitor];
+    if ([self.match.visitor isEqualToString:@"Haití"]) {
+        self.lineUpVisitorFlag.image = [UIImage imageNamed:@"Haiti"];
+    } else {
+        self.lineUpVisitorFlag.image = [UIImage imageNamed:self.match.visitor];
+    }
     
     if (self.match.visitor_Lineup) {
         for (FBMatch *match in self.match.visitor_Lineup) {
@@ -216,7 +225,11 @@
 - (void) displayStatsLabels {
     
     //local Team A stats
-    self.teamAStatsFlag.image = [UIImage imageNamed:self.match.local];
+    if ([self.match.local isEqualToString:@"Haití"]) {
+        self.teamAStatsFlag.image = [UIImage imageNamed:@"Haiti"];
+    } else {
+        self.teamAStatsFlag.image = [UIImage imageNamed:self.match.local];
+    }
     if(self.match.local_pos != NULL){
     self.local_posLabel.text = [NSString stringWithFormat:@"%@ %%" , self.match.local_pos];
     }
@@ -234,7 +247,11 @@
     }
     
     //local team B stats
-    self.teamBStatsFlag.image = [UIImage imageNamed:self.match.visitor];
+    if ([self.match.visitor isEqualToString:@"Haití"]) {
+        self.teamBStatsFlag.image = [UIImage imageNamed:@"Haiti"];
+    } else {
+        self.teamBStatsFlag.image = [UIImage imageNamed:self.match.visitor];
+    }
     if(self.match.visitor_pos != NULL){
     self.visitor_posLabel.text = [NSString stringWithFormat: @"%@ %%",self.match.visitor_pos];
     }
@@ -270,9 +287,19 @@
     cell.timeLabel.text = [NSString stringWithFormat:@"%@'",[event valueForKey:@"minute"]];
 
     if ([[event valueForKey:@"team"] isEqualToString: @"local"]) {
-        cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.local];
+        
+        if ([self.match.local isEqualToString:@"Haití"]) {
+            cell.eventsTeamFlag.image = [UIImage imageNamed:@"Haiti"];
+        } else {
+            cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.local];
+        }
     } else if ([[event valueForKey:@"team"] isEqualToString: @"visitor"]) {
-        cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.visitor];
+        
+        if ([self.match.visitor isEqualToString:@"Haití"]) {
+            cell.eventsTeamFlag.image = [UIImage imageNamed:@"Haiti"];
+        } else {
+            cell.eventsTeamFlag.image = [UIImage imageNamed: self.match.visitor];
+        }
     } else{
         cell.eventsTeamFlag.image = [UIImage imageNamed:@""];
     }
@@ -281,7 +308,9 @@
     
     if(isPLayer){
         cell.playerLabel.text = [event valueForKey:@"player"];
-    } else {
+    } else if ([[event valueForKey:@"minute"] isEqualToString:@"0"]){
+        cell.playerLabel.text = @"Kickoff!";
+    }else {
         cell.playerLabel.text = @"replaced by";
     }
     
