@@ -3,7 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="GOTHAM-MEDIUM.TTF">
+            <string>GothamMedium</string>
+            <string>GothamMedium</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -17,51 +24,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CopaRAJ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-Pt-9wd">
-                                <rect key="frame" x="232" y="72" width="136" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo-rf" translatesAutoresizingMaskIntoConstraints="NO" id="HO1-8r-QjX">
+                                <rect key="frame" x="179" y="530" width="240" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="PCq-Ki-fvx"/>
-                                    <constraint firstAttribute="width" constant="136" id="aIs-eA-QBP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkz-vS-BnN">
-                                <rect key="frame" x="255" y="473" width="91" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="91" id="REC-Qw-r8y"/>
-                                    <constraint firstAttribute="height" constant="21" id="lIb-Uj-4kK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-rf" translatesAutoresizingMaskIntoConstraints="NO" id="HO1-8r-QjX">
-                                <rect key="frame" x="180" y="512" width="240" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="DsP-Yl-GSc"/>
-                                    <constraint firstAttribute="width" constant="240" id="cPT-6G-bAp"/>
+                                    <constraint firstAttribute="height" constant="50" id="Tbo-6M-HGq"/>
+                                    <constraint firstAttribute="width" constant="240" id="sU3-zV-r3s"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LaunchScreen0" translatesAutoresizingMaskIntoConstraints="NO" id="b8E-WC-B1a">
+                                <rect key="frame" x="174" y="75" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="M7S-LR-oyG"/>
+                                    <constraint firstAttribute="height" constant="250" id="lAO-mW-XbJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COPA  CLUB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-Pt-9wd">
+                                <rect key="frame" x="150" y="307" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="XWA-TI-hes"/>
+                                    <constraint firstAttribute="height" constant="50" id="aZK-4O-oZ8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="36"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkz-vS-BnN">
+                                <rect key="frame" x="209" y="497" width="136" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="ZFT-Ts-Wlv"/>
+                                    <constraint firstAttribute="width" constant="136" id="lc7-sw-O5y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.3529411764705882" green="0.74901960784313726" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Wpa-Pt-9wd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="GWZ-9z-dpN"/>
-                            <constraint firstItem="vkz-vS-BnN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JWE-O6-503"/>
-                            <constraint firstItem="Wpa-Pt-9wd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="52" id="TYC-bb-OPL"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="HO1-8r-QjX" secondAttribute="bottom" constant="20" id="dI2-H4-8vW"/>
-                            <constraint firstItem="HO1-8r-QjX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jGk-8B-jAK"/>
-                            <constraint firstItem="HO1-8r-QjX" firstAttribute="top" secondItem="vkz-vS-BnN" secondAttribute="bottom" constant="18" id="rGL-q6-D0Z"/>
+                            <constraint firstItem="HO1-8r-QjX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4yN-M7-tiF"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="HO1-8r-QjX" secondAttribute="bottom" constant="20" id="5dT-jw-Ti3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b8E-WC-B1a" secondAttribute="trailing" constant="42" id="7bV-ft-d2T"/>
+                            <constraint firstItem="vkz-vS-BnN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-23" id="9uA-38-HhQ"/>
+                            <constraint firstItem="b8E-WC-B1a" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Hly-su-Mcg"/>
+                            <constraint firstItem="Wpa-Pt-9wd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="32" id="QjQ-Ac-2Kh"/>
+                            <constraint firstItem="b8E-WC-B1a" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-100" id="a8u-gk-Oc5"/>
+                            <constraint firstItem="HO1-8r-QjX" firstAttribute="top" secondItem="vkz-vS-BnN" secondAttribute="bottom" constant="8" id="c6I-vC-GBZ"/>
+                            <constraint firstItem="Wpa-Pt-9wd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="e86-eo-zVL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7bV-ft-d2T"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374"/>
         </scene>
     </scenes>
     <resources>
+        <image name="LaunchScreen0" width="1242" height="2208"/>
         <image name="logo-rf" width="960" height="170"/>
     </resources>
 </document>

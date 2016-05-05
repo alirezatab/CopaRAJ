@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8gu-mv-4JN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Xe-5i-T9S">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="GOTHAM-MEDIUM.TTF">
+            <string>GothamMedium</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Copa Club-->
         <scene sceneID="tne-QT-ifu">
@@ -43,7 +48,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dCz-9Z-6Ez"/>
                                 </items>
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.063018247485160828" green="0.18738099932670593" blue="0.23143103718757629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.062745098039215685" green="0.18823529411764706" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TUr-j0-mMr">
                                 <rect key="frame" x="0.0" y="64" width="600" height="476"/>
@@ -53,7 +58,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Swl-V8-MwE" id="ygE-3h-7mW">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3yO-DP-twc">
@@ -96,13 +101,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="penalties" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Mr-kZ2">
-                                                            <rect key="frame" x="178" y="0.0" width="88" height="49"/>
+                                                            <rect key="frame" x="178" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-Is-SBu">
-                                                            <rect key="frame" x="266" y="0.0" width="89" height="49"/>
+                                                            <rect key="frame" x="267" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -219,7 +224,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205" y="160"/>
+            <point key="canvasLocation" x="1525" y="172"/>
+        </scene>
+        <!--Splash ScreenVC-->
+        <scene sceneID="uLQ-Bk-wPy">
+            <objects>
+                <viewController id="5Xe-5i-T9S" customClass="SplashScreenVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="16B-qm-Syx"/>
+                        <viewControllerLayoutGuide type="bottom" id="fo2-L1-zgd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u2B-5x-Jhx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KFT-NT-bIx">
+                                <rect key="frame" x="175" y="75" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="s82-aA-MbS"/>
+                                    <constraint firstAttribute="height" constant="250" id="xKj-1I-xfy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COPA CLUB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z29-Km-XyQ">
+                                <rect key="frame" x="150" y="307" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="tUs-vB-ugj"/>
+                                    <constraint firstAttribute="height" constant="50" id="ych-Zd-O17"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="36"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.3529411764705882" green="0.74901960784313726" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Z29-Km-XyQ" firstAttribute="centerX" secondItem="u2B-5x-Jhx" secondAttribute="centerX" id="6JC-V6-dSQ"/>
+                            <constraint firstItem="Z29-Km-XyQ" firstAttribute="centerY" secondItem="u2B-5x-Jhx" secondAttribute="centerY" constant="32" id="gRJ-tp-gSv"/>
+                            <constraint firstItem="KFT-NT-bIx" firstAttribute="centerY" secondItem="u2B-5x-Jhx" secondAttribute="centerY" constant="-100" id="gxj-mU-dSC"/>
+                            <constraint firstItem="KFT-NT-bIx" firstAttribute="centerX" secondItem="u2B-5x-Jhx" secondAttribute="centerX" id="pe7-RY-E4D"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logoAnimationImageView" destination="KFT-NT-bIx" id="pHb-fa-Fpm"/>
+                        <segue destination="8gu-mv-4JN" kind="presentation" identifier="AnimationSegue" modalTransitionStyle="crossDissolve" id="2d9-LX-WHI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ww5-iE-nMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="172"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QMb-eT-bSG">
@@ -238,7 +290,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsO-Ob-PRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="514" y="160"/>
+            <point key="canvasLocation" x="824" y="172"/>
         </scene>
         <!--Game-->
         <scene sceneID="7J8-cm-JoU">

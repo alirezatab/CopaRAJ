@@ -386,32 +386,49 @@
     [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         self.matchA1B2.local = @"A1";
         self.matchA1B2.visitor = @"B2";
-        NSLog(@"%@", snapshot.value);
         self.matchA1B2.schedule = [snapshot.value objectForKey:@"A1B2"];
+        self.matchA1B2.status = @"-1";
+        [self addNSDateForMatch:self.matchA1B2];
         
         self.matchB1A2.local = @"B1";
         self.matchB1A2.visitor = @"A2";
         self.matchB1A2.schedule = [snapshot.value objectForKey:@"B1A2"];
+        self.matchB1A2.status = @"-1";
+        [self addNSDateForMatch:self.matchB1A2];
         
         self.matchD1C2.local = @"D1";
         self.matchD1C2.visitor = @"C2";
         self.matchD1C2.schedule = [snapshot.value objectForKey:@"D1C2"];
+        self.matchD1C2.status = @"-1";
+        [self addNSDateForMatch:self.matchD1C2];
+        
         
         self.matchC1D2.local = @"C1";
         self.matchC1D2.visitor = @"D2";
         self.matchC1D2.schedule = [snapshot.value objectForKey:@"C1D2"];
+        self.matchC1D2.status = @"-1";
+        [self addNSDateForMatch:self.matchC1D2];
+        
         
         self.matchW25W27.local = @"W25";
         self.matchW25W27.visitor = @"W27";
         self.matchW25W27.schedule = [snapshot.value objectForKey:@"W25W27"];
+        self.matchW25W27.status = @"-1";
+        [self addNSDateForMatch:self.matchW25W27];
+        
         
         self.matchW26W28.local = @"W26";
         self.matchW26W28.visitor = @"W28";
         self.matchW26W28.schedule = [snapshot.value objectForKey:@"W26W28"];
+        self.matchW26W28.status = @"-1";
+        [self addNSDateForMatch:self.matchW26W28];
+        
         
         self.matchW29W30.local = @"W29";
         self.matchW29W30.visitor = @"W30";
         self.matchW29W30.schedule = [snapshot.value objectForKey:@"W29W30"];
+        self.matchW29W30.status = @"-1";
+        [self addNSDateForMatch:self.matchW29W30];
         NSLog(@"%@", self.matchW29W30.schedule);
         
         //not best way cause of the lag
@@ -421,6 +438,14 @@
     NSLog(@"%@", error.description);
     }];
 //});
+}
+
+- (void) addNSDateForMatch: (FBMatch *)match {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    formatter.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Madrid"];
+    match.nsdate = [formatter dateFromString:match.schedule];
+    
 }
 
 //-(FBMatch *) createPlayOffMatch:(NSDictionary *)dictionary{
