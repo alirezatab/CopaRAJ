@@ -110,6 +110,7 @@
         self.matchA1B2.local_abbr = @"A1";
         self.matchA1B2.visitor_abbr = @"B2";
         self.matchA1B2.status = @"-1";
+        self.matchA1B2.stadium = @"CenturyLink Field";
         [self addNSDateForMatch:self.matchA1B2];
         [self.playoffMatches addObject:self.matchA1B2];
         
@@ -118,7 +119,9 @@
         self.matchB1A2.schedule = [snapshot.value objectForKey:@"B1A2"];
         self.matchB1A2.local_abbr = @"B1";
         self.matchB1A2.visitor_abbr = @"A2";
+        self.matchB1A2.stadium = @"MetLife Stadium";
         self.matchB1A2.status = @"-1";
+      
         //NSLog(@"b1: %@ a2: %@ schedule: %@", self.matchB1A2.local, self.matchB1A2.visitor, self.matchB1A2.schedule);
         [self addNSDateForMatch:self.matchB1A2];
         [self.playoffMatches addObject:self.matchB1A2];
@@ -129,6 +132,7 @@
         self.matchD1C2.local_abbr = @"D1";
         self.matchD1C2.visitor_abbr = @"C2";
         self.matchD1C2.status = @"-1";
+        self.matchD1C2.stadium = @"Gillette Stadium";
         [self addNSDateForMatch:self.matchD1C2];
         [self.playoffMatches addObject:self.matchD1C2];
         
@@ -139,6 +143,7 @@
         self.matchC1D2.local_abbr = @"C1";
         self.matchC1D2.visitor_abbr = @"D2";
         self.matchC1D2.status = @"-1";
+        self.matchC1D2.stadium = @"Levi's Stadium";
         [self addNSDateForMatch:self.matchC1D2];
         [self.playoffMatches addObject:self.matchC1D2];
         
@@ -149,6 +154,7 @@
         self.matchW25W27.local_abbr = @"W25";
         self.matchW25W27.visitor_abbr = @"W27";
         self.matchW25W27.status = @"-1";
+        self.matchW25W27.stadium = @"NRG Stadium";
         [self addNSDateForMatch:self.matchW25W27];
         [self.playoffMatches addObject:self.matchW25W27];
         
@@ -159,6 +165,7 @@
         self.matchW26W28.local_abbr = @"W26";
         self.matchW26W28.visitor_abbr = @"W28";
         self.matchW26W28.status = @"-1";
+        self.matchW26W28.stadium =@"Soldier Field";
         [self addNSDateForMatch:self.matchW26W28];
         [self.playoffMatches addObject:self.matchW26W28];
         
@@ -169,6 +176,7 @@
         self.matchW29W30.local_abbr = @"W29";
         self.matchW29W30.visitor_abbr = @"W30";
         self.matchW29W30.status = @"-1";
+        self.matchW29W30.stadium = @"MetLife Stadium";
         [self addNSDateForMatch:self.matchW29W30];
         [self.playoffMatches addObject:self.matchW29W30];
         //NSLog(@"%lu is the playoff match count", (unsigned long)self.playoffMatches.count);
@@ -179,6 +187,7 @@
         self.matchL29L30.local_abbr = @"L29";
         self.matchL29L30.visitor_abbr = @"L30";
         self.matchL29L30.status = @"-1";
+        self.matchL29L30.stadium = @"University of Phoenix Stadium";
         [self addNSDateForMatch:self.matchL29L30];
         [self.playoffMatches addObject:self.matchL29L30];
         
