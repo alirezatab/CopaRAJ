@@ -912,7 +912,7 @@
                                     <constraint firstAttribute="height" constant="28" id="Mj0-Zl-Ru0"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="EVENTS"/>
+                                    <segment title=""/>
                                     <segment title="STATS"/>
                                     <segment title="LINEUPS"/>
                                 </segments>
