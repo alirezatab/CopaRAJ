@@ -75,7 +75,7 @@
     iv -= minutes *60;
     int seconds = iv;
     
-    NSString *countdown = [NSString stringWithFormat:@"%02d d : %02d h : %02d m : %02d s \nTo the Kickoff", days, hours, minutes, seconds];
+    NSString *countdown = [NSString stringWithFormat:@"%02d d : %02d h : %02d m : %02d s \nUntil Kickoff", days, hours, minutes, seconds];
     
     self.countDownTextView.text = countdown;
     

@@ -339,14 +339,15 @@
   
   NSMutableArray *nonsortedArray = [NSMutableArray new];
     
-        NSDictionary *kickOff = @{
-                                  @"action" : @"kickoff",
-                                  @"minute" : @"0",
-                                  @"minuteF": @0
+  
+  NSDictionary *kickOff = @{
+                                                          @"action" : @"kickoff",
+                                                          @"minute" : @"0",
+                                                          @"minuteF": @0
                                   };
-    
-        [nonsortedArray addObject:kickOff];
-    
+                                
+                                [nonsortedArray addObject:kickOff];
+                            
   
   for (NSDictionary *goal in match.goals) {
     [nonsortedArray addObject:goal];
@@ -425,9 +426,7 @@
   NSDateFormatter *eastern = [[NSDateFormatter alloc]init];
   eastern.dateFormat = @"yyyy-MM-dd HH:mm:ss";
   eastern.timeZone = [NSTimeZone timeZoneWithName:@"America/New_York"];
-  NSLog(@"MAdrid time: %@", self.schedule);
-  NSLog(@"NSDATe gmt : %@", self.nsdate);
-  NSLog(@"%@ is the eastern time", [eastern stringFromDate:self.nsdate]);
+  
   
   NSString *easternTime =  [eastern stringFromDate:self.nsdate];
   NSArray *scheduleSeparated = [easternTime componentsSeparatedByString:@" "];

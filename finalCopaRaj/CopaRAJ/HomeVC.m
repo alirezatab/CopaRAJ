@@ -198,6 +198,7 @@
     formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     formatter.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Madrid"];
     match.nsdate = [formatter dateFromString:match.schedule];
+
 }
 
 - (void)getMatchesFromFireBase {
@@ -391,6 +392,7 @@
   FBMatch *match = [arr objectAtIndex:indexPath.row];
   cell.teamOneName.text = match.local_abbr;
   cell.teamTwoName.text = match.visitor_abbr;
+  cell.locationLabel.text = match.stadium;
   
   //freaking Haiti
   if ([match.local isEqualToString:@"Haití"]) {
@@ -438,8 +440,6 @@
         cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
     }
   }
-
-  cell.locationLabel.text = [NSString stringWithFormat:@"Levi's Stadium %@",  match.groupCode];
   
   return cell;
 }
