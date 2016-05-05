@@ -52,7 +52,7 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     self.date = self.match.nsdate;
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
-3}
+}
 
 - (void)localizeStrings {
     //segmented control section titles
