@@ -110,7 +110,8 @@
     self.matchA1B2.schedule = [snapshot.value objectForKey:@"A1B2"];
     self.matchA1B2.local_abbr = @"A1";
     self.matchA1B2.visitor_abbr = @"B2";
-    //NSLog(@"a1: %@ b2: %@ schedule: %@", self.matchA1B2.local, self.matchA1B2.visitor, self.matchA1B2.schedule);
+    self.matchA1B2.status = @"-1";
+    [self addNSDateForMatch:self.matchA1B2];
     [self.playoffMatches addObject:self.matchA1B2];
     
     self.matchB1A2.local = @"B1";
@@ -118,15 +119,21 @@
     self.matchB1A2.schedule = [snapshot.value objectForKey:@"B1A2"];
     self.matchB1A2.local_abbr = @"B1";
     self.matchB1A2.visitor_abbr = @"A2";
+    self.matchB1A2.status = @"-1";
+
     //NSLog(@"b1: %@ a2: %@ schedule: %@", self.matchB1A2.local, self.matchB1A2.visitor, self.matchB1A2.schedule);
+    [self addNSDateForMatch:self.matchB1A2];
     [self.playoffMatches addObject:self.matchB1A2];
+
     
     self.matchD1C2.local = @"D1";
     self.matchD1C2.visitor = @"C2";
     self.matchD1C2.schedule = [snapshot.value objectForKey:@"D1C2"];
     self.matchD1C2.local_abbr = @"D1";
     self.matchD1C2.visitor_abbr = @"C2";
-    //NSLog(@"D1: %@ C2: %@ schedule: %@", self.matchD1C2.local, self.matchD1C2.visitor, self.matchD1C2.schedule);
+    self.matchD1C2.status = @"-1";
+
+    [self addNSDateForMatch:self.matchD1C2];
     [self.playoffMatches addObject:self.matchD1C2];
     
     
@@ -135,7 +142,9 @@
     self.matchC1D2.schedule = [snapshot.value objectForKey:@"C1D2"];
     self.matchC1D2.local_abbr = @"C1";
     self.matchC1D2.visitor_abbr = @"D2";
-    //NSLog(@"C1: %@ D2: %@ schedule: %@", self.matchC1D2.local, self.matchC1D2.visitor, self.matchC1D2.schedule);
+    self.matchC1D2.status = @"-1";
+
+    [self addNSDateForMatch:self.matchC1D2];
     [self.playoffMatches addObject:self.matchC1D2];
     
     
@@ -144,7 +153,9 @@
     self.matchW25W27.schedule = [snapshot.value objectForKey:@"W25W27"];
     self.matchW25W27.local_abbr = @"W25";
     self.matchW25W27.visitor_abbr = @"W27";
-    //NSLog(@"W25: %@ W27: %@ schedule: %@", self.matchW25W27.local, self.matchW25W27.visitor, self.matchW25W27.schedule);
+    self.matchW25W27.status = @"-1";
+
+    [self addNSDateForMatch:self.matchW25W27];
     [self.playoffMatches addObject:self.matchW25W27];
     
     
@@ -153,7 +164,10 @@
     self.matchW26W28.schedule = [snapshot.value objectForKey:@"W26W28"];
     self.matchW26W28.local_abbr = @"W26";
     self.matchW26W28.visitor_abbr = @"W28";
-    //NSLog(@"W26: %@ W28: %@ schedule: %@", self.matchW26W28.local, self.matchW26W28.visitor, self.matchW26W28.schedule);
+    self.matchW26W28.status = @"-1";
+
+    [self addNSDateForMatch:self.matchW26W28];
+
     [self.playoffMatches addObject:self.matchW26W28];
     
     
@@ -162,7 +176,9 @@
     self.matchW29W30.schedule = [snapshot.value objectForKey:@"W29W30"];
     self.matchW29W30.local_abbr = @"W29";
     self.matchW29W30.visitor_abbr = @"W30";
-    //NSLog(@"W29: %@ W30: %@ schedule: %@", self.matchW29W30.local, self.matchW29W30.visitor, self.matchW29W30.schedule);
+    self.matchW29W30.status = @"-1";
+
+    [self addNSDateForMatch:self.matchW29W30];
     [self.playoffMatches addObject:self.matchW29W30];
     //NSLog(@"%lu is the playoff match count", (unsigned long)self.playoffMatches.count);
     
@@ -171,7 +187,9 @@
     self.matchL29L30.schedule = [snapshot.value objectForKey:@"L29L30"];
     self.matchL29L30.local_abbr = @"L29";
     self.matchL29L30.visitor_abbr = @"L30";
-    //NSLog(@"W29: %@ W30: %@ schedule: %@", self.matchW29W30.local, self.matchW29W30.visitor, self.matchW29W30.schedule);
+    self.matchL29L30.status = @"-1";
+
+    [self addNSDateForMatch:self.matchL29L30];
     [self.playoffMatches addObject:self.matchL29L30];
     
     for (FBMatch *match in self.playoffMatches) {
@@ -183,6 +201,14 @@
     NSLog(@"%@", error.description);
     [self presentErrorWithString:error.description];
   }];
+}
+
+- (void) addNSDateForMatch: (FBMatch *)match {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+  formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+  formatter.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Madrid"];
+  match.nsdate = [formatter dateFromString:match.schedule];
+
 }
 
 - (void)getMatchesFromFireBase {
@@ -376,6 +402,7 @@
   FBMatch *match = [arr objectAtIndex:indexPath.row];
   cell.teamOneName.text = match.local_abbr;
   cell.teamTwoName.text = match.visitor_abbr;
+  cell.locationLabel.text = match.stadium;
   
   //freaking Haiti
   if ([match.local isEqualToString:@"Haití"]) {
@@ -423,8 +450,6 @@
         cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
     }
   }
-
-  cell.locationLabel.text = [NSString stringWithFormat:@"Levi's Stadium %@",  match.groupCode];
   
   return cell;
 }
