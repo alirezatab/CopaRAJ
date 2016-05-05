@@ -10,7 +10,6 @@
 
 @interface FBGroup : NSObject
 @property NSString *groupLetter;
-@property NSString *groupRound;
 
 @property NSNumber *team1avg;
 @property NSNumber *team1Draws;
@@ -21,6 +20,7 @@
 @property NSString *team1Team;
 @property NSNumber *team1Wins;
 @property NSString *team1Gf;
+@property NSString *team1Round;
 
 
 @property NSNumber *team2avg;
@@ -32,6 +32,7 @@
 @property NSString *team2Team;
 @property NSNumber *team2Wins;
 @property NSString *team2Gf;
+@property NSString *team2Round;
 
 @property NSNumber *team3avg;
 @property NSNumber *team3Draws;
@@ -42,6 +43,7 @@
 @property NSString *team3Team;
 @property NSNumber *team3Wins;
 @property NSString *team3Gf;
+@property NSString *team3Round;
 
 @property NSNumber *team4avg;
 @property NSNumber *team4Draws;
@@ -52,6 +54,7 @@
 @property NSString *team4Team;
 @property NSNumber *team4Wins;
 @property NSString *team4Gf;
+@property NSString *team4Round;
 
 +(FBGroup *)createGroupFromTable: (NSMutableArray*) table;
 

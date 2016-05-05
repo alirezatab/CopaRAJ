@@ -105,7 +105,7 @@
   if (indexPath.row == 0) {
     cell.teamImage.image = [UIImage imageNamed:group.team1Team];
     cell.teamCountry.text = group.team1Team;
-    cell.teamGoals.text = group.groupRound;
+    cell.teamGoals.text = group.team1Round;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team1Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team1Draws];
     cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team1Losses];
@@ -114,7 +114,7 @@
   } else if (indexPath.row == 1) {
     cell.teamImage.image = [UIImage imageNamed:group.team2Team];
     cell.teamCountry.text = group.team2Team;
-    cell.teamGoals.text = group.groupRound;
+    cell.teamGoals.text = group.team2Round;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team2Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team2Draws];
     cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team2Losses];
@@ -123,7 +123,7 @@
 } else if (indexPath.row == 2){
     cell.teamImage.image = [UIImage imageNamed:group.team3Team];
     cell.teamCountry.text = group.team3Team;
-    cell.teamGoals.text = group.groupRound;
+    cell.teamGoals.text = group.team3Round;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team3Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team3Draws];
     cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team3Losses];
@@ -132,7 +132,7 @@
   } else {
     cell.teamImage.image = [UIImage imageNamed:group.team4Team];
     cell.teamCountry.text = group.team4Team;
-    cell.teamGoals.text = group.groupRound;
+    cell.teamGoals.text = group.team4Round;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team4Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team4Draws];
     cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team4Losses];
