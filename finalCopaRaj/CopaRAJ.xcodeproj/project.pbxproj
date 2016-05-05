@@ -17,6 +17,12 @@
 		7B3DB4351CD1E01900EB00D3 /* FBGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66631CCECF9900B5C8FE /* FBGroup.m */; };
 		7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84DCF41CC8421F0021524F /* Group+CoreDataProperties.m */; };
 		7B84DCFB1CC8421F0021524F /* Team+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84DCF81CC8421F0021524F /* Team+CoreDataProperties.m */; };
+		7BC9FFA31CDB30F500711636 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FF961CDB30F500711636 /* Localizable.strings */; };
+		7BC9FFA41CDB30F500711636 /* Group.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FF991CDB30F500711636 /* Group.strings */; };
+		7BC9FFA51CDB30F500711636 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FF9B1CDB30F500711636 /* LaunchScreen.strings */; };
+		7BC9FFA61CDB30F500711636 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FF9D1CDB30F500711636 /* Localizable.strings */; };
+		7BC9FFA71CDB30F500711636 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FF9F1CDB30F500711636 /* Main.strings */; };
+		7BC9FFA81CDB30F500711636 /* Tourny.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FFA11CDB30F500711636 /* Tourny.strings */; };
 		7BD056121CC70EA100BCB113 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0560A1CC70EA100BCB113 /* Team.m */; };
 		7BD056251CC73A9D00BCB113 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0561F1CC73A9D00BCB113 /* Group.m */; };
 		7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BD870B61CCA7F880020C125 /* playOffMatches.plist */; };
@@ -74,6 +80,12 @@
 		7B84DCF41CC8421F0021524F /* Group+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Group+CoreDataProperties.m"; path = "../Group+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7B84DCF71CC8421F0021524F /* Team+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Team+CoreDataProperties.h"; path = "../Team+CoreDataProperties.h"; sourceTree = "<group>"; };
 		7B84DCF81CC8421F0021524F /* Team+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Team+CoreDataProperties.m"; path = "../Team+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7BC9FF971CDB30F500711636 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		7BC9FF9A1CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Group.strings; sourceTree = "<group>"; };
+		7BC9FF9C1CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = LaunchScreen.strings; sourceTree = "<group>"; };
+		7BC9FF9E1CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		7BC9FFA01CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Main.strings; sourceTree = "<group>"; };
+		7BC9FFA21CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Tourny.strings; sourceTree = "<group>"; };
 		7BD056091CC70EA100BCB113 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = SOURCE_ROOT; };
 		7BD0560A1CC70EA100BCB113 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = SOURCE_ROOT; };
 		7BD0561E1CC73A9D00BCB113 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
@@ -163,6 +175,26 @@
 				7B1FF1DA1CD020E800B031B0 /* GOTHAM-MEDIUM.TTF */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		7BC9FF951CDB30F500711636 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				7BC9FF961CDB30F500711636 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		7BC9FF981CDB30F500711636 /* es.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				7BC9FF991CDB30F500711636 /* Group.strings */,
+				7BC9FF9B1CDB30F500711636 /* LaunchScreen.strings */,
+				7BC9FF9D1CDB30F500711636 /* Localizable.strings */,
+				7BC9FF9F1CDB30F500711636 /* Main.strings */,
+				7BC9FFA11CDB30F500711636 /* Tourny.strings */,
+			);
+			path = es.lproj;
 			sourceTree = "<group>";
 		};
 		AB2EC1386A82B6049026018A /* Pods */ = {
@@ -298,6 +330,8 @@
 				D8F2D0C31CC5B6F9003F8465 /* GroupVC.h */,
 				D8F2D0C41CC5B6F9003F8465 /* GroupVC.m */,
 				D8F2D0C91CC5B75F003F8465 /* GameVC.h */,
+				7BC9FF951CDB30F500711636 /* en.lproj */,
+				7BC9FF981CDB30F500711636 /* es.lproj */,
 				D8F2D0CA1CC5B75F003F8465 /* GameVC.m */,
 				D8F2D0CC1CC5B777003F8465 /* TourneyVC.h */,
 				D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */,
@@ -430,6 +464,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = C2C5C0001CC564D70010133B;
 			productRefGroup = C2C5C00A1CC564D70010133B /* Products */;
@@ -450,9 +485,15 @@
 			files = (
 				7B1FF1DB1CD0218500B031B0 /* billabong.ttf in Resources */,
 				7B1FF1DC1CD0218500B031B0 /* Gotham Narrow Book.otf in Resources */,
+				7BC9FFA51CDB30F500711636 /* LaunchScreen.strings in Resources */,
+				7BC9FFA61CDB30F500711636 /* Localizable.strings in Resources */,
+				7BC9FFA41CDB30F500711636 /* Group.strings in Resources */,
+				7BC9FFA31CDB30F500711636 /* Localizable.strings in Resources */,
 				7B1FF1DD1CD0218500B031B0 /* GOTHAM-MEDIUM.TTF in Resources */,
+				7BC9FFA81CDB30F500711636 /* Tourny.strings in Resources */,
 				D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */,
 				D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */,
+				7BC9FFA71CDB30F500711636 /* Main.strings in Resources */,
 				C2C5C01F1CC564D70010133B /* LaunchScreen.storyboard in Resources */,
 				7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */,
 				C2C5C01C1CC564D70010133B /* Assets.xcassets in Resources */,
@@ -585,6 +626,54 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7BC9FF961CDB30F500711636 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC9FF971CDB30F500711636 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7BC9FF991CDB30F500711636 /* Group.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC9FF9A1CDB30F500711636 /* es */,
+			);
+			name = Group.strings;
+			sourceTree = "<group>";
+		};
+		7BC9FF9B1CDB30F500711636 /* LaunchScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC9FF9C1CDB30F500711636 /* es */,
+			);
+			name = LaunchScreen.strings;
+			sourceTree = "<group>";
+		};
+		7BC9FF9D1CDB30F500711636 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC9FF9E1CDB30F500711636 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7BC9FF9F1CDB30F500711636 /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC9FFA01CDB30F500711636 /* es */,
+			);
+			name = Main.strings;
+			sourceTree = "<group>";
+		};
+		7BC9FFA11CDB30F500711636 /* Tourny.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC9FFA21CDB30F500711636 /* es */,
+			);
+			name = Tourny.strings;
+			sourceTree = "<group>";
+		};
 		C2C5C0151CC564D70010133B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
