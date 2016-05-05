@@ -465,13 +465,13 @@
       self.matchL29L30.stadium = @"University of Phoenix Stadium";
       [self addNSDateForMatch:self.matchL29L30];
       
-        //not best way cause of the lag
+      //not best way cause of the lag
         [self populatePlayoffTeams];
-    
+        
     } withCancelBlock:^(NSError *error) {
-    NSLog(@"%@", error.description);
+        NSLog(@"%@", error.description);
     }];
-//});
+    //});
 }
 
 - (void) addNSDateForMatch: (FBMatch *)match {
@@ -492,7 +492,6 @@
     match.hour = timeSeparated[0];
     match.minute = timeSeparated[1];
   
-    
 }
 
 //-(FBMatch *) createPlayOffMatch:(NSDictionary *)dictionary{
