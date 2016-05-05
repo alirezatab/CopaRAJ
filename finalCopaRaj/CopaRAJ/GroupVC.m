@@ -114,7 +114,6 @@
           cell.teamCountry.text = group.team1Team;
       }
       
-    cell.teamGoals.text = group.groupRound;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team1Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team1Draws];
     cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team1Losses];

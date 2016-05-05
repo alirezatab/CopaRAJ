@@ -50,7 +50,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkz-vS-BnN">
-                                <rect key="frame" x="209" y="497" width="136" height="25"/>
+                                <rect key="frame" x="232" y="497" width="136" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="ZFT-Ts-Wlv"/>
                                     <constraint firstAttribute="width" constant="136" id="lc7-sw-O5y"/>
@@ -65,7 +65,7 @@
                             <constraint firstItem="HO1-8r-QjX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4yN-M7-tiF"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="HO1-8r-QjX" secondAttribute="bottom" constant="20" id="5dT-jw-Ti3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b8E-WC-B1a" secondAttribute="trailing" constant="42" id="7bV-ft-d2T"/>
-                            <constraint firstItem="vkz-vS-BnN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-23" id="9uA-38-HhQ"/>
+                            <constraint firstItem="vkz-vS-BnN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9uA-38-HhQ"/>
                             <constraint firstItem="b8E-WC-B1a" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Hly-su-Mcg"/>
                             <constraint firstItem="Wpa-Pt-9wd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="32" id="QjQ-Ac-2Kh"/>
                             <constraint firstItem="b8E-WC-B1a" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-100" id="a8u-gk-Oc5"/>
