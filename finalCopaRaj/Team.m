@@ -47,7 +47,7 @@
   teamForDictionary.position = dictionary[@"pos"];
   teamForDictionary.draws = dictionary[@"draws"];
   
-  NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
+//  NSLog(@"The team that will be updated is %@", teamForDictionary.countryName);
   
 }
 

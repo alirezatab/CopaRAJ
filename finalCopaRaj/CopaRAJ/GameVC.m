@@ -146,7 +146,7 @@
         [self displayMatchLabels];
         [self displayStatsLabels];
         
-        NSLog(@"timeline STARTS HERE from the method  %@ , %lu",self.match.timeline , (unsigned long)self.match.timeline.count );
+//        NSLog(@"timeline STARTS HERE from the method  %@ , %lu",self.match.timeline , (unsigned long)self.match.timeline.count );
 
         [self.tableView reloadData];
         
@@ -202,9 +202,9 @@
         [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:16]];
         [label setTextColor:[UIColor whiteColor]];
     }
-    [self.teamOneScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:25]];
+    [self.teamOneScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:20]];
     [self.teamOneScore setTextColor: [UIColor whiteColor]];
-    [self.teamTwoScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:25]];
+    [self.teamTwoScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:20]];
     [self.teamTwoScore setTextColor:[UIColor whiteColor]];
 }
 
