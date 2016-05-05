@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Xe-5i-T9S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Xe-5i-T9S">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -58,7 +57,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Swl-V8-MwE" id="ygE-3h-7mW">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3yO-DP-twc">
@@ -101,13 +100,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="penalties" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Mr-kZ2">
-                                                            <rect key="frame" x="178" y="0.0" width="89" height="49"/>
+                                                            <rect key="frame" x="178" y="0.0" width="88" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-Is-SBu">
-                                                            <rect key="frame" x="267" y="0.0" width="89" height="49"/>
+                                                            <rect key="frame" x="266" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -173,24 +172,6 @@
                                     <constraint firstAttribute="height" constant="20" id="bVe-El-rIq"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBZ-fr-Pbx">
-                                <rect key="frame" x="0.0" y="492" width="600" height="48"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tournament" translatesAutoresizingMaskIntoConstraints="NO" id="UwI-aE-fN7">
-                                        <rect key="frame" x="278" y="3" width="44" height="41"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="41" id="6NQ-zV-qpR"/>
-                                            <constraint firstAttribute="width" constant="44" id="Nv0-zA-quz"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="FLc-Ed-26B"/>
-                                    <constraint firstItem="UwI-aE-fN7" firstAttribute="centerX" secondItem="BBZ-fr-Pbx" secondAttribute="centerX" id="GJm-ea-jY5"/>
-                                    <constraint firstItem="UwI-aE-fN7" firstAttribute="centerY" secondItem="BBZ-fr-Pbx" secondAttribute="centerY" id="VRg-hR-DPx"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -199,8 +180,6 @@
                             <constraint firstItem="GTo-ma-pIC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C5Z-RZ-ENg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="izq-a9-pyn" secondAttribute="bottom" id="DwF-fk-ghX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TUr-j0-mMr" secondAttribute="trailing" constant="-20" id="FBc-mS-3RU"/>
-                            <constraint firstItem="BBZ-fr-Pbx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="HDc-Il-AGH"/>
-                            <constraint firstItem="BBZ-fr-Pbx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="IeH-S5-7A5"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Lq4-9f-Jmg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="izq-a9-pyn" secondAttribute="trailing" constant="-20" id="S8v-8N-uEE"/>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Wy4-2u-hTS"/>
@@ -209,13 +188,11 @@
                             <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="TUr-j0-mMr" secondAttribute="bottom" id="lsv-ma-OdN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TUr-j0-mMr" secondAttribute="trailing" constant="-20" id="wVa-4n-qHL"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="TUr-j0-mMr" secondAttribute="bottom" id="xxX-Af-ocd"/>
-                            <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="BBZ-fr-Pbx" secondAttribute="bottom" id="z8U-Gp-BJB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Copa Club" id="zb4-O1-TtV"/>
                     <connections>
                         <outlet property="activityIndicator" destination="GTo-ma-pIC" id="18X-HL-b6y"/>
-                        <outlet property="cupView" destination="BBZ-fr-Pbx" id="ikj-gI-KsS"/>
                         <outlet property="groupStandingsButton" destination="mwi-b8-qWT" id="qXF-Fe-ahu"/>
                         <outlet property="homeMatchesButton" destination="fUr-0o-Gsj" id="Ngj-rL-Usq"/>
                         <outlet property="playOffMatchesButton" destination="tEm-RK-T7A" id="BEb-ga-3Xj"/>
@@ -322,7 +299,6 @@
         <image name="GroupsButtonIcon" width="50" height="50"/>
         <image name="matchesButtonImage" width="50" height="50"/>
         <image name="stadium" width="361" height="88"/>
-        <image name="tournament" width="48" height="47"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
