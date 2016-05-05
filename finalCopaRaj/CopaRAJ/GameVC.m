@@ -30,6 +30,7 @@
 @implementation GameVC
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self localizeStrings];
     self.match.timeline = [NSMutableArray new];
 
     self.tableView.allowsSelection = NO;
@@ -51,7 +52,50 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     self.date = self.match.nsdate;
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
-    
+}
+
+- (void)localizeStrings {
+    //segmented control section titles
+    NSString *evento = [NSString stringWithFormat:NSLocalizedString(@"EVENTS", nil)];
+    [self.segmentedControll setTitle:evento forSegmentAtIndex:0];
+    NSString *estadisticas = [NSString stringWithFormat:NSLocalizedString(@"STATS", nil)];
+    [self.segmentedControll setTitle:estadisticas forSegmentAtIndex:1];
+    NSString *alineacion = [NSString stringWithFormat:NSLocalizedString(@"LINEUPS", nil)];
+    [self.segmentedControll setTitle:alineacion forSegmentAtIndex:2];
+    //stats labels
+    [self.posessionLabel setText:[NSString stringWithFormat:NSLocalizedString(@"possession", nil)]];
+    [self.shotsLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Shots", nil)]];
+    [self.shotsTargetLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Shots on target", nil)]];
+    [self.offSideLabel setText:[NSString stringWithFormat:NSLocalizedString(@"offsides", nil)]];
+    [self.freeKickLabel setText:[NSString stringWithFormat:NSLocalizedString(@"free kicks", nil)]];
+    [self.savesLabel setText:[NSString stringWithFormat:NSLocalizedString(@"saves", nil)]];
+    [self.yellowCardLabel setText:[NSString stringWithFormat:NSLocalizedString(@"yellow cards", nil)]];
+    [self.redCardLabel setText:[NSString stringWithFormat:NSLocalizedString(@"red cards", nil)]];
+    [self.cornerKick setText:[NSString stringWithFormat:NSLocalizedString(@"Corner kicks", nil)]];
+    //lineup labels team A 
+    [self.teamAPlayer1 setText:[NSString stringWithFormat:NSLocalizedString(@"player 1", nil)]];
+    [self.teamAPlayer2 setText:[NSString stringWithFormat:NSLocalizedString(@"player 2", nil)]];
+    [self.teamAPlayer3 setText:[NSString stringWithFormat:NSLocalizedString(@"player 3", nil)]];
+    [self.teamAPlayer4 setText:[NSString stringWithFormat:NSLocalizedString(@"player 4", nil)]];
+    [self.teamAPlayer5 setText:[NSString stringWithFormat:NSLocalizedString(@"player 5", nil)]];
+    [self.teamAPlayer6 setText:[NSString stringWithFormat:NSLocalizedString(@"player 6", nil)]];
+    [self.teamAPlayer7 setText:[NSString stringWithFormat:NSLocalizedString(@"player 7", nil)]];
+    [self.teamAPlayer8 setText:[NSString stringWithFormat:NSLocalizedString(@"player 8", nil)]];
+    [self.teamAPlayer9 setText:[NSString stringWithFormat:NSLocalizedString(@"player 9", nil)]];
+    [self.teamAPlayer10 setText:[NSString stringWithFormat:NSLocalizedString(@"player 10", nil)]];
+    [self.teamAPlayer11 setText:[NSString stringWithFormat:NSLocalizedString(@"player 11", nil)]];
+    //TEAM b
+    [self.teamBPLayer1 setText:[NSString stringWithFormat:NSLocalizedString(@"player 1", nil)]];
+    [self.teamBPlayer2 setText:[NSString stringWithFormat:NSLocalizedString(@"player 2", nil)]];
+    [self.teamBPlayer3 setText:[NSString stringWithFormat:NSLocalizedString(@"player 3", nil)]];
+    [self.teamBPlayer4 setText:[NSString stringWithFormat:NSLocalizedString(@"player 4", nil)]];
+    [self.teamBPlayer5 setText:[NSString stringWithFormat:NSLocalizedString(@"player 5", nil)]];
+    [self.teamBPlayer6 setText:[NSString stringWithFormat:NSLocalizedString(@"player 6", nil)]];
+    [self.teamBPlayer7 setText:[NSString stringWithFormat:NSLocalizedString(@"player 7", nil)]];
+    [self.teamBPlayer8 setText:[NSString stringWithFormat:NSLocalizedString(@"player 8", nil)]];
+    [self.teamBPlayer9 setText:[NSString stringWithFormat:NSLocalizedString(@"player 9", nil)]];
+    [self.teamBPlayer10 setText:[NSString stringWithFormat:NSLocalizedString(@"player 10", nil)]];
+    [self.teamBPlayer11 setText:[NSString stringWithFormat:NSLocalizedString(@"player 11", nil)]];    
 }
 
 - (void)eventsTableViewAppears {
@@ -75,9 +119,9 @@
     iv -= minutes *60;
     int seconds = iv;
     
-    NSString *countdown = [NSString stringWithFormat:@"%02d d : %02d h : %02d m : %02d s \nUntil Kickoff", days, hours, minutes, seconds];
-    
-    self.countDownTextView.text = countdown;
+    NSString *countdown = [NSString stringWithFormat:@"%02d d : %02d h : %02d m : %02d s\n", days, hours, minutes, seconds];
+    NSString *countDownText =[NSString stringWithFormat:NSLocalizedString(@"until kickoff", nil)];
+    self.countDownTextView.text = [NSString stringWithFormat:@"%@ %@", countdown ,countDownText];
     
     [self.countDownTextView setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:23]];
     [self.countDownTextView setTextColor:[UIColor whiteColor]];
@@ -90,7 +134,7 @@
 
 - (void)listenToMatch {
   
-    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@", self.match.matchID];
+    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@",self.match.matchID];
 
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
     [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -311,7 +355,7 @@
     } else if ([[event valueForKey:@"minute"] isEqualToString:@"0"]){
         cell.playerLabel.text = @"Kickoff!";
     }else {
-        cell.playerLabel.text = @"replaced by";
+        cell.playerLabel.text = [NSString stringWithFormat:NSLocalizedString(@"replaced by", nil)];
     }
     
     cell.backgroundColor = [UIColor colorWithRed:0.063 green:0.188 blue:0.231 alpha:0.9];
@@ -350,34 +394,6 @@
 
 
 
-
-
- 
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @end
-
-
-
-
-
-
-
-
-
 
 

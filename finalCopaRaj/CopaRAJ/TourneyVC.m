@@ -66,8 +66,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.activityIndicator startAnimating];
-  [self.activityIndicator setHidesWhenStopped:true];
-  
+    [self.activityIndicator setHidesWhenStopped:true];
+    
     self.topInset = 10;
     self.bottomInset = 10;
     
@@ -77,13 +77,14 @@
     
     self.navigationItem.hidesBackButton = YES;
     
+    [self.homeMatchesButton setImage: [UIImage imageNamed:NSLocalizedString(@"imageName", nil)]];
     [self.homeMatchesButton setTintColor:[UIColor grayColor]];
     [self.tourneyButton setTintColor:[UIColor grayColor]];
     [self.playOffMatchesButton setTintColor:[UIColor whiteColor]];
     
     self.playoffTeams = [[NSMutableArray alloc]init];
     self.matchesObject = [[NSMutableArray alloc]init];
-
+    
     self.matchA1B2 = [[FBMatch alloc]init];
     self.matchB1A2 = [[FBMatch alloc]init];
     self.matchD1C2 = [[FBMatch alloc]init];
@@ -92,13 +93,13 @@
     self.matchW26W28 = [[FBMatch alloc]init];
     self.matchL29L30 = [[FBMatch alloc]init];
     self.matchW29W30 = [[FBMatch alloc]init];
-
+    
     [self createDefaultPlayoffMatches];
-
+    
     [self.matchesObject addObjectsFromArray:@[@[self.matchA1B2, self.matchB1A2, self.matchD1C2, self.matchC1D2], @[self.matchW25W27, self.matchW26W28], @[self.matchL29L30, self.matchW29W30], @[]]];
-
+    
     NSLog(@"%lu", (unsigned long)self.matchesObject.count);
-
+    
     // URL that fire base accesses
     //    Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
     //    NSLog(@"%lu", self.matchesObject.count);
@@ -167,7 +168,7 @@
                 return cellFinal;
             }
         } else {
-            cellFinal.winnerTeamLabel.text = @"Guess The CHAMPION";
+            cellFinal.winnerTeamLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Tournament Champion", nil)];
             return cellFinal;
         }
     }

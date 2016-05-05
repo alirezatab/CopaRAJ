@@ -36,19 +36,22 @@
 }
 
 - (void)viewDidLoad {
-
-  [super viewDidLoad];
-  self.navigationItem.hidesBackButton = YES;
-  [self.activityIndicator startAnimating];
-  [self.activityIndicator setHidesWhenStopped:YES];
-  self.groups = [NSMutableArray new];
-
-  [self.homeMatchesButton setTintColor:[UIColor grayColor]];
-  [self.groupStandingsButton setTintColor:[UIColor whiteColor]];
-  [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
     
-  [self createListeners];
-  self.tableView.allowsSelection = NO;
+    [super viewDidLoad];
+    self.title = [NSString stringWithFormat:NSLocalizedString(@"Groups", nil)];
+    self.navigationItem.hidesBackButton = YES;
+    [self.activityIndicator startAnimating];
+    [self.activityIndicator setHidesWhenStopped:YES];
+    self.groups = [NSMutableArray new];
+    
+    [self.homeMatchesButton setImage: [UIImage imageNamed:NSLocalizedString(@"imageName", nil)]];
+    
+    [self.homeMatchesButton setTintColor:[UIColor grayColor]];
+    [self.groupStandingsButton setTintColor:[UIColor whiteColor]];
+    [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
+    
+    [self createListeners];
+    self.tableView.allowsSelection = NO;
 }
 
 #pragma FireBase
@@ -104,7 +107,14 @@
   
   if (indexPath.row == 0) {
     cell.teamImage.image = [UIImage imageNamed:group.team1Team];
-    cell.teamCountry.text = group.team1Team;
+      
+      if ([group.team1Team isEqualToString:@"United States"]) {
+          cell.teamCountry.text = [NSString stringWithFormat:NSLocalizedString(@"United States", nil)];
+      } else {
+          cell.teamCountry.text = group.team1Team;
+      }
+      
+      NSLog(@"%@ this is the country " , group.team1Team);
     cell.teamGoals.text = group.groupRound;
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team1Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team1Draws];
@@ -187,14 +197,16 @@
     FBGroup *group = [self.groups objectAtIndex:section];
 
     //set the strings for the header labels
-    NSString *groupLetter = [NSString stringWithFormat: @"Group %@", group.groupLetter];
+    
+    NSString *groupSpanish = [NSString stringWithFormat:NSLocalizedString(@"Group", nil)];
+    NSString *groupLetter = [NSString stringWithFormat: @"%@ %@", groupSpanish, group.groupLetter];
     
     [groupLabel setText: groupLetter];
-    [gpLabel setText: @"GP"];
-    [wLabel setText:@"W"];
-    [tLabel setText:@"T"];
-    [lLabel setText:@"L"];
-    [ptsLabel setText:@"PTS"];
+    [gpLabel setText: [NSString stringWithFormat:NSLocalizedString(@"GP", nil)]];
+    [wLabel setText:[NSString stringWithFormat:NSLocalizedString(@"W", nil)]];
+    [tLabel setText:[NSString stringWithFormat:NSLocalizedString(@"T", nil)]];;
+    [lLabel setText:[NSString stringWithFormat:NSLocalizedString(@"L", nil)]];;
+    [ptsLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Pts", nil)]];
     
     [view addSubview:groupLabel];
     [view addSubview:gpLabel];

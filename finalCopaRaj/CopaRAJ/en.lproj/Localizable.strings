@@ -1,0 +1,44 @@
+/* 
+  Localizable.strings
+  CopaRAJ
+
+  Created by James Rochabrun on 04-05-16.
+  Copyright © 2016 AR-T.com, Inc. All rights reserved.
+*/
+
+"Tournament Champion" = "Tournament Champion";
+"Groups" = "Groups";
+"Group" = "Group";
+"GP" = "GP";
+"W" = "W";
+"T" = "T";
+"L" = "L";
+"Pts" = "Pts";
+"United States" = "United States";
+"EVENTS" = "EVENTS";
+"STATS" = "STATS";
+"LINEUPS" = "LINEUPS";
+"possession" = "possession";
+"Shots" = "Shots";
+"Shots on target" = "Shots on target";
+"offsides" = "offsides";
+"free kicks" = "free kicks";
+"saves" = "saves";
+"yellow cards" = "yellow cards";
+"red cards" = "red cards";
+"Corner kicks" = "Corner kicks";
+"player 1" = "player 1";
+"player 2" = "player 2";
+"player 3" = "player 3";
+"player 4" = "player 4";
+"player 5" = "player 5";
+"player 6" = "player 6";
+"player 7" = "player 7";
+"player 8" = "player 8";
+"player 9" = "player 9";
+"player 10" = "player 10";
+"player 11" = "player 11";
+"until kickoff" = "until kickoff";
+"replaced by" = "replaced by";
+"imageName" = "matchesButtonImage";
+
