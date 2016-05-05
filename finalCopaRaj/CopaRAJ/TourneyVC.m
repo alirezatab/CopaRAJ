@@ -385,60 +385,93 @@
     Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/Playoff_Schedule"];
     // FireBase Listener
     [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        
         self.matchA1B2.local = @"A1";
         self.matchA1B2.visitor = @"B2";
         self.matchA1B2.schedule = [snapshot.value objectForKey:@"A1B2"];
+        self.matchA1B2.local_abbr = @"A1";
+        self.matchA1B2.visitor_abbr = @"B2";
         self.matchA1B2.status = @"-1";
+        self.matchA1B2.stadium = @"CenturyLink Field";
         [self addNSDateForMatch:self.matchA1B2];
         
         self.matchB1A2.local = @"B1";
         self.matchB1A2.visitor = @"A2";
         self.matchB1A2.schedule = [snapshot.value objectForKey:@"B1A2"];
+        self.matchB1A2.local_abbr = @"B1";
+        self.matchB1A2.visitor_abbr = @"A2";
+        self.matchB1A2.stadium = @"MetLife Stadium";
         self.matchB1A2.status = @"-1";
+        
+        //NSLog(@"b1: %@ a2: %@ schedule: %@", self.matchB1A2.local, self.matchB1A2.visitor, self.matchB1A2.schedule);
         [self addNSDateForMatch:self.matchB1A2];
         
         self.matchD1C2.local = @"D1";
         self.matchD1C2.visitor = @"C2";
         self.matchD1C2.schedule = [snapshot.value objectForKey:@"D1C2"];
+        self.matchD1C2.local_abbr = @"D1";
+        self.matchD1C2.visitor_abbr = @"C2";
         self.matchD1C2.status = @"-1";
+        self.matchD1C2.stadium = @"Gillette Stadium";
         [self addNSDateForMatch:self.matchD1C2];
         
         
         self.matchC1D2.local = @"C1";
         self.matchC1D2.visitor = @"D2";
         self.matchC1D2.schedule = [snapshot.value objectForKey:@"C1D2"];
+        self.matchC1D2.local_abbr = @"C1";
+        self.matchC1D2.visitor_abbr = @"D2";
         self.matchC1D2.status = @"-1";
+        self.matchC1D2.stadium = @"Levi's Stadium";
         [self addNSDateForMatch:self.matchC1D2];
         
         
         self.matchW25W27.local = @"W25";
         self.matchW25W27.visitor = @"W27";
         self.matchW25W27.schedule = [snapshot.value objectForKey:@"W25W27"];
+        self.matchW25W27.local_abbr = @"W25";
+        self.matchW25W27.visitor_abbr = @"W27";
         self.matchW25W27.status = @"-1";
+        self.matchW25W27.stadium = @"NRG Stadium";
         [self addNSDateForMatch:self.matchW25W27];
         
         
         self.matchW26W28.local = @"W26";
         self.matchW26W28.visitor = @"W28";
         self.matchW26W28.schedule = [snapshot.value objectForKey:@"W26W28"];
+        self.matchW26W28.local_abbr = @"W26";
+        self.matchW26W28.visitor_abbr = @"W28";
         self.matchW26W28.status = @"-1";
+        self.matchW26W28.stadium =@"Soldier Field";
         [self addNSDateForMatch:self.matchW26W28];
         
         
         self.matchW29W30.local = @"W29";
         self.matchW29W30.visitor = @"W30";
         self.matchW29W30.schedule = [snapshot.value objectForKey:@"W29W30"];
+        self.matchW29W30.local_abbr = @"W29";
+        self.matchW29W30.visitor_abbr = @"W30";
         self.matchW29W30.status = @"-1";
+        self.matchW29W30.stadium = @"MetLife Stadium";
         [self addNSDateForMatch:self.matchW29W30];
-        NSLog(@"%@", self.matchW29W30.schedule);
+        //NSLog(@"%lu is the playoff match count", (unsigned long)self.playoffMatches.count);
+        
+        self.matchL29L30.local = @"L29";
+        self.matchL29L30.visitor = @"L30";
+        self.matchL29L30.schedule = [snapshot.value objectForKey:@"L29L30"];
+        self.matchL29L30.local_abbr = @"L29";
+        self.matchL29L30.visitor_abbr = @"L30";
+        self.matchL29L30.status = @"-1";
+        self.matchL29L30.stadium = @"University of Phoenix Stadium";
+        [self addNSDateForMatch:self.matchL29L30];
         
         //not best way cause of the lag
         [self populatePlayoffTeams];
-    
+        
     } withCancelBlock:^(NSError *error) {
-    NSLog(@"%@", error.description);
+        NSLog(@"%@", error.description);
     }];
-//});
+    //});
 }
 
 - (void) addNSDateForMatch: (FBMatch *)match {
@@ -447,6 +480,16 @@
     formatter.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Madrid"];
     match.nsdate = [formatter dateFromString:match.schedule];
     
+    NSDateFormatter *eastern = [[NSDateFormatter alloc]init];
+    eastern.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    eastern.timeZone = [NSTimeZone timeZoneWithName:@"America/New_York"];
+    NSString *easternTime =  [eastern stringFromDate:match.nsdate];
+    NSArray *scheduleSeparated = [easternTime componentsSeparatedByString:@" "];
+    match.date = scheduleSeparated[0];
+    NSString *time = scheduleSeparated[1];
+    NSArray *timeSeparated = [time componentsSeparatedByString:@":"];
+    match.hour = timeSeparated[0];
+    match.minute = timeSeparated[1];
 }
 
 //-(FBMatch *) createPlayOffMatch:(NSDictionary *)dictionary{
