@@ -24,10 +24,10 @@
     [self.logoAnimationImageView setAnimationDuration:3];
     [self.logoAnimationImageView setAnimationRepeatCount:0];
     [self.logoAnimationImageView startAnimating];
-    [self performSelector:@selector(goToNextView) withObject:nil afterDelay:3];
+    [self performSelector:@selector(goToMatches) withObject:nil afterDelay:3];
 }
 
-- (void)goToNextView {
+- (void)goToMatches {
     [self performSegueWithIdentifier:@"AnimationSegue" sender:self];
     [self.logoAnimationImageView stopAnimating];
 }
