@@ -134,7 +134,7 @@
 
 - (void)listenToMatch {
   
-    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@",self.match.matchID];
+    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@" , self.match.matchID];
 
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
     [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
