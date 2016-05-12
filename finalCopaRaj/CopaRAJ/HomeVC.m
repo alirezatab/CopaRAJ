@@ -19,8 +19,7 @@
 #import <Firebase/Firebase.h>
 #import "GroupVC.h"
 #import "GameVC.h"
-
-
+//#import "ChallengeHomeVC.swift"
 
 @interface HomeVC ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
@@ -69,9 +68,10 @@
     [self.activityIndicator startAnimating];
 }
 
-- (IBAction)testMethod:(id)sender {
-  
+- (IBAction)testButton:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"ChallengeHomeVC" sender:sender];
 }
+
 
 - (void) initNeededObjects {
   self.mathches = [NSMutableArray new];
@@ -372,9 +372,9 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     NSArray *arr = [self.finalArray objectAtIndex:indexPath.section];
     destVC.match = [arr objectAtIndex:indexPath.row];
+  } else if([segue.identifier isEqualToString:@"ChallengeHomeVC"]) {
+
   }
-  
-  
 }
 
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {

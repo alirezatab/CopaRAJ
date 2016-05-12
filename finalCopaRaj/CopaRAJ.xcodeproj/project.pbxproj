@@ -37,6 +37,8 @@
 		C2C5C02A1CC564D70010133B /* CopaRAJTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0291CC564D70010133B /* CopaRAJTests.m */; };
 		C2C5C0351CC564D70010133B /* CopaRAJUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0341CC564D70010133B /* CopaRAJUITests.m */; };
 		C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C799FB1CC83B1A00D1BBBC /* BracketCell.m */; };
+		C2F6D1AF1CE5102B005F01FD /* ChallengeHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F6D1AE1CE5102B005F01FD /* ChallengeHomeVC.swift */; };
+		C2F6D1B11CE515DB005F01FD /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F6D1B01CE515DB005F01FD /* Challenge.storyboard */; };
 		D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */; };
 		D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E81CC5DC9000E80C51 /* Group.storyboard */; };
 		D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4EB1CC5DCC200E80C51 /* Tourny.storyboard */; };
@@ -114,6 +116,9 @@
 		C2C5C0361CC564D70010133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2C799FA1CC83B1A00D1BBBC /* BracketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketCell.h; sourceTree = "<group>"; };
 		C2C799FB1CC83B1A00D1BBBC /* BracketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketCell.m; sourceTree = "<group>"; };
+		C2F6D1AD1CE5102A005F01FD /* CopaRAJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CopaRAJ-Bridging-Header.h"; sourceTree = "<group>"; };
+		C2F6D1AE1CE5102B005F01FD /* ChallengeHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeHomeVC.swift; sourceTree = "<group>"; };
+		C2F6D1B01CE515DB005F01FD /* Challenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Challenge.storyboard; sourceTree = "<group>"; };
 		D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		D82BF4E91CC5DC9000E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
 		D82BF4EC1CC5DCC200E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tourny.storyboard; sourceTree = "<group>"; };
@@ -237,6 +242,7 @@
 		C2C5C00B1CC564D70010133B /* CopaRAJ */ = {
 			isa = PBXGroup;
 			children = (
+				C2F6D1B01CE515DB005F01FD /* Challenge.storyboard */,
 				7B1FF1D71CD020D300B031B0 /* Fonts */,
 				D82BF4F11CC5DD2000E80C51 /* Game Storyboard */,
 				D82BF4F01CC5DCF700E80C51 /* Group Storyboard */,
@@ -337,6 +343,8 @@
 				D8F2D0CA1CC5B75F003F8465 /* GameVC.m */,
 				D8F2D0CC1CC5B777003F8465 /* TourneyVC.h */,
 				D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */,
+				C2F6D1AE1CE5102B005F01FD /* ChallengeHomeVC.swift */,
+				C2F6D1AD1CE5102A005F01FD /* CopaRAJ-Bridging-Header.h */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -494,6 +502,7 @@
 				7BC9FFA31CDB30F500711636 /* Localizable.strings in Resources */,
 				7B1FF1DD1CD0218500B031B0 /* GOTHAM-MEDIUM.TTF in Resources */,
 				7BC9FFA81CDB30F500711636 /* Tourny.strings in Resources */,
+				C2F6D1B11CE515DB005F01FD /* Challenge.storyboard in Resources */,
 				D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */,
 				D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */,
 				7BC9FFA71CDB30F500711636 /* Main.strings in Resources */,
@@ -576,6 +585,7 @@
 			files = (
 				C2C5C01A1CC564D70010133B /* CopaRAJ.xcdatamodeld in Sources */,
 				D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */,
+				C2F6D1AF1CE5102B005F01FD /* ChallengeHomeVC.swift in Sources */,
 				7B3DB4341CD1DFA200EB00D3 /* HomeVC.m in Sources */,
 				C24EE9011CDAF843003C9035 /* SplashScreenVC.m in Sources */,
 				C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */,
@@ -799,6 +809,7 @@
 			baseConfigurationReference = 6E4AA48983C0140B5AE4CBC8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
@@ -807,6 +818,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -815,6 +828,7 @@
 			baseConfigurationReference = 920CE7D93A55FCC98810244D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
@@ -823,6 +837,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";
 			};
 			name = Release;
 		};
