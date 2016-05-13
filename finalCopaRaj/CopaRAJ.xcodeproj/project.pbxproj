@@ -42,7 +42,7 @@
 		D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */; };
 		D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E81CC5DC9000E80C51 /* Group.storyboard */; };
 		D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4EB1CC5DCC200E80C51 /* Tourny.storyboard */; };
-		D82E42641CE52097004812FF /* GroupHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E42631CE52096004812FF /* GroupHome.storyboard */; };
+		D82E42641CE52097004812FF /* GroupsHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E42631CE52096004812FF /* GroupsHome.storyboard */; };
 		D82E42661CE52116004812FF /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E42651CE52116004812FF /* CreateGroup.storyboard */; };
 		D82E42691CE52175004812FF /* PickGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E42681CE52175004812FF /* PickGroup.storyboard */; };
 		D82E426B1CE521B6004812FF /* BracketFinalize.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E426A1CE521B6004812FF /* BracketFinalize.storyboard */; };
@@ -128,7 +128,7 @@
 		D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		D82BF4E91CC5DC9000E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
 		D82BF4EC1CC5DCC200E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tourny.storyboard; sourceTree = "<group>"; };
-		D82E42631CE52096004812FF /* GroupHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupHome.storyboard; sourceTree = "<group>"; };
+		D82E42631CE52096004812FF /* GroupsHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupsHome.storyboard; sourceTree = "<group>"; };
 		D82E42651CE52116004812FF /* CreateGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
 		D82E42681CE52175004812FF /* PickGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickGroup.storyboard; sourceTree = "<group>"; };
 		D82E426A1CE521B6004812FF /* BracketFinalize.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BracketFinalize.storyboard; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				C2F6D1B01CE515DB005F01FD /* Challenge.storyboard */,
-				D82E42631CE52096004812FF /* GroupHome.storyboard */,
+				D82E42631CE52096004812FF /* GroupsHome.storyboard */,
 				D82E426C1CE521F7004812FF /* GroupDetails.storyboard */,
 				D82E426E1CE5220E004812FF /* PickDetails.storyboard */,
 				D82E42651CE52116004812FF /* CreateGroup.storyboard */,
@@ -558,7 +558,7 @@
 				C2C5C01C1CC564D70010133B /* Assets.xcassets in Resources */,
 				C2C5C0171CC564D70010133B /* Main.storyboard in Resources */,
 				D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */,
-				D82E42641CE52097004812FF /* GroupHome.storyboard in Resources */,
+				D82E42641CE52097004812FF /* GroupsHome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
