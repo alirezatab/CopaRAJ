@@ -42,13 +42,13 @@
 		D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E81CC5DC9000E80C51 /* Group.storyboard */; };
 		D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4EB1CC5DCC200E80C51 /* Tourny.storyboard */; };
 		D82E42641CE52097004812FF /* GroupHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E42631CE52096004812FF /* GroupHome.storyboard */; };
-		D82E42661CE52116004812FF /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E42651CE52116004812FF /* CreateGroup.storyboard */; };
 		D82E42691CE52175004812FF /* PickGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E42681CE52175004812FF /* PickGroup.storyboard */; };
 		D82E426B1CE521B6004812FF /* BracketFinalize.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E426A1CE521B6004812FF /* BracketFinalize.storyboard */; };
 		D82E426D1CE521F7004812FF /* GroupDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E426C1CE521F7004812FF /* GroupDetails.storyboard */; };
 		D82E426F1CE5220E004812FF /* PickDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E426E1CE5220E004812FF /* PickDetails.storyboard */; };
 		D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E42701CE5683E004812FF /* CreateGroupVC.swift */; };
 		D82E428A1CE581E0004812FF /* ChallengeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E42891CE581E0004812FF /* ChallengeGroup.swift */; };
+		D82E428C1CE5B8C5004812FF /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E428B1CE5B8C5004812FF /* CreateGroup.storyboard */; };
 		D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66661CCED12100B5C8FE /* FBMatch.m */; };
 		D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */; };
 		D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */; };
@@ -129,13 +129,13 @@
 		D82BF4E91CC5DC9000E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
 		D82BF4EC1CC5DCC200E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tourny.storyboard; sourceTree = "<group>"; };
 		D82E42631CE52096004812FF /* GroupHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupHome.storyboard; sourceTree = "<group>"; };
-		D82E42651CE52116004812FF /* CreateGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
 		D82E42681CE52175004812FF /* PickGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickGroup.storyboard; sourceTree = "<group>"; };
 		D82E426A1CE521B6004812FF /* BracketFinalize.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BracketFinalize.storyboard; sourceTree = "<group>"; };
 		D82E426C1CE521F7004812FF /* GroupDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupDetails.storyboard; sourceTree = "<group>"; };
 		D82E426E1CE5220E004812FF /* PickDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickDetails.storyboard; sourceTree = "<group>"; };
 		D82E42701CE5683E004812FF /* CreateGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
 		D82E42891CE581E0004812FF /* ChallengeGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeGroup.swift; sourceTree = "<group>"; };
+		D82E428B1CE5B8C5004812FF /* CreateGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateGroup.storyboard; path = ../../../../../../.Trash/CreateGroup.storyboard; sourceTree = "<group>"; };
 		D8AB66621CCECF9900B5C8FE /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBGroup.h; sourceTree = "<group>"; };
 		D8AB66631CCECF9900B5C8FE /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBGroup.m; sourceTree = "<group>"; };
 		D8AB66651CCED12100B5C8FE /* FBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMatch.h; sourceTree = "<group>"; };
@@ -417,7 +417,7 @@
 		D82E42781CE568AA004812FF /* CreateGroup */ = {
 			isa = PBXGroup;
 			children = (
-				D82E42651CE52116004812FF /* CreateGroup.storyboard */,
+				D82E428B1CE5B8C5004812FF /* CreateGroup.storyboard */,
 			);
 			name = CreateGroup;
 			sourceTree = "<group>";
@@ -628,9 +628,9 @@
 				7BC9FFA31CDB30F500711636 /* Localizable.strings in Resources */,
 				7B1FF1DD1CD0218500B031B0 /* GOTHAM-MEDIUM.TTF in Resources */,
 				7BC9FFA81CDB30F500711636 /* Tourny.strings in Resources */,
+				D82E428C1CE5B8C5004812FF /* CreateGroup.storyboard in Resources */,
 				D82E426F1CE5220E004812FF /* PickDetails.storyboard in Resources */,
 				C2F6D1B11CE515DB005F01FD /* Challenge.storyboard in Resources */,
-				D82E42661CE52116004812FF /* CreateGroup.storyboard in Resources */,
 				D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */,
 				D82E426D1CE521F7004812FF /* GroupDetails.storyboard in Resources */,
 				D82E42691CE52175004812FF /* PickGroup.storyboard in Resources */,
