@@ -165,12 +165,6 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate {
     self.presentViewController(alert, animated: false, completion: nil)
   }
   
-  func createGroupInFireBaseWithGroup(group: ChallengeGroup) {
-    let ref = Firebase (url: "https://fiery-inferno-5799.firebaseio.com/ChallengeGroups")
-    let newFBGroup = ref.childByAutoId()
-    
-    
-    
-  }
+  
 
 }
