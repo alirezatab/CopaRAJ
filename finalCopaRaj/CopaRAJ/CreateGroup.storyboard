@@ -120,7 +120,7 @@
                         <outlet property="groupNameTextField" destination="WOW-fA-kcA" id="2vU-EX-faB"/>
                         <outlet property="passwordConfirmationTextField" destination="xuv-bL-B95" id="TVh-pf-thz"/>
                         <outlet property="passwordTextField" destination="hLG-Ia-NCT" id="fXu-Q1-uWP"/>
-                        <segue destination="a3w-eu-KHn" kind="show" id="a18-uP-0g7"/>
+                        <segue destination="a3w-eu-KHn" kind="show" identifier="pickGroup" id="a18-uP-0g7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZrN-Hb-lam" userLabel="First Responder" sceneMemberID="firstResponder"/>
