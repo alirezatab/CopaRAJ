@@ -47,6 +47,9 @@
 @property UIButton *buttonRight;
 @property UIButton *buttonLeft;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *logoAnimationImageView;
+@property (weak, nonatomic) IBOutlet UIView *splashScreenView;
+
 @property int intCalls;
 @end
 
@@ -65,6 +68,21 @@
     
     [self initNeededObjects];
     [self callFireBase];
+    
+    //Ali: Animation for splash Screen
+    NSArray *arrayOfLogoImages = [[NSArray alloc]initWithObjects:[UIImage imageNamed:@"LaunchScreen0.png"], [UIImage imageNamed:@"LaunchScreen1.png"], [UIImage imageNamed:@"LaunchScreen2.png"], [UIImage imageNamed:@"LaunchScreen3.png"], [UIImage imageNamed:@"LaunchScreen4.png"], [UIImage imageNamed:@"LaunchScreen5.png"], [UIImage imageNamed:@"LaunchScreen6.png"], [UIImage imageNamed:@"LaunchScreen7.png"], [UIImage imageNamed:@"LaunchScreen8.png"], [UIImage imageNamed:@"LaunchScreen9.png"], [UIImage imageNamed:@"LaunchScreen10.png"], [UIImage imageNamed:@"LaunchScreen11.png"], [UIImage imageNamed:@"LaunchScreen12.png"], [UIImage imageNamed:@"LaunchScreen13.png"], [UIImage imageNamed:@"LaunchScreen14.png"], [UIImage imageNamed:@"LaunchScreen15.png"], [UIImage imageNamed:@"LaunchScreen16.png"], [UIImage imageNamed:@"LaunchScreen17.png"], [UIImage imageNamed:@"LaunchScreen18.png"], [UIImage imageNamed:@"LaunchScreen19.png"], [UIImage imageNamed:@"LaunchScreen20.png"], [UIImage imageNamed:@"LaunchScreen21.png"], [UIImage imageNamed:@"LaunchScreen22.png"], [UIImage imageNamed:@"LaunchScreen23.png"], [UIImage imageNamed:@"LaunchScreen24.png"], [UIImage imageNamed:@"LaunchScreen23.png"], [UIImage imageNamed:@"LaunchScreen22.png"], [UIImage imageNamed:@"LaunchScreen21.png"], [UIImage imageNamed:@"LaunchScreen20.png"], [UIImage imageNamed:@"LaunchScreen19.png"], [UIImage imageNamed:@"LaunchScreen18.png"], [UIImage imageNamed:@"LaunchScreen17.png"], [UIImage imageNamed:@"LaunchScreen16.png"], [UIImage imageNamed:@"LaunchScreen15.png"], [UIImage imageNamed:@"LaunchScreen14.png"], [UIImage imageNamed:@"LaunchScreen13.png"], [UIImage imageNamed:@"LaunchScreen12.png"], [UIImage imageNamed:@"LaunchScreen11.png"], [UIImage imageNamed:@"LaunchScreen10.png"], [UIImage imageNamed:@"LaunchScreen9.png"], [UIImage imageNamed:@"LaunchScreen8.png"], [UIImage imageNamed:@"LaunchScreen7.png"], [UIImage imageNamed:@"LaunchScreen6.png"], [UIImage imageNamed:@"LaunchScreen5.png"], [UIImage imageNamed:@"LaunchScreen4.png"], [UIImage imageNamed:@"LaunchScreen3.png"], [UIImage imageNamed:@"LaunchScreen2.png"], [UIImage imageNamed:@"LaunchScreen1.png"], [UIImage imageNamed:@"LaunchScreen0.png"], nil];
+    
+    [self.logoAnimationImageView setAnimationImages:arrayOfLogoImages];
+    [self.logoAnimationImageView setAnimationDuration:3];
+    [self.logoAnimationImageView setAnimationRepeatCount:0];
+    self.splashScreenView.hidden = YES;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        self.splashScreenView.hidden = NO;
+        self.navigationController.navigationBarHidden = YES;
+        [self.logoAnimationImageView startAnimating];
+    });
+    
     [self.activityIndicator startAnimating];
 }
 
@@ -103,8 +121,6 @@
     // FireBase Listener
     [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         
-        
-        
         self.matchA1B2.local = @"A1";
         self.matchA1B2.visitor = @"B2";
         self.matchA1B2.schedule = [snapshot.value objectForKey:@"A1B2"];
@@ -126,6 +142,7 @@
         //NSLog(@"b1: %@ a2: %@ schedule: %@", self.matchB1A2.local, self.matchB1A2.visitor, self.matchB1A2.schedule);
         [self addNSDateForMatch:self.matchB1A2];
         [self.playoffMatches addObject:self.matchB1A2];
+        
         
         self.matchD1C2.local = @"D1";
         self.matchD1C2.visitor = @"C2";
@@ -243,7 +260,9 @@
     
     [self sortMatches];
     //reloading table view!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    [self matchesAreDoneLoading];
+    [self performSelector:@selector(matchesAreDoneLoading) withObject:nil afterDelay:2];
+      
+      //[self matchesAreDoneLoading];
     
     
   } withCancelBlock:^(NSError *error) {
@@ -286,8 +305,12 @@
 }
 
 - (void)matchesAreDoneLoading {
+    //if
   [self.activityIndicator stopAnimating];
   self.activityIndicator.hidden = true;
+    self.splashScreenView.hidden = true;
+    [self.logoAnimationImageView stopAnimating];
+    self.navigationController.navigationBarHidden = NO;
   [self createArraysForSectionHeaders];
   [self.tableView reloadData];
   

@@ -18,5 +18,5 @@ class ChallengeGroup: NSObject {
     self.password = password
     self.imageName = imageName
   }
-  }
+}
 

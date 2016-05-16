@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class CreateGroupVC: UIViewController, UITextFieldDelegate {
+class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDelegate {
   @IBOutlet weak var groupNameTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var passwordConfirmationTextField: UITextField!
@@ -24,12 +24,15 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate {
   
     override func viewDidLoad() {
       super.viewDidLoad()
+        
+    // Ali: hides white bar that shows on top of naagation Bar
+    //self.navigationItem.hidesBackButton = true;
+        
       self.finalizeButton.backgroundColor = UIColor.grayColor()
       self.finalizeButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
       self.finalizeButton.enabled = false
       self.activityIndicator.hidden = true
       self.groupHelpLabel.hidden = true
-      
   }
 
     override func didReceiveMemoryWarning() {
