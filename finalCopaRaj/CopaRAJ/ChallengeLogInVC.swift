@@ -29,7 +29,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     // MARK: UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil) {
             self.performSegueWithIdentifier(self.loggedIn, sender: nil)
         
@@ -40,40 +40,42 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
             print("logged in");
         }
         
-        //facebook button programatically
+        ///facebook button programatically
+        //loginButton.center = CGPoint(x: screenWidth/2, y: screenHeight/2)
         let loginButton = FBSDKLoginButton()
         loginButton.readPermissions = ["public_profile", "email", "user_friends"]
-        // print("height:\(screenHeight/2), Width:\(screenWidth/2)")
-        //loginButton.center = CGPoint(x: screenWidth/2, y: screenHeight/2)
-
         loginButton.center = self.view.center
         self.view.addSubview(loginButton)
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        refUsers.observeAuthEventWithBlock { (authData) in
-//            if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
-//            {
-//                print("facebook logged already existing token!")
-//                self.performSegueWithIdentifier(self.loggedIn, sender: self)
-//            }
-//        }
-//    }
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated);
-        self.navigationController?.navigationBarHidden = true;
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        textFieldLoginEmail.text = ""
+        textFieldLoginPassword.text = ""
+        
         refUsers.observeAuthEventWithBlock { (authData) in
             if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
             {
                 print("facebook logged already existing token!")
                 self.performSegueWithIdentifier(self.loggedIn, sender: self)
             }
-            if authData != nil {
-                self.performSegueWithIdentifier(self.loggedIn, sender: nil)
-            }
         }
     }
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated);
+//        self.navigationController?.navigationBarHidden = false;
+//        refUsers.observeAuthEventWithBlock { (authData) in
+//            if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
+//            {
+//                print("facebook logged already existing token!")
+//                self.performSegueWithIdentifier(self.loggedIn, sender: self)
+//            }
+//            if authData != nil {
+//                self.performSegueWithIdentifier(self.loggedIn, sender: nil)
+//            }
+//        }
+//    }
     
     // MARK: Facebook Login
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
@@ -94,7 +96,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         let email = textFieldLoginEmail.text
         let password = textFieldLoginPassword.text
         if email != "" && password != ""{
-            DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { (error, authData) in
+            DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { error, authData in
                 if error != nil {
                     print(error.localizedDescription);
                     self.loginErrorAlert("Oops", message: error.localizedDescription)
@@ -119,6 +121,9 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     }
         
     override func didReceiveMemoryWarning() {

@@ -8,7 +8,7 @@
         <!--COPA CHALLANGE-->
         <scene sceneID="XCS-DS-UKq">
             <objects>
-                <viewController id="CIU-BF-wDy" customClass="ChallengeLogInVC" customModule="CopaRAJ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="CIU-BF-wDy" customClass="ChallengeLogInVC" customModule="CopaRAJ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KBt-be-Bsq"/>
                         <viewControllerLayoutGuide type="bottom" id="Z9U-eQ-Rt0"/>
@@ -59,6 +59,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L81-PK-sL7">
+                                <rect key="frame" x="215" y="363" width="170" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Forgot Password">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -100,12 +107,12 @@
                 <viewControllerPlaceholder storyboardName="GroupHome" id="x6s-Mi-rbM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhM-aj-HKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3793.5" y="-82"/>
+            <point key="canvasLocation" x="3844.5" y="-59"/>
         </scene>
         <!--Create AccountVC-->
         <scene sceneID="cwl-8I-p8H">
             <objects>
-                <viewController id="ZJK-Tw-B8c" customClass="CreateAccountVC" customModule="CopaRAJ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateAccount" id="ZJK-Tw-B8c" customClass="CreateAccountVC" customModule="CopaRAJ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YPa-UN-fmF"/>
                         <viewControllerLayoutGuide type="bottom" id="rp4-zL-IU2"/>
@@ -123,8 +130,8 @@
                                     <navigationItem title="New User Account" id="xbM-U0-Pu2"/>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfi-W8-lX6">
-                                <rect key="frame" x="133" y="191" width="371" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfi-W8-lX6">
+                                <rect key="frame" x="133" y="158" width="371" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -134,7 +141,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KV-d8-Cb9">
-                                <rect key="frame" x="207" y="320" width="186" height="30"/>
+                                <rect key="frame" x="207" y="341" width="186" height="30"/>
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -142,17 +149,22 @@
                                     <action selector="createAccountButtonPressed:" destination="ZJK-Tw-B8c" eventType="touchUpInside" id="38Z-YI-Nft"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozg-LM-Utk">
-                                <rect key="frame" x="207" y="366" width="186" height="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m5r-d4-Eii">
                                 <rect key="frame" x="133" y="275" width="371" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q21-zR-gzM">
+                                <rect key="frame" x="133" y="196" width="371" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozg-LM-Utk">
+                                <rect key="frame" x="207" y="385" width="186" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -163,13 +175,15 @@
                     </view>
                     <connections>
                         <outlet property="emailAddressTextField" destination="1Cu-Ho-SJO" id="cyy-lm-McN"/>
+                        <outlet property="firstNameTextField" destination="Zfi-W8-lX6" id="pl4-sO-KSX"/>
+                        <outlet property="lastNameTextField" destination="q21-zR-gzM" id="bze-FY-KLZ"/>
                         <outlet property="passwordTextField" destination="m5r-d4-Eii" id="SRN-xR-FVj"/>
-                        <outlet property="userNameTextField" destination="Zfi-W8-lX6" id="WB1-Rc-zXi"/>
+                        <segue destination="x6s-Mi-rbM" kind="show" identifier="NewUserLoggedIn" id="pli-so-dII"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gle-Bv-MBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3071" y="695"/>
+            <point key="canvasLocation" x="3071" y="717"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="imo-J5-KQK">
@@ -190,5 +204,8 @@
             <point key="canvasLocation" x="2259" y="-82"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mU3-iM-Hhe"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -59,6 +59,22 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Groups Home" id="Y8G-Ua-ytF">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="E53-kr-sbl">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZM5-6P-MLg">
+                                <rect key="frame" x="20" y="7" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="bgO-NI-rt8" eventType="touchUpInside" id="Ipk-BC-RxS"/>
+                                    <segue destination="mnL-58-sBH" kind="unwind" unwindAction="unwindToLogin:" id="e9B-ob-gcO"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <segue destination="mnL-58-sBH" kind="unwind" unwindAction="unwindToLogin:" id="Uxk-HL-OnD"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oXf-eV-ocH">
                             <connections>
                                 <segue destination="lzH-OO-3W7" kind="show" id="HGe-vt-umW"/>
@@ -72,6 +88,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBD-yW-gwL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mnL-58-sBH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3225" y="-82"/>
         </scene>
