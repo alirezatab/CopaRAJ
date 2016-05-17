@@ -28,8 +28,8 @@
 		7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BD870B61CCA7F880020C125 /* playOffMatches.plist */; };
 		C20EB5C21CE67E10000E36B7 /* ChallengeLogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */; };
 		C20EB5C61CE6923D000E36B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EB5C51CE6923D000E36B7 /* User.swift */; };
-		C20EB5CE1CE6D792000E36B7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20EB5CD1CE6D792000E36B7 /* FBSDKCoreKit.framework */; };
-		C20EB5D01CE6E761000E36B7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20EB5CF1CE6E761000E36B7 /* FBSDKLoginKit.framework */; };
+		C2423FB01CEADC45008559E1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2423FAF1CEADC45008559E1 /* FBSDKCoreKit.framework */; };
+		C2423FB21CEADC53008559E1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2423FB11CEADC53008559E1 /* FBSDKLoginKit.framework */; };
 		C244BEFA1CE7E9E500C4371D /* GroupHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C244BEF91CE7E9E500C4371D /* GroupHomeVC.swift */; };
 		C244BEFD1CE80F5B00C4371D /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C244BEFC1CE80F5B00C4371D /* DataService.swift */; };
 		C290DDFF1CD5FA18002FB7B6 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C290DDFE1CD5FA18002FB7B6 /* EventCell.m */; };
@@ -110,8 +110,8 @@
 		920CE7D93A55FCC98810244D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeLogInVC.swift; sourceTree = "<group>"; };
 		C20EB5C51CE6923D000E36B7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C20EB5CD1CE6D792000E36B7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		C20EB5CF1CE6E761000E36B7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		C2423FAF1CEADC45008559E1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		C2423FB11CEADC53008559E1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		C244BEF91CE7E9E500C4371D /* GroupHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupHomeVC.swift; sourceTree = "<group>"; };
 		C244BEFC1CE80F5B00C4371D /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		C290DDFD1CD5FA18002FB7B6 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
@@ -168,9 +168,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C20EB5CE1CE6D792000E36B7 /* FBSDKCoreKit.framework in Frameworks */,
-				C20EB5D01CE6E761000E36B7 /* FBSDKLoginKit.framework in Frameworks */,
 				032AA656B2380D13CB362567 /* libPods.a in Frameworks */,
+				C2423FB01CEADC45008559E1 /* FBSDKCoreKit.framework in Frameworks */,
+				C2423FB21CEADC53008559E1 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,8 +194,8 @@
 		6638C288E3486B8F543FC221 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C20EB5CF1CE6E761000E36B7 /* FBSDKLoginKit.framework */,
-				C20EB5CD1CE6D792000E36B7 /* FBSDKCoreKit.framework */,
+				C2423FB11CEADC53008559E1 /* FBSDKLoginKit.framework */,
+				C2423FAF1CEADC45008559E1 /* FBSDKCoreKit.framework */,
 				6DBA652AE4BAFEBB5DF68D04 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -977,7 +977,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/alirezatabrizi/Documents/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/alirezatabrizi/Desktop/ios,
+					dev,
+					learning/MobileMakersAcadamy/Bootcamp,
+					Course/Week6/CopaRAJ/finalCopaRaj/FacebookSDK,
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -997,7 +1003,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/alirezatabrizi/Documents/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/alirezatabrizi/Desktop/ios,
+					dev,
+					learning/MobileMakersAcadamy/Bootcamp,
+					Course/Week6/CopaRAJ/finalCopaRaj/FacebookSDK,
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
