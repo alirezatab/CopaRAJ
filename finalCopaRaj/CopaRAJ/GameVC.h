@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *teamTwoScore;
 @property (weak, nonatomic) IBOutlet UILabel *teamOneScore;
 @property (weak, nonatomic) IBOutlet UILabel *matchDateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *eventsCalendarButton;
 
 
 //team A LineUp
