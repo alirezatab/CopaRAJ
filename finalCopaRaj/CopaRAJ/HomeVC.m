@@ -198,8 +198,8 @@
         [self getMatchesFromFireBase];
         
     } withCancelBlock:^(NSError *error) {
-        NSLog(@"%@", error.description);
-        [self presentErrorWithString:error.description];
+        NSLog(@"%@", error.localizedDescription);
+        [self presentErrorWithString:error.localizedDescription];
     }];
 }
 
@@ -247,7 +247,7 @@
     
     
   } withCancelBlock:^(NSError *error) {
-    [self presentErrorWithString:error.description];
+    [self presentErrorWithString:error.localizedDescription];
   }];
 }
 
