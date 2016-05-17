@@ -39,16 +39,20 @@ class DataService {
         return currentUser!
     }
     
-    func createNewAccount(uid: String, user: Dictionary<String, String>){
+    func createNewAccount(uid: String, user: Dictionary<String, String>) {
         USER_REF.childByAppendingPath(uid).setValue(user)
     }
   
-    func updateCurrentUserWithGroupID(groupID: String){
+    func updateCurrentUserWithGroupID(groupID: String) {
+    let ref = Firebase(url: "\(CURRENT_USER_REF)")
+    ref.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) in
+      let newGroup = ref.childByAutoId()
+      let newGroupDetails = ["name": groupID]
+      newGroup.setValue(newGroupDetails)
       
+      }) { (error) in
+        self.updateCurrentUserWithGroupID("fail")
+      }
     }
-   
-//    var JOKE_REF: Firebase {
-//        return _JOKE_REF
-//    }
 }
 

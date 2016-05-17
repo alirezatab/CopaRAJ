@@ -18,5 +18,7 @@ class ChallengeUser: NSObject {
     
     return userPickDetails
   }
+  
+  
 
 }
