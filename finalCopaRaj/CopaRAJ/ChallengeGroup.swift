@@ -13,10 +13,13 @@ class ChallengeGroup: NSObject {
   var password : NSString?
   var imageName : NSString?
   
+  
   init(name: NSString, password: NSString, imageName: NSString) {
     self.name = name
     self.password = password
     self.imageName = imageName
   }
+  
+  
 }
 

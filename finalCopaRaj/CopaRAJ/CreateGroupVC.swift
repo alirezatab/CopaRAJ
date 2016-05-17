@@ -140,17 +140,23 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   }
   
   func createFireBaseGroup(passedGroup: ChallengeGroup) {
-    let ref = Firebase (url: "https://fiery-inferno-5799.firebaseio.com/ChallengeGroups")
+    let ref = DataService.dataService.CHALLENGEGROUPS_REF
     ref.queryOrderedByChild("name").queryEqualToValue(passedGroup.name)
     .observeSingleEventOfType (FEventType.Value, withBlock: { (snapshot) in
       if (snapshot.value) is NSNull {
         
         let newFBGroup = ref.childByAutoId()
-        let newGroupDetails = ["name": passedGroup.name!, "password": passedGroup.password!, "imageName": passedGroup.imageName!]
+        let newGroupDetails = ["name": passedGroup.name!, "password": passedGroup.password!, "imageName": passedGroup.imageName!, "admin":DataService.dataService.CURRENT_USER_REF.key]
         newFBGroup.setValue(newGroupDetails)
-        let groupId = newFBGroup.key
-        print(groupId)
-        ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!add groupID to user
+        
+        let newUsersListFirstMember = newFBGroup.childByAppendingPath(DataService.dataService.CURRENT_USER_REF.key)
+        
+        let firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as! String
+        let lastName = NSUserDefaults.standardUserDefaults().valueForKey("lastName") as! String
+        let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName, "lastName": lastName]
+        
+        newUsersListFirstMember.setValue(userPickDetails)
+        
       }
       else {
         self.presentAlertGroupAlreadyExists()

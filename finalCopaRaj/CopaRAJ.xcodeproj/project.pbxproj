@@ -27,7 +27,6 @@
 		7BD056251CC73A9D00BCB113 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0561F1CC73A9D00BCB113 /* Group.m */; };
 		7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BD870B61CCA7F880020C125 /* playOffMatches.plist */; };
 		C20EB5C21CE67E10000E36B7 /* ChallengeLogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */; };
-		C20EB5C61CE6923D000E36B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EB5C51CE6923D000E36B7 /* User.swift */; };
 		C2423FB01CEADC45008559E1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2423FAF1CEADC45008559E1 /* FBSDKCoreKit.framework */; };
 		C2423FB21CEADC53008559E1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2423FB11CEADC53008559E1 /* FBSDKLoginKit.framework */; };
 		C244BEFA1CE7E9E500C4371D /* GroupHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C244BEF91CE7E9E500C4371D /* GroupHomeVC.swift */; };
@@ -55,6 +54,7 @@
 		D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E42701CE5683E004812FF /* CreateGroupVC.swift */; };
 		D82E428A1CE581E0004812FF /* ChallengeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E42891CE581E0004812FF /* ChallengeGroup.swift */; };
 		D8594CA21CE66DD1008965F0 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8594CA11CE66DD1008965F0 /* CreateGroup.storyboard */; };
+		D86317ED1CEAF5C1009E9076 /* ChallengeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */; };
 		D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66661CCED12100B5C8FE /* FBMatch.m */; };
 		D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */; };
 		D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */; };
@@ -109,7 +109,6 @@
 		7BD870B61CCA7F880020C125 /* playOffMatches.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playOffMatches.plist; sourceTree = "<group>"; };
 		920CE7D93A55FCC98810244D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeLogInVC.swift; sourceTree = "<group>"; };
-		C20EB5C51CE6923D000E36B7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C2423FAF1CEADC45008559E1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C2423FB11CEADC53008559E1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		C244BEF91CE7E9E500C4371D /* GroupHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupHomeVC.swift; sourceTree = "<group>"; };
@@ -147,6 +146,7 @@
 		D82E42701CE5683E004812FF /* CreateGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
 		D82E42891CE581E0004812FF /* ChallengeGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeGroup.swift; sourceTree = "<group>"; };
 		D8594CA11CE66DD1008965F0 /* CreateGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
+		D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeUser.swift; sourceTree = "<group>"; };
 		D8AB66621CCECF9900B5C8FE /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBGroup.h; sourceTree = "<group>"; };
 		D8AB66631CCECF9900B5C8FE /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBGroup.m; sourceTree = "<group>"; };
 		D8AB66651CCED12100B5C8FE /* FBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMatch.h; sourceTree = "<group>"; };
@@ -461,7 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				D82E42891CE581E0004812FF /* ChallengeGroup.swift */,
-				C20EB5C51CE6923D000E36B7 /* User.swift */,
+				D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -747,6 +747,7 @@
 				D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */,
 				7B3DB4341CD1DFA200EB00D3 /* HomeVC.m in Sources */,
 				C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */,
+				D86317ED1CEAF5C1009E9076 /* ChallengeUser.swift in Sources */,
 				D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */,
 				7BD056251CC73A9D00BCB113 /* Group.m in Sources */,
 				7B1FF1D61CD0152700B031B0 /* Match.m in Sources */,
@@ -762,7 +763,6 @@
 				D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */,
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
 				D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */,
-				C20EB5C61CE6923D000E36B7 /* User.swift in Sources */,
 				7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */,
 				C244BEFA1CE7E9E500C4371D /* GroupHomeVC.swift in Sources */,
 				D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */,

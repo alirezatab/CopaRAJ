@@ -34,20 +34,22 @@ class CreateAccountVC: UIViewController {
             //set username and password
             DataService.dataService.BASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, result) in
                 if error != nil{
-                    self.signupErrorAlert("Oops", message: "Having some trouble creating your account. TRY AGAIN!")
+                    self.signupErrorAlert("Oops", message: error.localizedDescription)
                     print(error.localizedDescription)
                 } else {
                     //create the username and password
                     DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { (err, authData) in
                         
 ///                     let user = ["password": authData.provider!, "email": email!, "FirstName": firtstName!, "lastName": lastName!];
-                        let user = ["provider": authData.provider!, "email": email!, "FirstName": firtstName!, "lastName": lastName!];
+                        let user = ["provider": authData.provider!, "email": email!, "firstName": firtstName!, "lastName": lastName!];
                         // Seal the deal in DataService.swift.
                         //DataService.dataService.createNewAccount(authData.uid, user: user)
                         DataService.dataService.createNewAccount(authData.uid, user: user);
                     })
                     //store the uid for future access - handy!
                     NSUserDefaults.standardUserDefaults().setValue(result["uid"], forKey: "uid")
+                    NSUserDefaults.standardUserDefaults().setValue(firtstName, forKey: "firstName")
+                    NSUserDefaults.standardUserDefaults().setValue(lastName, forKey: "lastName")
                     
                     //enter the app
                     self.performSegueWithIdentifier(self.newUserLoggedIn, sender: nil);
