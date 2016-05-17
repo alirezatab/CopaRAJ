@@ -59,9 +59,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L81-PK-sL7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L81-PK-sL7">
                                 <rect key="frame" x="215" y="363" width="170" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="WKQ-JH-ez7"/>
+                                    <constraint firstAttribute="height" constant="30" id="lb7-69-I5b"/>
+                                </constraints>
                                 <state key="normal" title="Forgot Password">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -73,10 +77,12 @@
                             <constraint firstItem="YEn-NK-VUe" firstAttribute="top" secondItem="HhR-4T-neK" secondAttribute="bottom" constant="8" id="2gW-Ib-OZk"/>
                             <constraint firstItem="Jct-pq-MY4" firstAttribute="centerX" secondItem="nPh-qq-trw" secondAttribute="centerX" id="Kyc-aW-19B"/>
                             <constraint firstItem="zZB-IC-ePh" firstAttribute="centerX" secondItem="nPh-qq-trw" secondAttribute="centerX" id="RGp-VV-kd9"/>
+                            <constraint firstItem="L81-PK-sL7" firstAttribute="centerY" secondItem="nPh-qq-trw" secondAttribute="centerY" constant="78" id="VAZ-Iq-hjO"/>
                             <constraint firstItem="Jct-pq-MY4" firstAttribute="top" secondItem="zZB-IC-ePh" secondAttribute="bottom" constant="50" id="eGd-oo-9hJ"/>
                             <constraint firstItem="YEn-NK-VUe" firstAttribute="centerX" secondItem="nPh-qq-trw" secondAttribute="centerX" id="fsl-vC-Bwz"/>
                             <constraint firstItem="HhR-4T-neK" firstAttribute="centerX" secondItem="nPh-qq-trw" secondAttribute="centerX" id="jAk-xj-8lc"/>
                             <constraint firstItem="zZB-IC-ePh" firstAttribute="centerY" secondItem="nPh-qq-trw" secondAttribute="centerY" constant="-40" id="oSa-Rr-Hm2"/>
+                            <constraint firstItem="L81-PK-sL7" firstAttribute="centerX" secondItem="nPh-qq-trw" secondAttribute="centerX" id="sUm-NI-cMw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="COPA CHALLANGE" id="qxG-Fi-XlW">
@@ -205,7 +211,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pli-so-dII"/>
+        <segue reference="mU3-iM-Hhe"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

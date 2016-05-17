@@ -36,9 +36,5 @@ class DataService {
     func createNewAccount(uid: String, user: Dictionary<String, String>){
         USER_REF.childByAppendingPath(uid).setValue(user)
     }
-   
-//    var JOKE_REF: Firebase {
-//        return _JOKE_REF
-//    }
 }
 
