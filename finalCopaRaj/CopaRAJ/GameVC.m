@@ -417,6 +417,7 @@
     }
 }
 
+
 - (void)ifUserAllowsCalendarPermission:(EKEventStore*)eventStore {
     
     dispatch_async(dispatch_get_main_queue(), ^(void){
@@ -462,13 +463,6 @@
         if (save) {
             NSLog(@"event saved this is the id %@" , self.eventSavedId);
             
-            if ([self.match.local isEqualToString:@"United States"]) {
-                self.match.local = [NSString stringWithFormat:NSLocalizedString(@"United States", nil)];
-            }
-            if ([self.match.visitor isEqualToString:@"United States"]) {
-                self.match.visitor = [NSString stringWithFormat:NSLocalizedString(@"United States", nil)];
-            }
-            
             NSString *match = [NSString stringWithFormat:@"%@ vs %@", self.match.local , self.match.visitor];
             
             NSString *extraString = [NSString stringWithFormat:NSLocalizedString(@"added to your calendar", nil)];
@@ -493,7 +487,7 @@
     self.eventExists  = NO;
     [eventsOnDate enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         EKEvent *eventToCheck = (EKEvent*)obj;
-        if([self.eventSavedId isEqualToString:eventToCheck.eventIdentifier])
+        if([event.title isEqualToString:eventToCheck.title])
         {
             self.eventExists = YES;
             *stop = YES;
