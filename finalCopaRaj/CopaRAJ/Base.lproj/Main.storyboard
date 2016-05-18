@@ -44,7 +44,9 @@
                                             <segue destination="cje-vk-2tS" kind="show" identifier="TournamentSegue" animates="NO" id="i8c-xZ-DUE"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="tournament" width="75" id="GK0-XE-Br4">
+                                    <barButtonItem image="challengeIcon" width="65" id="GK0-XE-Br4">
+                                        <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <connections>
                                             <action selector="goToChallengeVc:" destination="BYZ-38-t0r" id="5iS-5M-cdM"/>
                                             <segue destination="tQi-KN-1PK" kind="presentation" modalTransitionStyle="flipHorizontal" id="aPy-q0-ho3"/>
@@ -232,6 +234,7 @@
                     <navigationItem key="navigationItem" title="Copa Club" id="zb4-O1-TtV"/>
                     <connections>
                         <outlet property="activityIndicator" destination="GTo-ma-pIC" id="18X-HL-b6y"/>
+                        <outlet property="challengeButton" destination="GK0-XE-Br4" id="4jx-Kj-aAs"/>
                         <outlet property="groupStandingsButton" destination="mwi-b8-qWT" id="qXF-Fe-ahu"/>
                         <outlet property="homeMatchesButton" destination="fUr-0o-Gsj" id="Ngj-rL-Usq"/>
                         <outlet property="logoAnimationImageView" destination="ECj-fV-Cy6" id="7Rt-Za-7du"/>
@@ -299,9 +302,9 @@
     <resources>
         <image name="BracketButtonIcon" width="50" height="50"/>
         <image name="GroupsButtonIcon" width="50" height="50"/>
+        <image name="challengeIcon" width="35" height="39"/>
         <image name="matchesButtonImage" width="50" height="50"/>
         <image name="stadium" width="361" height="88"/>
-        <image name="tournament" width="48" height="47"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

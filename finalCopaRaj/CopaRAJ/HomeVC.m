@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *groupStandingsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
 @property (weak, nonatomic) IBOutlet UIView *cupView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *challengeButton;
+
 
 @property NSMutableArray *mathches;
 @property NSMutableArray *sortedMatches;
@@ -62,10 +64,12 @@
     self.intCalls = 0;
     self.navigationItem.hidesBackButton = YES;
     
-    [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
+    UIColor *unselectedButtonColor =  [UIColor colorWithWhite:0.606 alpha:1.000];
     [self.homeMatchesButton setImage: [UIImage imageNamed:NSLocalizedString(@"imageName", nil)]];
-    [self.groupStandingsButton setTintColor:[UIColor grayColor]];
-    [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
+    [self.groupStandingsButton setTintColor:unselectedButtonColor];
+    [self.challengeButton setTintColor:unselectedButtonColor];
+    [self.playOffMatchesButton setTintColor:unselectedButtonColor];
+    [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
     
     [self initNeededObjects];
     [self callFireBase];
@@ -1012,7 +1016,6 @@
 - (IBAction)goToChallengeVc:(UIBarButtonItem *)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
     ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
-    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

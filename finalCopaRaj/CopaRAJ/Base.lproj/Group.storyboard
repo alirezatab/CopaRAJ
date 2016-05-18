@@ -35,7 +35,9 @@
                                             <segue destination="fX9-Az-4S2" kind="show" animates="NO" id="GBb-N7-igI"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="tournament" width="75" id="XZd-Eh-d3k">
+                                    <barButtonItem image="challengeIcon" width="65" id="XZd-Eh-d3k">
+                                        <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <connections>
                                             <action selector="goToChallengeVC:" destination="r2e-Dn-gfr" id="9fN-y3-lRy"/>
                                         </connections>
@@ -186,6 +188,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="activityIndicator" destination="p2h-Hj-ahT" id="V7a-vE-6DP"/>
+                        <outlet property="challengeButton" destination="XZd-Eh-d3k" id="mKL-3X-R89"/>
                         <outlet property="groupStandingsButton" destination="wvP-qG-KLK" id="Tpt-7K-dqS"/>
                         <outlet property="homeMatchesButton" destination="7KO-fe-cdt" id="Gcc-zr-LrP"/>
                         <outlet property="playOffMatchesButton" destination="oSs-er-qd3" id="1oh-JO-lu1"/>
@@ -216,7 +219,7 @@
     <resources>
         <image name="BracketButtonIcon" width="50" height="50"/>
         <image name="GroupsButtonIcon" width="50" height="50"/>
+        <image name="challengeIcon" width="35" height="39"/>
         <image name="matchesButtonImage" width="50" height="50"/>
-        <image name="tournament" width="48" height="47"/>
     </resources>
 </document>

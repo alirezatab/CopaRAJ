@@ -297,7 +297,12 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem image="BracketButtonIcon" width="75" id="zJ6-0O-uiw"/>
-                                    <barButtonItem image="tournament" id="3ou-Qm-wqm"/>
+                                    <barButtonItem image="challengeIcon" width="65" id="3ou-Qm-wqm">
+                                        <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="goToChallengeVC:" destination="SuA-bu-kxJ" id="qCj-Sd-jKz"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="n6V-h7-hlH"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -340,6 +345,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="activityIndicator" destination="VH2-DO-uA8" id="2e0-YP-t7X"/>
+                        <outlet property="challengeButton" destination="3ou-Qm-wqm" id="10L-0K-iwK"/>
                         <outlet property="collectionView" destination="TXt-wg-6cT" id="68z-7R-6C0"/>
                         <outlet property="homeMatchesButton" destination="q8e-g2-4B7" id="1M9-aa-fpl"/>
                         <outlet property="playOffMatchesButton" destination="zJ6-0O-uiw" id="cYL-es-lMj"/>
@@ -371,9 +377,9 @@
         <image name="BracketButtonIcon" width="50" height="50"/>
         <image name="GroupsButtonIcon" width="50" height="50"/>
         <image name="Trophy" width="95" height="95"/>
+        <image name="challengeIcon" width="35" height="39"/>
         <image name="matchesButtonImage" width="50" height="50"/>
         <image name="stadium-1" width="5312" height="2988"/>
-        <image name="tournament" width="48" height="47"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
