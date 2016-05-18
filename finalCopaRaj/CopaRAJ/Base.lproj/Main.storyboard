@@ -46,6 +46,7 @@
                                     </barButtonItem>
                                     <barButtonItem image="tournament" width="75" id="GK0-XE-Br4">
                                         <connections>
+                                            <action selector="goToChallengeVc:" destination="BYZ-38-t0r" id="5iS-5M-cdM"/>
                                             <segue destination="tQi-KN-1PK" kind="presentation" modalTransitionStyle="flipHorizontal" id="aPy-q0-ho3"/>
                                         </connections>
                                     </barButtonItem>

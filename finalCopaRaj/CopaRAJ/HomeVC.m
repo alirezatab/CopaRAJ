@@ -20,6 +20,7 @@
 #import "GroupVC.h"
 #import "GameVC.h"
 //#import "ChallengeHomeVC.swift"
+#import "CopaRAJ-Swift.h"
 
 @interface HomeVC ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
@@ -1007,6 +1008,22 @@
 //@property NSMutableArray *m16;
 //@property NSMutableArray *m17;
 //@property NSMutableArray *m18;
+
+- (IBAction)goToChallengeVc:(UIBarButtonItem *)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
+    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:vc animated:YES completion:NULL];
+}
+
+
+
+
+
+
+
+
+
 
 
 @end
