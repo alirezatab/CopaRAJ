@@ -236,29 +236,11 @@
 }
 
 - (IBAction)goToChallengeVC:(UIBarButtonItem *)sender {
-//    
-//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
-//    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-//    [navigationController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-//    [self presentViewController:navigationController animated:YES completion:nil];
     
-    
-//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
-//    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
-//    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-//    [self presentViewController:vc animated:YES completion:NULL];
-    
-//    
-//    ChallengeLogInVC *vc= [self.storyboard instantiateViewControllerWithIdentifier:@"addAthlete"];
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-//    
-//      vc.delegate = self;
-//    navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
-//    
-//    
-//    [self presentViewController:navigationController animated:YES completion:nil];
-//    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
+    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

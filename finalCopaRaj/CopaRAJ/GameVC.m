@@ -462,26 +462,16 @@
         self.eventSavedId = event.eventIdentifier;
         if (save) {
             NSLog(@"event saved this is the id %@" , self.eventSavedId);
-            
-            NSString *match = [NSString stringWithFormat:@"%@ vs %@", self.match.local_abbr , self.match.visitor_abbr];
-            
-            NSString *extraString = [NSString stringWithFormat:NSLocalizedString(@"added to your calendar", nil)];
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle: [NSString stringWithFormat:NSLocalizedString(@"Saved!", nil)]
-                                                                           message: [NSString stringWithFormat:@"%@ %@", match, extraString]
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-            
-            [self presentViewController:alert animated:YES completion:nil];
-            //dismissing the alert
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [alert dismissViewControllerAnimated:YES completion:nil];
-            });
+            [self alertUserThatMatchIsSaved];
         }
     }else{
-        [self askForRemovingMatchFromCalendar:eventStore];
+        NSLog(@"this event is already saved %@ ", event.title);
+        [self alertUserThatMatchWasAlreadySaved];
     }
 }
 
 - (void)checkIfEventExists:(EKEventStore*)eventStore :(EKEvent*)event {
+    
     NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:event.startDate endDate:event.endDate calendars:nil];
     NSArray *eventsOnDate = [eventStore eventsMatchingPredicate:predicate];
     self.eventExists  = NO;
@@ -495,60 +485,34 @@
     }];
 }
 
-- (void)askForRemovingMatchFromCalendar:(EKEventStore*)eventStore {
-    dispatch_async(dispatch_get_main_queue(), ^(void){
-        
-        UIAlertController *modalAlert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Match saved already in calendar", nil)]
-                                                                            message:[NSString stringWithFormat:NSLocalizedString(@"Remove match from calendar?", nil)]
-                                                                     preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *remove = [UIAlertAction actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Remove", nil)]
-                                                         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                             [self removeMatchFromCalendar:eventStore];
-                                                         }];//save data block end
-        
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Cancel", nil)]
-                                                         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                             NSLog(@"dont remove from calendar");
-                                                         }];
-        [modalAlert addAction:remove];
-        [modalAlert addAction:cancel];
-        [self presentViewController:modalAlert animated:YES completion:nil];
-    });//end dispatch
-}
-
-- (void)removeMatchFromCalendar:(EKEventStore *)eventStore {
-    NSError *err;
-    EKEvent *eventToRemove = [eventStore eventWithIdentifier:self.eventSavedId];
-    BOOL remove = [eventStore removeEvent:eventToRemove span:EKSpanThisEvent commit: YES error:&err];
-    if(remove){
-        NSLog(@"this is the error %@" , err);
-
-    NSLog(@"event removed %@" , self.eventSavedId);
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle: [NSString stringWithFormat:NSLocalizedString(@"Match removed from calendar", nil)]
-                                                                   message: nil
-                                                            preferredStyle:UIAlertControllerStyleAlert];
+- (void)alertUserThatMatchIsSaved {
     
+    NSString *match = [NSString stringWithFormat:@"%@ vs %@", self.match.local_abbr , self.match.visitor_abbr];
+    NSString *extraString = [NSString stringWithFormat:NSLocalizedString(@"added to your calendar", nil)];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle: [NSString stringWithFormat:NSLocalizedString(@"Saved!", nil)]
+                                                                   message: [NSString stringWithFormat:@"%@ %@", match, extraString]
+                                                            preferredStyle:UIAlertControllerStyleAlert];
     [self presentViewController:alert animated:YES completion:nil];
-    //dismissing the alert
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [alert dismissViewControllerAnimated:YES completion:nil];
     });
-    } else{
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle: [NSString stringWithFormat:NSLocalizedString(@"Copa Club can't remove this event from your calendar, please do it through your calendar App, sorry the inconvenience", nil)]
-                                                                       message: nil
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-        //dismissing the alert
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [alert dismissViewControllerAnimated:YES completion:nil];
-        });
-    }
+}
+
+- (void)alertUserThatMatchWasAlreadySaved {
+    
+    NSString *match = [NSString stringWithFormat:@"%@ vs %@", self.match.local_abbr , self.match.visitor_abbr];
+    NSString *extraString = [NSString stringWithFormat:NSLocalizedString(@"was already saved in your calendar", nil)];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle: nil
+                                                                   message: [NSString stringWithFormat:@"%@ %@", match, extraString]
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    });
 }
 
 - (void)ifUserDontAllowCallendarPermission {
-    //----- codes here when user NOT allow your app to access the calendar.
+    
     NSLog(@"Permission not allowed");
     dispatch_async(dispatch_get_main_queue(), ^(void){
         UIAlertController *settingAlert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Please go to your app settings and allow Copa Club to acces your calendar", nil)]

@@ -1013,7 +1013,7 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
     ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
     vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:vc animated:YES completion:NULL];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
