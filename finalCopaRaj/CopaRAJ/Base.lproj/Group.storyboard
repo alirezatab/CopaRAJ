@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r2e-Dn-gfr">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -25,15 +24,20 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hFZ-ma-bLb"/>
-                                    <barButtonItem image="matchesButtonImage" width="110" id="7KO-fe-cdt">
+                                    <barButtonItem image="matchesButtonImage" width="75" id="7KO-fe-cdt">
                                         <connections>
                                             <segue destination="Lb7-cj-dRv" kind="show" animates="NO" id="VuY-DM-XJs"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="GroupsButtonIcon" width="110" id="wvP-qG-KLK"/>
-                                    <barButtonItem image="BracketButtonIcon" width="110" id="oSs-er-qd3">
+                                    <barButtonItem image="GroupsButtonIcon" width="75" id="wvP-qG-KLK"/>
+                                    <barButtonItem image="BracketButtonIcon" width="75" id="oSs-er-qd3">
                                         <connections>
                                             <segue destination="fX9-Az-4S2" kind="show" animates="NO" id="GBb-N7-igI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="tournament" width="75" id="XZd-Eh-d3k">
+                                        <connections>
+                                            <action selector="goToChallengeVC:" destination="r2e-Dn-gfr" id="9fN-y3-lRy"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="H7i-F4-ekB"/>
@@ -213,5 +217,6 @@
         <image name="BracketButtonIcon" width="50" height="50"/>
         <image name="GroupsButtonIcon" width="50" height="50"/>
         <image name="matchesButtonImage" width="50" height="50"/>
+        <image name="tournament" width="48" height="47"/>
     </resources>
 </document>

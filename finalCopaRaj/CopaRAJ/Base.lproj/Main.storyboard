@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Xe-5i-T9S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8gu-mv-4JN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -29,19 +29,25 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5PP-7U-Mzf"/>
-                                    <barButtonItem image="matchesButtonImage" width="110" id="fUr-0o-Gsj">
+                                    <barButtonItem image="matchesButtonImage" width="75" id="fUr-0o-Gsj">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
-                                    <barButtonItem image="GroupsButtonIcon" width="110" id="mwi-b8-qWT">
+                                    <barButtonItem image="GroupsButtonIcon" width="75" id="mwi-b8-qWT">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="JQg-Da-tjf" kind="show" animates="NO" id="AOD-aD-hfw"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="BracketButtonIcon" width="110" id="tEm-RK-T7A">
+                                    <barButtonItem image="BracketButtonIcon" width="75" id="tEm-RK-T7A">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="cje-vk-2tS" kind="show" identifier="TournamentSegue" animates="NO" id="i8c-xZ-DUE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="tournament" width="75" id="GK0-XE-Br4">
+                                        <connections>
+                                            <action selector="goToChallengeVc:" destination="BYZ-38-t0r" id="5iS-5M-cdM"/>
+                                            <segue destination="tQi-KN-1PK" kind="presentation" modalTransitionStyle="flipHorizontal" id="aPy-q0-ho3"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dCz-9Z-6Ez"/>
@@ -172,21 +178,54 @@
                                     <constraint firstAttribute="height" constant="20" id="bVe-El-rIq"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebr-WR-WpC" userLabel="Splash Screen View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COPA CLUB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PL-7s-SDl">
+                                        <rect key="frame" x="150" y="307" width="300" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="dG7-WB-nUU"/>
+                                            <constraint firstAttribute="width" constant="300" id="iSn-72-2kE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="36"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECj-fV-Cy6">
+                                        <rect key="frame" x="175" y="75" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="R6J-3N-siE"/>
+                                            <constraint firstAttribute="width" constant="250" id="uvs-yU-JtE"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35294117650000001" green="0.74901960779999999" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ECj-fV-Cy6" firstAttribute="centerY" secondItem="ebr-WR-WpC" secondAttribute="centerY" constant="-100" id="Dtg-ZD-C6O"/>
+                                    <constraint firstItem="3PL-7s-SDl" firstAttribute="centerX" secondItem="ebr-WR-WpC" secondAttribute="centerX" id="XVB-GO-ZL1"/>
+                                    <constraint firstItem="3PL-7s-SDl" firstAttribute="centerY" secondItem="ebr-WR-WpC" secondAttribute="centerY" constant="32" id="eKu-k4-g71"/>
+                                    <constraint firstItem="ECj-fV-Cy6" firstAttribute="centerX" secondItem="ebr-WR-WpC" secondAttribute="centerX" id="yhw-cU-LjJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="07C-lE-Wzk"/>
                             <constraint firstItem="GTo-ma-pIC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3YZ-zx-API"/>
+                            <constraint firstItem="ebr-WR-WpC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="9Kr-e0-g34"/>
                             <constraint firstItem="GTo-ma-pIC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C5Z-RZ-ENg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="izq-a9-pyn" secondAttribute="bottom" id="DwF-fk-ghX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TUr-j0-mMr" secondAttribute="trailing" constant="-20" id="FBc-mS-3RU"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Lq4-9f-Jmg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ebr-WR-WpC" secondAttribute="trailing" constant="-20" id="Mnh-RF-kkn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="izq-a9-pyn" secondAttribute="trailing" constant="-20" id="S8v-8N-uEE"/>
+                            <constraint firstItem="ebr-WR-WpC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="U4s-I1-ESZ"/>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Wy4-2u-hTS"/>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Yts-qR-SnT"/>
                             <constraint firstItem="TUr-j0-mMr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="g1U-vu-h8D"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="TUr-j0-mMr" secondAttribute="bottom" id="lsv-ma-OdN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TUr-j0-mMr" secondAttribute="trailing" constant="-20" id="wVa-4n-qHL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ebr-WR-WpC" secondAttribute="bottom" id="wdY-CB-drH"/>
                             <constraint firstItem="izq-a9-pyn" firstAttribute="top" secondItem="TUr-j0-mMr" secondAttribute="bottom" id="xxX-Af-ocd"/>
                         </constraints>
                     </view>
@@ -195,60 +234,15 @@
                         <outlet property="activityIndicator" destination="GTo-ma-pIC" id="18X-HL-b6y"/>
                         <outlet property="groupStandingsButton" destination="mwi-b8-qWT" id="qXF-Fe-ahu"/>
                         <outlet property="homeMatchesButton" destination="fUr-0o-Gsj" id="Ngj-rL-Usq"/>
+                        <outlet property="logoAnimationImageView" destination="ECj-fV-Cy6" id="7Rt-Za-7du"/>
                         <outlet property="playOffMatchesButton" destination="tEm-RK-T7A" id="BEb-ga-3Xj"/>
+                        <outlet property="splashScreenView" destination="ebr-WR-WpC" id="lMB-9c-kRm"/>
                         <outlet property="tableView" destination="TUr-j0-mMr" id="eU4-bW-Tvh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1525" y="172"/>
-        </scene>
-        <!--Splash ScreenVC-->
-        <scene sceneID="uLQ-Bk-wPy">
-            <objects>
-                <viewController id="5Xe-5i-T9S" customClass="SplashScreenVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="16B-qm-Syx"/>
-                        <viewControllerLayoutGuide type="bottom" id="fo2-L1-zgd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u2B-5x-Jhx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KFT-NT-bIx">
-                                <rect key="frame" x="175" y="75" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="s82-aA-MbS"/>
-                                    <constraint firstAttribute="height" constant="250" id="xKj-1I-xfy"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COPA CLUB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z29-Km-XyQ">
-                                <rect key="frame" x="150" y="307" width="300" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="tUs-vB-ugj"/>
-                                    <constraint firstAttribute="height" constant="50" id="ych-Zd-O17"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="36"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.3529411764705882" green="0.74901960784313726" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Z29-Km-XyQ" firstAttribute="centerX" secondItem="u2B-5x-Jhx" secondAttribute="centerX" id="6JC-V6-dSQ"/>
-                            <constraint firstItem="Z29-Km-XyQ" firstAttribute="centerY" secondItem="u2B-5x-Jhx" secondAttribute="centerY" constant="32" id="gRJ-tp-gSv"/>
-                            <constraint firstItem="KFT-NT-bIx" firstAttribute="centerY" secondItem="u2B-5x-Jhx" secondAttribute="centerY" constant="-100" id="gxj-mU-dSC"/>
-                            <constraint firstItem="KFT-NT-bIx" firstAttribute="centerX" secondItem="u2B-5x-Jhx" secondAttribute="centerX" id="pe7-RY-E4D"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="logoAnimationImageView" destination="KFT-NT-bIx" id="pHb-fa-Fpm"/>
-                        <segue destination="8gu-mv-4JN" kind="presentation" identifier="AnimationSegue" modalTransitionStyle="crossDissolve" id="2d9-LX-WHI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ww5-iE-nMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="129" y="172"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QMb-eT-bSG">
@@ -275,7 +269,7 @@
                 <viewControllerPlaceholder storyboardName="Game" id="1Cu-HM-W9m" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55T-AU-plN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205.5" y="794"/>
+            <point key="canvasLocation" x="1525.5" y="788"/>
         </scene>
         <!--Group-->
         <scene sceneID="RZJ-fw-8CH">
@@ -291,7 +285,15 @@
                 <viewControllerPlaceholder storyboardIdentifier="UIViewController-SuA-bu-kxJ" storyboardName="Tourny" referencedIdentifier="UIViewController-SuA-bu-kxJ" id="cje-vk-2tS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9a8-t6-gGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="514" y="794"/>
+            <point key="canvasLocation" x="1210" y="794"/>
+        </scene>
+        <!--Challenge-->
+        <scene sceneID="6EG-pP-en4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Challenge" id="tQi-KN-1PK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vI2-dU-qUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1980.5" y="172"/>
         </scene>
     </scenes>
     <resources>
@@ -299,6 +301,7 @@
         <image name="GroupsButtonIcon" width="50" height="50"/>
         <image name="matchesButtonImage" width="50" height="50"/>
         <image name="stadium" width="361" height="88"/>
+        <image name="tournament" width="48" height="47"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
