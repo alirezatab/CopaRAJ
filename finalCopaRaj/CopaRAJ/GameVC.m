@@ -445,7 +445,7 @@
 - (void)saveMatchInCalendar:(EKEventStore *)eventStore {
     
     EKEvent *event  = [EKEvent eventWithEventStore:eventStore];
-    event.title     = [NSString stringWithFormat:@"%@ vs %@" , self.match.local, self.match.visitor];
+    event.title     = [NSString stringWithFormat:@"%@ vs %@" , self.match.local_abbr, self.match.visitor_abbr];
     event.notes = [NSString stringWithFormat:NSLocalizedString(@"Open the app to track this game", nil)];
     event.startDate = self.match.nsdate;
     event.endDate   = [[NSDate alloc] initWithTimeInterval:5400 sinceDate:event.startDate];
@@ -463,7 +463,7 @@
         if (save) {
             NSLog(@"event saved this is the id %@" , self.eventSavedId);
             
-            NSString *match = [NSString stringWithFormat:@"%@ vs %@", self.match.local , self.match.visitor];
+            NSString *match = [NSString stringWithFormat:@"%@ vs %@", self.match.local_abbr , self.match.visitor_abbr];
             
             NSString *extraString = [NSString stringWithFormat:NSLocalizedString(@"added to your calendar", nil)];
             UIAlertController *alert = [UIAlertController alertControllerWithTitle: [NSString stringWithFormat:NSLocalizedString(@"Saved!", nil)]
@@ -520,7 +520,10 @@
 - (void)removeMatchFromCalendar:(EKEventStore *)eventStore {
     NSError *err;
     EKEvent *eventToRemove = [eventStore eventWithIdentifier:self.eventSavedId];
-    [eventStore removeEvent:eventToRemove span:EKSpanThisEvent commit: YES error:&err];
+    BOOL remove = [eventStore removeEvent:eventToRemove span:EKSpanThisEvent commit: YES error:&err];
+    if(remove){
+        NSLog(@"this is the error %@" , err);
+
     NSLog(@"event removed %@" , self.eventSavedId);
     UIAlertController *alert = [UIAlertController alertControllerWithTitle: [NSString stringWithFormat:NSLocalizedString(@"Match removed from calendar", nil)]
                                                                    message: nil
@@ -531,6 +534,17 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [alert dismissViewControllerAnimated:YES completion:nil];
     });
+    } else{
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle: [NSString stringWithFormat:NSLocalizedString(@"Copa Club can't remove this event from your calendar, please do it through your calendar App, sorry the inconvenience", nil)]
+                                                                       message: nil
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        //dismissing the alert
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        });
+    }
 }
 
 - (void)ifUserDontAllowCallendarPermission {
