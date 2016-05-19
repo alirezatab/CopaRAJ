@@ -107,7 +107,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                     
                     if ((DataService.dataService.CURRENT_USER_REF.authData.providerData["isTemporaryPassword"]?.boolValue)! == true){
                         print("Temp Pass was used")
-                        self.displayChangePasswordAlert("Password Setup", message: "Please enter your new password", email: email!)
+                        self.displayChangePasswordAlert("Password Setup", message: "Please enter your new password", email: email!, oldPassword: password!)
                     } else {
                         print("regular pass was used")
                     }
@@ -164,20 +164,19 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    func displayChangePasswordAlert(title: String, message: String, email: String) {
+    func displayChangePasswordAlert(title: String, message: String, email: String, oldPassword: String) {
         var newPasswordTextField: UITextField?
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             
             if newPasswordTextField?.text != "" {
-                print(DataService.dataService.CURRENT_USER_REF.authData.auth["provider"])
-                //DataService.dataService.CURRENT_USER_REF.setV
-                DataService.dataService.BASE_REF.changePasswordForUser(email, fromOld: DataService.dataService.CURRENT_USER_REF.authData.provider , toNew: newPasswordTextField?.text, withCompletionBlock: { (error) in
+
+                DataService.dataService.BASE_REF.changePasswordForUser(email, fromOld: oldPassword, toNew: newPasswordTextField?.text, withCompletionBlock: { (error) in
                     if (error == nil) {
                         self.displayErrorAlert("New Password", message: "Pasword has been changed")
                     } else {
-                        print(error)
-                        //self.displayErrorAlert("Unidentified email address", message:  "Please re-enter the email you registered with")
+                        print(error.localizedDescription)
+                        self.displayErrorAlert("Error", message:  error.localizedDescription)
                     }
                 })
             }
