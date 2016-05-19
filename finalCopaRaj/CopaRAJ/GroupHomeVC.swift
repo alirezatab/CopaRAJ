@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource{
   
@@ -57,12 +58,21 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
   }
 
     @IBAction func logoutButtonPressed(sender: AnyObject) {
-        // unauth() is the logout method for the current user
-        DataService.dataService.CURRENT_USER_REF.unauth()
+        if FBSDKAccessToken.currentAccessToken() == nil {
+             DataService.dataService.CURRENT_USER_REF.unauth()
+            // Remove the user's uid from storage
+              NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+            print("logged out from regular user account")
+        } else {
+            FBSDKAccessToken.currentAccessToken()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+            print("logged out from Facebook");
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
         
-        // Remove the user's uid from storage
-        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
-      
-
-  }
+    }
 }
