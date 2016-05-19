@@ -1,11 +1,11 @@
+////
+////  PickGroupVC.m
+////  CopaRAJ
+////
+////  Created by Richard Velazquez on 5/18/16.
+////  Copyright © 2016 AR-T.com, Inc. All rights reserved.
+////
 //
-//  PickGroupVC.m
-//  CopaRAJ
-//
-//  Created by Richard Velazquez on 5/18/16.
-//  Copyright © 2016 AR-T.com, Inc. All rights reserved.
-//
-
 //#import "working.h"
 //#import "Team.h"
 //#import "AppDelegate.h"
@@ -250,17 +250,10 @@
 //  return proposedDestinationIndexPath;
 //}
 //
-//- (IBAction)onFinalizeButtonPressed:(UIButton *)sender {
-//  if (self.tableView.editing) {
-//    [self.tableView setEditing:false];
-//  } else {
-//    [self.tableView setEditing:true];
-//  }
-//  
-//}
+//
 //
 //@end
-//
-//
-//
-//
+
+
+
+

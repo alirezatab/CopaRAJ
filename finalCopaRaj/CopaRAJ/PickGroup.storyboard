@@ -25,7 +25,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="team" rowHeight="76" id="CxS-NE-NKP" customClass="GroupTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="team" rowHeight="76" id="CxS-NE-NKP" customClass="GroupTableViewCell">
                                         <rect key="frame" x="0.0" y="92" width="600" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CxS-NE-NKP" id="xy9-nY-cqJ">
@@ -68,8 +68,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="SGL-5v-fBN" id="uWK-Ft-vuw"/>
-                                    <outlet property="delegate" destination="SGL-5v-fBN" id="uOH-tg-Kkb"/>
+                                    <outlet property="dataSource" destination="SGL-5v-fBN" id="FvR-ev-K2s"/>
+                                    <outlet property="delegate" destination="SGL-5v-fBN" id="JP8-0J-QqY"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lF-ZZ-dDH">
@@ -81,7 +81,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onFinalizeButtonPressed:" destination="SGL-5v-fBN" eventType="touchUpInside" id="MeL-PH-RFQ"/>
+                                    <action selector="finalizeButtonPressed:" destination="SGL-5v-fBN" eventType="touchUpInside" id="KRA-bZ-zWV"/>
                                 </connections>
                             </button>
                         </subviews>
