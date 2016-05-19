@@ -13,6 +13,8 @@
 #import "GroupTableViewCell.h"
 #import "FBGroup.h"
 #import <Firebase/Firebase.h>
+#import "CopaRAJ-Swift.h"
+
 
 @interface GroupVC ()<UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate>
 @property NSManagedObjectContext *moc;
@@ -23,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeMatchesButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *groupStandingsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *challengeButton;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
@@ -44,11 +47,14 @@
     [self.activityIndicator setHidesWhenStopped:YES];
     self.groups = [NSMutableArray new];
     
+    UIColor *unselectedButtonColor =  [UIColor colorWithWhite:0.606 alpha:1.000];
     [self.homeMatchesButton setImage: [UIImage imageNamed:NSLocalizedString(@"imageName", nil)]];
-    
-    [self.homeMatchesButton setTintColor:[UIColor grayColor]];
+    [self.homeMatchesButton setTintColor:unselectedButtonColor];
+    [self.challengeButton setTintColor:unselectedButtonColor];
+    [self.playOffMatchesButton setTintColor:unselectedButtonColor];
     [self.groupStandingsButton setTintColor:[UIColor whiteColor]];
-    [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
+
+    
     
     [self createListeners];
     self.tableView.allowsSelection = NO;
@@ -232,6 +238,19 @@
 {
     return 50;
 }
+
+- (IBAction)goToChallengeVC:(UIBarButtonItem *)sender {
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
+    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
+
+
+
 @end
 
 

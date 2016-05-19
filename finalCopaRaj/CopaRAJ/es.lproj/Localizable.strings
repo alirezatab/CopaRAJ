@@ -42,6 +42,23 @@
 "until kickoff" = "Para este partido";
 "replaced by" = "reemplazado por";
 "imageName" = "Juegos";
+"Save game to calendar?" = "Guardar este partido en tu calendario?";
+"Save" = "Guardar";
+"Cancel" = "Cancelar";
+"Open the app to track this game" = "Abrir la app para seguir este partido";
+"Saved!" = "Guardado!";
+"added to your calendar" = "fue añadido a tu calendario";
+"Please go to your app settings and allow Copa Club to acces your calendar" = "Por favor anda a la configuración de la app y permite a Copa Club acceder a tu calendario";
+"You don't want to miss this game, do you?" = "No querrás perder este partido, cierto?";
+"Go" = "Ir";
+"Add match to calendar" = "Guardar en el calendario";
+"Remove match from calendar?" = "Remover partido del calendario?";
+"Match saved already in calendar" = "Este partido ya fue añadido a tu calendario";
+"Remove" = "Remover";
+"Match removed from calendar" = "Partido borrado de tu calendario";
+"You will be notified 1 hour before the match starts" = "Serás notificado una hora antes del partido";
+"was already saved in your calendar" = "ya fue guardado en tu calendario";
+
 
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8gu-mv-4JN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8gu-mv-4JN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -29,19 +29,27 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5PP-7U-Mzf"/>
-                                    <barButtonItem image="matchesButtonImage" width="110" id="fUr-0o-Gsj">
+                                    <barButtonItem image="matchesButtonImage" width="75" id="fUr-0o-Gsj">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
-                                    <barButtonItem image="GroupsButtonIcon" width="110" id="mwi-b8-qWT">
+                                    <barButtonItem image="GroupsButtonIcon" width="75" id="mwi-b8-qWT">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="JQg-Da-tjf" kind="show" animates="NO" id="AOD-aD-hfw"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="BracketButtonIcon" width="110" id="tEm-RK-T7A">
+                                    <barButtonItem image="BracketButtonIcon" width="75" id="tEm-RK-T7A">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="cje-vk-2tS" kind="show" identifier="TournamentSegue" animates="NO" id="i8c-xZ-DUE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="challengeIcon" width="65" id="GK0-XE-Br4">
+                                        <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <connections>
+                                            <action selector="goToChallengeVc:" destination="BYZ-38-t0r" id="5iS-5M-cdM"/>
+                                            <segue destination="tQi-KN-1PK" kind="presentation" modalTransitionStyle="flipHorizontal" id="aPy-q0-ho3"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dCz-9Z-6Ez"/>
@@ -57,7 +65,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Swl-V8-MwE" id="ygE-3h-7mW">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3yO-DP-twc">
@@ -88,41 +96,31 @@
                                                     <rect key="frame" x="78" y="28" width="444" height="49"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HLM-EO-Jr9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="74" height="49"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PLF-ED-9lV">
-                                                            <rect key="frame" x="74" y="0.0" width="74" height="49"/>
+                                                            <rect key="frame" x="89" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="penalties" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Mr-kZ2">
-                                                            <rect key="frame" x="148" y="0.0" width="74" height="49"/>
+                                                            <rect key="frame" x="178" y="0.0" width="88" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-Is-SBu">
-                                                            <rect key="frame" x="222" y="0.0" width="74" height="49"/>
+                                                            <rect key="frame" x="266" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOu-Ny-Y9q">
-                                                            <rect key="frame" x="296" y="0.0" width="74" height="49"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                                            <state key="normal" title="Button">
-                                                                <color key="titleColor" red="0.99292868590000005" green="0.0" blue="0.018589324800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <segue destination="tQi-KN-1PK" kind="presentation" identifier="ChallengeHomeVC" modalTransitionStyle="flipHorizontal" id="yJm-wN-QNS"/>
-                                                            </connections>
-                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team 2 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VyA-WJ-wNT">
-                                                            <rect key="frame" x="370" y="0.0" width="74" height="49"/>
+                                                            <rect key="frame" x="355" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -185,13 +183,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebr-WR-WpC" userLabel="Splash Screen View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECj-fV-Cy6">
-                                        <rect key="frame" x="175" y="75" width="250" height="250"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="R6J-3N-siE"/>
-                                            <constraint firstAttribute="width" constant="250" id="uvs-yU-JtE"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COPA CLUB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PL-7s-SDl">
                                         <rect key="frame" x="150" y="307" width="300" height="50"/>
                                         <constraints>
@@ -202,6 +193,13 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECj-fV-Cy6">
+                                        <rect key="frame" x="175" y="75" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="R6J-3N-siE"/>
+                                            <constraint firstAttribute="width" constant="250" id="uvs-yU-JtE"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35294117650000001" green="0.74901960779999999" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -236,6 +234,7 @@
                     <navigationItem key="navigationItem" title="Copa Club" id="zb4-O1-TtV"/>
                     <connections>
                         <outlet property="activityIndicator" destination="GTo-ma-pIC" id="18X-HL-b6y"/>
+                        <outlet property="challengeButton" destination="GK0-XE-Br4" id="4jx-Kj-aAs"/>
                         <outlet property="groupStandingsButton" destination="mwi-b8-qWT" id="qXF-Fe-ahu"/>
                         <outlet property="homeMatchesButton" destination="fUr-0o-Gsj" id="Ngj-rL-Usq"/>
                         <outlet property="logoAnimationImageView" destination="ECj-fV-Cy6" id="7Rt-Za-7du"/>
@@ -303,6 +302,7 @@
     <resources>
         <image name="BracketButtonIcon" width="50" height="50"/>
         <image name="GroupsButtonIcon" width="50" height="50"/>
+        <image name="challengeIcon" width="35" height="39"/>
         <image name="matchesButtonImage" width="50" height="50"/>
         <image name="stadium" width="361" height="88"/>
     </resources>

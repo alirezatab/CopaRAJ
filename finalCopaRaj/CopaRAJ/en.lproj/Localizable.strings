@@ -41,4 +41,21 @@
 "until kickoff" = "until kickoff";
 "replaced by" = "replaced by";
 "imageName" = "matchesButtonImage";
+"Save game to calendar?" = "Save game to calendar?";
+"Save" = "Save";
+"Cancel" = "Cancel";
+"Open the app to track this game" = "Open the app to track this game";
+"Saved!" = "Saved!";
+"added to your calendar" = "added to your calendar";
+"Please go to your app settings and allow Copa Club to acces your calendar" = "Please go to your app settings and allow Copa Club to acces your calendar";
+"You don't want to miss this game, do you?" = "You don't want to miss this game, do you?";
+"Go" = "Go";
+"Add match to calendar" = "Add match to calendar";
+"Remove match from calendar?" = "Remove match from Calendar?";
+"Match saved already in calendar" = "Match saved already in calendar";
+"Remove" = "Remove";
+"Match removed from calendar" = "Match removed from calendar";
+"You will be notified 1 hour before the match starts" = "You will be notified 1 hour before the match starts";
+"was already saved in your calendar" = "was already saved in your calendar";
+
 

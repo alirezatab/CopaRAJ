@@ -10,7 +10,7 @@
 #import <Firebase/Firebase.h>
 #import "FBMatch.h"
 #import "EventCell.h"
-
+#import <EventKit/EventKit.h>
 
 @interface GameVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *lineUpVisitorFlag;
 @property NSDate *date;
 @property (weak, nonatomic) IBOutlet UITextView *countDownTextView;
+@property NSString *eventSavedId;
+@property BOOL eventExists;
+
 
 @end
 
@@ -52,6 +55,9 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     self.date = self.match.nsdate;
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+    [[self.eventsCalendarButton layer] setBorderWidth:2.0f];
+    [[self.eventsCalendarButton layer] setBorderColor:[UIColor whiteColor].CGColor];
+    self.eventsCalendarButton.titleLabel.font = [UIFont fontWithName:@"Gotham Narrow" size:17];
 }
 
 - (void)localizeStrings {
@@ -95,7 +101,9 @@
     [self.teamBPlayer8 setText:[NSString stringWithFormat:NSLocalizedString(@"player 8", nil)]];
     [self.teamBPlayer9 setText:[NSString stringWithFormat:NSLocalizedString(@"player 9", nil)]];
     [self.teamBPlayer10 setText:[NSString stringWithFormat:NSLocalizedString(@"player 10", nil)]];
-    [self.teamBPlayer11 setText:[NSString stringWithFormat:NSLocalizedString(@"player 11", nil)]];    
+    [self.teamBPlayer11 setText:[NSString stringWithFormat:NSLocalizedString(@"player 11", nil)]];
+    //text button
+     [self.eventsCalendarButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"Add match to calendar", nil)] forState:UIControlStateNormal];
 }
 
 - (void)eventsTableViewAppears {
@@ -391,6 +399,151 @@
         self.eventsView.hidden = YES;
     }
 }
+
+
+- (IBAction)onEventButtonTapped:(UIButton *)sender {
+    
+    EKEventStore *eventStore = [[EKEventStore alloc] init];
+    if([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)]) {
+        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            if (granted){
+                [self ifUserAllowsCalendarPermission:eventStore];
+            }
+            else
+            {
+                [self ifUserDontAllowCallendarPermission];
+            }
+        }];
+    }
+}
+
+
+- (void)ifUserAllowsCalendarPermission:(EKEventStore*)eventStore {
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        
+        UIAlertController *modalAlert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Save game to calendar?", nil)]
+                                                                            message:[NSString stringWithFormat:NSLocalizedString(@"You will be notified 1 hour before the match starts", nil)]
+                                                                     preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIAlertAction *saveDate = [UIAlertAction actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Save", nil)]
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                               [self saveMatchInCalendar:eventStore];
+                                                           }];//save data block end
+        
+        UIAlertAction *dontSaveDate = [UIAlertAction actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Cancel", nil)]
+                                                               style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                                   NSLog(@"date dont saved");
+                                                                   
+                                                               }];
+        [modalAlert addAction:saveDate];
+        [modalAlert addAction:dontSaveDate];
+        [self presentViewController:modalAlert animated:YES completion:nil];
+    });//end dispatch
+}
+
+- (void)saveMatchInCalendar:(EKEventStore *)eventStore {
+    
+    EKEvent *event  = [EKEvent eventWithEventStore:eventStore];
+    event.title     = [NSString stringWithFormat:@"%@ vs %@" , self.match.local_abbr, self.match.visitor_abbr];
+    event.notes = [NSString stringWithFormat:NSLocalizedString(@"Open the app to track this game", nil)];
+    event.startDate = self.match.nsdate;
+    event.endDate   = [[NSDate alloc] initWithTimeInterval:5400 sinceDate:event.startDate];
+    event.URL = [NSURL URLWithString:@"https://itunes.apple.com/us/app/copa-club-copa-america-live/id1111302609?mt=8"];
+    [event setCalendar:[eventStore defaultCalendarForNewEvents]];
+    EKAlarm *alarm=[EKAlarm alarmWithRelativeOffset:-3600];
+    [event addAlarm:alarm];
+    
+    [self checkIfEventExists:eventStore :event];
+    
+    if(!self.eventExists){
+        NSError *err;
+        BOOL save =  [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
+        self.eventSavedId = event.eventIdentifier;
+        if (save) {
+            NSLog(@"event saved this is the id %@" , self.eventSavedId);
+            [self alertUserThatMatchIsSaved];
+        }
+    }else{
+        NSLog(@"this event is already saved %@ ", event.title);
+        [self alertUserThatMatchWasAlreadySaved];
+    }
+}
+
+- (void)checkIfEventExists:(EKEventStore*)eventStore :(EKEvent*)event {
+    
+    NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:event.startDate endDate:event.endDate calendars:nil];
+    NSArray *eventsOnDate = [eventStore eventsMatchingPredicate:predicate];
+    self.eventExists  = NO;
+    [eventsOnDate enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        EKEvent *eventToCheck = (EKEvent*)obj;
+        if([event.title isEqualToString:eventToCheck.title])
+        {
+            self.eventExists = YES;
+            *stop = YES;
+        }
+    }];
+}
+
+- (void)alertUserThatMatchIsSaved {
+    
+    NSString *match = [NSString stringWithFormat:@"%@ vs %@", self.match.local_abbr , self.match.visitor_abbr];
+    NSString *extraString = [NSString stringWithFormat:NSLocalizedString(@"added to your calendar", nil)];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle: [NSString stringWithFormat:NSLocalizedString(@"Saved!", nil)]
+                                                                   message: [NSString stringWithFormat:@"%@ %@", match, extraString]
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    });
+}
+
+- (void)alertUserThatMatchWasAlreadySaved {
+    
+    NSString *match = [NSString stringWithFormat:@"%@ vs %@", self.match.local_abbr , self.match.visitor_abbr];
+    NSString *extraString = [NSString stringWithFormat:NSLocalizedString(@"was already saved in your calendar", nil)];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle: nil
+                                                                   message: [NSString stringWithFormat:@"%@ %@", match, extraString]
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    });
+}
+
+- (void)ifUserDontAllowCallendarPermission {
+    
+    NSLog(@"Permission not allowed");
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        UIAlertController *settingAlert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Please go to your app settings and allow Copa Club to acces your calendar", nil)]
+                                                                              message:[NSString stringWithFormat:NSLocalizedString(@"You don't want to miss this game, do you?", nil)]
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Cancel", nil)]
+                                                         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                             NSLog(@"ill do it later");
+                                                         }];
+        UIAlertAction *go = [UIAlertAction actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Go", nil)]
+                                                     style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                                                     }];
+        
+        [settingAlert addAction:cancel];
+        [settingAlert addAction:go];
+        [self presentViewController:settingAlert animated:YES completion:nil];
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

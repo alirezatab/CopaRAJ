@@ -20,6 +20,7 @@
 #import "GroupVC.h"
 #import "GameVC.h"
 //#import "ChallengeHomeVC.swift"
+#import "CopaRAJ-Swift.h"
 
 @interface HomeVC ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
@@ -28,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *groupStandingsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
 @property (weak, nonatomic) IBOutlet UIView *cupView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *challengeButton;
+
 
 @property NSMutableArray *mathches;
 @property NSMutableArray *sortedMatches;
@@ -61,10 +64,12 @@
     self.intCalls = 0;
     self.navigationItem.hidesBackButton = YES;
     
-    [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
+    UIColor *unselectedButtonColor =  [UIColor colorWithWhite:0.606 alpha:1.000];
     [self.homeMatchesButton setImage: [UIImage imageNamed:NSLocalizedString(@"imageName", nil)]];
-    [self.groupStandingsButton setTintColor:[UIColor grayColor]];
-    [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
+    [self.groupStandingsButton setTintColor:unselectedButtonColor];
+    [self.challengeButton setTintColor:unselectedButtonColor];
+    [self.playOffMatchesButton setTintColor:unselectedButtonColor];
+    [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
     
     [self initNeededObjects];
     [self callFireBase];
@@ -215,8 +220,8 @@
         [self getMatchesFromFireBase];
         
     } withCancelBlock:^(NSError *error) {
-        NSLog(@"%@", error.description);
-        [self presentErrorWithString:error.description];
+        NSLog(@"%@", error.localizedDescription);
+        [self presentErrorWithString:error.localizedDescription];
     }];
 }
 
@@ -266,7 +271,7 @@
     
     
   } withCancelBlock:^(NSError *error) {
-    [self presentErrorWithString:error.description];
+    [self presentErrorWithString:error.localizedDescription];
   }];
 }
 
@@ -1007,6 +1012,21 @@
 //@property NSMutableArray *m16;
 //@property NSMutableArray *m17;
 //@property NSMutableArray *m18;
+
+- (IBAction)goToChallengeVc:(UIBarButtonItem *)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
+    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
+
+
+
+
+
+
 
 
 @end

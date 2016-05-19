@@ -23,6 +23,7 @@
 		7BC9FFA61CDB30F500711636 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FF9D1CDB30F500711636 /* Localizable.strings */; };
 		7BC9FFA71CDB30F500711636 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FF9F1CDB30F500711636 /* Main.strings */; };
 		7BC9FFA81CDB30F500711636 /* Tourny.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FFA11CDB30F500711636 /* Tourny.strings */; };
+		7BCCB18F1CE64D2700222396 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCCB18E1CE64D2700222396 /* EventKit.framework */; };
 		7BD056121CC70EA100BCB113 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0560A1CC70EA100BCB113 /* Team.m */; };
 		7BD056251CC73A9D00BCB113 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0561F1CC73A9D00BCB113 /* Group.m */; };
 		7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BD870B61CCA7F880020C125 /* playOffMatches.plist */; };
@@ -105,6 +106,7 @@
 		7BC9FF9E1CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		7BC9FFA01CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Main.strings; sourceTree = "<group>"; };
 		7BC9FFA21CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Tourny.strings; sourceTree = "<group>"; };
+		7BCCB18E1CE64D2700222396 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		7BD056091CC70EA100BCB113 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = SOURCE_ROOT; };
 		7BD0560A1CC70EA100BCB113 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = SOURCE_ROOT; };
 		7BD0561E1CC73A9D00BCB113 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
@@ -177,9 +179,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				7BCCB18F1CE64D2700222396 /* EventKit.framework in Frameworks */,
+				064602D64D595AB497F40CC4 /* libPods.a in Frameworks */,
+
 				032AA656B2380D13CB362567 /* libPods.a in Frameworks */,
 				C2423FB01CEADC45008559E1 /* FBSDKCoreKit.framework in Frameworks */,
 				C2423FB21CEADC53008559E1 /* FBSDKLoginKit.framework in Frameworks */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,9 +210,14 @@
 		6638C288E3486B8F543FC221 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+
+				7BCCB18E1CE64D2700222396 /* EventKit.framework */,
+				13045D6BBB029591013183BE /* libPods.a */,
+
 				C2423FB11CEADC53008559E1 /* FBSDKLoginKit.framework */,
 				C2423FAF1CEADC45008559E1 /* FBSDKCoreKit.framework */,
 				6DBA652AE4BAFEBB5DF68D04 /* libPods.a */,
+
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -620,7 +632,7 @@
 				TargetAttributes = {
 					C2C5C0081CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = W3R2G523R9;
+						DevelopmentTeam = ULU46F325W;
 					};
 					C2C5C0241CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
@@ -995,7 +1007,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/richardvelazquez/Desktop/dev/MobileMakers/CopaRAJ/finalCopaRaj/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = /Users/jamesrochabrun/Desktop/CopaRAJ/finalCopaRaj/FacebookSDK;
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1015,7 +1027,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/richardvelazquez/Desktop/dev/MobileMakers/CopaRAJ/finalCopaRaj/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = /Users/jamesrochabrun/Desktop/CopaRAJ/finalCopaRaj/FacebookSDK;
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
