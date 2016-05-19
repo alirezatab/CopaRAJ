@@ -45,11 +45,11 @@ class DataService {
         USER_REF.childByAppendingPath(uid).setValue(user)
     }
   
-  func updateCurrentUserWithGroupID(groupID: String, completionHandler: CompletionHandler) {
+  func updateCurrentUserWithGroupID(groupID: String, groupImage: String, groupName: String, completionHandler: CompletionHandler) {
     let ref = Firebase(url: "\(CURRENT_USER_REF)")
     ref.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) in
       let newGroup = ref.childByAutoId()
-      let newGroupDetails = ["groupName": groupID]
+      let newGroupDetails = ["groupID": groupID, "groupImage":groupImage, "groupName": groupName]
       newGroup.setValue(newGroupDetails)
       let flag = true
       completionHandler(success: flag)

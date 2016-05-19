@@ -61,6 +61,7 @@
 		D87962701CED3189001E3069 /* CopaAmericaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */; };
 		D87962721CED334A001E3069 /* ChallengeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87962711CED334A001E3069 /* ChallengeTeam.swift */; };
 		D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66661CCED12100B5C8FE /* FBMatch.m */; };
+		D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */; };
 		D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */; };
 		D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */; };
 		D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C41CC5B6F9003F8465 /* GroupVC.m */; };
@@ -162,6 +163,7 @@
 		D8AB66631CCECF9900B5C8FE /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBGroup.m; sourceTree = "<group>"; };
 		D8AB66651CCED12100B5C8FE /* FBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMatch.h; sourceTree = "<group>"; };
 		D8AB66661CCED12100B5C8FE /* FBMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBMatch.m; sourceTree = "<group>"; };
+		D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupHomeCell.swift; sourceTree = "<group>"; };
 		D8F2D0BD1CC59537003F8465 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		D8F2D0C01CC5B50F003F8465 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
@@ -179,14 +181,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				7BCCB18F1CE64D2700222396 /* EventKit.framework in Frameworks */,
-				064602D64D595AB497F40CC4 /* libPods.a in Frameworks */,
-
 				032AA656B2380D13CB362567 /* libPods.a in Frameworks */,
 				C2423FB01CEADC45008559E1 /* FBSDKCoreKit.framework in Frameworks */,
 				C2423FB21CEADC53008559E1 /* FBSDKLoginKit.framework in Frameworks */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,14 +208,10 @@
 		6638C288E3486B8F543FC221 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-
 				7BCCB18E1CE64D2700222396 /* EventKit.framework */,
-				13045D6BBB029591013183BE /* libPods.a */,
-
 				C2423FB11CEADC53008559E1 /* FBSDKLoginKit.framework */,
 				C2423FAF1CEADC45008559E1 /* FBSDKCoreKit.framework */,
 				6DBA652AE4BAFEBB5DF68D04 /* libPods.a */,
-
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -437,6 +431,7 @@
 		D82E42741CE56876004812FF /* GroupsHome */ = {
 			isa = PBXGroup;
 			children = (
+				D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */,
 				D82E42631CE52096004812FF /* GroupHome.storyboard */,
 			);
 			name = GroupsHome;
@@ -792,6 +787,7 @@
 				D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */,
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
 				D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */,
+				D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */,
 				7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */,
 				D879626C1CECF25F001E3069 /* working.m in Sources */,
 				C244BEFA1CE7E9E500C4371D /* GroupHomeVC.swift in Sources */,
@@ -1007,7 +1003,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/jamesrochabrun/Desktop/CopaRAJ/finalCopaRaj/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = /Users/richardvelazquez/Desktop/dev/MobileMakers/CopaRAJ/finalCopaRaj/FacebookSDK;
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1027,7 +1023,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/jamesrochabrun/Desktop/CopaRAJ/finalCopaRaj/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = /Users/richardvelazquez/Desktop/dev/MobileMakers/CopaRAJ/finalCopaRaj/FacebookSDK;
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
