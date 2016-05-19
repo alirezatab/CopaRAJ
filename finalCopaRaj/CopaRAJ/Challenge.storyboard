@@ -70,7 +70,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="OQp-85-8bz" kind="show" id="L7h-Ef-j63"/>
+                                    <action selector="forgottenPassword:" destination="CIU-BF-wDy" eventType="touchUpInside" id="94F-P8-TdH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -297,7 +297,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pli-so-dII"/>
+        <segue reference="mU3-iM-Hhe"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
