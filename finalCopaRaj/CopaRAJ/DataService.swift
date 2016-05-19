@@ -16,6 +16,8 @@ class DataService {
     private var _BASE_REF = Firebase(url: "\(BASE_URL)")
     private var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     private var _CHALLENGEGROUPS_REF = Firebase(url: "\(BASE_URL)/ChallengeGroups")
+    typealias CompletionHandler = (success:Bool) -> Void
+
 
     //private var _JOKE_REF = Firebase(url: "\(BASE_URL)/jokes")
     
@@ -43,16 +45,24 @@ class DataService {
         USER_REF.childByAppendingPath(uid).setValue(user)
     }
   
-    func updateCurrentUserWithGroupID(groupID: String) {
+  func updateCurrentUserWithGroupID(groupID: String, completionHandler: CompletionHandler) {
     let ref = Firebase(url: "\(CURRENT_USER_REF)")
     ref.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) in
       let newGroup = ref.childByAutoId()
-      let newGroupDetails = ["name": groupID]
+      let newGroupDetails = ["groupName": groupID]
       newGroup.setValue(newGroupDetails)
+      let flag = true
+      completionHandler(success: flag)
       
       }) { (error) in
-        self.updateCurrentUserWithGroupID("fail")
+        let flag = false
+        completionHandler(success: flag)
+
       }
+    
     }
+  
+  
+ 
 }
 

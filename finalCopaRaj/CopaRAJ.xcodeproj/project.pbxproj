@@ -55,6 +55,10 @@
 		D82E428A1CE581E0004812FF /* ChallengeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E42891CE581E0004812FF /* ChallengeGroup.swift */; };
 		D8594CA21CE66DD1008965F0 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8594CA11CE66DD1008965F0 /* CreateGroup.storyboard */; };
 		D86317ED1CEAF5C1009E9076 /* ChallengeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */; };
+		D879626C1CECF25F001E3069 /* working.m in Sources */ = {isa = PBXBuildFile; fileRef = D879626B1CECF25F001E3069 /* working.m */; };
+		D879626E1CED138D001E3069 /* PickGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879626D1CED138D001E3069 /* PickGroupVC.swift */; };
+		D87962701CED3189001E3069 /* CopaAmericaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */; };
+		D87962721CED334A001E3069 /* ChallengeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87962711CED334A001E3069 /* ChallengeTeam.swift */; };
 		D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66661CCED12100B5C8FE /* FBMatch.m */; };
 		D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */; };
 		D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */; };
@@ -147,6 +151,11 @@
 		D82E42891CE581E0004812FF /* ChallengeGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeGroup.swift; sourceTree = "<group>"; };
 		D8594CA11CE66DD1008965F0 /* CreateGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
 		D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeUser.swift; sourceTree = "<group>"; };
+		D879626A1CECF25F001E3069 /* working.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = working.h; sourceTree = "<group>"; };
+		D879626B1CECF25F001E3069 /* working.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = working.m; sourceTree = "<group>"; };
+		D879626D1CED138D001E3069 /* PickGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGroupVC.swift; sourceTree = "<group>"; };
+		D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopaAmericaGroup.swift; sourceTree = "<group>"; };
+		D87962711CED334A001E3069 /* ChallengeTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTeam.swift; sourceTree = "<group>"; };
 		D8AB66621CCECF9900B5C8FE /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBGroup.h; sourceTree = "<group>"; };
 		D8AB66631CCECF9900B5C8FE /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBGroup.m; sourceTree = "<group>"; };
 		D8AB66651CCED12100B5C8FE /* FBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMatch.h; sourceTree = "<group>"; };
@@ -356,6 +365,7 @@
 		D82E42611CE518E5004812FF /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				C2F6D1AD1CE5102A005F01FD /* CopaRAJ-Bridging-Header.h */,
 				C244BEFB1CE80F2700C4371D /* Service */,
 				D82E42861CE576F8004812FF /* View */,
 				D82E42851CE576F1004812FF /* Model */,
@@ -397,6 +407,9 @@
 				C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */,
 				C244BEF91CE7E9E500C4371D /* GroupHomeVC.swift */,
 				C2A09F3A1CE94DA500268544 /* CreateAccountVC.swift */,
+				D879626A1CECF25F001E3069 /* working.h */,
+				D879626B1CECF25F001E3069 /* working.m */,
+				D879626D1CED138D001E3069 /* PickGroupVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -462,6 +475,8 @@
 			children = (
 				D82E42891CE581E0004812FF /* ChallengeGroup.swift */,
 				D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */,
+				D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */,
+				D87962711CED334A001E3069 /* ChallengeTeam.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -496,7 +511,6 @@
 				D8F2D0CA1CC5B75F003F8465 /* GameVC.m */,
 				D8F2D0CC1CC5B777003F8465 /* TourneyVC.h */,
 				D8F2D0CD1CC5B777003F8465 /* TourneyVC.m */,
-				C2F6D1AD1CE5102A005F01FD /* CopaRAJ-Bridging-Header.h */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -606,7 +620,7 @@
 				TargetAttributes = {
 					C2C5C0081CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = FYX37TYYH9;
+						DevelopmentTeam = W3R2G523R9;
 					};
 					C2C5C0241CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
@@ -749,13 +763,16 @@
 				C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */,
 				D86317ED1CEAF5C1009E9076 /* ChallengeUser.swift in Sources */,
 				D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */,
+				D87962721CED334A001E3069 /* ChallengeTeam.swift in Sources */,
 				7BD056251CC73A9D00BCB113 /* Group.m in Sources */,
+				D879626E1CED138D001E3069 /* PickGroupVC.swift in Sources */,
 				7B1FF1D61CD0152700B031B0 /* Match.m in Sources */,
 				D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */,
 				C20EB5C21CE67E10000E36B7 /* ChallengeLogInVC.swift in Sources */,
 				7B84DCFB1CC8421F0021524F /* Team+CoreDataProperties.m in Sources */,
 				7B1FF1D51CD0152700B031B0 /* Match+CoreDataProperties.m in Sources */,
 				D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */,
+				D87962701CED3189001E3069 /* CopaAmericaGroup.swift in Sources */,
 				C2A09F3B1CE94DA500268544 /* CreateAccountVC.swift in Sources */,
 				C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */,
 				C290DDFF1CD5FA18002FB7B6 /* EventCell.m in Sources */,
@@ -764,6 +781,7 @@
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
 				D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */,
 				7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */,
+				D879626C1CECF25F001E3069 /* working.m in Sources */,
 				C244BEFA1CE7E9E500C4371D /* GroupHomeVC.swift in Sources */,
 				D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */,
 				7B3DB4351CD1E01900EB00D3 /* FBGroup.m in Sources */,

@@ -156,10 +156,14 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
         let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName, "lastName": lastName]
         
         newUsersListFirstMember.setValue(userPickDetails)
-        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key)
+        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, completionHandler: { (success) in
+          self.activityIndicator.stopAnimating()
+          self.performSegueWithIdentifier("pickGroup", sender: nil)
+        })
       }
       else {
-        self.presentAlertGroupAlreadyExists()
+        self.activityIndicator.stopAnimating()
+        self.presentGroupSaveFailure()
       }
       }) { (NSError) in
         print(NSError.description)
@@ -174,6 +178,13 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     self.presentViewController(alert, animated: false, completion: nil)
   }
   
+  func presentGroupSaveFailure() {
+    let alert = UIAlertController(title: "Something went wrong when saving your information", message: "Please try again", preferredStyle: .Alert)
+    let action = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+    }
+    alert.addAction(action)
+    self.presentViewController(alert, animated: false, completion: nil)
+  }
   
 
 }
