@@ -30,6 +30,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
         
       self.finalizeButton.backgroundColor = UIColor.grayColor()
       self.finalizeButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
+      self.title = "Create Challenge"
       self.finalizeButton.enabled = false
       self.activityIndicator.hidden = true
       self.groupHelpLabel.hidden = true
@@ -151,12 +152,12 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
         
         let newUsersListFirstMember = newFBGroup.childByAppendingPath(DataService.dataService.CURRENT_USER_REF.key)
         
-        let firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as! String
-        let lastName = NSUserDefaults.standardUserDefaults().valueForKey("lastName") as! String
-        let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName, "lastName": lastName]
+        let firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as? String
+        let lastName = NSUserDefaults.standardUserDefaults().valueForKey("lastName") as? String
+        let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName! as String, "lastName": lastName! as String]
         
         newUsersListFirstMember.setValue(userPickDetails)
-        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: "Argentina", groupName: passedGroup.name as! String, completionHandler: { (success) in
+        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: "Argentina", groupName: passedGroup.name as! String, createdBy: "\(firstName) \(lastName)", completionHandler: { (success) in
           
               self.activityIndicator.stopAnimating()
               self.performSegueWithIdentifier("pickGroup", sender: nil)
