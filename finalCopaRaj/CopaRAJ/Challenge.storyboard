@@ -118,51 +118,6 @@
             </objects>
             <point key="canvasLocation" x="4226.5" y="-61"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="mkj-8v-0Hi">
-            <objects>
-                <viewController id="OQp-85-8bz" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CVt-F1-AyF"/>
-                        <viewControllerLayoutGuide type="bottom" id="Fph-00-fHa"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="z24-ez-XKO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RRh-T3-vVb">
-                                <rect key="frame" x="175" y="181" width="250" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfB-UP-JpB">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="4VC-jB-yVg"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Recover Password" id="bCt-B7-aDx"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQS-0s-sTi">
-                                <rect key="frame" x="237" y="250" width="126" height="30"/>
-                                <state key="normal" title="Recover password">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="MfB-UP-JpB" firstAttribute="top" secondItem="z24-ez-XKO" secondAttribute="topMargin" id="0eo-1R-lXv"/>
-                            <constraint firstItem="MfB-UP-JpB" firstAttribute="leading" secondItem="z24-ez-XKO" secondAttribute="leadingMargin" constant="-20" id="cIc-CL-pIx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MfB-UP-JpB" secondAttribute="trailing" constant="-20" id="cgl-l0-OdB"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U9P-h2-zIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2669" y="861"/>
-        </scene>
         <!--Create AccountVC-->
         <scene sceneID="cwl-8I-p8H">
             <objects>
