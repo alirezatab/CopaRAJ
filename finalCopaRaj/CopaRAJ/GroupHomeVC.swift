@@ -12,6 +12,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
   
   var groups : NSMutableArray?
 
+  @IBOutlet weak var tablevView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true;
@@ -24,6 +25,9 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     let ref = DataService.dataService.CURRENT_USER_REF
     ref.queryOrderedByChild("groupID").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
      // print(snapshot.value)
+    
+      if (snapshot.value as? NSDictionary) != nil{
+      
       for id in snapshot.value as! NSDictionary{
         let keyString = id.key as! String
         
@@ -32,13 +36,33 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
           
           let groupDictionary = id.value as! NSDictionary
           print(groupDictionary)
-          let groupID = groupDictionary.valueForKey("groupID")
+          let groupID = groupDictionary.valueForKey("groupID") as! String
+          let createdBy = groupDictionary.valueForKey("createdBy") as! String
+          let groupImage = groupDictionary.valueForKey("groupImage") as! String
+          let groupName = groupDictionary.valueForKey("groupName") as! String
           
+          let newGroup = ChallengeGroup(name: groupName, imageName: groupImage, createdBy: createdBy, groupID: groupID)
+          self.groups?.addObject(newGroup)
+          
+        }
+        }
+        if self.groups?.count > 0 {
+        self.tablevView.reloadData()
+        } else {
+          self.createDefaultTableViewSettings()
         }
       }
       }) { (error) in
         print(error.localizedDescription)
     }
+
+    }
+  
+  func createDefaultTableViewSettings() {
+    self.groups = NSMutableArray()
+    let nonGroup = ChallengeGroup(name: "You're not in any groups", imageName: "Argentina", createdBy: "Join/Create a group to get in to the fun", groupID: "none")
+    self.groups?.addObject(nonGroup)
+    self.tablevView.reloadData()
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,7 +75,17 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("groupHomeCell") as? GroupHomeCell
-    cell?.groupNameLabel.text = "testing"
+    let group = self.groups?.objectAtIndex(indexPath.row) as! ChallengeGroup
+    
+    if (group.name as? String) != nil {
+      
+    cell?.groupNameLabel.text = group.name as? String
+    cell?.ptsLabel.text = "created by \(group.createdBy!)"
+    cell?.groupImageView.image = UIImage.init(named: (group.imageName as? String)!)
+    cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    return cell!
+      
+    }
     
     return cell!
   }

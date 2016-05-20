@@ -82,6 +82,7 @@
                                 </state>
                                 <connections>
                                     <action selector="finalizeButtonPressed:" destination="SGL-5v-fBN" eventType="touchUpInside" id="KRA-bZ-zWV"/>
+                                    <segue destination="or2-fT-DFi" kind="show" id="HG8-bn-b9W"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,7 +118,7 @@
                 <viewControllerPlaceholder storyboardName="BracketFinalize" id="or2-fT-DFi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXf-wq-PEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4471" y="676"/>
+            <point key="canvasLocation" x="4465.5" y="377"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
