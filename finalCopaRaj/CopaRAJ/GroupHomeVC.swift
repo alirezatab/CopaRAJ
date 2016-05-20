@@ -46,11 +46,12 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
           
         }
         }
-        if self.groups?.count > 0 {
+       
+      }
+      if self.groups?.count > 0 {
         self.tablevView.reloadData()
-        } else {
-          self.createDefaultTableViewSettings()
-        }
+      } else {
+        self.createDefaultTableViewSettings()
       }
       }) { (error) in
         print(error.localizedDescription)
@@ -96,7 +97,60 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
         
         // Remove the user's uid from storage
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
-      
-
   }
+  
+  @IBAction func onSearchGroupsPressed(sender: AnyObject) {
+    let shouldAllowSearch = self.checkDate()
+    
+    if shouldAllowSearch == true {
+      self.performSegueWithIdentifier("searchGroups", sender: self)
+    } else {
+    self.cannotSearchGroups()
+    }
+    
+  }
+  @IBAction func onCreateNewGroupPressed(sender: AnyObject) {
+    let shouldAllowNewGroup = self.checkDate()
+    
+    if shouldAllowNewGroup == true {
+      self.performSegueWithIdentifier("CreateGroup", sender: self)
+    } else {
+      self.cannotSearchGroups()
+    }
+  }
+  
+  func checkDate() -> Bool {
+    let date1 = NSDate()
+    
+    let dateString = "2016-06-07" // change to your date format
+    
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    let date2 = dateFormatter.dateFromString(dateString)!
+    
+    print("\(date1)  \(date2)")
+
+    
+    if date1.timeIntervalSinceReferenceDate > date2.timeIntervalSinceReferenceDate {
+      return false
+//      print("Date1 is Later than Date2")
+    }
+    else if date1.timeIntervalSinceReferenceDate <  date2.timeIntervalSinceReferenceDate {
+      return true
+//      print("Date1 is Earlier than Date2")
+    }
+    else {
+      return false
+//      print("Same dates")
+    }
+  }
+  
+  func cannotSearchGroups() {
+    let alert = UIAlertController.init(title: "Oops", message: "Challenges can no longer be created or joined", preferredStyle: UIAlertControllerStyle.Alert)
+    let action = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
+    alert.addAction(action)
+    presentViewController(alert, animated: true, completion: nil)
+  }
+  
 }

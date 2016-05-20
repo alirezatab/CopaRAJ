@@ -30,6 +30,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
         
       self.finalizeButton.backgroundColor = UIColor.grayColor()
       self.finalizeButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
+      self.title = "Create Challenge"
       self.finalizeButton.enabled = false
       self.activityIndicator.hidden = true
       self.groupHelpLabel.hidden = true

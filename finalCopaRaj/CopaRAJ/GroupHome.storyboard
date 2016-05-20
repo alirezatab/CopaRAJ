@@ -32,22 +32,22 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="FQM-QT-bFC"/>
                                         </constraints>
-                                        <state key="normal" title="Search Groups">
+                                        <state key="normal" title="Search Challenges">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="jqp-6w-yWQ" kind="show" id="sIT-VS-2Bm"/>
+                                            <action selector="onSearchGroupsPressed:" destination="bgO-NI-rt8" eventType="touchUpInside" id="gbs-td-pB5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muL-Jy-OA7">
                                         <rect key="frame" x="0.0" y="30" width="600" height="53"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="1" green="0.27204912920000002" blue="0.064327543599999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Create New Group">
+                                        <state key="normal" title="Create New Challenge">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="lzH-OO-3W7" kind="show" id="wxj-wp-zle"/>
+                                            <action selector="onCreateNewGroupPressed:" destination="bgO-NI-rt8" eventType="touchUpInside" id="MwK-qF-RZR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -157,12 +157,14 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tablevView" destination="l1E-7q-7nG" id="42o-Lj-oyY"/>
+                        <segue destination="jqp-6w-yWQ" kind="show" identifier="searchGroups" id="1fr-df-hUl"/>
+                        <segue destination="lzH-OO-3W7" kind="show" identifier="CreateGroup" id="Usi-we-iqI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBD-yW-gwL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mnL-58-sBH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3225" y="-82"/>
+            <point key="canvasLocation" x="3169" y="180"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qJl-tz-hT8">
@@ -180,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGh-2j-avl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3225" y="637"/>
+            <point key="canvasLocation" x="3689" y="-499"/>
         </scene>
         <!--CreateGroup-->
         <scene sceneID="3TI-KI-jb3">
