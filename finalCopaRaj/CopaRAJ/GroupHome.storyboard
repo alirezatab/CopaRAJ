@@ -35,6 +35,9 @@
                                         <state key="normal" title="Search Groups">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="jqp-6w-yWQ" kind="show" id="sIT-VS-2Bm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muL-Jy-OA7">
                                         <rect key="frame" x="0.0" y="30" width="600" height="53"/>
@@ -160,6 +163,24 @@
                 <exit id="mnL-58-sBH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3225" y="-82"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qJl-tz-hT8">
+            <objects>
+                <viewController id="jqp-6w-yWQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bNg-0o-1EJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="rXO-Pe-Vn8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GdG-dY-sU4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NGh-2j-avl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3225" y="637"/>
         </scene>
         <!--CreateGroup-->
         <scene sceneID="3TI-KI-jb3">
