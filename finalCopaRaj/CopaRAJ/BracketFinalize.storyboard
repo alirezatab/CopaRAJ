@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="991-54-pu2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--pick bracket-->
         <scene sceneID="iAx-PK-fC4">
             <objects>
-                <viewController id="991-54-pu2" sceneMemberID="viewController">
+                <viewController id="991-54-pu2" customClass="BracketFinalizeVC" customModule="CopaRAJ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f36-rv-fmC"/>
                         <viewControllerLayoutGuide type="bottom" id="lcu-P0-XQA"/>
@@ -26,11 +27,49 @@
                                     <color key="titleColor" red="0.094924178900000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1yv-j3-7cJ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jL6-Nq-1VO">
+                                    <size key="itemSize" width="285" height="146"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChallangeCell" id="mcw-J4-8Lm">
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="146"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="285" height="146"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nr3-12-ipn">
+                                                    <rect key="frame" x="0.0" y="79" width="285" height="67"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9dw-EE-jZt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="285" height="71"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="991-54-pu2" id="1rR-N0-QJ0"/>
+                                    <outlet property="delegate" destination="991-54-pu2" id="d6C-9X-a4X"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lcu-P0-XQA" firstAttribute="top" secondItem="1yv-j3-7cJ" secondAttribute="bottom" id="2mn-fA-9JC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1yv-j3-7cJ" secondAttribute="trailing" constant="-20" id="NvJ-PL-f1g"/>
+                            <constraint firstItem="1yv-j3-7cJ" firstAttribute="top" secondItem="f36-rv-fmC" secondAttribute="bottom" id="Q7O-Mj-1bb"/>
                             <constraint firstItem="BCv-Xm-T5y" firstAttribute="centerX" secondItem="x4n-pM-hYJ" secondAttribute="centerX" id="WHH-Yw-MOz"/>
                             <constraint firstItem="lcu-P0-XQA" firstAttribute="top" secondItem="BCv-Xm-T5y" secondAttribute="bottom" constant="33" id="YZl-yK-5Wb"/>
+                            <constraint firstItem="1yv-j3-7cJ" firstAttribute="leading" secondItem="x4n-pM-hYJ" secondAttribute="leadingMargin" constant="-20" id="zMH-cd-mAr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="pick bracket" id="Dy4-2E-hpZ"/>
@@ -39,10 +78,13 @@
                         <color key="barTintColor" red="0.16470588235294117" green="0.77254901960784317" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     </simulatedNavigationBarMetrics>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="BrackeChallangeCollectionView" destination="1yv-j3-7cJ" id="HGy-1f-SVA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIn-dQ-CsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4471" y="676"/>
+            <point key="canvasLocation" x="4363" y="513"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

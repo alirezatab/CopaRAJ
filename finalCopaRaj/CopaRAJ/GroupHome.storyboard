@@ -60,11 +60,10 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="groupHomeCell" rowHeight="117" id="rWe-Im-Myi" customClass="GroupHomeCell" customModule="CopaRAJ" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="117"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rWe-Im-Myi" id="T9u-Jg-wiz">
-
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="116"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="116.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YR2-ba-ZHb">
@@ -157,7 +156,7 @@
                     </simulatedNavigationBarMetrics>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tablevView" destination="l1E-7q-7nG" id="42o-Lj-oyY"/>
+                        <outlet property="tableView" destination="l1E-7q-7nG" id="rlc-da-0PR"/>
                         <segue destination="jqp-6w-yWQ" kind="show" identifier="searchGroups" id="1fr-df-hUl"/>
                         <segue destination="lzH-OO-3W7" kind="show" identifier="CreateGroup" id="Usi-we-iqI"/>
                     </connections>

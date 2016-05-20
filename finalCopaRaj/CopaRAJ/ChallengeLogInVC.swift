@@ -57,7 +57,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
             if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
             {
                 print("facebook logged already existing token!")
-                self.performSegueWithIdentifier(self.loggedIn, sender: self)
+                //self.performSegueWithIdentifier(self.loggedIn, sender: self)
             }
         }
     }
@@ -77,7 +77,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
 //    }
     
     // MARK: Facebook Login
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+    func loginButton(loginButton: FBSDKLoginButton?, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         if error == nil{
             fbLoginSuccess = true
             print("login complete")

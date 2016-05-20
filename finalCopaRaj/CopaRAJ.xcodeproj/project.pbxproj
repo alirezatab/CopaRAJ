@@ -26,6 +26,7 @@
 		7BD056121CC70EA100BCB113 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0560A1CC70EA100BCB113 /* Team.m */; };
 		7BD056251CC73A9D00BCB113 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0561F1CC73A9D00BCB113 /* Group.m */; };
 		7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BD870B61CCA7F880020C125 /* playOffMatches.plist */; };
+		C2087A771CEF822400A53719 /* BracketFinalizeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2087A761CEF822400A53719 /* BracketFinalizeVC.swift */; };
 		C20EB5C21CE67E10000E36B7 /* ChallengeLogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */; };
 		C212A5EB1CEE6E690077331D /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C212A5EA1CEE6E690077331D /* EventKit.framework */; };
 		C24140571CEB0D9C00ECBF6F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24140561CEB0D9C00ECBF6F /* FBSDKCoreKit.framework */; };
@@ -116,6 +117,7 @@
 		7BD056261CC7477000BCB113 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7BD870B61CCA7F880020C125 /* playOffMatches.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playOffMatches.plist; sourceTree = "<group>"; };
 		920CE7D93A55FCC98810244D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C2087A761CEF822400A53719 /* BracketFinalizeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BracketFinalizeVC.swift; sourceTree = "<group>"; };
 		C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeLogInVC.swift; sourceTree = "<group>"; };
 		C212A5EA1CEE6E690077331D /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		C24140561CEB0D9C00ECBF6F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				D879626B1CECF25F001E3069 /* working.m */,
 				D879626D1CED138D001E3069 /* PickGroupVC.swift */,
 				D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */,
+				C2087A761CEF822400A53719 /* BracketFinalizeVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -633,7 +636,7 @@
 				TargetAttributes = {
 					C2C5C0081CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = W3R2G523R9;
+						DevelopmentTeam = FYX37TYYH9;
 					};
 					C2C5C0241CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
@@ -794,6 +797,7 @@
 				D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */,
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
 				D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */,
+				C2087A771CEF822400A53719 /* BracketFinalizeVC.swift in Sources */,
 				D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */,
 				7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */,
 				D88ED4F61CEF77DA00A1A193 /* GroupDetailsVC.swift in Sources */,
@@ -1018,7 +1022,7 @@
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";
@@ -1041,7 +1045,7 @@
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";
