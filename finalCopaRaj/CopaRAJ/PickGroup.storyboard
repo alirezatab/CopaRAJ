@@ -82,7 +82,7 @@
                                 </state>
                                 <connections>
                                     <action selector="finalizeButtonPressed:" destination="SGL-5v-fBN" eventType="touchUpInside" id="KRA-bZ-zWV"/>
-                                    <segue destination="or2-fT-DFi" kind="show" id="HG8-bn-b9W"/>
+                                    <segue destination="or2-fT-DFi" kind="show" identifier="bracket" id="HG8-bn-b9W"/>
                                 </connections>
                             </button>
                         </subviews>

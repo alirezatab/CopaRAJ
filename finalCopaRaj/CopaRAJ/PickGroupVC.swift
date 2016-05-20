@@ -165,14 +165,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
   }
 
   @IBAction func finalizeButtonPressed(sender: UIButton) {
-    let cellGroups = self.groups
-    for group in cellGroups! {
-      let groupCopa = group as! CopaAmericaGroup
-      for team in groupCopa.teams! {
-        print(team.name as String)
-      }
-    }
-
+    
   }
 
 }

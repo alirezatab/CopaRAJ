@@ -60,6 +60,8 @@
 		D879626E1CED138D001E3069 /* PickGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879626D1CED138D001E3069 /* PickGroupVC.swift */; };
 		D87962701CED3189001E3069 /* CopaAmericaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */; };
 		D87962721CED334A001E3069 /* ChallengeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87962711CED334A001E3069 /* ChallengeTeam.swift */; };
+		D88ED4F61CEF77DA00A1A193 /* GroupDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */; };
+		D88ED4F81CEF79BA00A1A193 /* PlayerStandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */; };
 		D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66661CCED12100B5C8FE /* FBMatch.m */; };
 		D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */; };
 		D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */; };
@@ -159,6 +161,8 @@
 		D879626D1CED138D001E3069 /* PickGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGroupVC.swift; sourceTree = "<group>"; };
 		D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopaAmericaGroup.swift; sourceTree = "<group>"; };
 		D87962711CED334A001E3069 /* ChallengeTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTeam.swift; sourceTree = "<group>"; };
+		D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailsVC.swift; sourceTree = "<group>"; };
+		D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStandingCell.swift; sourceTree = "<group>"; };
 		D8AB66621CCECF9900B5C8FE /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBGroup.h; sourceTree = "<group>"; };
 		D8AB66631CCECF9900B5C8FE /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBGroup.m; sourceTree = "<group>"; };
 		D8AB66651CCED12100B5C8FE /* FBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMatch.h; sourceTree = "<group>"; };
@@ -416,6 +420,7 @@
 				D879626A1CECF25F001E3069 /* working.h */,
 				D879626B1CECF25F001E3069 /* working.m */,
 				D879626D1CED138D001E3069 /* PickGroupVC.swift */,
+				D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				D82E426C1CE521F7004812FF /* GroupDetails.storyboard */,
+				D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */,
 			);
 			name = GroupDetails;
 			sourceTree = "<group>";
@@ -627,7 +633,7 @@
 				TargetAttributes = {
 					C2C5C0081CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = ULU46F325W;
+						DevelopmentTeam = W3R2G523R9;
 					};
 					C2C5C0241CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
@@ -784,11 +790,13 @@
 				C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */,
 				C290DDFF1CD5FA18002FB7B6 /* EventCell.m in Sources */,
 				7BD056121CC70EA100BCB113 /* Team.m in Sources */,
+				D88ED4F81CEF79BA00A1A193 /* PlayerStandingCell.swift in Sources */,
 				D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */,
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
 				D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */,
 				D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */,
 				7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */,
+				D88ED4F61CEF77DA00A1A193 /* GroupDetailsVC.swift in Sources */,
 				D879626C1CECF25F001E3069 /* working.m in Sources */,
 				C244BEFA1CE7E9E500C4371D /* GroupHomeVC.swift in Sources */,
 				D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */,
@@ -1007,7 +1015,7 @@
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";
@@ -1027,7 +1035,7 @@
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";
