@@ -9,8 +9,8 @@
 import Foundation
 
 class PlayerStandingCell: UITableViewCell {
-  @IBOutlet weak var playerNameLabel: UIView!
   @IBOutlet weak var ptsLabel: UILabel!
-  
+
+  @IBOutlet var playerNameLabel: UILabel!
   
 }

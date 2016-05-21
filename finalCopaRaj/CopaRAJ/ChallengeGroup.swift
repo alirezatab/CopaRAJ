@@ -34,6 +34,7 @@ class ChallengeGroup: NSObject {
   }
   
   func updateGroupWithDictionary(dictionary : NSDictionary) {
+    self.members = NSMutableArray()
     for id in dictionary {
       let idKey = id.key as! String
       if idKey  == "password" {
@@ -41,6 +42,7 @@ class ChallengeGroup: NSObject {
       } else if idKey != "imageName" && idKey != "name" && idKey != "admin" && idKey != "password" {
         let member = self.createMemberforGroup(id.value as! NSDictionary)
         self.members?.addObject(member)
+        
         print(id.value)
      
       }
