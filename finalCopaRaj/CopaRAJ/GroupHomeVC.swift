@@ -34,9 +34,8 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
         
         if keyString != "email" && keyString != "firstName" && keyString != "lastName" && keyString != "provider" {
 //          print("Keystring = \(keyString) id.key = \(id.key) id.value = \(id.value)")
-          
           let groupDictionary = id.value as! NSDictionary
-          print(groupDictionary)
+          //print(groupDictionary)
           let groupID = groupDictionary.valueForKey("groupID") as! String
           let createdBy = groupDictionary.valueForKey("createdBy") as! String
           let groupImage = groupDictionary.valueForKey("groupImage") as! String
@@ -97,12 +96,12 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
              DataService.dataService.CURRENT_USER_REF.unauth()
             // Remove the user's uid from storage
               NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
-            print("logged out from regular user account")
+            //print("logged out from regular user account")
         } else {
             FBSDKAccessToken.currentAccessToken()
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
-            print("logged out from Facebook");
+            //print("logged out from Facebook");
         }
     }
     
@@ -142,7 +141,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     
     let date2 = dateFormatter.dateFromString(dateString)!
     
-    print("\(date1)  \(date2)")
+    //print("\(date1)  \(date2)")
 
     
     if date1.timeIntervalSinceReferenceDate > date2.timeIntervalSinceReferenceDate {
@@ -164,6 +163,14 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     let action = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
     alert.addAction(action)
     presentViewController(alert, animated: true, completion: nil)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "groupDetails" {
+      let selectedGroup = self.groups?.objectAtIndex((self.tablevView.indexPathForCell(sender as! GroupHomeCell)?.row)!) as! ChallengeGroup
+     let destVC = segue.destinationViewController as! GroupDetailsVC
+      destVC.group = selectedGroup
+    }
   }
   
 }

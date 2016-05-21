@@ -60,10 +60,9 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="groupHomeCell" rowHeight="117" id="rWe-Im-Myi" customClass="GroupHomeCell" customModule="CopaRAJ" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="117"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rWe-Im-Myi" id="T9u-Jg-wiz">
-
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -107,7 +106,7 @@
                                             <outlet property="groupImageView" destination="YR2-ba-ZHb" id="BUS-xl-g5O"/>
                                             <outlet property="groupNameLabel" destination="axp-tM-GiD" id="uT2-rE-3y5"/>
                                             <outlet property="ptsLabel" destination="R75-4J-DXf" id="dLI-9U-ddt"/>
-                                            <segue destination="AlF-xJ-CX0" kind="show" id="UcZ-ck-IBG"/>
+                                            <segue destination="AlF-xJ-CX0" kind="show" identifier="groupDetails" id="UcZ-ck-IBG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -6,23 +6,54 @@
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 
+//populate group with newest details
+//need to know which user they are
+//need to create array of users
+//populate password field and share field
+//have public ispassedlastjoindate
+
+
 import Foundation
 
 class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet var shareButton: UIBarButtonItem!
+  @IBOutlet var activityIndicator: UIActivityIndicatorView!
+  
+  var group :ChallengeGroup?
+  
   
   override func viewDidLoad() {
     self.checkDate()
-    
+    self.title = (self.group?.name as! String)
+    self.activityIndicator.startAnimating()
+    self.getGroupDetailsFromFirebase()
   }
+  
+  func getGroupDetailsFromFirebase() {
+    let groupID = self.group?.groupID as! String
+    let ref = Firebase(url: "https://fiery-inferno-5799.firebaseio.com/ChallengeGroups/\(groupID)")
+    ref.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) in
+      if let returnValue = snapshot.value as? NSDictionary {
+        self.group?.updateGroupWithDictionary(returnValue)
+        
+      } else {
+        print("wrong")
+      }
+      }) { (error) in
+        
+    }
+  }
+  
   
   @IBAction func onShareButtonPressed(sender: UIBarButtonItem) {
     self.displayShareSheet()
   }
   
   func displayShareSheet() {
-    let shareContent = "Downlaod Copa Club https://appsto.re/us/rhspcb.i and play copa challenge with me. My group's named (GROUP NAME) and the password is (PASSWORD)"
+    let groupName = self.group?.name
+    let password = self.group?.password
+    let shareContent = "Downlaod Copa Club https://appsto.re/us/rhspcb.i and join my Copa Challenge \"\(groupName!)\". The password is \"\(password!)\""
     let shareSheet = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
     
     presentViewController(shareSheet, animated: true, completion: nil)
