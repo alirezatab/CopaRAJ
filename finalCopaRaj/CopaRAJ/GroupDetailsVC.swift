@@ -23,36 +23,13 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   
   override func viewDidLoad() {
-    self.checkDate()
     self.title = (self.group?.name as! String)
     self.activityIndicator.startAnimating()
+    self.activityIndicator.hidesWhenStopped = true
     self.getGroupDetailsFromFirebase()
   }
   
-  func checkDate() {
-    let date1 = NSDate()
-    
-    let dateString = "2016-06-07" // change to your date format
-    
-    let dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
-    
-    let date2 = dateFormatter.dateFromString(dateString)!
-    
-    if date1.timeIntervalSinceReferenceDate > date2.timeIntervalSinceReferenceDate {
-      //      self.shareButton.enabled = false
-      //      self.shareButton.tintColor = UIColor.clearColor()
-      //      print("Date1 is Later than Date2")
-    }
-    else if date1.timeIntervalSinceReferenceDate <  date2.timeIntervalSinceReferenceDate {
-      //      print("Date1 is Earlier than Date2")
-    }
-    else {
-      //      self.shareButton.enabled = false
-      //      self.shareButton.tintColor = UIColor.clearColor()
-      //      print("Same dates")
-    }
-  }
+
   
   func getGroupDetailsFromFirebase() {
     let groupID = self.group?.groupID as! String
@@ -107,7 +84,11 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if indexPath.section == 0  {
       let cell = tableView.dequeueReusableCellWithIdentifier("GroupDetailsCell") as! GroupDetailsCell
-      
+      let shouldAllowSharing = self.shouldAllowSharing()
+      if shouldAllowSharing == false {
+        cell.inviteButton.enabled = false
+        cell.inviteButton.hidden = true
+      }
       return cell
     } else {
     
@@ -120,6 +101,57 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
   }
   
+  func shouldAllowSharing() -> Bool {
+    let date1 = NSDate()
+    
+    let dateString = "2016-06-07" // change to your date format
+    
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    let date2 = dateFormatter.dateFromString(dateString)!
+    
+    if date1.timeIntervalSinceReferenceDate > date2.timeIntervalSinceReferenceDate {
+      return false
+      //      print("Date1 is Later than Date2")
+    } else if self.group?.members?.count > 14 {
+      return false
+    }
+    else if date1.timeIntervalSinceReferenceDate <  date2.timeIntervalSinceReferenceDate {
+      return true
+      //      print("Date1 is Earlier than Date2")
+    }
+    else {
+      return false
+      //      self.shareButton.enabled = false
+      //      self.shareButton.tintColor = UIColor.clearColor()
+      //      print("Same dates")
+    }
+  }
+  
+  func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    if indexPath.section == 0 {
+      return false
+    } else {
+      return true
+    }
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    if indexPath.section != 0 {
+      self.performSegueWithIdentifier("pickDetails", sender: indexPath)
+    }
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "pickDetails" {
+      let indexPath = sender as! NSIndexPath
+      let user = self.group?.members?.objectAtIndex(indexPath.row) as! ChallengeUser
+      let destVC = segue.destinationViewController as! PickDetailsVC
+      destVC.member = user
+      
+    }
+  }
   
 
 }

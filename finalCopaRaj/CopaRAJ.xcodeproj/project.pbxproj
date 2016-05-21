@@ -63,6 +63,7 @@
 		D88ED4F61CEF77DA00A1A193 /* GroupDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */; };
 		D88ED4F81CEF79BA00A1A193 /* PlayerStandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */; };
 		D88ED4FA1CF02C2F00A1A193 /* GroupDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F91CF02C2F00A1A193 /* GroupDetailsCell.swift */; };
+		D88ED4FE1CF03EDB00A1A193 /* PickDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */; };
 		D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66661CCED12100B5C8FE /* FBMatch.m */; };
 		D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */; };
 		D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */; };
@@ -165,6 +166,7 @@
 		D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailsVC.swift; sourceTree = "<group>"; };
 		D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStandingCell.swift; sourceTree = "<group>"; };
 		D88ED4F91CF02C2F00A1A193 /* GroupDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailsCell.swift; sourceTree = "<group>"; };
+		D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDetailsVC.swift; sourceTree = "<group>"; };
 		D8AB66621CCECF9900B5C8FE /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBGroup.h; sourceTree = "<group>"; };
 		D8AB66631CCECF9900B5C8FE /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBGroup.m; sourceTree = "<group>"; };
 		D8AB66651CCED12100B5C8FE /* FBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMatch.h; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				D879626A1CECF25F001E3069 /* working.h */,
 				D879626B1CECF25F001E3069 /* working.m */,
 				D879626D1CED138D001E3069 /* PickGroupVC.swift */,
+				D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */,
 				D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */,
 			);
 			name = Controller;
@@ -786,6 +789,7 @@
 				D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */,
 				C20EB5C21CE67E10000E36B7 /* ChallengeLogInVC.swift in Sources */,
 				7B84DCFB1CC8421F0021524F /* Team+CoreDataProperties.m in Sources */,
+				D88ED4FE1CF03EDB00A1A193 /* PickDetailsVC.swift in Sources */,
 				7B1FF1D51CD0152700B031B0 /* Match+CoreDataProperties.m in Sources */,
 				D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */,
 				D87962701CED3189001E3069 /* CopaAmericaGroup.swift in Sources */,

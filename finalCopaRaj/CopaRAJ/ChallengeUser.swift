@@ -77,6 +77,12 @@ class ChallengeUser: NSObject {
     return userPickDetails
   }
   
+  var selectionsArray: NSArray {
+    let returnedArray = NSArray(objects: self.GroupAWinner!, self.GroupARunnerUP!, self.GroupAThirdPlace!, self.GroupAFourthPlace!, self.GroupBWinner!, self.GroupBRunnerUP!, self.GroupBThirdPlace!, self.GroupBFourthPlace!, self.GroupCWinner!, self.GroupCRunnerUP!, self.GroupCThirdPlace!, self.GroupCFourthPlace!, self.GroupDWinner!, self.GroupDRunnerUP!, self.GroupDThirdPlace!, self.GroupDFourthPlace!, self.SemifinalistTeam1!, self.SemifinalistTeam2!, self.SemifinalistTeam3!, self.SemifinalistTeam4!, self.FinalistTeam1!, self.FinalistTeam2!, self.Champion!)
+ 
+    return returnedArray
+  }
+  
   
   
   

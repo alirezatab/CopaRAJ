@@ -10,4 +10,5 @@ import Foundation
 
 class GroupDetailsCell: UITableViewCell {
 
+  @IBOutlet weak var inviteButton: UIButton!
 }
