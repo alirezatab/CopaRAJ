@@ -18,7 +18,7 @@ import Foundation
 class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet var activityIndicator: UIActivityIndicatorView!
-  
+    
   var group :ChallengeGroup?
   
   
@@ -105,15 +105,15 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if indexPath.section == 0 {
-      let cell = tableView.dequeueReusableCellWithIdentifier("GroupDetailsCell") as UITableViewCell!
+    if indexPath.section == 0  {
+      let cell = tableView.dequeueReusableCellWithIdentifier("GroupDetailsCell") as! GroupDetailsCell
       
       return cell
     } else {
     
     let cell = tableView.dequeueReusableCellWithIdentifier("playerCell") as! PlayerStandingCell
     let user = self.group?.members?.objectAtIndex(indexPath.row) as! ChallengeUser
-    cell.playerNameLabel.text = "\(user.firstName!)  \(user.lastName!)"
+    cell.playerLabel.text = "\(user.firstName!)  \(user.lastName!)"
     cell.ptsLabel.text = "\(user.points) pts"
     
     return cell

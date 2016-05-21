@@ -42,9 +42,6 @@ class ChallengeGroup: NSObject {
       } else if idKey != "imageName" && idKey != "name" && idKey != "admin" && idKey != "password" {
         let member = self.createMemberforGroup(id.value as! NSDictionary)
         self.members?.addObject(member)
-        
-        print(id.value)
-     
       }
     }
   }
