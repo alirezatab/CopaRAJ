@@ -173,4 +173,8 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     }
   }
   
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    self.tablevView.deselectRowAtIndexPath(indexPath, animated: false)
+  }
+  
 }
