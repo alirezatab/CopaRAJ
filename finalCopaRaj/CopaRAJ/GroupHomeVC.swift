@@ -182,14 +182,14 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "groupDetails" {
-      let selectedGroup = self.groups?.objectAtIndex((self.tablevView.indexPathForCell(sender as! GroupHomeCell)?.row)!) as! ChallengeGroup
+      let selectedGroup = self.groups?.objectAtIndex((self.tableView.indexPathForCell(sender as! GroupHomeCell)?.row)!) as! ChallengeGroup
      let destVC = segue.destinationViewController as! GroupDetailsVC
       destVC.group = selectedGroup
     }
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    self.tablevView.deselectRowAtIndexPath(indexPath, animated: false)
+    self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
   }
   
 }

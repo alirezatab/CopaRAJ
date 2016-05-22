@@ -64,8 +64,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rWe-Im-Myi" id="T9u-Jg-wiz">
-
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="116.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YR2-ba-ZHb">
@@ -422,16 +421,16 @@
                                 <exclude reference="5km-ss-obQ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="G49-uK-0IE"/>
-                                <exclude reference="XIC-By-8Ty"/>
-                                <exclude reference="sHE-M0-2B9"/>
+                                <exclude reference="NoO-pQ-urd"/>
+                                <exclude reference="nZj-dQ-gV7"/>
+                                <exclude reference="y00-HB-nCJ"/>
                                 <exclude reference="Jnw-fw-E8v"/>
                                 <exclude reference="QwQ-iS-s9c"/>
                                 <exclude reference="lD8-M8-cyP"/>
                                 <exclude reference="tNE-91-wLY"/>
-                                <exclude reference="NoO-pQ-urd"/>
-                                <exclude reference="nZj-dQ-gV7"/>
-                                <exclude reference="y00-HB-nCJ"/>
+                                <exclude reference="G49-uK-0IE"/>
+                                <exclude reference="XIC-By-8Ty"/>
+                                <exclude reference="sHE-M0-2B9"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -440,18 +439,18 @@
                                 <include reference="5km-ss-obQ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="NoO-pQ-urd"/>
+                                <include reference="nZj-dQ-gV7"/>
+                                <include reference="y00-HB-nCJ"/>
+                                <include reference="Jnw-fw-E8v"/>
+                                <include reference="QwQ-iS-s9c"/>
+                                <include reference="lD8-M8-cyP"/>
+                                <include reference="tNE-91-wLY"/>
                                 <exclude reference="8uD-2V-8mD"/>
                                 <exclude reference="9Ce-xF-KJo"/>
                                 <include reference="G49-uK-0IE"/>
                                 <include reference="XIC-By-8Ty"/>
                                 <include reference="sHE-M0-2B9"/>
-                                <include reference="Jnw-fw-E8v"/>
-                                <include reference="QwQ-iS-s9c"/>
-                                <include reference="lD8-M8-cyP"/>
-                                <include reference="tNE-91-wLY"/>
-                                <include reference="NoO-pQ-urd"/>
-                                <include reference="nZj-dQ-gV7"/>
-                                <include reference="y00-HB-nCJ"/>
                             </mask>
                         </variation>
                     </view>
