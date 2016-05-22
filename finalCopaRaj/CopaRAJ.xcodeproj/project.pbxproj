@@ -56,7 +56,6 @@
 		D82E428A1CE581E0004812FF /* ChallengeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E42891CE581E0004812FF /* ChallengeGroup.swift */; };
 		D8594CA21CE66DD1008965F0 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8594CA11CE66DD1008965F0 /* CreateGroup.storyboard */; };
 		D86317ED1CEAF5C1009E9076 /* ChallengeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */; };
-		D879626C1CECF25F001E3069 /* working.m in Sources */ = {isa = PBXBuildFile; fileRef = D879626B1CECF25F001E3069 /* working.m */; };
 		D879626E1CED138D001E3069 /* PickGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879626D1CED138D001E3069 /* PickGroupVC.swift */; };
 		D87962701CED3189001E3069 /* CopaAmericaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */; };
 		D87962721CED334A001E3069 /* ChallengeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87962711CED334A001E3069 /* ChallengeTeam.swift */; };
@@ -65,6 +64,7 @@
 		D88ED4FA1CF02C2F00A1A193 /* GroupDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F91CF02C2F00A1A193 /* GroupDetailsCell.swift */; };
 		D88ED4FE1CF03EDB00A1A193 /* PickDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */; };
 		D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66661CCED12100B5C8FE /* FBMatch.m */; };
+		D8E631BD1CF12E8100E316AE /* SearchGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E631BC1CF12E8100E316AE /* SearchGroupsVC.swift */; };
 		D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */; };
 		D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */; };
 		D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */; };
@@ -158,8 +158,6 @@
 		D82E42891CE581E0004812FF /* ChallengeGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeGroup.swift; sourceTree = "<group>"; };
 		D8594CA11CE66DD1008965F0 /* CreateGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
 		D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeUser.swift; sourceTree = "<group>"; };
-		D879626A1CECF25F001E3069 /* working.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = working.h; sourceTree = "<group>"; };
-		D879626B1CECF25F001E3069 /* working.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = working.m; sourceTree = "<group>"; };
 		D879626D1CED138D001E3069 /* PickGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGroupVC.swift; sourceTree = "<group>"; };
 		D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopaAmericaGroup.swift; sourceTree = "<group>"; };
 		D87962711CED334A001E3069 /* ChallengeTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTeam.swift; sourceTree = "<group>"; };
@@ -171,6 +169,7 @@
 		D8AB66631CCECF9900B5C8FE /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBGroup.m; sourceTree = "<group>"; };
 		D8AB66651CCED12100B5C8FE /* FBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMatch.h; sourceTree = "<group>"; };
 		D8AB66661CCED12100B5C8FE /* FBMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBMatch.m; sourceTree = "<group>"; };
+		D8E631BC1CF12E8100E316AE /* SearchGroupsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGroupsVC.swift; sourceTree = "<group>"; };
 		D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupHomeCell.swift; sourceTree = "<group>"; };
 		D8F2D0BD1CC59537003F8465 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
@@ -421,11 +420,10 @@
 				C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */,
 				C244BEF91CE7E9E500C4371D /* GroupHomeVC.swift */,
 				C2A09F3A1CE94DA500268544 /* CreateAccountVC.swift */,
-				D879626A1CECF25F001E3069 /* working.h */,
-				D879626B1CECF25F001E3069 /* working.m */,
 				D879626D1CED138D001E3069 /* PickGroupVC.swift */,
 				D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */,
 				D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */,
+				D8E631BC1CF12E8100E316AE /* SearchGroupsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -784,6 +782,7 @@
 				D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */,
 				D87962721CED334A001E3069 /* ChallengeTeam.swift in Sources */,
 				7BD056251CC73A9D00BCB113 /* Group.m in Sources */,
+				D8E631BD1CF12E8100E316AE /* SearchGroupsVC.swift in Sources */,
 				D879626E1CED138D001E3069 /* PickGroupVC.swift in Sources */,
 				7B1FF1D61CD0152700B031B0 /* Match.m in Sources */,
 				D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */,
@@ -805,7 +804,6 @@
 				D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */,
 				7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */,
 				D88ED4F61CEF77DA00A1A193 /* GroupDetailsVC.swift in Sources */,
-				D879626C1CECF25F001E3069 /* working.m in Sources */,
 				C244BEFA1CE7E9E500C4371D /* GroupHomeVC.swift in Sources */,
 				D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */,
 				7B3DB4351CD1E01900EB00D3 /* FBGroup.m in Sources */,

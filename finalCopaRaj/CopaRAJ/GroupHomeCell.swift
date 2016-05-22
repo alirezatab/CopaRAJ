@@ -12,6 +12,8 @@ class GroupHomeCell: UITableViewCell {
   @IBOutlet weak var ptsLabel: UILabel!
   @IBOutlet weak var groupNameLabel: UILabel!
   @IBOutlet weak var groupImageView: UIImageView!
+  var localTeam: ChallengeTeam?
+  var visitorTeam: ChallengeTeam?
   
 
 }

@@ -144,7 +144,10 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     let ref = DataService.dataService.CHALLENGEGROUPS_REF
     ref.queryOrderedByChild("name").queryEqualToValue(passedGroup.name)
     .observeSingleEventOfType (FEventType.Value, withBlock: { (snapshot) in
-      if (snapshot.value) is NSNull {
+      
+      print(snapshot.value)
+      
+      if (snapshot.value) === NSNull() {
         
         let newFBGroup = ref.childByAutoId()
         let newGroupDetails = ["name": passedGroup.name!, "password": passedGroup.password!, "imageName": passedGroup.imageName!, "admin":DataService.dataService.CURRENT_USER_REF.key]
@@ -157,7 +160,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
         let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName! as String, "lastName": lastName! as String]
         
         newUsersListFirstMember.setValue(userPickDetails)
-        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: "Argentina", groupName: passedGroup.name as! String, createdBy: "\(firstName) \(lastName)", completionHandler: { (success) in
+        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: "Argentina", groupName: passedGroup.name as! String, createdBy: "\(firstName!) \(lastName!)", completionHandler: { (success) in
           
               self.activityIndicator.stopAnimating()
               self.performSegueWithIdentifier("pickGroup", sender: nil)
@@ -165,10 +168,11 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       }
       else {
         self.activityIndicator.stopAnimating()
-        self.presentGroupSaveFailure()
+        self.presentAlertGroupAlreadyExists()
       }
       }) { (NSError) in
         print(NSError.description)
+        self.presentGroupSaveFailure()
     }
   }
   
@@ -187,6 +191,8 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     alert.addAction(action)
     self.presentViewController(alert, animated: false, completion: nil)
   }
+  
+  
   
 
 }

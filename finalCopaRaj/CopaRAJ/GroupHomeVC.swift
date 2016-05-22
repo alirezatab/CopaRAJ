@@ -81,7 +81,8 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     if (group.name as? String) != nil {
       
     cell?.groupNameLabel.text = group.name as? String
-    cell?.ptsLabel.text = "created by \(group.createdBy!)"
+    let pointsLabelText = "Created by \(group.createdBy!)"
+    cell?.ptsLabel.text! = pointsLabelText
     cell?.groupImageView.image = UIImage.init(named: (group.imageName as? String)!)
     cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     return cell!
