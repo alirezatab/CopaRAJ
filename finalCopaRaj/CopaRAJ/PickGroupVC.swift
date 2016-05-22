@@ -22,8 +22,6 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     self.tableView.allowsSelection = true
     self.tableView.setEditing(true, animated: true)
     
-    
-    
   }
   
   func createGroups() {
@@ -89,9 +87,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     if team.name == "United States" {
       cell.teamCountry.text = NSLocalizedString("United States", comment:"")
-    }
-    
-    
+    }    
     return cell
   }
   
@@ -153,7 +149,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
   
   
   
-  func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
+    func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
     if sourceIndexPath.section != proposedDestinationIndexPath.section {
       var row = 0 as NSInteger
       if sourceIndexPath.section < proposedDestinationIndexPath.section {
@@ -162,10 +158,15 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
       return NSIndexPath.init(forRow: row, inSection: sourceIndexPath.section)
     }
     return proposedDestinationIndexPath
-  }
+    }
 
-  @IBAction func finalizeButtonPressed(sender: UIButton) {
+    @IBAction func finalizeButtonPressed(sender: UIButton) {
+        self.performSegueWithIdentifier("BracketFinalize", sender: nil)
+    }
     
-  }
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let desVC = segue.destinationViewController as? BracketFinalizeVC {
+            desVC.groupsPassedOver = self.groups
+        }
+    }
 }

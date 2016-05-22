@@ -8,77 +8,322 @@
 
 import UIKit
 
-class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationBarDelegate{
+    
+    
     @IBOutlet weak var BrackeChallangeCollectionView: UICollectionView!
+    
+    @IBOutlet weak var homeTeamImageView: UIImageView!
+    @IBOutlet weak var homeTeamLabel: UILabel!
+    @IBOutlet weak var homeTeamScore: UILabel!
+    @IBOutlet weak var homeTeamPenalty: UILabel!
 
+    @IBOutlet weak var visitorTeamImageView: UIImageView!
+    @IBOutlet weak var visitorTeamLabel: UILabel!
+    @IBOutlet weak var visitorTeamScore: UILabel!
+    @IBOutlet weak var visitorTeamPenalty: UILabel!
+    
+    var groupsPassedOver : NSMutableArray!
+    var playOffMatches: NSMutableArray?
+    var miniArray: NSMutableArray?
+    
+    var matchA1B2: NSMutableArray?
+    var matchB1A2: NSMutableArray?
+    var matchD1C2: NSMutableArray?
+    var matchC1D2: NSMutableArray?
+    var matchW25W27: NSMutableArray?
+    var matchW26W28: NSMutableArray?
+    var matchL29L30: NSMutableArray?
+    var matchW29W30: NSMutableArray?
+    var tournmentChampion: NSMutableArray?
+    
+    var teamA1: ChallengeTeam?
+    var teamA2: ChallengeTeam?
+    var teamB1: ChallengeTeam?
+    var teamB2: ChallengeTeam?
+    var teamC1: ChallengeTeam?
+    var teamC2: ChallengeTeam?
+    var teamD1: ChallengeTeam?
+    var teamD2: ChallengeTeam?
+    var teamW25: ChallengeTeam?
+    var teamW26: ChallengeTeam?
+    var teamW27: ChallengeTeam?
+    var teamW28: ChallengeTeam?
+    var teamW29: ChallengeTeam?
+    var teamW30: ChallengeTeam?
+    var teamChampion: ChallengeTeam?
+    
+    var teamL29: ChallengeTeam?
+    var teamL30: ChallengeTeam?
+    var nonWinnner: ChallengeTeam?
+    
+    
+    var cellHeight: CGFloat!
+    var cellWidth: CGFloat!
+    var minimumInteritemSpacing: CGFloat!
+    
+    let topInset: CGFloat = 10.0
+    let bottomInset: CGFloat = 10.0
+    
+    let cellsForSection0 = 4
+    let cellsForSection1 = 2
+    let cellsForSection2 = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(groupsPassedOver)
+        let group1 = self.groupsPassedOver.objectAtIndex(0) as! CopaAmericaGroup
+        let group2 = self.groupsPassedOver.objectAtIndex(1) as! CopaAmericaGroup
+        let group3 = self.groupsPassedOver.objectAtIndex(2) as! CopaAmericaGroup
+        let group4 = self.groupsPassedOver.objectAtIndex(3) as! CopaAmericaGroup
+        
+        //groupA
+        self.teamA1 = group1.teams?.objectAtIndex(0) as? ChallengeTeam
+        self.teamA2 = group1.teams?.objectAtIndex(1) as? ChallengeTeam
+        //groupB
+        self.teamB1 = group2.teams?.objectAtIndex(0) as? ChallengeTeam
+        self.teamB2 = group2.teams?.objectAtIndex(1) as? ChallengeTeam
+        
+        let A1B2Winner = ChallengeTeam(name: "Pick Your Team")
+        let B1A2Winner = ChallengeTeam(name: "Pick Your Team")
+        let C1D2Winner = ChallengeTeam(name: "Pick Your Team")
+        let D1C2Winner = ChallengeTeam(name: "Pick Your Team")
+        let W25W27Winner = ChallengeTeam(name: "Pick Your Team")
+        let W26W28Winner = ChallengeTeam(name: "Pick Your Team")
+        let W29W30Winner = ChallengeTeam(name: "Pick Your Team")
+        
 
-        // Do any additional setup after loading the view.
+
+
+        //groupC
+        self.teamC1 = group3.teams?.objectAtIndex(0) as? ChallengeTeam
+        self.teamC2 = group3.teams?.objectAtIndex(1) as? ChallengeTeam
+        //groupD
+        self.teamD1 = group4.teams?.objectAtIndex(0) as? ChallengeTeam
+        self.teamD2 = group4.teams?.objectAtIndex(1) as? ChallengeTeam
+        
+        self.teamW25 = ChallengeTeam(name: "Pick Your Team")
+        self.teamW26 = ChallengeTeam(name: "Pick Your Team")
+        self.teamW27 = ChallengeTeam(name: "Pick Your Team")
+        self.teamW28 = ChallengeTeam(name: "Pick Your Team")
+        self.teamW29 = ChallengeTeam(name: "Pick Your Team")
+        self.teamW30 = ChallengeTeam(name: "Pick Your Team")
+        self.teamChampion = ChallengeTeam(name: "Pick Your Champion")
+        
+        
+        
+        //quarterFinal Matches
+        self.matchA1B2 = [self.teamA1!, self.teamB2!, A1B2Winner]
+        self.matchB1A2 = [self.teamB1!, self.teamA2!, B1A2Winner]
+        self.matchD1C2 = [self.teamD1!, self.teamC2!, D1C2Winner]
+        self.matchC1D2 = [self.teamC1!, self.teamD2!, C1D2Winner]
+        self.matchW25W27 = [A1B2Winner, B1A2Winner, W25W27Winner]
+        self.matchW26W28 = [C1D2Winner, D1C2Winner, W26W28Winner]
+        //self.matchL29L30 = [self.teamL29!, self.teamL30!]
+        self.matchW29W30 = [W25W27Winner, W26W28Winner, W29W30Winner]
+        self.tournmentChampion = [W29W30Winner]
+        
+        self.playOffMatches = NSMutableArray()
+        self.playOffMatches?.addObjectsFromArray([self.matchA1B2!, self.matchB1A2!, self.matchD1C2!, self.matchC1D2!, self.matchW25W27!, self.matchW26W28!, self.matchW29W30!, self.tournmentChampion!])
     }
     
-    // MARK: CollectionView 
+    func resetNonWinner() {
+        self.nonWinnner = ChallengeTeam(name: "Pick Your Team")
+    }
+    
+    // MARK: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = self.BrackeChallangeCollectionView.dequeueReusableCellWithReuseIdentifier("ChallangeCell", forIndexPath: indexPath)
+        
+        let cell = self.BrackeChallangeCollectionView.dequeueReusableCellWithReuseIdentifier("ChallangeCell", forIndexPath: indexPath) as! BracketCell
+        let cellFinal = self.BrackeChallangeCollectionView.dequeueReusableCellWithReuseIdentifier("ChallangeFinalCell", forIndexPath: indexPath) as! BracketCell
+        
         cell.layer.cornerRadius = 10.0
         cell.contentView.layer.masksToBounds = true
+        
+        cellFinal.layer.cornerRadius = 10.0
+        cell.contentView.layer.masksToBounds = true
+        
+        switch indexPath.section {
+        case 0:
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex(indexPath.row) as! NSMutableArray)
+            
+            let homeTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            cell.homeTeamImageView.image = UIImage.init(named: homeTeam.name as! String)
+            cell.homeTeamLabel.text = homeTeam.name as? String
+            
+            let visitorTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+            cell.visitorTeamImageView.image = UIImage(named: visitorTeam.name as! String)
+            cell.visitorTeamLabel.text = visitorTeam.name as? String
+            
+            return cell
+        case 1:
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex(indexPath.row+4) as! NSMutableArray)
+            
+            let homeTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            cell.homeTeamImageView.image = UIImage.init(named: homeTeam.name as! String)
+            cell.homeTeamLabel.text = homeTeam.name as? String
+            
+            let visitorTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+            cell.visitorTeamImageView.image = UIImage(named: visitorTeam.name as! String)
+            cell.visitorTeamLabel.text = visitorTeam.name as? String
+            
+            return cell
+        case 2:
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex(indexPath.row+6) as! NSMutableArray)
+            
+            let homeTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            cell.homeTeamImageView.image = UIImage(named: homeTeam.name as! String)
+            cell.homeTeamLabel.text = homeTeam.name as? String
+            
+            let visitorTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+            cell.visitorTeamImageView.image = UIImage(named: visitorTeam.name as! String)
+            cell.visitorTeamLabel.text = visitorTeam.name as? String
+            return cell
+        case 3:
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex(indexPath.row+7) as! NSMutableArray)
+            
+            let teamChampion = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            
+            cellFinal.winnerTeamImageView.image = UIImage(named: teamChampion.name as! String)
+            cellFinal.winnerTeamLabel.text = teamChampion.name as? String
+            
+            return cellFinal
+        default:
+            break
+        }
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return 4
+            return (self.groupsPassedOver?.count)!
         } else if section == 1 {
-            return 2
+            return (self.groupsPassedOver?.count)!/2
         } else {
-            return 1
+            return ((self.groupsPassedOver?.count)!/(self.groupsPassedOver?.count)!)
         }
     }
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 3
+        return (self.groupsPassedOver?.count)!
+    }
+
+    // MARK: UICollectionViewDelegateFlowLayout
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        self.cellHeight = (self.BrackeChallangeCollectionView.bounds.size.height-self.topInset-self.bottomInset-60)/4;
+        self.cellWidth = self.BrackeChallangeCollectionView.bounds.size.width/1.5;
+        return CGSizeMake(self.cellWidth, self.cellHeight);
     }
     
-//    optional func collectionView(collectionView: UICollectionView,
-//                                   layout collectionViewLayout: UICollectionViewLayout,
-//                                          sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
-//        
-//    }
-    //-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-//    self.cellWidth = self.collectionView.frame.size.width/1.5;
-//    self.cellHeight = (self.collectionView.frame.size.height-self.topInset-self.bottomInset-60)/4;
-//    return CGSizeMake(self.cellWidth, self.cellHeight);
-//}
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        if section == 0 {
+            return UIEdgeInsetsMake(self.topInset, 30, self.bottomInset, 0)
+        } else if section == 1 {
+            return UIEdgeInsetsMake((self.topInset+(self.cellHeight/2)+self.minimumInteritemSpacing), 50, self.bottomInset + self.cellHeight/2 + self.minimumInteritemSpacing, 0)
+        } else {
+            return UIEdgeInsetsMake(self.view.frame.size.height/3, 50, 50, 50)
+        }
+    }
     
-/*-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
- if (section == 0) {
- return UIEdgeInsetsMake(self.topInset, 30, self.bottomInset, 0);
- } else if (section == 1){
- NSLog(@"%f", self.minimumInteritemSpacing);
- return UIEdgeInsetsMake((self.topInset+(self.cellHeight/2)+self.minimumInteritemSpacing), 50, self.bottomInset + self.cellHeight/2 + self.minimumInteritemSpacing, 0);
- } else if (section == 2){
- return UIEdgeInsetsMake(self.view.frame.size.height/3, 50, 50, 0);
- } else {
- return UIEdgeInsetsMake(self.view.frame.size.height/3, 50, 50, 50);
- }
- }
-     -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-     
-     if (section == 0) {
-     NSLog(@"cell Height: %f", self.cellHeight);
-     self.minimumInteritemSpacing = 10;
-     return self.minimumInteritemSpacing;
-     } else if (section == 1){
-     self.minimumInteritemSpacing = self.cellHeight-50;
-     return self.minimumInteritemSpacing;
-     } else {
-     self.minimumInteritemSpacing = 10;
-     return self.minimumInteritemSpacing;
-     }
-     }
- */
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("indexPathRow: \(indexPath.row) \n section: \(indexPath.section)")
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        if section == 0 {
+            self.minimumInteritemSpacing = 10
+            return self.minimumInteritemSpacing
+        } else if section == 1 {
+            self.minimumInteritemSpacing = self.cellHeight-50
+            return self.minimumInteritemSpacing
+        } else {
+            self.minimumInteritemSpacing = 10;
+            return self.minimumInteritemSpacing
+        }
+    }
+    
+    @IBAction func onPickPossiblePlayoffHomeTeamsButtonPressed(sender: UIButton) {
+        
+        let buttonPoint = sender.convertPoint(CGPointZero, toView: BrackeChallangeCollectionView)
+        print(buttonPoint)
+        let indexPath = BrackeChallangeCollectionView.indexPathForItemAtPoint(buttonPoint)
+        
+        if indexPath?.section == 0 {
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!) as! NSMutableArray)
+            
+            let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            if indexPath?.row == 0 {
+                self.teamW25!.name = selectedTeam.name
+            } else if indexPath?.row == 1 {
+                self.teamW27!.name = selectedTeam.name
+            } else if indexPath?.row == 2 {
+                self.teamW26!.name = selectedTeam.name
+            } else if indexPath?.row == 3 {
+                self.teamW28!.name = selectedTeam.name
+            }
+        } else if indexPath?.section == 1 {
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+4) as! NSMutableArray)
+            
+            let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            if indexPath?.row == 0 {
+                self.teamW29!.name = selectedTeam.name
+            } else if indexPath?.row == 1 {
+                self.teamW30!.name = selectedTeam.name
+            }
+        } else {
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+6) as! NSMutableArray)
+            
+            let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            print(selectedTeam.name)
+            self.teamChampion!.name = selectedTeam.name
+            
+        }
+        
+        self.BrackeChallangeCollectionView.reloadData()
+    }
+    
+    @IBAction func onPickPossiblePlayoffVisitorTeamsButtonPressed(sender: UIButton) {
+        let buttonPoint = sender.convertPoint(CGPointZero, toView: BrackeChallangeCollectionView)
+        let indexPath = BrackeChallangeCollectionView.indexPathForItemAtPoint(buttonPoint)
+        
+        if indexPath?.section == 0 {
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!) as! NSMutableArray)
+            
+            let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+            if indexPath?.row == 0 {
+                self.teamW25!.name = selectedTeam.name
+            } else if indexPath?.row == 1 {
+                self.teamW27!.name = selectedTeam.name
+            } else if indexPath?.row == 2 {
+                self.teamW26!.name = selectedTeam.name
+            } else if indexPath?.row == 3 {
+                self.teamW28!.name = selectedTeam.name
+            }
+        } else if indexPath?.section == 1 {
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+4) as! NSMutableArray)
+            
+            let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+            if indexPath?.row == 0 {
+                self.teamW29!.name = selectedTeam.name
+            } else if indexPath?.row == 1 {
+                self.teamW30!.name = selectedTeam.name
+            }
+        } else if indexPath?.section == 2 {
+            self.miniArray = NSMutableArray()
+            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+6) as! NSMutableArray)
+            
+            let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+            print(selectedTeam.name)
+            self.teamChampion!.name = selectedTeam.name
+            
+        }
+        
+        self.BrackeChallangeCollectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

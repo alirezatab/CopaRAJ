@@ -209,7 +209,15 @@
     
     self.teamOneName.text = self.match.local_abbr;
     self.teamTwoName.text = self.match.visitor_abbr;
-    self.matchDateLabel.text = self.match.date;
+    
+    //formating the date so we display the month first
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [dateFormat dateFromString:self.match.date];
+    [dateFormat setDateFormat:@"MM-dd-yyyy"];
+    NSString *strMyDate= [dateFormat stringFromDate:date];
+    self.matchDateLabel.text = strMyDate;
+    
     NSArray *labels = @[self.timeLabel , self.teamOneName ,self.teamTwoName, self.matchDateLabel , self.versusLabel , self.locationLabel];
     for (UILabel *label in labels){
         [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:18]];
