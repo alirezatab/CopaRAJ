@@ -149,14 +149,16 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       
       if (snapshot.value) === NSNull() {
         
+        let firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as? String
+        let lastName = NSUserDefaults.standardUserDefaults().valueForKey("lastName") as? String
+        
         let newFBGroup = ref.childByAutoId()
-        let newGroupDetails = ["name": passedGroup.name!, "password": passedGroup.password!, "imageName": passedGroup.imageName!, "admin":DataService.dataService.CURRENT_USER_REF.key]
+        let newGroupDetails = ["name": passedGroup.name!, "password": passedGroup.password!, "imageName": passedGroup.imageName!, "admin":DataService.dataService.CURRENT_USER_REF.key, "createdBy": "\(firstName! as String) \(lastName! as String)"]
         newFBGroup.setValue(newGroupDetails)
         
         let newUsersListFirstMember = newFBGroup.childByAppendingPath(DataService.dataService.CURRENT_USER_REF.key)
         
-        let firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as? String
-        let lastName = NSUserDefaults.standardUserDefaults().valueForKey("lastName") as? String
+       
         let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName! as String, "lastName": lastName! as String]
         
         newUsersListFirstMember.setValue(userPickDetails)

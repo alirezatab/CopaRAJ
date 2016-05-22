@@ -10,5 +10,6 @@ import Foundation
 
 class SearchResultCell: GroupHomeCell {
   
+  @IBOutlet weak var alreadyAMemberLabel: UILabel!
   @IBOutlet weak var joinButton: UIButton!
 }

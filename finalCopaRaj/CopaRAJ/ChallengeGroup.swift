@@ -16,7 +16,10 @@ class ChallengeGroup: NSObject {
   var groupID : NSString?
   var members : NSMutableArray?
   
-  
+  override init() {
+    super.init()
+  }
+ 
   
   init(name: NSString, password: NSString, imageName: NSString) {
     self.name = name

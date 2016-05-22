@@ -19,7 +19,9 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
   
   override func viewDidLoad() {
     self.activityIndicator.hidden = true
-    self.tableView.hidden = true
+    self.groupsFromSearchResults = NSMutableArray()
+
+    //self.tableView.hidden = true
     
   }
   
@@ -32,50 +34,66 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     self.activityIndicator.hidden = false
     self.activityIndicator.startAnimating()
     self.activityIndicator.hidesWhenStopped = true
+    self.groupsFromSearchResults = NSMutableArray()
     self.searchGroupsWith(searchBar.text!)
   }
   
 
   func searchGroupsWith(text:String) {
     let ref = DataService.dataService.CHALLENGEGROUPS_REF
-    ref.queryOrderedByChild("name").queryStartingAtValue(text).queryLimitedToFirst(25).observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) in
+    ref.queryOrderedByChild("name").queryStartingAtValue(text).queryLimitedToFirst(10).observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) in
       if let newResults = snapshot.value as? NSDictionary {
-        self.updateResultsWith(newResults)
+        for (key, groupDictionary) in newResults {
+          print(groupDictionary)
+          let newSearchResultGroup = SearchResultGroup()
+          newSearchResultGroup.returnGroupWithResult(groupDictionary as! NSDictionary, groupID: key as! String)
+          if ((newSearchResultGroup.name?.containsString(text)) == true){
+          self.groupsFromSearchResults?.insertObject(newSearchResultGroup, atIndex: 0)
+          } else {
+            self.groupsFromSearchResults?.addObject(newSearchResultGroup)
+          }
+          print(self.groupsFromSearchResults?.count)
+        }
       }
-      print(snapshot.value)
+      self.tableView.reloadData()      
       
       }) { (error) in
         print(error.localizedDescription)
         self.searchGroupsWith(text)
     }
+
+   
   }
   
-  func updateResultsWith(newResults: NSDictionary) {
-    self.tableView.reloadData()
-  }
+
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("groupHomeCell") as! SearchResultCell
     let challengeGroup = self.groupsFromSearchResults?.objectAtIndex(indexPath.row) as! SearchResultGroup
-    cell.groupImageView.image = UIImage.init(named: challengeGroup.name as! String)
+    cell.groupImageView.image = UIImage.init(named: challengeGroup.imageName as! String)
+    if let createdBy = challengeGroup.createdBy as? String {
+      cell.ptsLabel.text = "created by \(createdBy)"
+    } else {
+      cell.ptsLabel.text = ""
+    }
+    
     cell.groupNameLabel.text = challengeGroup.name as? String
     if challengeGroup.userIsAlreadyMember == true {
       cell.joinButton.enabled = false
       cell.joinButton.hidden = true
+      cell.alreadyAMemberLabel.hidden = false
     } else {
       cell.joinButton.enabled = true
       cell.joinButton.hidden = false
+      cell.alreadyAMemberLabel.hidden = true
+
     }
   
     return cell
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let count = self.groupsFromSearchResults?.count {
-      return count
-    } else {
-      return 0
-    }
+    return self.groupsFromSearchResults!.count
   }
 
 }
