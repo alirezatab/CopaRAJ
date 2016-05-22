@@ -460,7 +460,7 @@
     cell.teamTwoScore.text = @"";
     cell.penaltiesLabel.text = @"";
   } else if ([match.status isEqualToString:@"0"]){
-    cell.timeLabel.text = match.live_minute;
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@'", match.live_minute];
     cell.teamOneScore.text = match.local_goals;
     cell.teamTwoScore.text = match.visitor_goals;
       if (match.pen1 == [NSNumber numberWithInteger:0] && match.pen2 == [NSNumber numberWithInteger:0] ) {

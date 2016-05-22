@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *lineUpVisitorFlag;
 @property NSDate *date;
 @property (weak, nonatomic) IBOutlet UITextView *countDownTextView;
+@property (weak, nonatomic) IBOutlet UILabel *penaltyLabel;
 @property NSString *eventSavedId;
 @property BOOL eventExists;
 
@@ -186,15 +187,19 @@
     self.timeLabel.text = @"Final";
     self.teamOneScore.text = self.match.local_goals;
     self.teamTwoScore.text = self.match.visitor_goals;
-
   }
+    
+    if ([self.match.pen1 isKindOfClass:[NSString class]] || [self.match.pen2 isKindOfClass:[NSString class]]) {
+        self.penaltyLabel.text = [NSString stringWithFormat:@"(%@-%@)" , self.match.pen1 , self.match.pen2];
+    } else {
+        self.penaltyLabel.text = @"";
+    }
     
     if ([self.match.local isEqualToString:@"Haití"]) {
         self.teamOneImage.image = [UIImage imageNamed:@"Haiti"];
     } else {
         self.teamOneImage.image = [UIImage imageNamed:self.match.local];
     }
-    
     
     if ([self.match.visitor isEqualToString:@"Haití"]) {
         self.teamTwoImage.image = [UIImage imageNamed:@"Haiti"];
@@ -204,22 +209,32 @@
     
     self.teamOneName.text = self.match.local_abbr;
     self.teamTwoName.text = self.match.visitor_abbr;
-    self.matchDateLabel.text = self.match.date;
+    
+    //formating the date so we display the month first
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [dateFormat dateFromString:self.match.date];
+    [dateFormat setDateFormat:@"MM-dd-yyyy"];
+    NSString *strMyDate= [dateFormat stringFromDate:date];
+    self.matchDateLabel.text = strMyDate;
+    
     NSArray *labels = @[self.timeLabel , self.teamOneName ,self.teamTwoName, self.matchDateLabel , self.versusLabel , self.locationLabel];
     for (UILabel *label in labels){
-        [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:16]];
+        [label setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:18]];
         [label setTextColor:[UIColor whiteColor]];
     }
-    [self.teamOneScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:20]];
+    
+    [self.teamOneScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:30]];
     [self.teamOneScore setTextColor: [UIColor whiteColor]];
-    [self.teamTwoScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:20]];
+    [self.teamTwoScore setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:30]];
     [self.teamTwoScore setTextColor:[UIColor whiteColor]];
+    [self.penaltyLabel setTextColor:[UIColor whiteColor]];
+    [self.penaltyLabel setFont:[UIFont fontWithName:@"Gotham MEDIUM" size:19]];
 }
 
 - (void)displayLineUpLabels {
     
     //TEAM A
-    
     int i = 0;
     NSArray *lineUpLocalLabels = @[self.teamAPlayer1,self.teamAPlayer2,self.teamAPlayer3,self.teamAPlayer4,self.teamAPlayer5,self.teamAPlayer6,self.teamAPlayer7,self.teamAPlayer8,self.teamAPlayer9,self.teamAPlayer10,self.teamAPlayer11];
     
@@ -245,9 +260,8 @@
     }
     //TEAM B
     int x = 0;
-    
     NSArray *lineUpVisitLabels = @[self.teamBPLayer1,self.teamBPlayer2,self.teamBPlayer3,self.teamBPlayer4,self.teamBPlayer5,self.teamBPlayer6,self.teamBPlayer7,self.teamBPlayer8,self.teamBPlayer9,self.teamBPlayer10,self.teamBPlayer11];
-    NSLog(@"LINEUPS %@" , self.match.visitor_Lineup );
+    NSLog(@"LINEUPS %@" , self.match.visitor_Lineup);
     
     if ([self.match.visitor isEqualToString:@"Haití"]) {
         self.lineUpVisitorFlag.image = [UIImage imageNamed:@"Haiti"];
@@ -275,49 +289,111 @@
 }
 
 - (void) displayStatsLabels {
-    
-    //local Team A stats
-    if ([self.match.local isEqualToString:@"Haití"]) {
-        self.teamAStatsFlag.image = [UIImage imageNamed:@"Haiti"];
+    if ([self.match.status isEqualToString: @"-1"]){
+        //local Team A stats
+        if ([self.match.local isEqualToString:@"Haití"]) {
+            self.teamAStatsFlag.image = [UIImage imageNamed:@"Haiti"];
+        } else {
+            self.teamAStatsFlag.image = [UIImage imageNamed:self.match.local];
+        }
+        if(self.match.local_pos != NULL){
+            self.local_posLabel.text = [NSString stringWithFormat:@"%@ %%" , self.match.local_pos];
+        }
+        self.local_sotLabel.text = self.match.local_sot;
+        self.local_sonLabel.text = self.match.local_son;
+        if (self.match.local_off != NULL){
+            self.local_soffLabel.text = [NSString stringWithFormat:@"%@" , self.match.local_off];
+        }
+        self.local_frkLabel.text = self.match.local_frk;
+        self.local_blkLabel.text = self.match.local_blk;
+        self.local_ycLabel.text = self.match.local_yc;
+        self.local_cor.text = self.match.local_cor;
+        if (self.match.local_rc != NULL){
+            self.local_rcLabel.text = [NSString stringWithFormat:@"%@", self.match.local_rc];
+        }
+        
+        //local team B stats
+        if ([self.match.visitor isEqualToString:@"Haití"]) {
+            self.teamBStatsFlag.image = [UIImage imageNamed:@"Haiti"];
+        } else {
+            self.teamBStatsFlag.image = [UIImage imageNamed:self.match.visitor];
+        }
+        if(self.match.visitor_pos != NULL){
+            self.visitor_posLabel.text = [NSString stringWithFormat: @"%@ %%",self.match.visitor_pos];
+        }
+        self.visitor_sotLabel.text = self.match.visitor_sot;
+        self.visitor_sonLabel.text = self.match.visitor_son;
+        if (self.match.visitor_off != NULL){
+            self.visitor_soffLabel.text =[NSString stringWithFormat:@"%@" , self.match.visitor_off];
+        }
+        self.visitor_frkLabel.text = self.match.visitor_frk;
+        self.visitor_blkSaves.text = self.match.visitor_blk;
+        self.visitor_ycLabel.text = self.match.visitor_yc;
+        self.visitor_cor.text = self.match.visitor_cor;
+        if (self.match.visitor_rc != NULL){
+            self.visitor_rcLabel.text = [NSString stringWithFormat:@"%@", self.match.visitor_rc];
+        }
+        
     } else {
-        self.teamAStatsFlag.image = [UIImage imageNamed:self.match.local];
-    }
-    if(self.match.local_pos != NULL){
-    self.local_posLabel.text = [NSString stringWithFormat:@"%@ %%" , self.match.local_pos];
-    }
-    self.local_sotLabel.text = self.match.local_sot;
-    self.local_sonLabel.text = self.match.local_son;
-    if (self.match.local_off != NULL){
-        self.local_soffLabel.text = [NSString stringWithFormat:@"%@" , self.match.local_off];
-    }
-    self.local_frkLabel.text = self.match.local_frk;
-    self.local_blkLabel.text = self.match.local_blk;
-    self.local_ycLabel.text = self.match.local_yc;
-    self.local_cor.text = self.match.local_cor;
-    if (self.match.local_rc != NULL){
-        self.local_rcLabel.text = [NSString stringWithFormat:@"%@", self.match.local_rc];
-    }
-    
-    //local team B stats
-    if ([self.match.visitor isEqualToString:@"Haití"]) {
-        self.teamBStatsFlag.image = [UIImage imageNamed:@"Haiti"];
-    } else {
-        self.teamBStatsFlag.image = [UIImage imageNamed:self.match.visitor];
-    }
-    if(self.match.visitor_pos != NULL){
-    self.visitor_posLabel.text = [NSString stringWithFormat: @"%@ %%",self.match.visitor_pos];
-    }
-    self.visitor_sotLabel.text = self.match.visitor_sot;
-    self.visitor_sonLabel.text = self.match.visitor_son;
-    if (self.match.visitor_off != NULL){
-        self.visitor_soffLabel.text =[NSString stringWithFormat:@"%@" , self.match.visitor_off];
-    }
-    self.visitor_frkLabel.text = self.match.visitor_frk;
-    self.visitor_blkSaves.text = self.match.visitor_blk;
-    self.visitor_ycLabel.text = self.match.visitor_yc;
-    self.visitor_cor.text = self.match.visitor_cor;
-    if (self.match.visitor_rc != NULL){
-        self.visitor_rcLabel.text = [NSString stringWithFormat:@"%@", self.match.visitor_rc];
+        //local Team A stats
+        if ([self.match.local isEqualToString:@"Haití"]) {
+            self.teamAStatsFlag.image = [UIImage imageNamed:@"Haiti"];
+        } else {
+            self.teamAStatsFlag.image = [UIImage imageNamed:self.match.local];
+        }
+        if(self.match.local_pos != NULL){
+        self.local_posLabel.text = [NSString stringWithFormat:@"%@ %%" , self.match.local_pos];
+        }
+        self.local_sotLabel.text = self.match.local_sot;
+        self.local_sonLabel.text = self.match.local_son;
+        if (self.match.local_off != NULL){
+            self.local_soffLabel.text = [NSString stringWithFormat:@"%@" , self.match.local_off];
+        }
+        if (self.match.local_frk == nil) {
+            self.local_frkLabel.text = @"0";
+        } else {
+            self.local_frkLabel.text = self.match.local_frk;
+        }
+        self.local_blkLabel.text = self.match.local_blk;
+        if (self.match.local_yc == nil) {
+            self.local_ycLabel.text = @"0";
+        } else {
+            self.local_ycLabel.text = self.match.local_yc;
+        }
+        self.local_cor.text = self.match.local_cor;
+        if (self.match.local_rc != NULL){
+            self.local_rcLabel.text = [NSString stringWithFormat:@"%@", self.match.local_rc];
+        }
+        
+        //local team B stats
+        if ([self.match.visitor isEqualToString:@"Haití"]) {
+            self.teamBStatsFlag.image = [UIImage imageNamed:@"Haiti"];
+        } else {
+            self.teamBStatsFlag.image = [UIImage imageNamed:self.match.visitor];
+        }
+        if(self.match.visitor_pos != NULL){
+        self.visitor_posLabel.text = [NSString stringWithFormat: @"%@ %%",self.match.visitor_pos];
+        }
+        self.visitor_sotLabel.text = self.match.visitor_sot;
+        self.visitor_sonLabel.text = self.match.visitor_son;
+        if (self.match.visitor_off != NULL){
+            self.visitor_soffLabel.text =[NSString stringWithFormat:@"%@" , self.match.visitor_off];
+        }
+        if (self.match.visitor_frk == nil) {
+            self.visitor_frkLabel.text = @"0";
+        } else {
+            self.visitor_frkLabel.text = self.match.visitor_frk;
+        }
+        self.visitor_blkSaves.text = self.match.visitor_blk;
+        if (self.match.visitor_yc == nil) {
+            self.visitor_ycLabel.text = @"0";
+        } else {
+            self.visitor_ycLabel.text = self.match.visitor_yc;
+        }
+        self.visitor_cor.text = self.match.visitor_cor;
+        if (self.match.visitor_rc != NULL){
+            self.visitor_rcLabel.text = [NSString stringWithFormat:@"%@", self.match.visitor_rc];
+        }
     }
     
     //adding font color and size to the stats labels
@@ -416,7 +492,6 @@
         }];
     }
 }
-
 
 - (void)ifUserAllowsCalendarPermission:(EKEventStore*)eventStore {
     
@@ -532,20 +607,6 @@
         [self presentViewController:settingAlert animated:YES completion:nil];
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end
 

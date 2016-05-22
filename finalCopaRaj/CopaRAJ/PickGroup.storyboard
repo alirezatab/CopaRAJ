@@ -29,16 +29,9 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CxS-NE-NKP" id="xy9-nY-cqJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="75.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JDq-Rk-8yp">
-                                                    <rect key="frame" x="16" y="8" width="67" height="67"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="67" id="Cp6-Ls-fad"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="e8O-8m-pTm"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-jd-u6i">
                                                     <rect key="frame" x="110" y="8" width="380" height="59"/>
                                                     <constraints>
@@ -49,6 +42,13 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JDq-Rk-8yp">
+                                                    <rect key="frame" x="16" y="8" width="67" height="67"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="67" id="Cp6-Ls-fad"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="e8O-8m-pTm"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="leading" secondItem="xy9-nY-cqJ" secondAttribute="leadingMargin" constant="8" id="6nu-hz-3xf"/>
@@ -82,7 +82,6 @@
                                 </state>
                                 <connections>
                                     <action selector="finalizeButtonPressed:" destination="SGL-5v-fBN" eventType="touchUpInside" id="KRA-bZ-zWV"/>
-                                    <segue destination="or2-fT-DFi" kind="show" identifier="bracket" id="HG8-bn-b9W"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -106,11 +105,12 @@
                     <connections>
                         <outlet property="activityIndicator" destination="w0G-CN-MJh" id="RG7-3h-xN2"/>
                         <outlet property="tableView" destination="8ej-6M-Tqc" id="DeZ-Ar-525"/>
+                        <segue destination="or2-fT-DFi" kind="show" identifier="BracketFinalize" id="TXy-xp-s4A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9de-Aw-Rw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4471" y="-82"/>
+            <point key="canvasLocation" x="4442" y="-64"/>
         </scene>
         <!--BracketFinalize-->
         <scene sceneID="fUJ-0m-MmJ">
@@ -118,7 +118,7 @@
                 <viewControllerPlaceholder storyboardName="BracketFinalize" id="or2-fT-DFi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXf-wq-PEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4465.5" y="377"/>
+            <point key="canvasLocation" x="4442.5" y="347"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

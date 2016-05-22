@@ -6,5 +6,4 @@
 #import "FBGroup.h"
 #import "FBMatch.h"
 #import "GroupTableViewCell.h"
-
-
+#import "BracketCell.h"

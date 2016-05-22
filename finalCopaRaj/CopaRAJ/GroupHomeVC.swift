@@ -13,7 +13,8 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
   
   var groups : NSMutableArray?
 
-  @IBOutlet weak var tablevView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true;
@@ -43,13 +44,26 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
           
           let newGroup = ChallengeGroup(name: groupName, imageName: groupImage, createdBy: createdBy, groupID: groupID)
           self.groups?.addObject(newGroup)
+
           
+            if let groupDictionary = id.value as? NSDictionary{
+                
+              print(groupDictionary)
+              let groupID = groupDictionary.valueForKey("groupID") as! String
+              let createdBy = groupDictionary.valueForKey("createdBy") as! String
+              let groupImage = groupDictionary.valueForKey("groupImage") as! String
+              let groupName = groupDictionary.valueForKey("groupName") as! String
+              
+              let newGroup = ChallengeGroup(name: groupName, imageName: groupImage, createdBy: createdBy, groupID: groupID)
+              self.groups?.addObject(newGroup)
+         
+            }
         }
         }
        
       }
       if self.groups?.count > 0 {
-        self.tablevView.reloadData()
+        self.tableView.reloadData()
       } else {
         self.createDefaultTableViewSettings()
       }
@@ -63,7 +77,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     self.groups = NSMutableArray()
     let nonGroup = ChallengeGroup(name: "You're not in any groups", imageName: "Argentina", createdBy: "Join/Create a group to get in to the fun", groupID: "none")
     self.groups?.addObject(nonGroup)
-    self.tablevView.reloadData()
+    self.tableView.reloadData()
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
