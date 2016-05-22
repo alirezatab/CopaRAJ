@@ -63,6 +63,8 @@
 		D88ED4F81CEF79BA00A1A193 /* PlayerStandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */; };
 		D88ED4FA1CF02C2F00A1A193 /* GroupDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F91CF02C2F00A1A193 /* GroupDetailsCell.swift */; };
 		D88ED4FE1CF03EDB00A1A193 /* PickDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */; };
+		D8A1DF7C1CF191D30077AA5D /* SearchResultGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A1DF7B1CF191D30077AA5D /* SearchResultGroup.swift */; };
+		D8A1DF7E1CF192C80077AA5D /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A1DF7D1CF192C80077AA5D /* SearchResultCell.swift */; };
 		D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66661CCED12100B5C8FE /* FBMatch.m */; };
 		D8E631BD1CF12E8100E316AE /* SearchGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E631BC1CF12E8100E316AE /* SearchGroupsVC.swift */; };
 		D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */; };
@@ -165,6 +167,8 @@
 		D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStandingCell.swift; sourceTree = "<group>"; };
 		D88ED4F91CF02C2F00A1A193 /* GroupDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailsCell.swift; sourceTree = "<group>"; };
 		D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDetailsVC.swift; sourceTree = "<group>"; };
+		D8A1DF7B1CF191D30077AA5D /* SearchResultGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultGroup.swift; sourceTree = "<group>"; };
+		D8A1DF7D1CF192C80077AA5D /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		D8AB66621CCECF9900B5C8FE /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBGroup.h; sourceTree = "<group>"; };
 		D8AB66631CCECF9900B5C8FE /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBGroup.m; sourceTree = "<group>"; };
 		D8AB66651CCED12100B5C8FE /* FBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMatch.h; sourceTree = "<group>"; };
@@ -441,6 +445,7 @@
 			children = (
 				D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */,
 				D82E42631CE52096004812FF /* GroupHome.storyboard */,
+				D8A1DF7D1CF192C80077AA5D /* SearchResultCell.swift */,
 			);
 			name = GroupsHome;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */,
 				D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */,
 				D87962711CED334A001E3069 /* ChallengeTeam.swift */,
+				D8A1DF7B1CF191D30077AA5D /* SearchResultGroup.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -778,6 +784,7 @@
 				D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */,
 				7B3DB4341CD1DFA200EB00D3 /* HomeVC.m in Sources */,
 				C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */,
+				D8A1DF7E1CF192C80077AA5D /* SearchResultCell.swift in Sources */,
 				D86317ED1CEAF5C1009E9076 /* ChallengeUser.swift in Sources */,
 				D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */,
 				D87962721CED334A001E3069 /* ChallengeTeam.swift in Sources */,
@@ -788,6 +795,7 @@
 				D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */,
 				C20EB5C21CE67E10000E36B7 /* ChallengeLogInVC.swift in Sources */,
 				7B84DCFB1CC8421F0021524F /* Team+CoreDataProperties.m in Sources */,
+				D8A1DF7C1CF191D30077AA5D /* SearchResultGroup.swift in Sources */,
 				D88ED4FE1CF03EDB00A1A193 /* PickDetailsVC.swift in Sources */,
 				7B1FF1D51CD0152700B031B0 /* Match+CoreDataProperties.m in Sources */,
 				D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */,
