@@ -55,7 +55,16 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     
     var teamL29: ChallengeTeam?
     var teamL30: ChallengeTeam?
-    var nonWinnner: ChallengeTeam?
+  
+  
+    var A1B2Winner : ChallengeTeam?
+    var B1A2Winner : ChallengeTeam?
+    var C1D2Winner : ChallengeTeam?
+    var D1C2Winner : ChallengeTeam?
+    var W25W27Winner : ChallengeTeam?
+    var W26W28Winner : ChallengeTeam?
+    var W29W30Winner : ChallengeTeam?
+    var nonWinnner : ChallengeTeam?
     
     
     var cellHeight: CGFloat!
@@ -84,13 +93,13 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         self.teamB1 = group2.teams?.objectAtIndex(0) as? ChallengeTeam
         self.teamB2 = group2.teams?.objectAtIndex(1) as? ChallengeTeam
         
-        let A1B2Winner = ChallengeTeam(name: "Pick Your Team")
-        let B1A2Winner = ChallengeTeam(name: "Pick Your Team")
-        let C1D2Winner = ChallengeTeam(name: "Pick Your Team")
-        let D1C2Winner = ChallengeTeam(name: "Pick Your Team")
-        let W25W27Winner = ChallengeTeam(name: "Pick Your Team")
-        let W26W28Winner = ChallengeTeam(name: "Pick Your Team")
-        let W29W30Winner = ChallengeTeam(name: "Pick Your Team")
+         self.A1B2Winner = ChallengeTeam(name: "Pick Your Team")
+        self.B1A2Winner = ChallengeTeam(name: "Pick Your Team")
+        self.C1D2Winner = ChallengeTeam(name: "Pick Your Team")
+        self.D1C2Winner = ChallengeTeam(name: "Pick Your Team")
+        self.W25W27Winner = ChallengeTeam(name: "Pick Your Team")
+        self.W26W28Winner = ChallengeTeam(name: "Pick Your Team")
+        self.W29W30Winner = ChallengeTeam(name: "Pick Your Team")
         
 
 
@@ -113,18 +122,21 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         
         
         //quarterFinal Matches
-        self.matchA1B2 = [self.teamA1!, self.teamB2!, A1B2Winner]
-        self.matchB1A2 = [self.teamB1!, self.teamA2!, B1A2Winner]
-        self.matchD1C2 = [self.teamD1!, self.teamC2!, D1C2Winner]
-        self.matchC1D2 = [self.teamC1!, self.teamD2!, C1D2Winner]
-        self.matchW25W27 = [A1B2Winner, B1A2Winner, W25W27Winner]
-        self.matchW26W28 = [C1D2Winner, D1C2Winner, W26W28Winner]
+        self.matchA1B2 = [self.teamA1!, self.teamB2!, A1B2Winner!]
+        self.matchD1C2 = [self.teamD1!, self.teamC2!, D1C2Winner!]
+        self.matchB1A2 = [self.teamB1!, self.teamA2!, B1A2Winner!]
+        self.matchC1D2 = [self.teamC1!, self.teamD2!, C1D2Winner!]
+      
+        self.matchW25W27 = [A1B2Winner!, D1C2Winner!, W25W27Winner!]
+        self.matchW26W28 = [B1A2Winner!, C1D2Winner!, W26W28Winner!]
         //self.matchL29L30 = [self.teamL29!, self.teamL30!]
-        self.matchW29W30 = [W25W27Winner, W26W28Winner, W29W30Winner]
-        self.tournmentChampion = [W29W30Winner]
+        self.matchW29W30 = [W25W27Winner!, W26W28Winner!, W29W30Winner!]
+        self.tournmentChampion = [W29W30Winner!, W29W30Winner!, W29W30Winner!]
         
         self.playOffMatches = NSMutableArray()
-        self.playOffMatches?.addObjectsFromArray([self.matchA1B2!, self.matchB1A2!, self.matchD1C2!, self.matchC1D2!, self.matchW25W27!, self.matchW26W28!, self.matchW29W30!, self.tournmentChampion!])
+      
+      //double check
+        self.playOffMatches?.addObjectsFromArray([self.matchA1B2!, self.matchD1C2!, self.matchB1A2!,  self.matchC1D2!, self.matchW25W27!, self.matchW26W28!, self.matchW29W30!, self.tournmentChampion!])
     }
     
     func resetNonWinner() {
@@ -253,14 +265,15 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
             self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!) as! NSMutableArray)
             
             let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            print(selectedTeam.name)
             if indexPath?.row == 0 {
-                self.teamW25!.name = selectedTeam.name
+                self.A1B2Winner?.name = selectedTeam.name
             } else if indexPath?.row == 1 {
-                self.teamW27!.name = selectedTeam.name
+                self.D1C2Winner?.name = selectedTeam.name
             } else if indexPath?.row == 2 {
-                self.teamW26!.name = selectedTeam.name
+                self.B1A2Winner?.name = selectedTeam.name
             } else if indexPath?.row == 3 {
-                self.teamW28!.name = selectedTeam.name
+                self.C1D2Winner?.name = selectedTeam.name
             }
         } else if indexPath?.section == 1 {
             self.miniArray = NSMutableArray()
@@ -268,9 +281,9 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
             
             let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
             if indexPath?.row == 0 {
-                self.teamW29!.name = selectedTeam.name
+                self.W25W27Winner?.name = selectedTeam.name
             } else if indexPath?.row == 1 {
-                self.teamW30!.name = selectedTeam.name
+                self.W26W28Winner?.name = selectedTeam.name
             }
         } else {
             self.miniArray = NSMutableArray()
@@ -278,52 +291,70 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
             
             let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
             print(selectedTeam.name)
-            self.teamChampion!.name = selectedTeam.name
-            
+            self.W29W30Winner?.name = selectedTeam.name
         }
-        
+        self.checkWinners()
         self.BrackeChallangeCollectionView.reloadData()
     }
+  
+  
+  func checkWinners() {
+    for match in self.playOffMatches! {
+      self.checkMatchArrayForWinnerMatch(match as! NSMutableArray)
+    }
+  }
+  
+  func checkMatchArrayForWinnerMatch(match: NSMutableArray) {
+    let winner = match.objectAtIndex(2) as! ChallengeTeam
+    let local = match.objectAtIndex(0) as! ChallengeTeam
+    let visitor = match.objectAtIndex(1) as! ChallengeTeam
+    if winner.name != local.name && winner.name != visitor.name{
+      self.resetNonWinner()
+      winner.name = self.nonWinnner?.name
+    }
+  }
     
     @IBAction func onPickPossiblePlayoffVisitorTeamsButtonPressed(sender: UIButton) {
-        let buttonPoint = sender.convertPoint(CGPointZero, toView: BrackeChallangeCollectionView)
-        let indexPath = BrackeChallangeCollectionView.indexPathForItemAtPoint(buttonPoint)
+      let buttonPoint = sender.convertPoint(CGPointZero, toView: BrackeChallangeCollectionView)
+      print(buttonPoint)
+      let indexPath = BrackeChallangeCollectionView.indexPathForItemAtPoint(buttonPoint)
+      
+      if indexPath?.section == 0 {
+        self.miniArray = NSMutableArray()
+        self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!) as! NSMutableArray)
         
-        if indexPath?.section == 0 {
-            self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!) as! NSMutableArray)
-            
-            let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
-            if indexPath?.row == 0 {
-                self.teamW25!.name = selectedTeam.name
-            } else if indexPath?.row == 1 {
-                self.teamW27!.name = selectedTeam.name
-            } else if indexPath?.row == 2 {
-                self.teamW26!.name = selectedTeam.name
-            } else if indexPath?.row == 3 {
-                self.teamW28!.name = selectedTeam.name
-            }
-        } else if indexPath?.section == 1 {
-            self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+4) as! NSMutableArray)
-            
-            let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
-            if indexPath?.row == 0 {
-                self.teamW29!.name = selectedTeam.name
-            } else if indexPath?.row == 1 {
-                self.teamW30!.name = selectedTeam.name
-            }
-        } else if indexPath?.section == 2 {
-            self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+6) as! NSMutableArray)
-            
-            let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
-            print(selectedTeam.name)
-            self.teamChampion!.name = selectedTeam.name
-            
+        let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+        print(selectedTeam.name)
+        if indexPath?.row == 0 {
+          self.A1B2Winner?.name = selectedTeam.name
+        } else if indexPath?.row == 1 {
+          self.D1C2Winner?.name = selectedTeam.name
+        } else if indexPath?.row == 2 {
+          self.B1A2Winner?.name = selectedTeam.name
+        } else if indexPath?.row == 3 {
+          self.C1D2Winner?.name = selectedTeam.name
         }
+      } else if indexPath?.section == 1 {
+        self.miniArray = NSMutableArray()
+        self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+4) as! NSMutableArray)
         
-        self.BrackeChallangeCollectionView.reloadData()
+        let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+        if indexPath?.row == 0 {
+          self.W25W27Winner?.name = selectedTeam.name
+        } else if indexPath?.row == 1 {
+          self.W26W28Winner?.name = selectedTeam.name
+        }
+      } else {
+        self.miniArray = NSMutableArray()
+        self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+6) as! NSMutableArray)
+        
+        let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+        print(selectedTeam.name)
+        self.W29W30Winner?.name = selectedTeam.name
+      }
+      
+      self.checkWinners()
+      self.BrackeChallangeCollectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
