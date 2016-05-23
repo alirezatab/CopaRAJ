@@ -35,16 +35,6 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
         
         if keyString != "email" && keyString != "firstName" && keyString != "lastName" && keyString != "provider" {
 //          print("Keystring = \(keyString) id.key = \(id.key) id.value = \(id.value)")
-          let groupDictionary = id.value as! NSDictionary
-          //print(groupDictionary)
-          let groupID = groupDictionary.valueForKey("groupID") as! String
-          let createdBy = groupDictionary.valueForKey("createdBy") as! String
-          let groupImage = groupDictionary.valueForKey("groupImage") as! String
-          let groupName = groupDictionary.valueForKey("groupName") as! String
-          
-          let newGroup = ChallengeGroup(name: groupName, imageName: groupImage, createdBy: createdBy, groupID: groupID)
-          self.groups?.addObject(newGroup)
-
           
             if let groupDictionary = id.value as? NSDictionary{
                 

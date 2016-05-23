@@ -13,8 +13,25 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigationBarDelegate {
-    // MARK: Constands
+    
+    //Facebook Login Button
+    let loginButton: FBSDKLoginButton = {
+        let button = FBSDKLoginButton()
+        button.readPermissions = ["public_profile", "email", "user_friends"]
+        return button
+    }()
+    
+    // MARK: Variables
     var fbLoginSuccess = false;
+    var fbUserInfo : NSMutableArray?
+    var fbEmail : String?
+    var fbFirstName : String?
+    var fbLastName : String?
+    var fbID: String?
+    
+    var dict : NSDictionary!
+    
+    // MARK: Constands
     let loggedIn = "LoggedIn"
     let screenWidth = UIScreen.mainScreen().bounds.width
     let screenHeight = UIScreen.mainScreen().bounds.height
@@ -24,66 +41,96 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     
     // MARK: Properties
-    let refUsers = Firebase(url: "https://fiery-inferno-5799.firebaseio.com/users")
+    //let ref = Firebase(url: "https://fiery-inferno-5799.firebaseio.com/users")
     
     // MARK: UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //add facebook login subview to the view
+        self.view.addSubview(loginButton)
+        loginButton.center = self.view.center
+        loginButton.delegate = self
+        
         if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil) {
             self.performSegueWithIdentifier(self.loggedIn, sender: nil)
         }
-        if FBSDKAccessToken.currentAccessToken() == nil {
-            print("Not logged in..")
-        } else {
-            print("logged in");
-        }
-        
-        ///facebook button programatically
-        //loginButton.center = CGPoint(x: screenWidth/2, y: screenHeight/2)
-        let loginButton = FBSDKLoginButton()
-        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
-        loginButton.center = self.view.center
-        self.view.addSubview(loginButton)
     }
-    
+        
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         textFieldLoginEmail.text = ""
         textFieldLoginPassword.text = ""
         
-        refUsers.observeAuthEventWithBlock { (authData) in
-            if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
-            {
-                print("facebook logged already existing token!")
-                self.performSegueWithIdentifier(self.loggedIn, sender: self)
-            }
-        }
-    }
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated);
-//        self.navigationController?.navigationBarHidden = false;
 //        refUsers.observeAuthEventWithBlock { (authData) in
 //            if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
 //            {
 //                print("facebook logged already existing token!")
 //                self.performSegueWithIdentifier(self.loggedIn, sender: self)
 //            }
-//            if authData != nil {
-//                self.performSegueWithIdentifier(self.loggedIn, sender: nil)
-//            }
 //        }
-//    }
+    }
     
     // MARK: Facebook Login
-    func loginButton(loginButton: FBSDKLoginButton?, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        if error == nil{
-            fbLoginSuccess = true
-            print("login complete")
-        } else {
-            print(error.localizedDescription);
+    func fetchProfile() {
+        print("fetch Profile")
+        if ((FBSDKAccessToken.currentAccessToken()) != nil) {
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+                if (error == nil){
+                    self.fbEmail = result["email"] as? String
+                    self.fbFirstName = result["first_name"] as? String
+                    self.fbLastName = result["last_name"] as? String
+                    self.fbID = result["id"] as? String
+                    print(self.fbEmail)
+                    print(self.fbFirstName)
+                    print(self.fbLastName)
+                    print(self.fbID)
+//                    self.dict = result as! NSDictionary
+//                    print(result)
+//                    print(self.dict)
+//                    print(self.dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String)
+                }
+            })
         }
+    }
+    
+    func loginButton(loginButton: FBSDKLoginButton?, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+//        let fbLoginManager = FBSDKLoginManager()
+//        //public_profile", "email", "user_friends
+//        fbLoginManager.logInWithReadPermissions(["email, first_name"], fromViewController: nil) { (result, error) in
+//            
+//            print(firstName)
+//            self.fetchProfile()
+//            if error != nil{
+//                print("Facebook login Failed. Error: \(error.localizedDescription)");
+//            } else {
+                let token = FBSDKAccessToken.currentAccessToken().tokenString
+                self.fetchProfile()
+                DataService.dataService.BASE_REF.authWithOAuthProvider("facebook", token: token, withCompletionBlock: { (error, authData) in
+                    
+                    if error != nil {
+                        print("login Failed")
+                    } else {
+                        print(self.fbEmail)
+                        print(self.fbFirstName)
+                        print(self.fbLastName)
+                        let user: Dictionary<String, String> = ["provider": authData.provider!, "email": authData.providerData["email"] as! String, "firstName": self.fbFirstName!, "lastName": self.fbLastName!, "id": self.fbID!];
+                        
+                        DataService.dataService.createNewAccount(authData.uid, user: user)
+                        //store the uid for future access - handy!
+                        NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                        NSUserDefaults.standardUserDefaults().setValue(self.fbFirstName, forKey: "firstName")
+                        NSUserDefaults.standardUserDefaults().setValue(self.fbLastName, forKey: "lastName")
+                        NSUserDefaults.standardUserDefaults().setValue(self.fbID, forKey: "id")
+                        self.performSegueWithIdentifier(self.loggedIn, sender: nil)
+                    }
+                })
+
+        }
+    
+    func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
+        return true
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
@@ -120,7 +167,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
             displayErrorAlert("Oops", message: "Dont foget to enter your email")
         }
     }
-    
+
     @IBAction func forgottenPassword(sender: AnyObject) {
         
         var loginTextField: UITextField?
@@ -155,7 +202,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         presentViewController(alertController, animated: true, completion: nil)
         
     }
-    
+    //MARK: Alerts
     func displayErrorAlert(title: String, message: String) {
         // Called upon login error to let the user know login didn't work.
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -197,7 +244,6 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         
     }
     
-
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     }
         
@@ -206,3 +252,18 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     }
 }
 
+
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated);
+//        self.navigationController?.navigationBarHidden = false;
+//        refUsers.observeAuthEventWithBlock { (authData) in
+//            if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
+//            {
+//                print("facebook logged already existing token!")
+//                self.performSegueWithIdentifier(self.loggedIn, sender: self)
+//            }
+//            if authData != nil {
+//                self.performSegueWithIdentifier(self.loggedIn, sender: nil)
+//            }
+//        }
+//    }

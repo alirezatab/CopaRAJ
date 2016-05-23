@@ -42,7 +42,20 @@ class DataService {
     }
     
     func createNewAccount(uid: String, user: Dictionary<String, String>) {
+        print(uid)
+        
+        USER_REF.queryEqualToValue(uid).observeEventType(FEventType.Value, withBlock: { (snapshot) in
+            print(snapshot.value)
+            }) { (error) in
+                
+        }
         USER_REF.childByAppendingPath(uid).setValue(user)
+//        observeEventOfType(.Value, withBlock: { (snapshot) in
+//            print(snapshot.value)
+//            print("")
+//        }) { (error) in
+//            
+//        }
     }
   
   func updateCurrentUserWithGroupID(groupID: String, groupImage: String, groupName: String, createdBy: String, completionHandler: CompletionHandler) {
