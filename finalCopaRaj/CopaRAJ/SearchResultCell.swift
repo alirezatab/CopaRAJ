@@ -8,8 +8,25 @@
 
 import Foundation
 
+  protocol SearchResultCellDelegate {
+    
+    func userDidRequestJoin(sender: UIButton)
+
+  }
+
+
 class SearchResultCell: GroupHomeCell {
   
   @IBOutlet weak var alreadyAMemberLabel: UILabel!
   @IBOutlet weak var joinButton: UIButton!
+  
+  var delegate:SearchResultCellDelegate? = nil
+  
+
+  
+  
+  @IBAction func onJoinButtonPressed(sender: UIButton) {
+      delegate?.userDidRequestJoin(sender)
+  }
+
 }

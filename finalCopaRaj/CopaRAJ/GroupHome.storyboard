@@ -287,12 +287,14 @@
                                                             <exclude reference="GKe-Vj-aoQ"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="343" y="47" width="41" height="30"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="GKe-Vj-aoQ"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="onJoinButtonPressed:" destination="fja-Vp-m78" eventType="touchUpInside" id="A8R-mD-oOu"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already A Member *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNh-zd-oeX">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
