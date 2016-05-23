@@ -86,25 +86,12 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                     print(self.fbFirstName)
                     print(self.fbLastName)
                     print(self.fbID)
-//                    self.dict = result as! NSDictionary
-//                    print(result)
-//                    print(self.dict)
-//                    print(self.dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String)
                 }
             })
         }
     }
     
     func loginButton(loginButton: FBSDKLoginButton?, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-//        let fbLoginManager = FBSDKLoginManager()
-//        //public_profile", "email", "user_friends
-//        fbLoginManager.logInWithReadPermissions(["email, first_name"], fromViewController: nil) { (result, error) in
-//            
-//            print(firstName)
-//            self.fetchProfile()
-//            if error != nil{
-//                print("Facebook login Failed. Error: \(error.localizedDescription)");
-//            } else {
                 let token = FBSDKAccessToken.currentAccessToken().tokenString
                 self.fetchProfile()
                 DataService.dataService.BASE_REF.authWithOAuthProvider("facebook", token: token, withCompletionBlock: { (error, authData) in
@@ -115,7 +102,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                         print(self.fbEmail)
                         print(self.fbFirstName)
                         print(self.fbLastName)
-                        let user: Dictionary<String, String> = ["provider": authData.provider!, "email": authData.providerData["email"] as! String, "firstName": self.fbFirstName!, "lastName": self.fbLastName!, "id": self.fbID!];
+                        let user: Dictionary<String, String> = ["provider": authData.provider!, "email": self.fbEmail!, "firstName": self.fbFirstName!, "lastName": self.fbLastName!, "id": self.fbID!];
                         
                         DataService.dataService.createNewAccount(authData.uid, user: user)
                         //store the uid for future access - handy!
