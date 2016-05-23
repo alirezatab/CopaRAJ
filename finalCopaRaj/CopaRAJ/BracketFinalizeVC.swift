@@ -11,6 +11,7 @@ import UIKit
 class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationBarDelegate{
     
     
+  @IBOutlet weak var finalizeButton: UIBarButtonItem!
     @IBOutlet weak var BrackeChallangeCollectionView: UICollectionView!
     
     @IBOutlet weak var homeTeamImageView: UIImageView!
@@ -23,6 +24,8 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     @IBOutlet weak var visitorTeamScore: UILabel!
     @IBOutlet weak var visitorTeamPenalty: UILabel!
     
+    var group : ChallengeGroup?
+  
     var groupsPassedOver : NSMutableArray!
     var playOffMatches: NSMutableArray?
     var miniArray: NSMutableArray?
@@ -302,6 +305,13 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     for match in self.playOffMatches! {
       self.checkMatchArrayForWinnerMatch(match as! NSMutableArray)
     }
+    let finalizeEnabled = self.checkFinalize()
+    if finalizeEnabled {
+      self.finalizeButton.enabled = true
+    } else {
+      self.finalizeButton.enabled = false
+      
+    }
   }
   
   func checkMatchArrayForWinnerMatch(match: NSMutableArray) {
@@ -360,4 +370,22 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+  
+  func checkFinalize() -> Bool {
+    var enableButton = true
+    
+    if self.teamChampion?.name == "Pick Your Team" {
+      enableButton = false
+      return enableButton
+    } else if self.W29W30Winner!.name == "Pick Your Team" || self.W26W28Winner!.name == "Pick Your Team" || W25W27Winner!.name == "Pick Your Team" {
+      enableButton = false
+      return enableButton
+    } else if self.A1B2Winner!.name == "Pick Your Team" || self.B1A2Winner!.name == "Pick Your Team" || self.C1D2Winner?.name == "Pick Your Team" || self.D1C2Winner == "Pick Your Team" {
+      enableButton = false
+      return enableButton
+    }
+    
+    
+    return enableButton
+  }
 }

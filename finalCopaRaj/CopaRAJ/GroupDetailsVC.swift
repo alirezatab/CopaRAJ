@@ -88,6 +88,17 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
       if shouldAllowSharing == false {
         cell.inviteButton.enabled = false
         cell.inviteButton.hidden = true
+      } else {
+        cell.inviteButton.enabled = true
+        cell.inviteButton.hidden = false
+      }
+      
+      if self.group?.userHasMadePicks == true {
+        cell.makePicksButton.enabled = false
+        cell.makePicksButton.hidden = true
+      } else {
+        cell.makePicksButton.enabled = true
+        cell.makePicksButton.hidden = false
       }
       return cell
     } else {
@@ -149,6 +160,9 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
       let user = self.group?.members?.objectAtIndex(indexPath.row) as! ChallengeUser
       let destVC = segue.destinationViewController as! PickDetailsVC
       destVC.member = user
+    } else if segue.identifier == "makePicks" {
+      let destVC = segue.destinationViewController as! PickGroupVC
+      destVC.group = self.group
       
     }
   }

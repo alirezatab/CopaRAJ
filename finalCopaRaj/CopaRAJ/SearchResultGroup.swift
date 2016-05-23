@@ -9,7 +9,6 @@
 import Foundation
 
 class SearchResultGroup : ChallengeGroup {
-  var userIsAlreadyMember : Bool?
   var uniqueID : String?
   
   override init() {

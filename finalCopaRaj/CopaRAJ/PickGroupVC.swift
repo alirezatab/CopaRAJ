@@ -13,6 +13,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   var groups : NSMutableArray?
+  var group : ChallengeGroup?
   
   override func viewDidLoad() {
     self.navigationController?.navigationBarHidden = false
@@ -167,6 +168,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let desVC = segue.destinationViewController as? BracketFinalizeVC {
             desVC.groupsPassedOver = self.groups
+            desVC.group = self.group
         }
     }
 }

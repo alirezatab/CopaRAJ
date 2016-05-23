@@ -2,9 +2,18 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9eh-0w-2mu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--PickGroup-->
+        <scene sceneID="dWX-uK-Pb2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PickGroup" id="aMs-rV-8Fg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NsT-Nu-AoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2499.75" y="318"/>
+        </scene>
         <!--Group Details-->
         <scene sceneID="4TJ-a7-gqd">
             <objects>
@@ -25,7 +34,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroupDetailsCell" id="epn-i4-6l0" customClass="GroupDetailsCell" customModule="CopaRAJ" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroupDetailsCell" rowHeight="82" id="epn-i4-6l0" customClass="GroupDetailsCell" customModule="CopaRAJ" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="epn-i4-6l0" id="lls-NM-bco">
@@ -35,7 +44,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Aao-Qd-UCI">
                                                     <rect key="frame" x="-12" y="-15" width="536" height="26"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Created By James Rochabrun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Qs-FuY">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Created By James Rochabrun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Qs-FuY">
                                                             <rect key="frame" x="0.0" y="0.0" width="259" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="259" id="Wgj-d4-svW"/>
@@ -49,20 +58,23 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDk-b0-Nh6">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDk-b0-Nh6">
                                                             <rect key="frame" x="259" y="0.0" width="85" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgI-5i-Ima">
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgI-5i-Ima">
                                                             <rect key="frame" x="344" y="0.0" width="142" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <state key="normal" title="Make Your Picks">
                                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <segue destination="aMs-rV-8Fg" kind="show" identifier="makePicks" id="fYa-YJ-41W"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhN-vf-Lud">
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhN-vf-Lud">
                                                             <rect key="frame" x="486" y="0.0" width="50" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <state key="normal" title="Invite">
@@ -100,6 +112,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="inviteButton" destination="lhN-vf-Lud" id="8UO-G8-K0r"/>
+                                            <outlet property="makePicksButton" destination="wgI-5i-Ima" id="Nzs-Gc-SxC"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="playerCell" id="dnz-9R-fAE" customClass="PlayerStandingCell" customModule="CopaRAJ" customModuleProvider="target">
@@ -171,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RO8-bc-cwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557.5" y="770"/>
+            <point key="canvasLocation" x="2499" y="789"/>
         </scene>
         <!--Pick DetailsVC-->
         <scene sceneID="siE-5t-5Hz">
@@ -193,17 +206,17 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yL2-gF-YIr" id="omN-gs-fL0">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iDf-ep-4Ic">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDf-ep-4Ic">
                                                     <rect key="frame" x="16" y="8" width="67" height="67"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="67" id="MLQ-YE-uIW"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="OuW-mk-V77"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="aNx-Zr-Kei">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="aNx-Zr-Kei">
                                                     <rect key="frame" x="110" y="8" width="380" height="59"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="380" id="1Tf-wW-z8z">
@@ -271,10 +284,10 @@
                                 <exclude reference="UkF-gu-BIP"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="5sM-3N-qdT"/>
                                 <exclude reference="PpB-JL-mBe"/>
                                 <exclude reference="R31-rF-2UE"/>
                                 <exclude reference="ZFH-52-zE3"/>
-                                <exclude reference="5sM-3N-qdT"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -282,10 +295,10 @@
                                 <include reference="UkF-gu-BIP"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="5sM-3N-qdT"/>
                                 <include reference="PpB-JL-mBe"/>
                                 <include reference="R31-rF-2UE"/>
                                 <include reference="ZFH-52-zE3"/>
-                                <include reference="5sM-3N-qdT"/>
                             </mask>
                         </variation>
                     </view>
@@ -295,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KG7-OW-mOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3232.5" y="770"/>
+            <point key="canvasLocation" x="3174" y="789"/>
         </scene>
         <!--PickDetails-->
         <scene sceneID="msf-Da-WSf">

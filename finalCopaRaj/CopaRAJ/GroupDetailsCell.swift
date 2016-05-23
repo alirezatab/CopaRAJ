@@ -9,6 +9,7 @@
 import Foundation
 
 class GroupDetailsCell: UITableViewCell {
+  @IBOutlet weak var makePicksButton: UIButton!
 
   @IBOutlet weak var inviteButton: UIButton!
 }

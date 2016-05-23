@@ -15,6 +15,9 @@ class ChallengeGroup: NSObject {
   var createdBy : NSString?
   var groupID : NSString?
   var members : NSMutableArray?
+  var userIsAlreadyMember : Bool?
+  var userHasMadePicks : Bool?
+
   
   override init() {
     super.init()
@@ -45,13 +48,13 @@ class ChallengeGroup: NSObject {
       } else if idKey == "createdBy" {
         self.createdBy = id.value as! String
       }else if idKey != "imageName" && idKey != "name" && idKey != "admin" && idKey != "password" && idKey != "createdBy" {
-        let member = self.createMemberforGroup(id.value as! NSDictionary)
+        let member = self.createMemberforGroup(id.value as! NSDictionary, key: idKey)
         self.members?.addObject(member)
       }
     }
   }
   
-  func createMemberforGroup(dictionary: NSDictionary) -> ChallengeUser {
+  func createMemberforGroup(dictionary: NSDictionary, key : String) -> ChallengeUser {
     let user = ChallengeUser()
     user.Champion = dictionary.valueForKey("Champion") as? String
     user.FinalistTeam1 = dictionary.valueForKey("FinalistTeam1") as? String
@@ -84,6 +87,14 @@ class ChallengeGroup: NSObject {
     
     user.firstName = dictionary.valueForKey("firstName") as? String
     user.lastName = dictionary.valueForKey("lastName") as? String
+    
+    let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+    if userID == key {
+      self.userIsAlreadyMember = true
+      if user.Champion == "" {
+        self.userHasMadePicks = false
+      }
+    }
     
     return user
   }
