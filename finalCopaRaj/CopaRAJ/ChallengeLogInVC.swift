@@ -104,13 +104,18 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                         print(self.fbLastName)
                         let user: Dictionary<String, String> = ["provider": authData.provider!, "email": self.fbEmail!, "firstName": self.fbFirstName!, "lastName": self.fbLastName!, "id": self.fbID!];
                         
-                        DataService.dataService.createNewAccount(authData.uid, user: user)
-                        //store the uid for future access - handy!
-                        NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
-                        NSUserDefaults.standardUserDefaults().setValue(self.fbFirstName, forKey: "firstName")
-                        NSUserDefaults.standardUserDefaults().setValue(self.fbLastName, forKey: "lastName")
-                        NSUserDefaults.standardUserDefaults().setValue(self.fbID, forKey: "id")
-                        self.performSegueWithIdentifier(self.loggedIn, sender: nil)
+                        DataService.dataService.createNewAccount(authData.uid, user: user, completionHandler: { (success) in
+                            if success == true {
+                                //store the uid for future access - handy!
+                                NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                                NSUserDefaults.standardUserDefaults().setValue(self.fbFirstName, forKey: "firstName")
+                                NSUserDefaults.standardUserDefaults().setValue(self.fbLastName, forKey: "lastName")
+                                NSUserDefaults.standardUserDefaults().setValue(self.fbID, forKey: "id")
+                                self.performSegueWithIdentifier(self.loggedIn, sender: nil)
+                            } else {
+                                print(success)
+                            }
+                        })
                     }
                 })
 

@@ -41,27 +41,25 @@ class DataService {
         return currentUser!
     }
     
-    func createNewAccount(uid: String, user: Dictionary<String, String>) {
-        print(uid)
-        print(USER_REF.authData.uid)
-        USER_REF.childByAppendingPath("\(USER_REF.authData.uid)")
-        USER_REF.observeEventType(.Value, withBlock: { (snapshot) in
-            if ((self.USER_REF.queryEqualToValue(uid)) == nil){
-                self.USER_REF.childByAppendingPath(uid).setValue(user)
-               // print(snapshot.value)
-            } else {
-                print(self.USER_REF.queryEqualToValue(uid))
+    func createNewAccount(uid: String, user: Dictionary<String, String>, completionHandler: CompletionHandler) {
 
+        let ref = USER_REF.childByAppendingPath("\(USER_REF.authData.uid)")
+        ref.observeEventType(.Value, withBlock: { (snapshot) in
+            if (snapshot.exists()){
+                print("user exists")
+                let flag = true
+                completionHandler(success: flag)
+            } else {
+                print("user doesnt exist")
+                let flag = true
+                completionHandler(success: flag)
+                self.USER_REF.childByAppendingPath(uid).setValue(user)
             }
             }) { (error) in
-                
+                print(error.localizedDescription)
+                let flag = false
+                completionHandler(success: flag)
         }
-//        USER_REF.queryEqualToValue(uid).observeSingleEventOfType(FEventType. , withBlock: { (snapshot) in
-//            print(snapshot.value)
-//            }) { (error) in
-//                print(error.localizedDescription)
-//        }
-
     }
   
   func updateCurrentUserWithGroupID(groupID: String, groupImage: String, groupName: String, createdBy: String, completionHandler: CompletionHandler) {
