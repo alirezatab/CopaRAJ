@@ -83,7 +83,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(groupsPassedOver)
+       // print(groupsPassedOver)
         let group1 = self.groupsPassedOver.objectAtIndex(0) as! CopaAmericaGroup
         let group2 = self.groupsPassedOver.objectAtIndex(1) as! CopaAmericaGroup
         let group3 = self.groupsPassedOver.objectAtIndex(2) as! CopaAmericaGroup
@@ -260,7 +260,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     @IBAction func onPickPossiblePlayoffHomeTeamsButtonPressed(sender: UIButton) {
         
         let buttonPoint = sender.convertPoint(CGPointZero, toView: BrackeChallangeCollectionView)
-        print(buttonPoint)
+        //print(buttonPoint)
         let indexPath = BrackeChallangeCollectionView.indexPathForItemAtPoint(buttonPoint)
         
         if indexPath?.section == 0 {
@@ -268,7 +268,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
             self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!) as! NSMutableArray)
             
             let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
-            print(selectedTeam.name)
+           // print(selectedTeam.name)
             if indexPath?.row == 0 {
                 self.A1B2Winner?.name = selectedTeam.name
             } else if indexPath?.row == 1 {
@@ -293,7 +293,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
             self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+6) as! NSMutableArray)
             
             let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
-            print(selectedTeam.name)
+            //print(selectedTeam.name)
             self.W29W30Winner?.name = selectedTeam.name
         }
         self.checkWinners()
@@ -326,7 +326,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     
     @IBAction func onPickPossiblePlayoffVisitorTeamsButtonPressed(sender: UIButton) {
       let buttonPoint = sender.convertPoint(CGPointZero, toView: BrackeChallangeCollectionView)
-      print(buttonPoint)
+      //print(buttonPoint)
       let indexPath = BrackeChallangeCollectionView.indexPathForItemAtPoint(buttonPoint)
       
       if indexPath?.section == 0 {
@@ -334,7 +334,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!) as! NSMutableArray)
         
         let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
-        print(selectedTeam.name)
+        //print(selectedTeam.name)
         if indexPath?.row == 0 {
           self.A1B2Winner?.name = selectedTeam.name
         } else if indexPath?.row == 1 {
@@ -359,7 +359,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+6) as! NSMutableArray)
         
         let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
-        print(selectedTeam.name)
+        //print(selectedTeam.name)
         self.W29W30Winner?.name = selectedTeam.name
       }
       
@@ -388,4 +388,67 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     
     return enableButton
   }
+  
+  @IBAction func onFinalizeButtonPressed(sender: UIButton) {
+    let finalPicks = self.createFinalPicks()
+    //print(finalPicks)
+  }
+  
+  func createFinalPicks() -> NSDictionary {
+    
+    let firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as? String
+    let lastName = NSUserDefaults.standardUserDefaults().valueForKey("lastName") as? String
+    let groupA = self.groupsPassedOver.objectAtIndex(0) as! CopaAmericaGroup
+    let GroupAWinner = groupA.teams?.objectAtIndex(0) as! ChallengeTeam
+    let GroupARunnerUP = groupA.teams?.objectAtIndex(1) as! ChallengeTeam
+    let GroupAThirdPlace = groupA.teams?.objectAtIndex(2) as! ChallengeTeam
+    let GroupAFourthPlace = groupA.teams?.objectAtIndex(3) as! ChallengeTeam
+    
+    let groupB = self.groupsPassedOver.objectAtIndex(1) as! CopaAmericaGroup
+    let GroupBWinner = groupB.teams?.objectAtIndex(0) as! ChallengeTeam
+    let GroupBRunnerUP = groupB.teams?.objectAtIndex(1) as! ChallengeTeam
+    let GroupBThirdPlace = groupB.teams?.objectAtIndex(2) as! ChallengeTeam
+    let GroupBFourthPlace = groupB.teams?.objectAtIndex(3) as! ChallengeTeam
+    
+    let groupC = self.groupsPassedOver.objectAtIndex(2) as! CopaAmericaGroup
+    let GroupCWinner = groupC.teams?.objectAtIndex(0) as! ChallengeTeam
+    let GroupCRunnerUP = groupC.teams?.objectAtIndex(1) as! ChallengeTeam
+    let GroupCThirdPlace = groupC.teams?.objectAtIndex(2) as! ChallengeTeam
+    let GroupCFourthPlace = groupC.teams?.objectAtIndex(3) as! ChallengeTeam
+    
+    let groupD = self.groupsPassedOver.objectAtIndex(3) as! CopaAmericaGroup
+    let GroupDWinner = groupD.teams?.objectAtIndex(0) as! ChallengeTeam
+    let GroupDRunnerUP = groupD.teams?.objectAtIndex(1) as! ChallengeTeam
+    let GroupDThirdPlace = groupD.teams?.objectAtIndex(2) as! ChallengeTeam
+    let GroupDFourthPlace = groupD.teams?.objectAtIndex(3) as! ChallengeTeam
+    
+    let userPickDetails = ["GroupAWinner": GroupAWinner.name as! String,
+                           "GroupARunnerUP": GroupARunnerUP.name as! String,
+                           "GroupAThirdPlace": GroupAThirdPlace.name as! String,
+                           "GroupAFourthPlace": GroupAFourthPlace.name as! String,
+                           "GroupBWinner": GroupBWinner.name as! String,
+                           "GroupBRunnerUP": GroupBRunnerUP.name as! String,
+                           "GroupBThirdPlace": GroupBThirdPlace.name as! String,
+                           "GroupBFourthPlace": GroupBFourthPlace.name as! String,
+                           "GroupCWinner": GroupCWinner.name as! String,
+                           "GroupCRunnerUP": GroupCRunnerUP.name as! String,
+                           "GroupCThirdPlace": GroupCThirdPlace.name as! String,
+                           "GroupCFourthPlace": GroupCFourthPlace.name as! String,
+                           "GroupDWinner": GroupDWinner.name as! String,
+                           "GroupDRunnerUP": GroupDRunnerUP.name as! String,
+                           "GroupDThirdPlace": GroupDThirdPlace.name as! String,
+                           "GroupDFourthPlace": GroupDFourthPlace.name as! String,
+                           "SemifinalistTeam1":self.A1B2Winner?.name as! String,
+                           "SemifinalistTeam2":self.D1C2Winner?.name as! String,
+                           "SemifinalistTeam3":self.B1A2Winner?.name as! String,
+                           "SemifinalistTeam4":self.C1D2Winner?.name as! String,
+                           "FinalistTeam1": self.W25W27Winner?.name as! String,
+                           "FinalistTeam2":self.W26W28Winner?.name as! String,
+                           "Champion": self.W29W30Winner?.name as! String,
+                           "firstName":firstName! as String,
+                           "lastName": lastName! as String]
+    
+    return userPickDetails
+  }
+  
 }

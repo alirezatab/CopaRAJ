@@ -321,6 +321,9 @@
                                 <state key="normal" title="Finalize">
                                     <color key="titleColor" red="0.094924178900000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onFinalizeButtonPressed:" destination="991-54-pu2" eventType="touchUpInside" id="y85-dO-0Km"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
