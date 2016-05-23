@@ -161,8 +161,9 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
       let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName! as String, "lastName": lastName! as String]
       
         newUsersListMember.setValue(userPickDetails)
-        DataService.dataService.updateCurrentUserWithGroupID(group.uniqueID!, groupImage: "Argentina", groupName: group.name as! String, createdBy: "test", completionHandler: { (success) in
+        DataService.dataService.updateCurrentUserWithGroupID(group.uniqueID!, groupImage: "Argentina", groupName: group.name as! String, createdBy: group.createdBy! as String, completionHandler: { (success) in
           if success == true {
+            self.presentAddedToGroup(group)
             print("success")
           } else if success == false {
             print("fail")
@@ -173,6 +174,18 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
       }) { (error) in
         
     }
+    
+  }
+  
+  func presentAddedToGroup (group : SearchResultGroup) {
+    let alert = UIAlertController(title: "Success", message: "You have been added to \(group.name!)", preferredStyle: .Alert)
+    let ok = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+      self.navigationController?.popViewControllerAnimated(true)
+    }
+    alert.addAction(ok)
+    self.presentViewController(alert, animated: true) { 
+    }
+    
     
   }
 //    let userID = groupref.childByAppendingPath(DataService.dataService.CURRENT_USER_REF.key)

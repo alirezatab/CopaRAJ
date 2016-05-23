@@ -12,18 +12,30 @@ import FBSDKLoginKit
 class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource{
   
   var groups : NSMutableArray?
+  var didAlreadySearchGroups : Bool?
 
     @IBOutlet weak var tableView: UITableView!
+  
+  override func viewWillAppear(animated: Bool) {
+    if self.didAlreadySearchGroups != true {
+    self.findGroupsForUser()
+    }
+  }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true;
-        self.groups = NSMutableArray()
+        self.didAlreadySearchGroups = true
         self.findGroupsForUser()
       
     }
   
+  override func viewWillDisappear(animated: Bool) {
+    self.didAlreadySearchGroups = false
+  }
+  
   func findGroupsForUser() {
+    self.groups = NSMutableArray()
     let ref = DataService.dataService.CURRENT_USER_REF
     ref.queryOrderedByChild("groupID").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
      // print(snapshot.value)
@@ -31,37 +43,22 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
       if (snapshot.value as? NSDictionary) != nil{
       
       for id in snapshot.value as! NSDictionary{
-        let keyString = id.key as! String
-        
-        if keyString != "email" && keyString != "firstName" && keyString != "lastName" && keyString != "provider" {
-//          print("Keystring = \(keyString) id.key = \(id.key) id.value = \(id.value)")
-          let groupDictionary = id.value as! NSDictionary
-          //print(groupDictionary)
-          let groupID = groupDictionary.valueForKey("groupID") as! String
-          let createdBy = groupDictionary.valueForKey("createdBy") as! String
-          let groupImage = groupDictionary.valueForKey("groupImage") as! String
-          let groupName = groupDictionary.valueForKey("groupName") as! String
-          
-          let newGroup = ChallengeGroup(name: groupName, imageName: groupImage, createdBy: createdBy, groupID: groupID)
-          self.groups?.addObject(newGroup)
-
-          
-            if let groupDictionary = id.value as? NSDictionary{
+      
+          if let groupDictionary = id.value as? NSDictionary{
                 
-              print(groupDictionary)
-              let groupID = groupDictionary.valueForKey("groupID") as! String
-              let createdBy = groupDictionary.valueForKey("createdBy") as! String
-              let groupImage = groupDictionary.valueForKey("groupImage") as! String
-              let groupName = groupDictionary.valueForKey("groupName") as! String
+            print(snapshot.value)
+            let groupID = groupDictionary.valueForKey("groupID") as! String
+            let createdBy = groupDictionary.valueForKey("createdBy") as! String
+            let groupImage = groupDictionary.valueForKey("groupImage") as! String
+            let groupName = groupDictionary.valueForKey("groupName") as! String
               
-              let newGroup = ChallengeGroup(name: groupName, imageName: groupImage, createdBy: createdBy, groupID: groupID)
-              self.groups?.addObject(newGroup)
+            let newGroup = ChallengeGroup(name: groupName, imageName: groupImage, createdBy: createdBy, groupID: groupID)
+            self.groups?.addObject(newGroup)
          
             }
         }
         }
        
-      }
       if self.groups?.count > 0 {
         self.tableView.reloadData()
       } else {
