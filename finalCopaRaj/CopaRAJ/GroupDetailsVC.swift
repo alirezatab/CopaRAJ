@@ -15,7 +15,7 @@
 
 import Foundation
 
-class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
@@ -28,6 +28,8 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     self.activityIndicator.startAnimating()
     self.activityIndicator.hidesWhenStopped = true
     self.getGroupDetailsFromFirebase()
+    self.navigationItem.hidesBackButton = true
+    //self.navigationController?.navigationItem
     
   }
   
