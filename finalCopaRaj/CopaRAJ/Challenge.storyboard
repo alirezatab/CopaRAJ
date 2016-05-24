@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+I<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CIU-BF-wDy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -100,7 +100,7 @@
                                     </barButtonItem>
                                     <barButtonItem image="challengeIcon" width="65" id="Efj-y3-3vT">
                                         <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="OVP-RY-W9R"/>
                                 </items>
@@ -133,7 +133,7 @@
                     <connections>
                         <outlet property="textFieldLoginEmail" destination="HhR-4T-neK" id="guT-aU-rqe"/>
                         <outlet property="textFieldLoginPassword" destination="YEn-NK-VUe" id="77d-W8-kxf"/>
-                        <segue destination="x6s-Mi-rbM" kind="show" identifier="LoggedIn" id="mU3-iM-Hhe"/>
+                        <segue destination="tN4-7P-6ys" kind="show" identifier="LoggedIn" animates="NO" id="mU3-iM-Hhe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ck2-dR-Q7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -143,10 +143,12 @@
         <!--GroupHome-->
         <scene sceneID="zeQ-KZ-tjE">
             <objects>
-                <viewControllerPlaceholder storyboardName="GroupHome" id="x6s-Mi-rbM" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="GroupHome" id="x6s-Mi-rbM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pei-rB-HUy"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhM-aj-HKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4230.5" y="227"/>
+            <point key="canvasLocation" x="5042.5" y="227"/>
         </scene>
         <!--Create AccountVC-->
         <scene sceneID="cwl-8I-p8H">
@@ -258,7 +260,7 @@
                         <outlet property="firstNameTextField" destination="Zfi-W8-lX6" id="pl4-sO-KSX"/>
                         <outlet property="lastNameTextField" destination="q21-zR-gzM" id="bze-FY-KLZ"/>
                         <outlet property="passwordTextField" destination="m5r-d4-Eii" id="SRN-xR-FVj"/>
-                        <segue destination="x6s-Mi-rbM" kind="show" identifier="NewUserLoggedIn" id="pli-so-dII"/>
+                        <segue destination="tN4-7P-6ys" kind="show" identifier="NewUserLoggedIn" id="pli-so-dII"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gle-Bv-MBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -290,6 +292,24 @@
             </objects>
             <point key="canvasLocation" x="2834" y="451"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7kV-lU-kBO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tN4-7P-6ys" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Sg-Ql-LVa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x6s-Mi-rbM" kind="relationship" relationship="rootViewController" id="J6k-Al-6kI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OuV-88-Ku5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4230" y="227"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BracketButtonIcon" width="50" height="50"/>
@@ -298,7 +318,7 @@
         <image name="matchesButtonImage" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mU3-iM-Hhe"/>
+        <segue reference="pli-so-dII"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

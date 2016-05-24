@@ -20,7 +20,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stadium-1" translatesAutoresizingMaskIntoConstraints="NO" id="xpv-gp-0kg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TXt-wg-6cT">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TXt-wg-6cT">
                                 <rect key="frame" x="0.0" y="64" width="600" height="476"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VuJ-oC-gOt">
@@ -342,7 +342,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Playoffs" id="DtQ-f0-ERU"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="activityIndicator" destination="VH2-DO-uA8" id="2e0-YP-t7X"/>
                         <outlet property="collectionView" destination="TXt-wg-6cT" id="68z-7R-6C0"/>
@@ -361,7 +360,7 @@
                 <viewControllerPlaceholder storyboardName="Group" id="JQg-Da-tjf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxE-ZB-Dxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171.5" y="2644"/>
+            <point key="canvasLocation" x="171.5" y="2436"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="0Lz-Vi-7ML">
@@ -369,7 +368,7 @@
                 <viewControllerPlaceholder storyboardName="Challenge" id="cYY-DT-QYH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYF-pG-2e3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="115.5" y="2906"/>
+            <point key="canvasLocation" x="183.5" y="2714"/>
         </scene>
         <!--UINavigationController-8gu-mv-4JN-->
         <scene sceneID="hf3-50-Se2">
@@ -377,7 +376,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="UINavigationController-8gu-mv-4JN" storyboardName="Main" referencedIdentifier="UINavigationController-8gu-mv-4JN" id="RQT-Xj-YMP" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvI-go-7zY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264" y="2305"/>
+            <point key="canvasLocation" x="264" y="2150"/>
         </scene>
     </scenes>
     <resources>

@@ -12,7 +12,7 @@
                 <viewControllerPlaceholder storyboardName="PickGroup" id="aMs-rV-8Fg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NsT-Nu-AoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2499.75" y="318"/>
+            <point key="canvasLocation" x="2830.5" y="236"/>
         </scene>
         <!--Group Details-->
         <scene sceneID="4TJ-a7-gqd">
@@ -42,7 +42,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Aao-Qd-UCI">
-                                                    <rect key="frame" x="-12" y="-15" width="537" height="26"/>
+                                                    <rect key="frame" x="8" y="28" width="537" height="26"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Created By James Rochabrun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Qs-FuY">
                                                             <rect key="frame" x="0.0" y="0.0" width="259" height="26"/>
@@ -161,13 +161,50 @@
                                     <outlet property="delegate" destination="9eh-0w-2mu" id="84Y-kV-3cy"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1O-30-czE">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="js8-lv-GTk"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="33x-Ht-t8b"/>
+                                    <barButtonItem image="matchesButtonImage" width="75" id="4qD-Ma-VZl">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="g5k-0U-YBo" kind="show" animates="NO" id="ACQ-Sv-eeE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="GroupsButtonIcon" width="75" id="kK4-th-a4K">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="m92-Hd-mqh" kind="show" animates="NO" id="Jkc-df-oXs"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="BracketButtonIcon" width="75" id="sh9-YL-ro2">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="BBR-6m-LIr" kind="show" animates="NO" id="gmd-p8-GQI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="challengeIcon" width="65" id="bL1-ZY-1q0">
+                                        <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cyj-Yb-L5i"/>
+                                </items>
+                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.062745098040000002" green="0.18823529410000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dyS-tr-Rxv" firstAttribute="leading" secondItem="WXR-Eu-weM" secondAttribute="leadingMargin" constant="-20" id="6dP-q1-6t9"/>
                             <constraint firstItem="5ue-Ih-O0a" firstAttribute="top" secondItem="dyS-tr-Rxv" secondAttribute="bottom" id="EJA-we-M1W"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A1O-30-czE" secondAttribute="trailing" constant="-20" id="QVv-Hl-sbE"/>
+                            <constraint firstItem="A1O-30-czE" firstAttribute="leading" secondItem="WXR-Eu-weM" secondAttribute="leadingMargin" constant="-20" id="edw-lq-YJZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dyS-tr-Rxv" secondAttribute="trailing" constant="-20" id="n8T-so-D1l"/>
                             <constraint firstItem="dyS-tr-Rxv" firstAttribute="top" secondItem="WXR-Eu-weM" secondAttribute="topMargin" id="pCU-Nu-q2k"/>
+                            <constraint firstItem="A1O-30-czE" firstAttribute="bottom" secondItem="WXR-Eu-weM" secondAttribute="bottomMargin" id="yKG-lI-5QC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Group Details" id="oRz-4k-5oS"/>
@@ -184,7 +221,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RO8-bc-cwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2499" y="789"/>
+            <point key="canvasLocation" x="2244" y="793"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="eAg-pc-pQH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="g5k-0U-YBo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="moI-ve-ILg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1975" y="1348"/>
+        </scene>
+        <!--Group-->
+        <scene sceneID="ZMq-wB-EpO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Group" id="m92-Hd-mqh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wth-Yc-skO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2244.5" y="1348"/>
+        </scene>
+        <!--Tourny-->
+        <scene sceneID="zaV-pB-pUY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tourny" id="BBR-6m-LIr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lJ6-ka-iUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2507" y="1348"/>
         </scene>
         <!--Pick DetailsVC-->
         <scene sceneID="siE-5t-5Hz">
@@ -308,16 +369,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KG7-OW-mOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3174" y="789"/>
-        </scene>
-        <!--PickDetails-->
-        <scene sceneID="msf-Da-WSf">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PickDetails" id="WMF-MG-JHX" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uoZ-fj-dkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2613" y="1537"/>
+            <point key="canvasLocation" x="3083" y="1348"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BracketButtonIcon" width="50" height="50"/>
+        <image name="GroupsButtonIcon" width="50" height="50"/>
+        <image name="challengeIcon" width="50" height="50"/>
+        <image name="matchesButtonImage" width="50" height="50"/>
+    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

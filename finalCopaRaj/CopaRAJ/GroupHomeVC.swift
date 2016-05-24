@@ -109,11 +109,14 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
             // Remove the user's uid from storage
               NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
             //print("logged out from regular user account")
+            self.performSegueWithIdentifier("unwindToLogin", sender: self)
         } else {
             FBSDKAccessToken.currentAccessToken()
+            NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
             //print("logged out from Facebook");
+            self.performSegueWithIdentifier("unwindToLogin", sender: self)
         }
     }
     
@@ -188,5 +191,9 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
   }
+    
+    @IBAction func unwindToGroupHome(segue: UIStoryboardSegue) {
+        
+    }
   
 }

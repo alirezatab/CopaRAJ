@@ -54,6 +54,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         loginButton.center = self.view.center
         loginButton.delegate = self
         
+        
         if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil) {
             self.performSegueWithIdentifier(self.loggedIn, sender: nil)
         }

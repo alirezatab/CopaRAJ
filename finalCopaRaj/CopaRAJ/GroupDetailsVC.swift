@@ -22,14 +22,18 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   var group :ChallengeGroup?
   
   
+    
   override func viewDidLoad() {
     self.title = (self.group?.name as! String)
     self.activityIndicator.startAnimating()
     self.activityIndicator.hidesWhenStopped = true
     self.getGroupDetailsFromFirebase()
+    
   }
   
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+    }
   
   func getGroupDetailsFromFirebase() {
     let groupID = self.group?.groupID as! String
