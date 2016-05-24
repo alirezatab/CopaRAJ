@@ -41,6 +41,10 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     @IBOutlet weak var emailVisualEffectView: UIVisualEffectView!
     @IBOutlet weak var passwordVisualEffectView: UIVisualEffectView!
+    @IBOutlet weak var RegularLogin: UIButton!
+    @IBOutlet weak var createNewAccountLogin: UIButton!
+    @IBOutlet weak var forgotPassword: UIButton!
+    
     // MARK: Properties
     //let ref = Firebase(url: "https://fiery-inferno-5799.firebaseio.com/users")
     
@@ -55,13 +59,6 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         loginButton.center = self.view.center
         loginButton.delegate = self
         
-
-        self.emailVisualEffectView.layer.cornerRadius = 5
-        self.emailVisualEffectView.layer.masksToBounds = true
-        
-        self.passwordVisualEffectView.layer.cornerRadius = 5
-        self.passwordVisualEffectView.layer.masksToBounds = true
-        
         self.textFieldLoginEmail.backgroundColor = UIColor.clearColor()
         self.textFieldLoginEmail.textColor = UIColor.blackColor()
         self.textFieldLoginEmail.attributedPlaceholder = NSAttributedString(string:"\tEmail",
@@ -72,8 +69,21 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         self.textFieldLoginPassword.textColor = UIColor.blackColor()
         self.textFieldLoginPassword.attributedPlaceholder = NSAttributedString(string:"\tPassword",
                                                                                attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+
+        self.emailVisualEffectView.layer.cornerRadius = 5
+        self.emailVisualEffectView.layer.masksToBounds = true
         
+        self.passwordVisualEffectView.layer.cornerRadius = 5
+        self.passwordVisualEffectView.layer.masksToBounds = true
         
+        self.RegularLogin.layer.cornerRadius = 5
+        self.RegularLogin.layer.masksToBounds = true
+        
+        self.createNewAccountLogin.layer.cornerRadius = 5
+        self.createNewAccountLogin.layer.masksToBounds = true
+        
+        self.forgotPassword.layer.cornerRadius = 5
+        self.forgotPassword.layer.masksToBounds = true
         
         if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil) {
             self.performSegueWithIdentifier(self.loggedIn, sender: nil)
