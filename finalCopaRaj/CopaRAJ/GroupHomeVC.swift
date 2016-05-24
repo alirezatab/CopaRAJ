@@ -45,7 +45,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
       for id in snapshot.value as! NSDictionary{
       
           if let groupDictionary = id.value as? NSDictionary{
-                
+
             //print(snapshot.value)
             let groupID = groupDictionary.valueForKey("groupID") as! String
             let createdBy = groupDictionary.valueForKey("createdBy") as! String

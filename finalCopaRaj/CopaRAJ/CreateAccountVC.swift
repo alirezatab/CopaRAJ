@@ -44,15 +44,22 @@ class CreateAccountVC: UIViewController {
                         let user = ["provider": authData.provider!, "email": email!, "firstName": firtstName!, "lastName": lastName!];
                         // Seal the deal in DataService.swift.
                         //DataService.dataService.createNewAccount(authData.uid, user: user)
-                        DataService.dataService.createNewAccount(authData.uid, user: user);
+                        DataService.dataService.createNewAccount(authData.uid, user: user, completionHandler: { (success) in
+                            if success == true {
+                                //store the uid for future access - handy!
+                                NSUserDefaults.standardUserDefaults().setValue(result["uid"], forKey: "uid")
+                                NSUserDefaults.standardUserDefaults().setValue(firtstName, forKey: "firstName")
+                                NSUserDefaults.standardUserDefaults().setValue(lastName, forKey: "lastName")
+                                
+                                //enter the app
+                                self.performSegueWithIdentifier(self.newUserLoggedIn, sender: nil);
+
+                            } else {
+                                print(success)
+                            }
+                        })
                     })
-                    //store the uid for future access - handy!
-                    NSUserDefaults.standardUserDefaults().setValue(result["uid"], forKey: "uid")
-                    NSUserDefaults.standardUserDefaults().setValue(firtstName, forKey: "firstName")
-                    NSUserDefaults.standardUserDefaults().setValue(lastName, forKey: "lastName")
                     
-                    //enter the app
-                    self.performSegueWithIdentifier(self.newUserLoggedIn, sender: nil);
                 }
             })
 
