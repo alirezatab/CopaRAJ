@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CxS-NE-NKP" id="xy9-nY-cqJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="75.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-jd-u6i">
@@ -96,7 +96,13 @@
                             <constraint firstItem="hyN-SP-XQ4" firstAttribute="top" secondItem="6lF-ZZ-dDH" secondAttribute="bottom" id="hXW-na-ZOJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pick groups" id="qzc-3U-DjN"/>
+                    <navigationItem key="navigationItem" title="Pick groups" id="qzc-3U-DjN">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" style="done" id="Wzd-9a-3U5">
+                            <connections>
+                                <segue destination="Lh7-D5-J7w" kind="unwind" unwindAction="unwindToGroupDetails:" id="8bJ-ad-gTb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.16470588235294117" green="0.77254901960784317" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -109,6 +115,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9de-Aw-Rw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Lh7-D5-J7w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4442" y="-64"/>
         </scene>

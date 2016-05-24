@@ -17,6 +17,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
   
   override func viewDidLoad() {
     self.navigationController?.navigationBarHidden = false
+    self.navigationItem.hidesBackButton = true
     self.title = "Make Group Selections"
     self.createGroups()
     self.tableView.userInteractionEnabled = true
@@ -164,7 +165,11 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBAction func finalizeButtonPressed(sender: UIButton) {
         self.performSegueWithIdentifier("BracketFinalize", sender: nil)
     }
+  
+  @IBAction func unwindToPickGroup(segue: UIStoryboardSegue) {
     
+  }
+  
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let desVC = segue.destinationViewController as? BracketFinalizeVC {
             desVC.groupsPassedOver = self.groups

@@ -83,6 +83,9 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      self.navigationItem.hidesBackButton = true
+      
        // print(groupsPassedOver)
         let group1 = self.groupsPassedOver.objectAtIndex(0) as! CopaAmericaGroup
         let group2 = self.groupsPassedOver.objectAtIndex(1) as! CopaAmericaGroup
@@ -460,9 +463,22 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
       if let wasAnError = error {
         print(wasAnError.localizedDescription)
       } else {
-        //segue back
+        self.presentPicksAddedToGroup(group)
       }
     }
   }
   
+  func presentPicksAddedToGroup (group : ChallengeGroup) {
+    let alert = UIAlertController(title: "Success", message: "Your picks have been added to \(group.name!)", preferredStyle: .Alert)
+    let ok = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+      let count = self.navigationController?.viewControllers.count
+      let groupDetails = self.navigationController?.viewControllers[(count!-3)]
+      self.navigationController?.popToViewController(groupDetails!, animated: false)
+    }
+    alert.addAction(ok)
+    self.presentViewController(alert, animated: true) {
+    }
+  
+  }
+
 }

@@ -96,7 +96,9 @@ class ChallengeGroup: NSObject {
       self.userIsAlreadyMember = true
       if user.Champion == "" {
         self.userHasMadePicks = false
-      } else {}
+      } else {
+        self.userHasMadePicks = true
+      }
     }
     user.updatePointsWithResults(tournyResults)
     
