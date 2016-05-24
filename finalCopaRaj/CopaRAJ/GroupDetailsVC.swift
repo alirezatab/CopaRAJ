@@ -20,13 +20,16 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   @IBOutlet var activityIndicator: UIActivityIndicatorView!
   
   var group :ChallengeGroup?
+  var dateIsGood : Bool?
   
   
     
   override func viewDidLoad() {
     self.title = (self.group?.name as! String)
     self.navigationItem.hidesBackButton = true
+    self.dateIsGood = self.checkDate()
     //self.navigationController?.navigationItem
+    
     
   }
 
@@ -106,18 +109,22 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     if indexPath.section == 0  {
       let cell = tableView.dequeueReusableCellWithIdentifier("GroupDetailsCell") as! GroupDetailsCell
       let shouldAllowSharing = self.shouldAllowSharing()
+     
+      
       if shouldAllowSharing == false {
         cell.inviteButton.enabled = false
         cell.inviteButton.hidden = true
       } else {
         cell.inviteButton.enabled = true
         cell.inviteButton.hidden = false
+        
       }
       
-      if self.group?.userHasMadePicks == true {
+      let shouldBeAllowedToStillMakePicks = self.checkDate()
+      if shouldBeAllowedToStillMakePicks == false || self.group?.userHasMadePicks == true {
         cell.makePicksButton.enabled = false
         cell.makePicksButton.hidden = true
-      } else {
+      } else if shouldBeAllowedToStillMakePicks == true && self.group?.userHasMadePicks == false {
         cell.makePicksButton.enabled = true
         cell.makePicksButton.hidden = false
       }
@@ -194,6 +201,37 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   @IBAction func unwindToGroupDetails(segue: UIStoryboardSegue) {
     
+  }
+  
+  func checkDate() -> Bool {
+    var returnVal = false
+    let date1 = NSDate()
+    
+    let dateString = "2016-06-07" // change to your date format
+    
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    let date2 = dateFormatter.dateFromString(dateString)!
+    
+    //print("\(date1)  \(date2)")
+    
+    
+    if date1.timeIntervalSinceReferenceDate > date2.timeIntervalSinceReferenceDate {
+      returnVal = false
+      return returnVal
+      //      print("Date1 is Later than Date2")
+    }
+    else if date1.timeIntervalSinceReferenceDate <  date2.timeIntervalSinceReferenceDate {
+      returnVal = true
+      return returnVal
+      //      print("Date1 is Earlier than Date2")
+    }
+    else {
+      returnVal = false
+      return returnVal
+      //      print("Same dates")
+    }
   }
 
 }

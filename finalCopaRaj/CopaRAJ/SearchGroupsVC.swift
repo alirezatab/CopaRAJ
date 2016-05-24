@@ -13,6 +13,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   @IBOutlet weak var tableView: UITableView!
   
+  @IBOutlet weak var noResultsLabel: UILabel!
   
   var groupsFromSearchResults : NSMutableArray?
   
@@ -56,8 +57,10 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
           print(self.groupsFromSearchResults?.count)
         }
       }
+      self.noResultsLabel.hidden = true
       self.tableView.reloadData()
       self.activityIndicator.stopAnimating()
+      
       
       }) { (error) in
         print(error.localizedDescription)
