@@ -119,7 +119,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     
     let alertController = UIAlertController(title: "Join \(group.name!)", message: "Please enter the password for \(group.name!)", preferredStyle: UIAlertControllerStyle.Alert)
     
-    let saveAction = UIAlertAction(title: "Enter", style: UIAlertActionStyle.Cancel, handler: {
+    let enterPassword = UIAlertAction(title: "Enter", style: UIAlertActionStyle.Default, handler: {
       alert -> Void in
       
       let firstTextField = alertController.textFields![0] as UITextField
@@ -130,8 +130,11 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
       textField.placeholder = "Enter Password"
     }
+    let cancel = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil)
     
-    alertController.addAction(saveAction)
+    alertController.addAction(cancel)
+    alertController.addAction(enterPassword)
+    
     
     self.presentViewController(alertController, animated: true, completion: nil)
   }
