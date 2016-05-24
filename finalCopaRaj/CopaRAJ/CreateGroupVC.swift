@@ -207,7 +207,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   func presentGroupCreated (group : ChallengeGroup) {
     let alert = UIAlertController(title: "Success", message: "\(group.name!) has been created", preferredStyle: .Alert)
     let ok = UIAlertAction(title: "OK", style: .Cancel) { (action) in
-      self.navigationController?.popViewControllerAnimated(true)
+      self.dismissViewControllerAnimated(true, completion: nil)
     }
     alert.addAction(ok)
     self.presentViewController(alert, animated: true) {
