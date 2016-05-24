@@ -239,12 +239,12 @@
     return 50;
 }
 
-- (IBAction)goToChallengeVC:(UIBarButtonItem *)sender {
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
-    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//- (IBAction)goToChallengeVC:(UIBarButtonItem *)sender {
+//    
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
+//    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 
 

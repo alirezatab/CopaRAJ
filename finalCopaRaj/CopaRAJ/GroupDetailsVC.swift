@@ -15,22 +15,27 @@
 
 import Foundation
 
-class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
   var group :ChallengeGroup?
   
   
+    
   override func viewDidLoad() {
     self.title = (self.group?.name as! String)
     self.activityIndicator.startAnimating()
     self.activityIndicator.hidesWhenStopped = true
     self.getGroupDetailsFromFirebase()
+    self.navigationItem.hidesBackButton = true
+    //self.navigationController?.navigationItem
     
   }
   
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+    }
   
   func getGroupDetailsFromFirebase() {
     let groupID = self.group?.groupID as! String

@@ -39,7 +39,7 @@
                                         <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <connections>
-                                            <action selector="goToChallengeVC:" destination="r2e-Dn-gfr" id="9fN-y3-lRy"/>
+                                            <segue destination="CbO-ST-kMJ" kind="show" animates="NO" id="ybD-Y3-bJP"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="H7i-F4-ekB"/>
@@ -188,7 +188,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="activityIndicator" destination="p2h-Hj-ahT" id="V7a-vE-6DP"/>
-                        <outlet property="challengeButton" destination="XZd-Eh-d3k" id="mKL-3X-R89"/>
                         <outlet property="groupStandingsButton" destination="wvP-qG-KLK" id="Tpt-7K-dqS"/>
                         <outlet property="homeMatchesButton" destination="7KO-fe-cdt" id="Gcc-zr-LrP"/>
                         <outlet property="playOffMatchesButton" destination="oSs-er-qd3" id="1oh-JO-lu1"/>
@@ -199,13 +198,21 @@
             </objects>
             <point key="canvasLocation" x="2957" y="2474"/>
         </scene>
+        <!--Challenge-->
+        <scene sceneID="wla-Cq-ziN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Challenge" id="CbO-ST-kMJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gey-lf-J80" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3302.5" y="3095"/>
+        </scene>
         <!--UINavigationController-8gu-mv-4JN-->
         <scene sceneID="SAQ-Yp-E7w">
             <objects>
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UINavigationController-8gu-mv-4JN" id="Lb7-cj-dRv" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yc-ly-ffY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="167"/>
+            <point key="canvasLocation" x="2698" y="3095"/>
         </scene>
         <!--UIViewController-SuA-bu-kxJ-->
         <scene sceneID="8Pj-mN-7SZ">
@@ -213,13 +220,13 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-SuA-bu-kxJ" id="fX9-Az-4S2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cxq-6q-U6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-367" y="2436"/>
+            <point key="canvasLocation" x="3014" y="3095"/>
         </scene>
     </scenes>
     <resources>
         <image name="BracketButtonIcon" width="50" height="50"/>
         <image name="GroupsButtonIcon" width="50" height="50"/>
-        <image name="challengeIcon" width="35" height="39"/>
+        <image name="challengeIcon" width="50" height="50"/>
         <image name="matchesButtonImage" width="50" height="50"/>
     </resources>
 </document>

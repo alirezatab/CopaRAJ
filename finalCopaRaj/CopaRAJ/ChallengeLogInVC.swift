@@ -39,7 +39,8 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     // MARK: Outlets
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     @IBOutlet weak var textFieldLoginPassword: UITextField!
-    
+    @IBOutlet weak var emailVisualEffectView: UIVisualEffectView!
+    @IBOutlet weak var passwordVisualEffectView: UIVisualEffectView!
     // MARK: Properties
     //let ref = Firebase(url: "https://fiery-inferno-5799.firebaseio.com/users")
     
@@ -47,10 +48,32 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.hidden = true
+        self.navigationItem.hidesBackButton = true
         //add facebook login subview to the view
         self.view.addSubview(loginButton)
         loginButton.center = self.view.center
         loginButton.delegate = self
+        
+
+        self.emailVisualEffectView.layer.cornerRadius = 5
+        self.emailVisualEffectView.layer.masksToBounds = true
+        
+        self.passwordVisualEffectView.layer.cornerRadius = 5
+        self.passwordVisualEffectView.layer.masksToBounds = true
+        
+        self.textFieldLoginEmail.backgroundColor = UIColor.clearColor()
+        self.textFieldLoginEmail.textColor = UIColor.blackColor()
+        self.textFieldLoginEmail.attributedPlaceholder = NSAttributedString(string:"\tEmail",
+                                                                            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
+        
+        self.textFieldLoginPassword.backgroundColor = UIColor.clearColor()
+        self.textFieldLoginPassword.textColor = UIColor.blackColor()
+        self.textFieldLoginPassword.attributedPlaceholder = NSAttributedString(string:"\tPassword",
+                                                                               attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
+        
         
         if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil) {
             self.performSegueWithIdentifier(self.loggedIn, sender: nil)
@@ -244,6 +267,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+    
     }
         
     override func didReceiveMemoryWarning() {
