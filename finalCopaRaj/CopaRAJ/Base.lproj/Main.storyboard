@@ -46,7 +46,7 @@
                                     </barButtonItem>
                                     <barButtonItem image="challengeIcon" width="65" id="GK0-XE-Br4">
                                         <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="goToChallengeVc:" destination="BYZ-38-t0r" id="5iS-5M-cdM"/>
                                             <segue destination="tQi-KN-1PK" kind="show" animates="NO" id="aPy-q0-ho3"/>
@@ -65,7 +65,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Swl-V8-MwE" id="ygE-3h-7mW">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3yO-DP-twc">
@@ -108,13 +108,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="penalties" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-Mr-kZ2">
-                                                            <rect key="frame" x="178" y="0.0" width="89" height="49"/>
+                                                            <rect key="frame" x="178" y="0.0" width="88" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-Is-SBu">
-                                                            <rect key="frame" x="267" y="0.0" width="89" height="49"/>
+                                                            <rect key="frame" x="266" y="0.0" width="89" height="49"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -183,16 +183,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebr-WR-WpC" userLabel="Splash Screen View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COPA CLUB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PL-7s-SDl">
-                                        <rect key="frame" x="150" y="307" width="300" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="dG7-WB-nUU"/>
-                                            <constraint firstAttribute="width" constant="300" id="iSn-72-2kE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="36"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECj-fV-Cy6">
                                         <rect key="frame" x="175" y="75" width="250" height="250"/>
                                         <constraints>
@@ -200,12 +190,22 @@
                                             <constraint firstAttribute="width" constant="250" id="uvs-yU-JtE"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COPA CLUB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PL-7s-SDl">
+                                        <rect key="frame" x="84" y="309" width="432" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="CdF-77-yCa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="34"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35294117650000001" green="0.74901960779999999" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ECj-fV-Cy6" firstAttribute="centerY" secondItem="ebr-WR-WpC" secondAttribute="centerY" constant="-100" id="Dtg-ZD-C6O"/>
-                                    <constraint firstItem="3PL-7s-SDl" firstAttribute="centerX" secondItem="ebr-WR-WpC" secondAttribute="centerX" id="XVB-GO-ZL1"/>
-                                    <constraint firstItem="3PL-7s-SDl" firstAttribute="centerY" secondItem="ebr-WR-WpC" secondAttribute="centerY" constant="32" id="eKu-k4-g71"/>
+                                    <constraint firstItem="3PL-7s-SDl" firstAttribute="top" secondItem="ECj-fV-Cy6" secondAttribute="bottom" constant="-16" id="eRP-cI-rNC"/>
+                                    <constraint firstItem="3PL-7s-SDl" firstAttribute="leading" secondItem="ebr-WR-WpC" secondAttribute="leading" constant="84" id="jFl-X0-HhW"/>
+                                    <constraint firstAttribute="trailing" secondItem="3PL-7s-SDl" secondAttribute="trailing" constant="84" id="p4Y-LH-BKd"/>
                                     <constraint firstItem="ECj-fV-Cy6" firstAttribute="centerX" secondItem="ebr-WR-WpC" secondAttribute="centerX" id="yhw-cU-LjJ"/>
                                 </constraints>
                             </view>
