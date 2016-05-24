@@ -92,19 +92,25 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     }
     
     func loginButton(loginButton: FBSDKLoginButton?, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-                let token = FBSDKAccessToken.currentAccessToken().tokenString
-                self.fetchProfile()
-                DataService.dataService.BASE_REF.authWithOAuthProvider("facebook", token: token, withCompletionBlock: { (error, authData) in
+        
+        if error != nil {
+            print(error.localizedDescription)
+        } else if result.isCancelled{
+            print(result.isCancelled.description)
+        } else {
+            let token = FBSDKAccessToken.currentAccessToken().tokenString
+            self.fetchProfile()
+            DataService.dataService.BASE_REF.authWithOAuthProvider("facebook", token: token, withCompletionBlock: { (error, authData) in
                     
-                    if error != nil {
-                        print("login Failed")
-                    } else {
-                        print(self.fbEmail)
-                        print(self.fbFirstName)
-                        print(self.fbLastName)
-                        let user: Dictionary<String, String> = ["provider": authData.provider!, "email": self.fbEmail!, "firstName": self.fbFirstName!, "lastName": self.fbLastName!, "id": self.fbID!];
+                if error != nil {
+                    print("login Failed")
+                } else {
+                    print(self.fbEmail)
+                    print(self.fbFirstName)
+                    print(self.fbLastName)
+                    let user: Dictionary<String, String> = ["provider": authData.provider!, "email": self.fbEmail!, "firstName": self.fbFirstName!, "lastName": self.fbLastName!, "id": self.fbID!];
                         
-                        DataService.dataService.createNewAccount(authData.uid, user: user, completionHandler: { (success) in
+                    DataService.dataService.createNewAccount(authData.uid, user: user, completionHandler: { (success) in
                             if success == true {
                                 //store the uid for future access - handy!
                                 NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
@@ -118,8 +124,9 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                         })
                     }
                 })
-
         }
+
+    }
     
     func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
         return true

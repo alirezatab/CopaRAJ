@@ -53,6 +53,7 @@ class CreateAccountVC: UIViewController {
                                 
                                 //enter the app
                                 self.performSegueWithIdentifier(self.newUserLoggedIn, sender: nil);
+
                             } else {
                                 print(success)
                             }

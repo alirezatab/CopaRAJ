@@ -44,7 +44,7 @@ class DataService {
     func createNewAccount(uid: String, user: Dictionary<String, String>, completionHandler: CompletionHandler) {
 
         let ref = USER_REF.childByAppendingPath("\(USER_REF.authData.uid)")
-        ref.observeEventType(.Value, withBlock: { (snapshot) in
+        ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             if (snapshot.exists()){
                 print("user exists")
                 let flag = true
