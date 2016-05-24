@@ -183,7 +183,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
   func presentAddedToGroup (group : SearchResultGroup) {
     let alert = UIAlertController(title: "Success", message: "You have been added to \(group.name!)", preferredStyle: .Alert)
     let ok = UIAlertAction(title: "OK", style: .Cancel) { (action) in
-      self.navigationController?.popViewControllerAnimated(true)
+      self.dismissViewControllerAnimated(true, completion: nil)
     }
     alert.addAction(ok)
     self.presentViewController(alert, animated: true) { 
