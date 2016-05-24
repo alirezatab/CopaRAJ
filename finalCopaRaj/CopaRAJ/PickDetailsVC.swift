@@ -29,7 +29,7 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     picksArray = NSMutableArray()
     let groupA = CopaAmericaGroup(name: "Group A")
     let groupATeams = NSMutableArray()
-    self.updtateArray(groupATeams, team1: (self.member?.GroupAWinner)!, team2: (self.member?.GroupBWinner)!, team3: (self.member?.GroupAThirdPlace)!, team4: (self.member?.GroupAFourthPlace)!)
+    self.updtateArray(groupATeams, team1: (self.member?.GroupAWinner)!, team2: (self.member?.GroupARunnerUP)!, team3: (self.member?.GroupAThirdPlace)!, team4: (self.member?.GroupAFourthPlace)!)
     groupA.teams = groupATeams
     
     let groupB = CopaAmericaGroup(name: "Group B")
@@ -40,7 +40,10 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let groupC = CopaAmericaGroup(name: "Group C")
     let groupCTeams = NSMutableArray()
     self.updtateArray(groupCTeams, team1: self.member!.GroupCWinner!, team2: self.member!.GroupCRunnerUP!, team3: self.member!.GroupCThirdPlace!, team4: self.member!.GroupCFourthPlace!)
+    print(self.member?.GroupCWinner)
     groupC.teams = groupCTeams
+    print(groupC.teams?.objectAtIndex(0))
+    
     
     let groupD = CopaAmericaGroup(name: "Group D")
     let groupDTeams = NSMutableArray()
@@ -61,14 +64,16 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     self.picksArray?.addObjectsFromArray([groupA, groupB, groupC, groupD, quarterfinalists, semifinalists, finalists, champion])
     
+    print("yolo")
+    
 }
 
   func updtateArray(groupArray: NSMutableArray, team1: String, team2: String, team3: String, team4: String ) {
-    let winner = self.member?.GroupAWinner
-    let runnerUp = self.member?.GroupARunnerUP
-    let thirdPlace = self.member?.GroupAThirdPlace
-    let fourthPlace = self.member?.GroupAFourthPlace
-    groupArray.addObjectsFromArray([winner!, runnerUp!, thirdPlace!, fourthPlace!])
+    let winner = team1
+    let runnerUp = team2
+    let thirdPlace = team3
+    let fourthPlace = team4
+    groupArray.addObjectsFromArray([winner, runnerUp, thirdPlace, fourthPlace])
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

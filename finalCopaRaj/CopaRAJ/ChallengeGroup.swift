@@ -39,7 +39,8 @@ class ChallengeGroup: NSObject {
     self.members = NSMutableArray()
   }
   
-  func updateGroupWithDictionary(dictionary : NSDictionary) {
+  func updateGroupWithDictionary(dictionary : NSDictionary, currentResults : NSDictionary) {
+    print(currentResults)
     self.members = NSMutableArray()
     for id in dictionary {
       let idKey = id.key as! String
@@ -48,13 +49,13 @@ class ChallengeGroup: NSObject {
       } else if idKey == "createdBy" {
         self.createdBy = id.value as! String
       }else if idKey != "imageName" && idKey != "name" && idKey != "admin" && idKey != "password" && idKey != "createdBy" {
-        let member = self.createMemberforGroup(id.value as! NSDictionary, key: idKey)
+        let member = self.createMemberforGroup(id.value as! NSDictionary, key: idKey, tournyResults: currentResults)
         self.members?.addObject(member)
       }
     }
   }
   
-  func createMemberforGroup(dictionary: NSDictionary, key : String) -> ChallengeUser {
+  func createMemberforGroup(dictionary: NSDictionary, key : String, tournyResults : NSDictionary) -> ChallengeUser {
     let user = ChallengeUser()
     user.Champion = dictionary.valueForKey("Champion") as? String
     user.FinalistTeam1 = dictionary.valueForKey("FinalistTeam1") as? String
@@ -88,17 +89,24 @@ class ChallengeGroup: NSObject {
     user.firstName = dictionary.valueForKey("firstName") as? String
     user.lastName = dictionary.valueForKey("lastName") as? String
     
+    //self.calculatePointsUser
+    
     let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
     if userID == key {
       self.userIsAlreadyMember = true
       if user.Champion == "" {
         self.userHasMadePicks = false
-      }
+      } else {}
     }
+    user.updatePointsWithResults(tournyResults)
     
     return user
   }
   
+//  func calculatePointsForUser(<#parameters#>) -> <#return type#> {
+//    <#function body#>
+//  }
+//  
   
 }
 

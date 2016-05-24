@@ -36,9 +36,20 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     let ref = Firebase(url: "https://fiery-inferno-5799.firebaseio.com/ChallengeGroups/\(groupID)")
     ref.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) in
       if let returnValue = snapshot.value as? NSDictionary {
-        self.activityIndicator.stopAnimating()
-        self.group?.updateGroupWithDictionary(returnValue)
-        self.tableView.reloadData()
+        
+        let ref2 = DataService.dataService.BASE_REF.childByAppendingPath("ChallengeResults")
+        ref2.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot2) in
+          if let tournyResults = snapshot2.value as? NSDictionary {
+            print(tournyResults.valueForKey("Champion"))
+          self.activityIndicator.stopAnimating()
+          self.group?.updateGroupWithDictionary(returnValue, currentResults: tournyResults)
+          self.tableView.reloadData()
+          }
+          }, withCancelBlock: { (error2) in
+            print(error2.localizedDescription)
+        })
+        
+        
         
       } else {
         //print("wrong")
