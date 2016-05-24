@@ -21,6 +21,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   
   
   var group : ChallengeGroup?
+  var isUpdating : Bool?
   
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -42,8 +43,13 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     }
   
   func checkIfFinalizeButtonShouldBeEnabled() {
-    
-    if groupNameTextField.text?.characters.count > 0 &&
+    if self.isUpdating == true {
+      self.groupHelpLabel.hidden = true
+      self.groupHelpLabel.text = ""
+      self.finalizeButton.enabled = false
+      self.finalizeButton.backgroundColor = UIColor.grayColor()
+    }
+    else if groupNameTextField.text?.characters.count > 0 &&
       groupNameTextField.text?.characters.count < 70 &&
       passwordConfirmationTextField.text?.characters.count > 4 &&
       passwordTextField.text == passwordConfirmationTextField.text
@@ -141,6 +147,8 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   }
   
   func createFireBaseGroup(passedGroup: ChallengeGroup) {
+    self.isUpdating = true
+    self.checkIfFinalizeButtonShouldBeEnabled()
     let ref = DataService.dataService.CHALLENGEGROUPS_REF
     ref.queryOrderedByChild("name").queryEqualToValue(passedGroup.name)
     .observeSingleEventOfType (FEventType.Value, withBlock: { (snapshot) in
@@ -165,12 +173,14 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
         DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: "Argentina", groupName: passedGroup.name as! String, createdBy: "\(firstName!) \(lastName!)", completionHandler: { (success) in
           
               self.activityIndicator.stopAnimating()
-              self.performSegueWithIdentifier("pickGroup", sender: nil)
+              self.presentGroupCreated(passedGroup)
         })
       }
       else {
         self.activityIndicator.stopAnimating()
         self.presentAlertGroupAlreadyExists()
+        self.isUpdating = false
+        self.checkIfFinalizeButtonShouldBeEnabled()
       }
       }) { (NSError) in
         //print(NSError.description)
@@ -194,7 +204,13 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     self.presentViewController(alert, animated: false, completion: nil)
   }
   
-  
-  
-
+  func presentGroupCreated (group : ChallengeGroup) {
+    let alert = UIAlertController(title: "Success", message: "\(group.name!) has been created", preferredStyle: .Alert)
+    let ok = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+      self.navigationController?.popViewControllerAnimated(true)
+    }
+    alert.addAction(ok)
+    self.presentViewController(alert, animated: true) {
+    }
+  }
 }
