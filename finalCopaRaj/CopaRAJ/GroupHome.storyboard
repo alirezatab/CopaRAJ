@@ -64,7 +64,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rWe-Im-Myi" id="T9u-Jg-wiz">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="116"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="116.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YR2-ba-ZHb">
@@ -237,7 +237,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fja-Vp-m78" id="rfj-95-S8g">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="116"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="169.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Gol" translatesAutoresizingMaskIntoConstraints="NO" id="SAI-zK-Noq">
@@ -375,6 +375,12 @@
                                                     <exclude reference="jNh-zd-oeX"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="QMm-6B-rso"/>
+                                                    <exclude reference="a0T-Ho-H0D"/>
+                                                    <exclude reference="dbU-lR-hnv"/>
+                                                    <exclude reference="wBu-z8-k3C"/>
+                                                    <exclude reference="TlN-gS-dpv"/>
+                                                    <exclude reference="sQf-94-EQW"/>
                                                     <exclude reference="Yv5-Mf-qun"/>
                                                     <exclude reference="oqC-6C-2a3"/>
                                                     <exclude reference="twz-jc-YgM"/>
@@ -384,12 +390,6 @@
                                                     <exclude reference="Ngh-qI-wPH"/>
                                                     <exclude reference="tDP-q8-Pku"/>
                                                     <exclude reference="yEQ-ad-qg9"/>
-                                                    <exclude reference="TlN-gS-dpv"/>
-                                                    <exclude reference="sQf-94-EQW"/>
-                                                    <exclude reference="QMm-6B-rso"/>
-                                                    <exclude reference="a0T-Ho-H0D"/>
-                                                    <exclude reference="dbU-lR-hnv"/>
-                                                    <exclude reference="wBu-z8-k3C"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -398,6 +398,12 @@
                                                     <include reference="jNh-zd-oeX"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="QMm-6B-rso"/>
+                                                    <include reference="a0T-Ho-H0D"/>
+                                                    <include reference="dbU-lR-hnv"/>
+                                                    <include reference="wBu-z8-k3C"/>
+                                                    <include reference="TlN-gS-dpv"/>
+                                                    <include reference="sQf-94-EQW"/>
                                                     <exclude reference="4VR-Hl-s2h"/>
                                                     <include reference="Yv5-Mf-qun"/>
                                                     <exclude reference="f7r-2X-mXi"/>
@@ -415,12 +421,6 @@
                                                     <exclude reference="a29-iM-1NG"/>
                                                     <include reference="tDP-q8-Pku"/>
                                                     <include reference="yEQ-ad-qg9"/>
-                                                    <include reference="TlN-gS-dpv"/>
-                                                    <include reference="sQf-94-EQW"/>
-                                                    <include reference="QMm-6B-rso"/>
-                                                    <include reference="a0T-Ho-H0D"/>
-                                                    <include reference="dbU-lR-hnv"/>
-                                                    <include reference="wBu-z8-k3C"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -520,7 +520,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3688.5" y="-499"/>
+            <point key="canvasLocation" x="3876" y="-503"/>
         </scene>
         <!--CreateGroup-->
         <scene sceneID="3TI-KI-jb3">
@@ -528,7 +528,7 @@
                 <viewControllerPlaceholder storyboardName="CreateGroup" id="lzH-OO-3W7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ny8-s4-YIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3759" y="-82"/>
+            <point key="canvasLocation" x="3225" y="370"/>
         </scene>
         <!--GroupDetails-->
         <scene sceneID="llN-qT-8tD">
@@ -536,7 +536,7 @@
                 <viewControllerPlaceholder storyboardName="GroupDetails" id="AlF-xJ-CX0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KPx-j8-4Rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3743.5" y="-150"/>
+            <point key="canvasLocation" x="3755.5" y="56"/>
         </scene>
     </scenes>
     <resources>

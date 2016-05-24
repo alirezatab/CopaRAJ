@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zbo-Fq-HzL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CIU-BF-wDy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -47,7 +47,7 @@
                                 </constraints>
                                 <state key="normal" title="Create a new account"/>
                                 <connections>
-                                    <segue destination="ZJK-Tw-B8c" kind="show" id="ibq-Zv-rtu"/>
+                                    <segue destination="ZJK-Tw-B8c" kind="presentation" id="ibq-Zv-rtu"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HhR-4T-neK">
@@ -73,6 +73,40 @@
                                     <action selector="forgottenPassword:" destination="CIU-BF-wDy" eventType="touchUpInside" id="94F-P8-TdH"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-2h-HDS">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="yqL-Z1-eiZ"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KoX-LS-8Fp"/>
+                                    <barButtonItem image="matchesButtonImage" width="75" id="vSy-vi-vjb">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="yIn-zf-RSi" kind="show" animates="NO" id="4wL-Ro-EqX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="GroupsButtonIcon" width="75" id="DXp-UH-UHk">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="hMr-6b-A87" kind="show" animates="NO" id="bwU-7T-s3l"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="BracketButtonIcon" width="75" id="DWm-eG-D1q">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="EZb-ub-boI" kind="show" animates="NO" id="IiW-UU-sDq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="challengeIcon" width="65" id="Efj-y3-3vT">
+                                        <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OVP-RY-W9R"/>
+                                </items>
+                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.062745098040000002" green="0.18823529410000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -86,15 +120,12 @@
                             <constraint firstItem="YEn-NK-VUe" firstAttribute="centerX" secondItem="nPh-qq-trw" secondAttribute="centerX" id="fsl-vC-Bwz"/>
                             <constraint firstItem="HhR-4T-neK" firstAttribute="centerX" secondItem="nPh-qq-trw" secondAttribute="centerX" id="jAk-xj-8lc"/>
                             <constraint firstItem="zZB-IC-ePh" firstAttribute="centerY" secondItem="nPh-qq-trw" secondAttribute="centerY" constant="-40" id="oSa-Rr-Hm2"/>
+                            <constraint firstItem="fo9-2h-HDS" firstAttribute="leading" secondItem="nPh-qq-trw" secondAttribute="leadingMargin" constant="-20" id="sP0-Ae-cDe"/>
+                            <constraint firstItem="Z9U-eQ-Rt0" firstAttribute="top" secondItem="fo9-2h-HDS" secondAttribute="bottom" id="wSD-2z-txR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fo9-2h-HDS" secondAttribute="trailing" constant="-20" id="z5h-9K-e1B"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="COPA CHALLANGE" id="qxG-Fi-XlW">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="y4Y-xl-KOp">
-                            <connections>
-                                <segue destination="4lC-Ti-KkM" kind="unwind" unwindAction="prepareForUnwind:" id="19J-eN-Pge"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="COPA CHALLANGE" id="qxG-Fi-XlW"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.16470588235294117" green="0.77254901960784317" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -106,7 +137,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ck2-dR-Q7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="4lC-Ti-KkM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3071" y="-82"/>
         </scene>
@@ -116,7 +146,7 @@
                 <viewControllerPlaceholder storyboardName="GroupHome" id="x6s-Mi-rbM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhM-aj-HKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4226.5" y="-61"/>
+            <point key="canvasLocation" x="4230.5" y="227"/>
         </scene>
         <!--Create AccountVC-->
         <scene sceneID="cwl-8I-p8H">
@@ -199,6 +229,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="3cM-8x-J0O" kind="unwind" unwindAction="unwindToLogin:" id="xLf-X0-Fjg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,30 +262,43 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gle-Bv-MBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3cM-8x-J0O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3521" y="861"/>
+            <point key="canvasLocation" x="3097" y="873"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="imo-J5-KQK">
+        <!--Main-->
+        <scene sceneID="84M-rz-b7A">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zbo-Fq-HzL" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QRd-YP-hfJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="CIU-BF-wDy" kind="relationship" relationship="rootViewController" id="YFn-Le-Xhk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zei-Dg-KJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Main" id="yIn-zf-RSi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Gf-TT-tzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2259" y="-82"/>
+            <point key="canvasLocation" x="2246" y="451"/>
+        </scene>
+        <!--Group-->
+        <scene sceneID="i7K-TK-Qf4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Group" id="hMr-6b-A87" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jga-UO-FSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2497.5" y="474"/>
+        </scene>
+        <!--Tourny-->
+        <scene sceneID="qCQ-2I-rXI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tourny" id="EZb-ub-boI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ev3-9u-soi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2834" y="451"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BracketButtonIcon" width="50" height="50"/>
+        <image name="GroupsButtonIcon" width="50" height="50"/>
+        <image name="challengeIcon" width="50" height="50"/>
+        <image name="matchesButtonImage" width="50" height="50"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pli-so-dII"/>
+        <segue reference="mU3-iM-Hhe"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

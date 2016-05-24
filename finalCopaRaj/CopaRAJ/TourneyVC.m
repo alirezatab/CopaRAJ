@@ -99,7 +99,7 @@
     
     [self createDefaultPlayoffMatches];
     
-    [self.matchesObject addObjectsFromArray:@[@[self.matchA1B2, self.matchB1A2, self.matchD1C2, self.matchC1D2], @[self.matchW25W27, self.matchW26W28], @[self.matchL29L30, self.matchW29W30], @[]]];
+    [self.matchesObject addObjectsFromArray:@[@[self.matchA1B2, self.matchD1C2, self.matchB1A2, self.matchC1D2], @[self.matchW25W27, self.matchW26W28], @[self.matchL29L30, self.matchW29W30], @[]]];
     
     NSLog(@"%lu", (unsigned long)self.matchesObject.count);
 }
@@ -513,11 +513,11 @@
   //    NSLog(@"%@", cellMatch);
 }
 
-- (IBAction)goToChallengeVC:(UIBarButtonItem *)sender {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
-    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//- (IBAction)goToChallengeVC:(UIBarButtonItem *)sender {
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
+//    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 
 

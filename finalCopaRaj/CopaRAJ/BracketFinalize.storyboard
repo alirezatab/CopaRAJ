@@ -121,9 +121,9 @@
                                                             </variation>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MJ-cS-tMv">
-                                                            <rect key="frame" x="0.0" y="75" width="267" height="72"/>
+                                                            <rect key="frame" x="0.0" y="75" width="267" height="73"/>
                                                             <subviews>
-                                                                <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmm-lA-0cQ">
+                                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmm-lA-0cQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="267" height="73"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OIZ-DA-R6v">
                                                                         <rect key="frame" x="0.0" y="0.0" width="267" height="73"/>
@@ -140,17 +140,17 @@
                                                                     <blurEffect style="light"/>
                                                                 </visualEffectView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="m9n-7I-FcL">
-                                                                    <rect key="frame" x="217" y="0.0" width="50" height="72"/>
+                                                                    <rect key="frame" x="217" y="0.0" width="50" height="73"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.625" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agj-73-9fy">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="72"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="73"/>
                                                                             <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.625" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5w-vg-97g">
-                                                                            <rect key="frame" x="25" y="0.0" width="25" height="72"/>
+                                                                            <rect key="frame" x="25" y="0.0" width="25" height="73"/>
                                                                             <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,13 +161,13 @@
                                                                         <constraint firstAttribute="width" constant="50" id="0ul-XY-hO8"/>
                                                                     </constraints>
                                                                 </stackView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8J-Lb-bnB">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U8J-Lb-bnB">
                                                                     <rect key="frame" x="8" y="5" width="58" height="58"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="58" id="37C-jb-m1k"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXw-BE-2aP">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXw-BE-2aP">
                                                                     <rect key="frame" x="0.0" y="0.0" width="267" height="73"/>
                                                                     <connections>
                                                                         <action selector="onPickPossiblePlayoffVisitorTeamsButtonPressed:" destination="991-54-pu2" eventType="touchUpInside" id="Ls2-hY-wDj"/>

@@ -47,6 +47,8 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.hidden = false
+        self.navigationItem.hidesBackButton = true
         //add facebook login subview to the view
         self.view.addSubview(loginButton)
         loginButton.center = self.view.center
@@ -244,6 +246,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+    
     }
         
     override func didReceiveMemoryWarning() {
