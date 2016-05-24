@@ -43,6 +43,9 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(tournyResults.valueForKey("Champion"))
           self.activityIndicator.stopAnimating()
           self.group?.updateGroupWithDictionary(returnValue, currentResults: tournyResults)
+          let sortDescriptor = NSSortDescriptor(key: "points", ascending: false)
+          let descriptors = [sortDescriptor]
+          self.group?.members?.sortUsingDescriptors(descriptors)
           self.tableView.reloadData()
           }
           }, withCancelBlock: { (error2) in
