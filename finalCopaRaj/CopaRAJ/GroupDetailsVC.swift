@@ -27,6 +27,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     self.activityIndicator.startAnimating()
     self.activityIndicator.hidesWhenStopped = true
     self.getGroupDetailsFromFirebase()
+    
   }
   
 
@@ -38,7 +39,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
       if let returnValue = snapshot.value as? NSDictionary {
         
         let ref2 = DataService.dataService.BASE_REF.childByAppendingPath("ChallengeResults")
-        ref2.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot2) in
+        ref2.observeEventType(FEventType.Value, withBlock: { (snapshot2) in
           if let tournyResults = snapshot2.value as? NSDictionary {
             print(tournyResults.valueForKey("Champion"))
           self.activityIndicator.stopAnimating()
@@ -179,6 +180,10 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
       destVC.group = self.group
       
     }
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    
   }
   
 
