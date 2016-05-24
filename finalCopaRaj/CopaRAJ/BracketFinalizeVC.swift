@@ -391,7 +391,8 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
   
   @IBAction func onFinalizeButtonPressed(sender: UIButton) {
     let finalPicks = self.createFinalPicks()
-    //print(finalPicks)
+    self.updateUserPicksToGroup(finalPicks, group: self.group!)
+    
   }
   
   func createFinalPicks() -> NSDictionary {
@@ -449,6 +450,19 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
                            "lastName": lastName! as String]
     
     return userPickDetails
+  }
+  
+  func updateUserPicksToGroup(picks : NSDictionary,group: ChallengeGroup) {
+    //print(self.group?.groupID as! String)
+    let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+    let ref = DataService.dataService.CHALLENGEGROUPS_REF.childByAppendingPath(self.group!.groupID as! String).childByAppendingPath(uid)
+    ref.setValue(picks) { (error, ref) in
+      if let wasAnError = error {
+        print(wasAnError.localizedDescription)
+      } else {
+        //segue back
+      }
+    }
   }
   
 }

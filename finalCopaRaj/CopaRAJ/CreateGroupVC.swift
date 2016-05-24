@@ -145,7 +145,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     ref.queryOrderedByChild("name").queryEqualToValue(passedGroup.name)
     .observeSingleEventOfType (FEventType.Value, withBlock: { (snapshot) in
       
-      print(snapshot.value)
+      //print(snapshot.value)
       
       if (snapshot.value) === NSNull() {
         
@@ -173,7 +173,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
         self.presentAlertGroupAlreadyExists()
       }
       }) { (NSError) in
-        print(NSError.description)
+        //print(NSError.description)
         self.presentGroupSaveFailure()
     }
   }

@@ -41,7 +41,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.reloadData()
         
       } else {
-        print("wrong")
+        //print("wrong")
       }
       }) { (error) in
         

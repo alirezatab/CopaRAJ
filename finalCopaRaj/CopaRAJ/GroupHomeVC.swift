@@ -46,7 +46,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
       
           if let groupDictionary = id.value as? NSDictionary{
                 
-            print(snapshot.value)
+            //print(snapshot.value)
             let groupID = groupDictionary.valueForKey("groupID") as! String
             let createdBy = groupDictionary.valueForKey("createdBy") as! String
             let groupImage = groupDictionary.valueForKey("groupImage") as! String
