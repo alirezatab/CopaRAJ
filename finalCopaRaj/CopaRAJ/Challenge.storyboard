@@ -1824,7 +1824,7 @@ Cg
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="football" translatesAutoresizingMaskIntoConstraints="NO" id="vFK-Xm-1lv">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9M-eK-Mvg">
+                            <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9M-eK-Mvg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AK6-VR-hnq">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
@@ -2004,10 +2004,6 @@ Cg
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Copa Challange" id="qxG-Fi-XlW"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.16470588235294117" green="0.77254901960784317" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </simulatedNavigationBarMetrics>
                     <connections>
                         <outlet property="RegularLogin" destination="zZB-IC-ePh" id="9ai-eq-Htj"/>
                         <outlet property="createNewAccountLogin" destination="Jct-pq-MY4" id="7ec-0c-gYI"/>

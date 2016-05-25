@@ -34,8 +34,8 @@
 @implementation GroupVC
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:NO];
-    self.navigationController.navigationBar.hidden = NO;
+    [super viewWillAppear:YES];
+  self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)viewDidLoad {
