@@ -48,7 +48,7 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate {
                                                                             attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
 
         
-        self.emailAddressTextField.layer.cornerRadius = 5
+        self.emailVisualEffectView.layer.cornerRadius = 5
         self.emailVisualEffectView.layer.masksToBounds = true
         self.emailAddressTextField.backgroundColor = UIColor.clearColor()
         self.emailAddressTextField.textColor = UIColor.whiteColor()

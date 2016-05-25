@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CxS-NE-NKP" id="xy9-nY-cqJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="75.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-jd-u6i">
@@ -43,9 +43,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JDq-Rk-8yp">
-                                                    <rect key="frame" x="16" y="8" width="67" height="67"/>
+                                                    <rect key="frame" x="16" y="8" width="60" height="60"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="67" id="Cp6-Ls-fad"/>
+                                                        <constraint firstAttribute="width" constant="60" id="Cp6-Ls-fad"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="e8O-8m-pTm"/>
                                                     </constraints>
                                                 </imageView>
@@ -54,8 +54,8 @@
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="leading" secondItem="xy9-nY-cqJ" secondAttribute="leadingMargin" constant="8" id="6nu-hz-3xf"/>
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="top" secondItem="xy9-nY-cqJ" secondAttribute="topMargin" id="Aa8-1j-KHp"/>
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="top" secondItem="xy9-nY-cqJ" secondAttribute="topMargin" id="Om6-qc-sSE"/>
-                                                <constraint firstItem="JDq-Rk-8yp" firstAttribute="bottom" secondItem="xy9-nY-cqJ" secondAttribute="bottomMargin" constant="8" id="QrB-O7-aJ9"/>
-                                                <constraint firstItem="JDq-Rk-8yp" firstAttribute="bottom" secondItem="xy9-nY-cqJ" secondAttribute="bottomMargin" constant="8" id="RJk-mx-EyS"/>
+                                                <constraint firstItem="JDq-Rk-8yp" firstAttribute="bottom" secondItem="xy9-nY-cqJ" secondAttribute="bottomMargin" id="QrB-O7-aJ9"/>
+                                                <constraint firstItem="JDq-Rk-8yp" firstAttribute="bottom" secondItem="xy9-nY-cqJ" secondAttribute="bottomMargin" id="RJk-mx-EyS"/>
                                                 <constraint firstItem="jAH-jd-u6i" firstAttribute="centerY" secondItem="xy9-nY-cqJ" secondAttribute="centerY" id="ddr-nX-BUn"/>
                                                 <constraint firstItem="jAH-jd-u6i" firstAttribute="centerX" secondItem="xy9-nY-cqJ" secondAttribute="centerX" id="wUg-lk-3I9"/>
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="leading" secondItem="xy9-nY-cqJ" secondAttribute="leadingMargin" constant="8" id="wbi-5X-Ee9"/>
