@@ -1824,10 +1824,10 @@ Cg
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="football" translatesAutoresizingMaskIntoConstraints="NO" id="vFK-Xm-1lv">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9M-eK-Mvg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
+                            <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9M-eK-Mvg">
+                                <rect key="frame" x="0.0" y="-44" width="600" height="584"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AK6-VR-hnq">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="584"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>

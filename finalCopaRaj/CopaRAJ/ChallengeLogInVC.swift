@@ -304,6 +304,10 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     return true
   }
   
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(true)
+    self.navigationController?.navigationBarHidden = false
+  }
   
 }
 
