@@ -5,7 +5,7 @@
 //  Created by Richard Velazquez on 5/12/16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
-
+//fix cell for row for the groups home
 import UIKit
 
 
@@ -19,9 +19,11 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   
   @IBOutlet weak var groupHelpLabel: UILabel!
   
+  @IBOutlet weak var groupImage: UIImageView!
   
   var group : ChallengeGroup?
   var isUpdating : Bool?
+  var imageName : String?
   
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -35,6 +37,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       self.finalizeButton.enabled = false
       self.activityIndicator.hidden = true
       self.groupHelpLabel.hidden = true
+      self.imageName = "avatar2"
   }
 
     override func didReceiveMemoryWarning() {
@@ -139,7 +142,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   }
 
   @IBAction func onFinalizeButtonPressed(sender: AnyObject) {
-    let newGroup = ChallengeGroup(name: self.groupNameTextField.text!, password: self.passwordTextField.text!, imageName: "Argentina")
+    let newGroup = ChallengeGroup(name: self.groupNameTextField.text!, password: self.passwordTextField.text!, imageName: self.imageName!)
     self.activityIndicator.hidden = false
     self.activityIndicator.startAnimating()
     self.createFireBaseGroup(newGroup)
@@ -170,7 +173,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
         let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName! as String, "lastName": lastName! as String]
         
         newUsersListFirstMember.setValue(userPickDetails)
-        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: "Argentina", groupName: passedGroup.name as! String, createdBy: "\(firstName!) \(lastName!)", completionHandler: { (success) in
+        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: passedGroup.imageName as! String, groupName: passedGroup.name as! String, createdBy: "\(firstName!) \(lastName!)", completionHandler: { (success) in
           
               self.activityIndicator.stopAnimating()
               self.presentGroupCreated(passedGroup)
@@ -213,4 +216,30 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     self.presentViewController(alert, animated: true) {
     }
   }
+  
+  
+  @IBAction func onAvatarButtonPressed(sender: UIButton) {
+    let tag = sender.tag
+    if tag == 2 {
+      self.groupImage.image = UIImage.init(named: "avatar2")
+      self.imageName = "avatar2"
+    } else if tag == 1 {
+      self.groupImage.image = UIImage.init(named: "avatar1")
+      self.imageName = "avatar1"
+    } else if tag == 7 {
+      self.groupImage.image = UIImage.init(named: "avatar7")
+      self.imageName = "avatar7"
+    } else if tag == 5 {
+      self.groupImage.image = UIImage.init(named: "avatar5")
+      self.imageName = "avatar5"
+    } else if tag == 4 {
+      self.groupImage.image = UIImage.init(named: "avatar4")
+      self.imageName = "avatar4"
+    } else if tag == 6 {
+      self.groupImage.image = UIImage.init(named: "avatar6")
+      self.imageName = "avatar6"
+    }
+  }
+  
+  
 }
