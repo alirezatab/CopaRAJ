@@ -11,6 +11,7 @@ import UIKit
 class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationBarDelegate {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var finalizeGroupStandingButton: UIButton!
   
   var groups : NSMutableArray?
   var group : ChallengeGroup?
@@ -18,12 +19,14 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
   override func viewDidLoad() {
     self.navigationController?.navigationBarHidden = false
     self.navigationItem.hidesBackButton = true
-    self.title = "Make Group Selections"
+    self.title = "Group Selections"
     self.createGroups()
     self.tableView.userInteractionEnabled = true
     self.tableView.allowsSelection = true
     self.tableView.setEditing(true, animated: true)
     
+    self.finalizeGroupStandingButton.layer.cornerRadius = 5
+    self.finalizeGroupStandingButton.layer.masksToBounds = true
   }
   
   func createGroups() {
@@ -104,25 +107,32 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     let headerView = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, 18))
     
-    let groupLabel = UILabel.init(frame: CGRectMake(0, 0, self.view.frame.size.width / 4, 45))
+    let groupLabel = UILabel.init(frame: CGRectMake(0, 0, self.view.frame.size.width / 4, 40))
+    let instructionLabel = UILabel.init(frame: CGRectMake(self.view.frame.size.width/2, 0, self.view.frame.size.width/2, 40))
     
     CGRectMake(20, 5, screenwidth/2, 45)
-    groupLabel.font = UIFont.init(name: "GothamMedium", size: 15)
+    groupLabel.font = UIFont.init(name: "GothamMedium", size: 17)
     groupLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
     groupLabel.textAlignment = NSTextAlignment.Center
    
+    instructionLabel.font = UIFont.init(name: "GothamMedium", size: 13)
+    instructionLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
+    instructionLabel.textAlignment = NSTextAlignment.Right
+    
     headerView.backgroundColor = UIColor.init(white: 0.969, alpha: 1.000)//your background
     
     let group = self.groups!.objectAtIndex(section) as! CopaAmericaGroup
     groupLabel.text = group.name as? String
+    instructionLabel.text = "Sort using ≣"
     
     headerView.addSubview(groupLabel)
+    headerView.addSubview(instructionLabel)
     
     return headerView;
   }
   
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 50
+    return 40
   }
   
   func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {

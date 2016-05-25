@@ -143,6 +143,8 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
       
       //double check
         self.playOffMatches?.addObjectsFromArray([self.matchA1B2!, self.matchD1C2!, self.matchB1A2!,  self.matchC1D2!, self.matchW25W27!, self.matchW26W28!, self.matchW29W30!, self.tournmentChampion!])
+        
+        self.finalizeButton.enabled = false
     }
     
     func resetNonWinner() {
@@ -311,8 +313,10 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     let finalizeEnabled = self.checkFinalize()
     if finalizeEnabled {
       self.finalizeButton.enabled = true
+        self.finalizeButton.tintColor = UIColor.whiteColor()
     } else {
       self.finalizeButton.enabled = false
+        self.finalizeButton.tintColor = UIColor.lightGrayColor()
       
     }
   }
@@ -392,11 +396,10 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     return enableButton
   }
   
-  @IBAction func onFinalizeButtonPressed(sender: UIButton) {
-    let finalPicks = self.createFinalPicks()
-    self.updateUserPicksToGroup(finalPicks, group: self.group!)
-    
-  }
+    @IBAction func onFinalizeButtonPressed(sender: UIBarButtonItem) {
+        let finalPicks = self.createFinalPicks()
+        self.updateUserPicksToGroup(finalPicks, group: self.group!)
+    }
   
   func createFinalPicks() -> NSDictionary {
     

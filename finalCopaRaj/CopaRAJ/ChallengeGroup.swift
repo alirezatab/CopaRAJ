@@ -48,7 +48,7 @@ class ChallengeGroup: NSObject {
         self.password = id.value as? NSString
       } else if idKey == "createdBy" {
         self.createdBy = id.value as! String
-      }else if idKey != "imageName" && idKey != "name" && idKey != "admin" && idKey != "password" && idKey != "createdBy" {
+      } else if idKey != "imageName" && idKey != "name" && idKey != "admin" && idKey != "password" && idKey != "createdBy" {
         let member = self.createMemberforGroup(id.value as! NSDictionary, key: idKey, tournyResults: currentResults)
         self.members?.addObject(member)
       }

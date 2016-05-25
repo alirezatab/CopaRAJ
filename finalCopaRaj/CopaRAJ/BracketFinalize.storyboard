@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--pick bracket-->
+        <!--Pick Bracket-->
         <scene sceneID="iAx-PK-fC4">
             <objects>
                 <viewController id="991-54-pu2" customClass="BracketFinalizeVC" customModule="CopaRAJ" customModuleProvider="target" sceneMemberID="viewController">
@@ -292,27 +292,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="sNR-Du-SY7" secondAttribute="trailing" constant="-20" id="v07-ud-E6k"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="pick bracket" id="Dy4-2E-hpZ">
+                    <navigationItem key="navigationItem" title="Pick Bracket" id="Dy4-2E-hpZ">
                         <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="K4C-XM-M7N">
                             <connections>
                                 <segue destination="LaC-OE-hc0" kind="unwind" unwindAction="unwindToPickGroup:" id="lBH-2h-eTI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="y7L-tD-cUF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BCv-Xm-T5y">
-                                <rect key="frame" x="528" y="7" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="BQm-Kz-468"/>
-                                    <constraint firstAttribute="width" constant="52" id="HH3-9y-YlQ"/>
-                                </constraints>
-                                <state key="normal" title="Finalize">
-                                    <color key="titleColor" red="0.094924178900000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onFinalizeButtonPressed:" destination="991-54-pu2" eventType="touchUpInside" id="y85-dO-0Km"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" style="done" id="y7L-tD-cUF">
+                            <color key="tintColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onFinalizeButtonPressed:" destination="991-54-pu2" id="jEl-hs-d1q"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
@@ -328,7 +318,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIn-dQ-CsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LaC-OE-hc0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4048" y="317"/>
+            <point key="canvasLocation" x="3970" y="317"/>
         </scene>
     </scenes>
     <resources>

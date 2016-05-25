@@ -18,7 +18,8 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   override func viewDidLoad() {
     self.title = "\(self.member!.firstName!) \(self.member!.lastName!)'s Selections"
     self.createGroups()
-    self.navigationController?.navigationBarHidden = false
+    //self.navigationController?.navigationBarHidden = false
+    //self.navigationItem.hidesBackButton = true
     self.tableView.userInteractionEnabled = true
     self.tableView.reloadData()
     
@@ -90,7 +91,6 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     cell.teamImage.image = UIImage.init(named: teamName)
     let place = indexPath.row + 1
     cell.teamCountry.text = "\(place). \(teamName)"
-    
     if teamName == "United States" {
       cell.teamCountry.text = NSLocalizedString("United States", comment:"")
     }
@@ -136,7 +136,7 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 50
+    return 40
   }
   
   

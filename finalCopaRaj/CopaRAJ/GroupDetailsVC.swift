@@ -18,19 +18,15 @@ import Foundation
 class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet var activityIndicator: UIActivityIndicatorView!
-  
+    
   var group :ChallengeGroup?
   var dateIsGood : Bool?
-  
-  
     
   override func viewDidLoad() {
     self.title = (self.group?.name as! String)
     self.navigationItem.hidesBackButton = true
     self.dateIsGood = self.checkDate()
     //self.navigationController?.navigationItem
-    
-    
   }
 
   
@@ -109,15 +105,20 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     if indexPath.section == 0  {
       let cell = tableView.dequeueReusableCellWithIdentifier("GroupDetailsCell") as! GroupDetailsCell
       let shouldAllowSharing = self.shouldAllowSharing()
-     
-      
+    cell.createdBy.text = "Created by \(self.group!.createdBy as! String) "
+
+        if let password = self.group?.password {
+     cell.groupPassword.text = "Password: \(password as String)"
+        } else {
+            cell.groupPassword.text = ""
+        }
+        
       if shouldAllowSharing == false {
         cell.inviteButton.enabled = false
         cell.inviteButton.hidden = true
       } else {
         cell.inviteButton.enabled = true
         cell.inviteButton.hidden = false
-        
       }
       
       let shouldBeAllowedToStillMakePicks = self.checkDate()
@@ -135,7 +136,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     let user = self.group?.members?.objectAtIndex(indexPath.row) as! ChallengeUser
     cell.playerLabel.text = "\(user.firstName!)  \(user.lastName!)"
     cell.ptsLabel.text = "\(user.points) pts"
-    
+    cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     return cell
     }
   }
@@ -167,6 +168,45 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
       //      print("Same dates")
     }
   }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section != 0 {
+            return 50
+        } else {
+            return 75
+        }
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //let screenBound = UIScreen.mainScreen().bounds
+        //let screensize = screenBound.size
+        //let screenwidth = screensize.width
+        
+        let headerView = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, 18))
+        
+        let groupDetailsLabel = UILabel.init(frame: CGRectMake(20, 0, self.view.frame.size.width / 2, 45))
+        
+        //CGRectMake(20, 5, screenwidth/2, 45)
+        groupDetailsLabel.font = UIFont.init(name: "GothamMedium", size: 15)
+        groupDetailsLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
+        groupDetailsLabel.textAlignment = NSTextAlignment.Left
+        
+        headerView.backgroundColor = UIColor.init(white: 0.969, alpha: 1.000)//your background
+        
+        if section == 0 {
+            groupDetailsLabel.text = "Group Details"
+        } else {
+            groupDetailsLabel.text = "Challange Standings"
+        }
+        
+        headerView.addSubview(groupDetailsLabel)
+        
+        return headerView;
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
   
   func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     if indexPath.section == 0 {
@@ -191,7 +231,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     } else if segue.identifier == "makePicks" {
       let destVC = segue.destinationViewController as! PickGroupVC
       destVC.group = self.group
-      
+      print(self.group!.name)
     }
   }
   
@@ -199,6 +239,8 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
   }
   
+    
+    
   @IBAction func unwindToGroupDetails(segue: UIStoryboardSegue) {
     
   }

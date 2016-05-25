@@ -12,4 +12,8 @@ class GroupDetailsCell: UITableViewCell {
   @IBOutlet weak var makePicksButton: UIButton!
 
   @IBOutlet weak var inviteButton: UIButton!
+    
+    @IBOutlet weak var createdBy: UILabel!
+    
+    @IBOutlet weak var groupPassword: UILabel!
 }
