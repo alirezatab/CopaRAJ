@@ -5,7 +5,7 @@
 //  Created by Richard Velazquez on 5/12/16.
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
-
+//fix cell for row for the groups home
 import UIKit
 
 
