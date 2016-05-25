@@ -141,6 +141,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     
     if shouldAllowNewGroup == true {
       self.performSegueWithIdentifier("CreateGroup", sender: self)
+      self.didAlreadySearchGroups = false
     } else {
       self.cannotSearchGroups()
     }

@@ -13,6 +13,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   @IBOutlet weak var tableView: UITableView!
   
+  @IBOutlet weak var noResultsLabel: UILabel!
   
   var groupsFromSearchResults : NSMutableArray?
   
@@ -56,8 +57,10 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
           print(self.groupsFromSearchResults?.count)
         }
       }
+      self.noResultsLabel.hidden = true
       self.tableView.reloadData()
       self.activityIndicator.stopAnimating()
+      
       
       }) { (error) in
         print(error.localizedDescription)
@@ -116,7 +119,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     
     let alertController = UIAlertController(title: "Join \(group.name!)", message: "Please enter the password for \(group.name!)", preferredStyle: UIAlertControllerStyle.Alert)
     
-    let saveAction = UIAlertAction(title: "Enter", style: UIAlertActionStyle.Cancel, handler: {
+    let enterPassword = UIAlertAction(title: "Enter", style: UIAlertActionStyle.Default, handler: {
       alert -> Void in
       
       let firstTextField = alertController.textFields![0] as UITextField
@@ -127,8 +130,11 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
       textField.placeholder = "Enter Password"
     }
+    let cancel = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil)
     
-    alertController.addAction(saveAction)
+    alertController.addAction(cancel)
+    alertController.addAction(enterPassword)
+    
     
     self.presentViewController(alertController, animated: true, completion: nil)
   }
@@ -180,7 +186,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
   func presentAddedToGroup (group : SearchResultGroup) {
     let alert = UIAlertController(title: "Success", message: "You have been added to \(group.name!)", preferredStyle: .Alert)
     let ok = UIAlertAction(title: "OK", style: .Cancel) { (action) in
-      self.navigationController?.popViewControllerAnimated(true)
+      self.dismissViewControllerAnimated(true, completion: nil)
     }
     alert.addAction(ok)
     self.presentViewController(alert, animated: true) { 
