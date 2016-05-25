@@ -20,10 +20,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8ej-6M-Tqc">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="511"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="w0G-CN-MJh">
-                                    <rect key="frame" x="0.0" y="168" width="600" height="20"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="team" rowHeight="76" id="CxS-NE-NKP" customClass="GroupTableViewCell">
                                         <rect key="frame" x="0.0" y="92" width="600" height="76"/>
@@ -109,7 +105,6 @@
                     </simulatedNavigationBarMetrics>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="w0G-CN-MJh" id="RG7-3h-xN2"/>
                         <outlet property="tableView" destination="8ej-6M-Tqc" id="DeZ-Ar-525"/>
                         <segue destination="or2-fT-DFi" kind="show" identifier="BracketFinalize" id="TXy-xp-s4A"/>
                     </connections>
