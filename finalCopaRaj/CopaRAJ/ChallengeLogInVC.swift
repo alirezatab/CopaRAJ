@@ -12,7 +12,7 @@ import QuartzCore
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigationBarDelegate {
+class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigationBarDelegate, UITextFieldDelegate {
     
     //Facebook Login Button
     let loginButton: FBSDKLoginButton = {
@@ -52,7 +52,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.hidden = true
+        self.navigationController?.navigationBarHidden = true
         self.navigationItem.hidesBackButton = true
         //add facebook login subview to the view
         self.view.addSubview(loginButton)
@@ -60,15 +60,15 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         loginButton.delegate = self
         
         self.textFieldLoginEmail.backgroundColor = UIColor.clearColor()
-        self.textFieldLoginEmail.textColor = UIColor.blackColor()
-        self.textFieldLoginEmail.attributedPlaceholder = NSAttributedString(string:"\tEmail",
-                                                                            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        self.textFieldLoginEmail.textColor = UIColor.whiteColor()
+        self.textFieldLoginEmail.attributedPlaceholder = NSAttributedString(string:"Email",
+                                                                            attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
         
         
         self.textFieldLoginPassword.backgroundColor = UIColor.clearColor()
-        self.textFieldLoginPassword.textColor = UIColor.blackColor()
-        self.textFieldLoginPassword.attributedPlaceholder = NSAttributedString(string:"\tPassword",
-                                                                               attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        self.textFieldLoginPassword.textColor = UIColor.whiteColor()
+        self.textFieldLoginPassword.attributedPlaceholder = NSAttributedString(string:"Password",
+                                                                               attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
 
         self.emailVisualEffectView.layer.cornerRadius = 5
         self.emailVisualEffectView.layer.masksToBounds = true
@@ -85,16 +85,20 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         self.forgotPassword.layer.cornerRadius = 5
         self.forgotPassword.layer.masksToBounds = true
         
-        if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil) {
-            self.performSegueWithIdentifier(self.loggedIn, sender: nil)
-        }
+        
     }
         
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(false)
+        
+        self.navigationController?.navigationBarHidden = true
         
         textFieldLoginEmail.text = ""
         textFieldLoginPassword.text = ""
+        
+        if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil) {
+            self.performSegueWithIdentifier(self.loggedIn, sender: nil)
+        }
         
 //        refUsers.observeAuthEventWithBlock { (authData) in
 //            if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
@@ -276,6 +280,9 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         
     }
     
+    //Mark: textField work
+    
+    
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     
     }
@@ -284,6 +291,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         super.didReceiveMemoryWarning()
     }
 }
+
 
 
 //    override func viewDidAppear(animated: Bool) {

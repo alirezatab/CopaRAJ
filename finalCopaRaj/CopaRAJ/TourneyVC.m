@@ -233,7 +233,6 @@
   viewController.match = match;
   self.navigationController.navigationBarHidden = false;
   [self.navigationController pushViewController:viewController animated:YES];
-
 }
 
 -(void) populatePlayoffTeams{

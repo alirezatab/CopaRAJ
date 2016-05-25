@@ -64,7 +64,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rWe-Im-Myi" id="T9u-Jg-wiz">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="116"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="116.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YR2-ba-ZHb">
@@ -252,7 +252,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fja-Vp-m78" id="rfj-95-S8g">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="169"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="169.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Gol" translatesAutoresizingMaskIntoConstraints="NO" id="SAI-zK-Noq">

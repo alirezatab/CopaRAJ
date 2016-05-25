@@ -27,7 +27,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
         self.navigationItem.hidesBackButton = true;
         self.didAlreadySearchGroups = true
         self.findGroupsForUser()
-        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBarHidden = false
     }
   
   override func viewWillDisappear(animated: Bool) {
