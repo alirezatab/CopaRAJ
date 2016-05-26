@@ -168,7 +168,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
       let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName! as String, "lastName": lastName! as String]
       
         newUsersListMember.setValue(userPickDetails)
-        DataService.dataService.updateCurrentUserWithGroupID(group.uniqueID!, groupImage: "Argentina", groupName: group.name as! String, createdBy: group.createdBy! as String, completionHandler: { (success) in
+        DataService.dataService.updateCurrentUserWithGroupID(group.uniqueID!, groupImage: group.imageName!, groupName: group.name as! String, createdBy: group.createdBy! as String, completionHandler: { (success) in
           if success == true {
             self.presentAddedToGroup(group)
             print("success")

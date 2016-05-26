@@ -24,16 +24,16 @@ class ChallengeGroup: NSObject {
   }
  
   
-  init(name: NSString, password: NSString, imageName: NSString) {
+  init(name: NSString, password: NSString, imageName: String) {
     self.name = name
     self.password = password
-    self.imageName = imageName as String
+    self.imageName = imageName
     self.members  = NSMutableArray()
   }
   
-  init(name: NSString, imageName: NSString, createdBy : NSString, groupID: NSString) {
+  init(name: NSString, imageName: String, createdBy : NSString, groupID: NSString) {
     self.name = name
-    self.imageName = imageName as String
+    self.imageName = imageName
     self.createdBy = createdBy
     self.groupID = groupID
     self.members = NSMutableArray()
