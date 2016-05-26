@@ -17,3 +17,4 @@ class GroupDetailsCell: UITableViewCell {
     
     @IBOutlet weak var groupPassword: UILabel!
 }
+            

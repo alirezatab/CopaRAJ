@@ -25,8 +25,8 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     self.tableView.allowsSelection = true
     self.tableView.setEditing(true, animated: true)
     
-    self.finalizeGroupStandingButton.layer.cornerRadius = 5
-    self.finalizeGroupStandingButton.layer.masksToBounds = true
+    //self.finalizeGroupStandingButton.layer.cornerRadius = 5
+    //self.finalizeGroupStandingButton.layer.masksToBounds = true
   }
   
   func createGroups() {

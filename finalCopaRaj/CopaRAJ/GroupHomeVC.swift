@@ -15,7 +15,11 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
   var didAlreadySearchGroups : Bool?
 
     @IBOutlet weak var tableView: UITableView!
-  
+    @IBOutlet weak var joinChallange: UIButton!
+    @IBOutlet weak var createChallange: UIButton!
+    
+    
+    
   override func viewWillAppear(animated: Bool) {
     if self.didAlreadySearchGroups != true {
     self.findGroupsForUser()
@@ -28,6 +32,12 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
         self.didAlreadySearchGroups = true
         self.findGroupsForUser()
         self.navigationController?.navigationBarHidden = false
+        
+        self.joinChallange.layer.cornerRadius = 5
+        self.joinChallange.layer.masksToBounds = true
+        
+        self.createChallange.layer.cornerRadius = 5
+        self.createChallange.layer.masksToBounds = true
     }
   
   override func viewWillDisappear(animated: Bool) {
@@ -98,7 +108,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     return cell!
       
-    }
+    } 
     
     return cell!
   }

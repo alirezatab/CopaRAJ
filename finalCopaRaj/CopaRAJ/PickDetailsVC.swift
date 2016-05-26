@@ -88,14 +88,23 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let cell = tableView.dequeueReusableCellWithIdentifier("team") as! GroupTableViewCell
     let cellGroup = self.picksArray?.objectAtIndex(indexPath.section) as! CopaAmericaGroup
     let teamName = cellGroup.teams?.objectAtIndex(indexPath.row) as! String
-    cell.teamImage.image = UIImage.init(named: teamName)
-    let place = indexPath.row + 1
-    cell.teamCountry.text = "\(place). \(teamName)"
-    if teamName == "United States" {
-      cell.teamCountry.text = NSLocalizedString("United States", comment:"")
+    if teamName == "" {
+        cell.teamCountry.text = "Challange Team Not Picked!"
+    } else {
+        cell.teamImage.image = UIImage.init(named: teamName)
+        let place = indexPath.row + 1
+        if indexPath.section < 4 {
+            cell.teamCountry.text = "\(place). \(teamName)"
+            if teamName == "United States" {
+                //cell.teamCountry.text = NSLocalizedString("United States", comment:"")
+            }
+        }else {
+            cell.teamCountry.text = "\(teamName)"
+            if teamName == "United States" {
+                cell.teamCountry.text = NSLocalizedString("United States", comment:"")
+            }
+        }
     }
-    
-    
     return cell
   }
   
@@ -106,17 +115,21 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
       return 0
     }
   }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 75
+    }
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let screenBound = UIScreen.mainScreen().bounds
-    let screensize = screenBound.size
-    let screenwidth = screensize.width
+//    let screenBound = UIScreen.mainScreen().bounds
+//    let screensize = screenBound.size
+//    let screenwidth = screensize.width
     
     let headerView = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, 18))
     
-    let groupLabel = UILabel.init(frame: CGRectMake(0, 0, self.view.frame.size.width / 2, 45))
+    let groupLabel = UILabel.init(frame: CGRectMake(-20, 0, self.view.frame.size.width / 2, 45))
     
-    CGRectMake(20, 5, screenwidth/2, 45)
+    //CGRectMake(20, 5, screenwidth/2, 45)
     groupLabel.font = UIFont.init(name: "GothamMedium", size: 15)
     groupLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
     groupLabel.textAlignment = NSTextAlignment.Center

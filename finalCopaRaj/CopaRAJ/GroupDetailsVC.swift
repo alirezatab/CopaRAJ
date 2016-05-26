@@ -27,6 +27,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     self.navigationItem.hidesBackButton = true
     self.dateIsGood = self.checkDate()
     //self.navigationController?.navigationItem
+    
   }
 
   
@@ -113,9 +114,17 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.groupPassword.text = ""
         }
         
+        cell.inviteButton.layer.cornerRadius = 5
+        cell.inviteButton.layer.masksToBounds = true
+        
+        cell.makePicksButton.layer.cornerRadius = 5
+        cell.makePicksButton.layer.masksToBounds = true
+        
       if shouldAllowSharing == false {
         cell.inviteButton.enabled = false
-        cell.inviteButton.hidden = true
+        //cell.inviteButton.hidden = true
+        cell.inviteButton.backgroundColor = UIColor.clearColor()
+        cell.inviteButton.tintColor = UIColor.clearColor()
       } else {
         cell.inviteButton.enabled = true
         cell.inviteButton.hidden = false
@@ -124,7 +133,9 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
       let shouldBeAllowedToStillMakePicks = self.checkDate()
       if shouldBeAllowedToStillMakePicks == false || self.group?.userHasMadePicks == true {
         cell.makePicksButton.enabled = false
-        cell.makePicksButton.hidden = true
+        //cell.makePicksButton.hidden = true
+        cell.makePicksButton.backgroundColor = UIColor.clearColor()
+        cell.makePicksButton.tintColor = UIColor.clearColor()
       } else if shouldBeAllowedToStillMakePicks == true && self.group?.userHasMadePicks == false {
         cell.makePicksButton.enabled = true
         cell.makePicksButton.hidden = false
@@ -173,7 +184,8 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         if indexPath.section != 0 {
             return 50
         } else {
-            return 75
+            return 100
+            
         }
     }
     
@@ -194,9 +206,9 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         headerView.backgroundColor = UIColor.init(white: 0.969, alpha: 1.000)//your background
         
         if section == 0 {
-            groupDetailsLabel.text = "Group Details"
+            groupDetailsLabel.text = "Challenge Details"
         } else {
-            groupDetailsLabel.text = "Challange Standings"
+            groupDetailsLabel.text = "Challenge Standings"
         }
         
         headerView.addSubview(groupDetailsLabel)

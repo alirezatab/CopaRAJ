@@ -4,6 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="GOTHAM-MEDIUM.TTF">
+            <string>GothamMedium</string>
+            <string>GothamMedium</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Pick Groups-->
         <scene sceneID="6Fr-FB-mni">
@@ -18,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8ej-6M-Tqc">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="501"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="team" rowHeight="76" id="CxS-NE-NKP" customClass="GroupTableViewCell">
@@ -34,7 +40,7 @@
                                                         <constraint firstAttribute="width" constant="380" id="2Ve-d6-N5s"/>
                                                         <constraint firstAttribute="height" constant="59" id="cDH-gr-HKV"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -69,13 +75,13 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lF-ZZ-dDH">
-                                <rect key="frame" x="45" y="509" width="510" height="40"/>
+                                <rect key="frame" x="0.0" y="506" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.80392156862745101" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="vdb-cb-GdW"/>
+                                    <constraint firstAttribute="height" constant="50" id="vdb-cb-GdW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Finalize Your Group Standings">
+                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
+                                <state key="normal" title="Fillout Playoff Bracket &gt;">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -85,13 +91,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="6lF-ZZ-dDH" secondAttribute="trailing" constant="25" id="9z2-gc-tll"/>
-                            <constraint firstItem="6lF-ZZ-dDH" firstAttribute="leading" secondItem="D5r-hZ-L9s" secondAttribute="leadingMargin" constant="25" id="Aik-1g-A5Z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6lF-ZZ-dDH" secondAttribute="trailing" constant="-20" id="9z2-gc-tll"/>
+                            <constraint firstItem="6lF-ZZ-dDH" firstAttribute="leading" secondItem="D5r-hZ-L9s" secondAttribute="leadingMargin" constant="-20" id="Aik-1g-A5Z"/>
                             <constraint firstItem="8ej-6M-Tqc" firstAttribute="leading" secondItem="D5r-hZ-L9s" secondAttribute="leadingMargin" constant="-20" id="K95-2M-ufD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8ej-6M-Tqc" secondAttribute="trailing" constant="-20" id="QfI-rj-un7"/>
                             <constraint firstItem="8ej-6M-Tqc" firstAttribute="top" secondItem="Aen-II-BWn" secondAttribute="bottom" constant="-64" id="UBM-m2-HgY"/>
-                            <constraint firstItem="hyN-SP-XQ4" firstAttribute="top" secondItem="6lF-ZZ-dDH" secondAttribute="bottom" constant="7" id="hXW-na-ZOJ"/>
-                            <constraint firstItem="6lF-ZZ-dDH" firstAttribute="top" secondItem="8ej-6M-Tqc" secondAttribute="bottom" constant="8" id="iKz-ts-ufn"/>
+                            <constraint firstItem="hyN-SP-XQ4" firstAttribute="top" secondItem="6lF-ZZ-dDH" secondAttribute="bottom" id="hXW-na-ZOJ"/>
+                            <constraint firstItem="6lF-ZZ-dDH" firstAttribute="top" secondItem="8ej-6M-Tqc" secondAttribute="bottom" id="iKz-ts-ufn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pick groups" id="qzc-3U-DjN">

@@ -15,6 +15,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
   
   @IBOutlet weak var noResultsLabel: UILabel!
   
+    @IBOutlet weak var joinChallange: UIButton!
   var groupsFromSearchResults : NSMutableArray?
   
   
@@ -22,9 +23,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     self.activityIndicator.hidden = true
     self.groupsFromSearchResults = NSMutableArray()
     self.navigationController?.title = "Search For Challenges"
-
     //self.tableView.hidden = true
-    
   }
   
   func searchBarCancelButtonClicked(searchBar: UISearchBar) {
@@ -92,6 +91,8 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     } else {
       cell.joinButton.enabled = true
       cell.joinButton.hidden = false
+        cell.joinButton.layer.cornerRadius = 5
+        cell.joinButton.layer.masksToBounds = true
       cell.alreadyAMemberLabel.hidden = true
       if challengeGroup.members?.count > 14 {
         cell.joinButton.enabled = false
