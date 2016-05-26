@@ -27,7 +27,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     var fbEmail : String?
     var fbFirstName : String?
     var fbLastName : String?
-    var fbID: String?
+    //var fbID: String?
     
     var dict : NSDictionary!
     
@@ -44,7 +44,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     @IBOutlet weak var RegularLogin: UIButton!
     @IBOutlet weak var createNewAccountLogin: UIButton!
     @IBOutlet weak var forgotPassword: UIButton!
-    
+    @IBOutlet weak var rulesOfCopaChalange: UIButton!
     // MARK: Properties
     //let ref = Firebase(url: "https://fiery-inferno-5799.firebaseio.com/users")
     
@@ -55,7 +55,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         self.navigationController?.navigationBarHidden = true
         self.navigationItem.hidesBackButton = true
         //add facebook login subview to the view
-        self.view.addSubview(loginButton)
+        //self.view.addSubview(loginButton)
         loginButton.center = self.view.center
         loginButton.delegate = self
         
@@ -85,6 +85,9 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         self.forgotPassword.layer.cornerRadius = 5
         self.forgotPassword.layer.masksToBounds = true
       
+        self.rulesOfCopaChalange.layer.cornerRadius = 5
+        self.rulesOfCopaChalange.layer.masksToBounds = true
+        
        let tap = UITapGestureRecognizer(target: self, action: #selector(ChallengeLogInVC.dismissKeyboard))
       self.view.addGestureRecognizer(tap)
 
@@ -116,16 +119,16 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     func fetchProfile() {
         print("fetch Profile")
         if ((FBSDKAccessToken.currentAccessToken()) != nil) {
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "first_name, last_name, email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
                 if (error == nil){
                     self.fbEmail = result["email"] as? String
                     self.fbFirstName = result["first_name"] as? String
                     self.fbLastName = result["last_name"] as? String
-                    self.fbID = result["id"] as? String
+                    //self.fbID = result["id"] as? String
                     print(self.fbEmail)
                     print(self.fbFirstName)
                     print(self.fbLastName)
-                    print(self.fbID)
+                    //print(self.fbID)
                 }
             })
         }
@@ -148,7 +151,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                     print(self.fbEmail)
                     print(self.fbFirstName)
                     print(self.fbLastName)
-                    let user: Dictionary<String, String> = ["provider": authData.provider!, "email": self.fbEmail!, "firstName": self.fbFirstName!, "lastName": self.fbLastName!, "id": self.fbID!];
+                    let user: Dictionary<String, String> = ["provider": authData.provider!, "email": self.fbEmail!, "firstName": self.fbFirstName!, "lastName": self.fbLastName!];//, "id": self.fbID!];
                         
                     DataService.dataService.createNewAccount(authData.uid, user: user, completionHandler: { (success) in
                             if success == true {
@@ -156,7 +159,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                                 NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                                 NSUserDefaults.standardUserDefaults().setValue(self.fbFirstName, forKey: "firstName")
                                 NSUserDefaults.standardUserDefaults().setValue(self.fbLastName, forKey: "lastName")
-                                NSUserDefaults.standardUserDefaults().setValue(self.fbID, forKey: "id")
+                               // NSUserDefaults.standardUserDefaults().setValue(self.fbID, forKey: "id")
                                 self.performSegueWithIdentifier(self.loggedIn, sender: nil)
                             } else {
                                 print(success)
