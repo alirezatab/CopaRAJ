@@ -18,10 +18,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamScore;
 @property (weak, nonatomic) IBOutlet UILabel *homeTeamPenalty;
 
+
 @property (weak, nonatomic) IBOutlet UIImageView *visitorTeamImageView;
 @property (weak, nonatomic) IBOutlet UILabel *visitorTeamLabel;
 @property (weak, nonatomic) IBOutlet UILabel *visitorTeamScore;
 @property (weak, nonatomic) IBOutlet UILabel *visitorTeamPenalty;
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *winnerTeamImageView;
 @property (weak, nonatomic) IBOutlet UILabel *winnerTeamLabel;

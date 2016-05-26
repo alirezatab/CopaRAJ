@@ -15,6 +15,8 @@
 #import "FBMatch.h"
 #import "GameVC.h"
 #import "GameVC.h"
+#import "CopaRAJ-Swift.h"
+
 @interface TourneyVC () <UICollectionViewDelegate, UICollectionViewDataSource, UINavigationBarDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSManagedObjectContext *moc;
@@ -48,6 +50,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tourneyButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *challengeButton;
 
 @end
 
@@ -73,10 +76,14 @@
     
     self.navigationItem.hidesBackButton = YES;
     
+    UIColor *unselectedButtonColor =  [UIColor colorWithWhite:0.606 alpha:1.000];
+    
     [self.homeMatchesButton setImage: [UIImage imageNamed:NSLocalizedString(@"imageName", nil)]];
-    [self.homeMatchesButton setTintColor:[UIColor grayColor]];
-    [self.tourneyButton setTintColor:[UIColor grayColor]];
+    [self.homeMatchesButton setTintColor:unselectedButtonColor];
+    [self.tourneyButton setTintColor:unselectedButtonColor];
+    [self.challengeButton setTintColor:unselectedButtonColor];
     [self.playOffMatchesButton setTintColor:[UIColor whiteColor]];
+   
     
     self.playoffTeams = [[NSMutableArray alloc]init];
     self.matchesObject = [[NSMutableArray alloc]init];
@@ -92,7 +99,7 @@
     
     [self createDefaultPlayoffMatches];
     
-    [self.matchesObject addObjectsFromArray:@[@[self.matchA1B2, self.matchB1A2, self.matchD1C2, self.matchC1D2], @[self.matchW25W27, self.matchW26W28], @[self.matchL29L30, self.matchW29W30], @[]]];
+    [self.matchesObject addObjectsFromArray:@[@[self.matchA1B2, self.matchD1C2, self.matchB1A2, self.matchC1D2], @[self.matchW25W27, self.matchW26W28], @[self.matchL29L30, self.matchW29W30], @[]]];
     
     NSLog(@"%lu", (unsigned long)self.matchesObject.count);
 }
@@ -226,7 +233,6 @@
   viewController.match = match;
   self.navigationController.navigationBarHidden = false;
   [self.navigationController pushViewController:viewController animated:YES];
-
 }
 
 -(void) populatePlayoffTeams{
@@ -505,4 +511,18 @@
   //    [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
   //    NSLog(@"%@", cellMatch);
 }
+
+//- (IBAction)goToChallengeVC:(UIBarButtonItem *)sender {
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
+//    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
+
+
+
+
+
+
+
+
 @end

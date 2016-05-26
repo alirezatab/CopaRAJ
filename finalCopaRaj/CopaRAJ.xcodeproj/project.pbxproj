@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		064602D64D595AB497F40CC4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13045D6BBB029591013183BE /* libPods.a */; };
+		032AA656B2380D13CB362567 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBA652AE4BAFEBB5DF68D04 /* libPods.a */; };
 		7B1FF1D51CD0152700B031B0 /* Match+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1FF1CF1CD0152700B031B0 /* Match+CoreDataProperties.m */; };
 		7B1FF1D61CD0152700B031B0 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1FF1D11CD0152700B031B0 /* Match.m */; };
 		7B1FF1DB1CD0218500B031B0 /* billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B1FF1D81CD020E800B031B0 /* billabong.ttf */; };
@@ -23,12 +23,18 @@
 		7BC9FFA61CDB30F500711636 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FF9D1CDB30F500711636 /* Localizable.strings */; };
 		7BC9FFA71CDB30F500711636 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FF9F1CDB30F500711636 /* Main.strings */; };
 		7BC9FFA81CDB30F500711636 /* Tourny.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BC9FFA11CDB30F500711636 /* Tourny.strings */; };
-		7BCCB18F1CE64D2700222396 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCCB18E1CE64D2700222396 /* EventKit.framework */; };
 		7BD056121CC70EA100BCB113 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0560A1CC70EA100BCB113 /* Team.m */; };
 		7BD056251CC73A9D00BCB113 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD0561F1CC73A9D00BCB113 /* Group.m */; };
 		7BD870B71CCA7F880020C125 /* playOffMatches.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BD870B61CCA7F880020C125 /* playOffMatches.plist */; };
-		C24EE9011CDAF843003C9035 /* SplashScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C24EE9001CDAF843003C9035 /* SplashScreenVC.m */; };
+		C2017FE51CF2340400027EAD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2017FE31CF2340400027EAD /* FBSDKCoreKit.framework */; };
+		C2017FE61CF2340400027EAD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2017FE41CF2340400027EAD /* FBSDKLoginKit.framework */; };
+		C2087A771CEF822400A53719 /* BracketFinalizeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2087A761CEF822400A53719 /* BracketFinalizeVC.swift */; };
+		C20EB5C21CE67E10000E36B7 /* ChallengeLogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */; };
+		C212A5EB1CEE6E690077331D /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C212A5EA1CEE6E690077331D /* EventKit.framework */; };
+		C244BEFA1CE7E9E500C4371D /* GroupHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C244BEF91CE7E9E500C4371D /* GroupHomeVC.swift */; };
+		C244BEFD1CE80F5B00C4371D /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C244BEFC1CE80F5B00C4371D /* DataService.swift */; };
 		C290DDFF1CD5FA18002FB7B6 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C290DDFE1CD5FA18002FB7B6 /* EventCell.m */; };
+		C2A09F3B1CE94DA500268544 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A09F3A1CE94DA500268544 /* CreateAccountVC.swift */; };
 		C2C5C00E1CC564D70010133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C00D1CC564D70010133B /* main.m */; };
 		C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0101CC564D70010133B /* AppDelegate.m */; };
 		C2C5C0171CC564D70010133B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C5C0151CC564D70010133B /* Main.storyboard */; };
@@ -38,10 +44,31 @@
 		C2C5C02A1CC564D70010133B /* CopaRAJTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0291CC564D70010133B /* CopaRAJTests.m */; };
 		C2C5C0351CC564D70010133B /* CopaRAJUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0341CC564D70010133B /* CopaRAJUITests.m */; };
 		C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C799FB1CC83B1A00D1BBBC /* BracketCell.m */; };
+		C2F6D1B11CE515DB005F01FD /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F6D1B01CE515DB005F01FD /* Challenge.storyboard */; };
 		D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */; };
 		D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E81CC5DC9000E80C51 /* Group.storyboard */; };
 		D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4EB1CC5DCC200E80C51 /* Tourny.storyboard */; };
+		D82E42641CE52097004812FF /* GroupHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E42631CE52096004812FF /* GroupHome.storyboard */; };
+		D82E42691CE52175004812FF /* PickGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E42681CE52175004812FF /* PickGroup.storyboard */; };
+		D82E426B1CE521B6004812FF /* BracketFinalize.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E426A1CE521B6004812FF /* BracketFinalize.storyboard */; };
+		D82E426D1CE521F7004812FF /* GroupDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E426C1CE521F7004812FF /* GroupDetails.storyboard */; };
+		D82E426F1CE5220E004812FF /* PickDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82E426E1CE5220E004812FF /* PickDetails.storyboard */; };
+		D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E42701CE5683E004812FF /* CreateGroupVC.swift */; };
+		D82E428A1CE581E0004812FF /* ChallengeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E42891CE581E0004812FF /* ChallengeGroup.swift */; };
+		D8594CA21CE66DD1008965F0 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8594CA11CE66DD1008965F0 /* CreateGroup.storyboard */; };
+		D86317ED1CEAF5C1009E9076 /* ChallengeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */; };
+		D879626E1CED138D001E3069 /* PickGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879626D1CED138D001E3069 /* PickGroupVC.swift */; };
+		D87962701CED3189001E3069 /* CopaAmericaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */; };
+		D87962721CED334A001E3069 /* ChallengeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87962711CED334A001E3069 /* ChallengeTeam.swift */; };
+		D88ED4F61CEF77DA00A1A193 /* GroupDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */; };
+		D88ED4F81CEF79BA00A1A193 /* PlayerStandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */; };
+		D88ED4FA1CF02C2F00A1A193 /* GroupDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4F91CF02C2F00A1A193 /* GroupDetailsCell.swift */; };
+		D88ED4FE1CF03EDB00A1A193 /* PickDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */; };
+		D8A1DF7C1CF191D30077AA5D /* SearchResultGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A1DF7B1CF191D30077AA5D /* SearchResultGroup.swift */; };
+		D8A1DF7E1CF192C80077AA5D /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A1DF7D1CF192C80077AA5D /* SearchResultCell.swift */; };
 		D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB66661CCED12100B5C8FE /* FBMatch.m */; };
+		D8E631BD1CF12E8100E316AE /* SearchGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E631BC1CF12E8100E316AE /* SearchGroupsVC.swift */; };
+		D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */; };
 		D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */; };
 		D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C11CC5B50F003F8465 /* GroupTableViewCell.m */; };
 		D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2D0C41CC5B6F9003F8465 /* GroupVC.m */; };
@@ -67,7 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13045D6BBB029591013183BE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DBA652AE4BAFEBB5DF68D04 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E4AA48983C0140B5AE4CBC8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7B1FF1CE1CD0152700B031B0 /* Match+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Match+CoreDataProperties.h"; sourceTree = "<group>"; };
 		7B1FF1CF1CD0152700B031B0 /* Match+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Match+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -87,7 +114,6 @@
 		7BC9FF9E1CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		7BC9FFA01CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Main.strings; sourceTree = "<group>"; };
 		7BC9FFA21CDB30F500711636 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Tourny.strings; sourceTree = "<group>"; };
-		7BCCB18E1CE64D2700222396 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		7BD056091CC70EA100BCB113 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = SOURCE_ROOT; };
 		7BD0560A1CC70EA100BCB113 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = SOURCE_ROOT; };
 		7BD0561E1CC73A9D00BCB113 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
@@ -95,10 +121,16 @@
 		7BD056261CC7477000BCB113 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7BD870B61CCA7F880020C125 /* playOffMatches.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playOffMatches.plist; sourceTree = "<group>"; };
 		920CE7D93A55FCC98810244D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		C24EE8FF1CDAF843003C9035 /* SplashScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenVC.h; sourceTree = "<group>"; };
-		C24EE9001CDAF843003C9035 /* SplashScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenVC.m; sourceTree = "<group>"; };
+		C2017FE31CF2340400027EAD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		C2017FE41CF2340400027EAD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		C2087A761CEF822400A53719 /* BracketFinalizeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BracketFinalizeVC.swift; sourceTree = "<group>"; };
+		C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeLogInVC.swift; sourceTree = "<group>"; };
+		C212A5EA1CEE6E690077331D /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		C244BEF91CE7E9E500C4371D /* GroupHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupHomeVC.swift; sourceTree = "<group>"; };
+		C244BEFC1CE80F5B00C4371D /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		C290DDFD1CD5FA18002FB7B6 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
 		C290DDFE1CD5FA18002FB7B6 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
+		C2A09F3A1CE94DA500268544 /* CreateAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		C2C5C0091CC564D70010133B /* CopaRAJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopaRAJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C5C00D1CC564D70010133B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2C5C00F1CC564D70010133B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CopaRAJ/AppDelegate.h; sourceTree = "<group>"; };
@@ -116,13 +148,35 @@
 		C2C5C0361CC564D70010133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2C799FA1CC83B1A00D1BBBC /* BracketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketCell.h; sourceTree = "<group>"; };
 		C2C799FB1CC83B1A00D1BBBC /* BracketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketCell.m; sourceTree = "<group>"; };
+		C2F6D1AD1CE5102A005F01FD /* CopaRAJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CopaRAJ-Bridging-Header.h"; sourceTree = "<group>"; };
+		C2F6D1B01CE515DB005F01FD /* Challenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Challenge.storyboard; sourceTree = "<group>"; };
 		D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		D82BF4E91CC5DC9000E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
 		D82BF4EC1CC5DCC200E80C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tourny.storyboard; sourceTree = "<group>"; };
+		D82E42631CE52096004812FF /* GroupHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupHome.storyboard; sourceTree = "<group>"; };
+		D82E42681CE52175004812FF /* PickGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickGroup.storyboard; sourceTree = "<group>"; };
+		D82E426A1CE521B6004812FF /* BracketFinalize.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BracketFinalize.storyboard; sourceTree = "<group>"; };
+		D82E426C1CE521F7004812FF /* GroupDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupDetails.storyboard; sourceTree = "<group>"; };
+		D82E426E1CE5220E004812FF /* PickDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickDetails.storyboard; sourceTree = "<group>"; };
+		D82E42701CE5683E004812FF /* CreateGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
+		D82E42891CE581E0004812FF /* ChallengeGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeGroup.swift; sourceTree = "<group>"; };
+		D8594CA11CE66DD1008965F0 /* CreateGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
+		D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeUser.swift; sourceTree = "<group>"; };
+		D879626D1CED138D001E3069 /* PickGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGroupVC.swift; sourceTree = "<group>"; };
+		D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopaAmericaGroup.swift; sourceTree = "<group>"; };
+		D87962711CED334A001E3069 /* ChallengeTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTeam.swift; sourceTree = "<group>"; };
+		D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailsVC.swift; sourceTree = "<group>"; };
+		D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStandingCell.swift; sourceTree = "<group>"; };
+		D88ED4F91CF02C2F00A1A193 /* GroupDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailsCell.swift; sourceTree = "<group>"; };
+		D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDetailsVC.swift; sourceTree = "<group>"; };
+		D8A1DF7B1CF191D30077AA5D /* SearchResultGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultGroup.swift; sourceTree = "<group>"; };
+		D8A1DF7D1CF192C80077AA5D /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		D8AB66621CCECF9900B5C8FE /* FBGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBGroup.h; sourceTree = "<group>"; };
 		D8AB66631CCECF9900B5C8FE /* FBGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBGroup.m; sourceTree = "<group>"; };
 		D8AB66651CCED12100B5C8FE /* FBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMatch.h; sourceTree = "<group>"; };
 		D8AB66661CCED12100B5C8FE /* FBMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBMatch.m; sourceTree = "<group>"; };
+		D8E631BC1CF12E8100E316AE /* SearchGroupsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGroupsVC.swift; sourceTree = "<group>"; };
+		D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupHomeCell.swift; sourceTree = "<group>"; };
 		D8F2D0BD1CC59537003F8465 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		D8F2D0BE1CC59537003F8465 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		D8F2D0C01CC5B50F003F8465 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
@@ -140,8 +194,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BCCB18F1CE64D2700222396 /* EventKit.framework in Frameworks */,
-				064602D64D595AB497F40CC4 /* libPods.a in Frameworks */,
+				C212A5EB1CEE6E690077331D /* EventKit.framework in Frameworks */,
+				C2017FE51CF2340400027EAD /* FBSDKCoreKit.framework in Frameworks */,
+				C2017FE61CF2340400027EAD /* FBSDKLoginKit.framework in Frameworks */,
+				032AA656B2380D13CB362567 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,8 +221,10 @@
 		6638C288E3486B8F543FC221 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7BCCB18E1CE64D2700222396 /* EventKit.framework */,
-				13045D6BBB029591013183BE /* libPods.a */,
+				C2017FE31CF2340400027EAD /* FBSDKCoreKit.framework */,
+				C2017FE41CF2340400027EAD /* FBSDKLoginKit.framework */,
+				C212A5EA1CEE6E690077331D /* EventKit.framework */,
+				6DBA652AE4BAFEBB5DF68D04 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -212,6 +270,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C244BEFB1CE80F2700C4371D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C244BEFC1CE80F5B00C4371D /* DataService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		C2C5C0001CC564D70010133B = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +285,7 @@
 				C2C5C0101CC564D70010133B /* AppDelegate.m */,
 				7BC9FF981CDB30F500711636 /* es.lproj */,
 				7BC9FF951CDB30F500711636 /* en.lproj */,
+				D82E42611CE518E5004812FF /* Challenge */,
 				C2C5C00B1CC564D70010133B /* CopaRAJ */,
 				C2C5C0281CC564D70010133B /* CopaRAJTests */,
 				C2C5C0331CC564D70010133B /* CopaRAJUITests */,
@@ -241,11 +308,8 @@
 		C2C5C00B1CC564D70010133B /* CopaRAJ */ = {
 			isa = PBXGroup;
 			children = (
+				D82E42671CE5213B004812FF /* Storyboards */,
 				7B1FF1D71CD020D300B031B0 /* Fonts */,
-				D82BF4F11CC5DD2000E80C51 /* Game Storyboard */,
-				D82BF4F01CC5DCF700E80C51 /* Group Storyboard */,
-				D82BF4EF1CC5DCE900E80C51 /* Tourny Storyboard */,
-				D82BF4EE1CC5DCD500E80C51 /* Main Storyboard */,
 				D8F2D0BC1CC593BD003F8465 /* Model */,
 				D8F2D0BB1CC5939F003F8465 /* View */,
 				D8F2D0BA1CC5937F003F8465 /* Controller */,
@@ -317,6 +381,140 @@
 			name = "Game Storyboard";
 			sourceTree = "<group>";
 		};
+		D82E42611CE518E5004812FF /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				C2F6D1AD1CE5102A005F01FD /* CopaRAJ-Bridging-Header.h */,
+				C244BEFB1CE80F2700C4371D /* Service */,
+				D82E42861CE576F8004812FF /* View */,
+				D82E42851CE576F1004812FF /* Model */,
+				D82E42721CE5684C004812FF /* Controller */,
+			);
+			name = Challenge;
+			path = CopaRAJ;
+			sourceTree = "<group>";
+		};
+		D82E42621CE518EE004812FF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D82E42791CE568B7004812FF /* PickGroup */,
+				D82E42781CE568AA004812FF /* CreateGroup */,
+				D82E42771CE5689F004812FF /* BracketFinalize */,
+				D82E42761CE56893004812FF /* PickDetails */,
+				D82E42751CE56883004812FF /* GroupDetails */,
+				D82E42741CE56876004812FF /* GroupsHome */,
+				D82E42731CE5686B004812FF /* Challenge */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D82E42671CE5213B004812FF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D82BF4F11CC5DD2000E80C51 /* Game Storyboard */,
+				D82BF4F01CC5DCF700E80C51 /* Group Storyboard */,
+				D82BF4EF1CC5DCE900E80C51 /* Tourny Storyboard */,
+				D82BF4EE1CC5DCD500E80C51 /* Main Storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D82E42721CE5684C004812FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D82E42701CE5683E004812FF /* CreateGroupVC.swift */,
+				C20EB5C11CE67E10000E36B7 /* ChallengeLogInVC.swift */,
+				C244BEF91CE7E9E500C4371D /* GroupHomeVC.swift */,
+				C2A09F3A1CE94DA500268544 /* CreateAccountVC.swift */,
+				D879626D1CED138D001E3069 /* PickGroupVC.swift */,
+				D88ED4FD1CF03EDB00A1A193 /* PickDetailsVC.swift */,
+				D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */,
+				D8E631BC1CF12E8100E316AE /* SearchGroupsVC.swift */,
+				C2087A761CEF822400A53719 /* BracketFinalizeVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D82E42731CE5686B004812FF /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				C2F6D1B01CE515DB005F01FD /* Challenge.storyboard */,
+			);
+			name = Challenge;
+			sourceTree = "<group>";
+		};
+		D82E42741CE56876004812FF /* GroupsHome */ = {
+			isa = PBXGroup;
+			children = (
+				D8EB584B1CEE482B008D78FD /* GroupHomeCell.swift */,
+				D82E42631CE52096004812FF /* GroupHome.storyboard */,
+				D8A1DF7D1CF192C80077AA5D /* SearchResultCell.swift */,
+			);
+			name = GroupsHome;
+			sourceTree = "<group>";
+		};
+		D82E42751CE56883004812FF /* GroupDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D82E426C1CE521F7004812FF /* GroupDetails.storyboard */,
+				D88ED4F71CEF79BA00A1A193 /* PlayerStandingCell.swift */,
+				D88ED4F91CF02C2F00A1A193 /* GroupDetailsCell.swift */,
+			);
+			name = GroupDetails;
+			sourceTree = "<group>";
+		};
+		D82E42761CE56893004812FF /* PickDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D82E426E1CE5220E004812FF /* PickDetails.storyboard */,
+			);
+			name = PickDetails;
+			sourceTree = "<group>";
+		};
+		D82E42771CE5689F004812FF /* BracketFinalize */ = {
+			isa = PBXGroup;
+			children = (
+				D82E426A1CE521B6004812FF /* BracketFinalize.storyboard */,
+			);
+			name = BracketFinalize;
+			sourceTree = "<group>";
+		};
+		D82E42781CE568AA004812FF /* CreateGroup */ = {
+			isa = PBXGroup;
+			children = (
+				D8594CA11CE66DD1008965F0 /* CreateGroup.storyboard */,
+			);
+			name = CreateGroup;
+			sourceTree = "<group>";
+		};
+		D82E42791CE568B7004812FF /* PickGroup */ = {
+			isa = PBXGroup;
+			children = (
+				D82E42681CE52175004812FF /* PickGroup.storyboard */,
+			);
+			name = PickGroup;
+			sourceTree = "<group>";
+		};
+		D82E42851CE576F1004812FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D82E42891CE581E0004812FF /* ChallengeGroup.swift */,
+				D86317EC1CEAF5C1009E9076 /* ChallengeUser.swift */,
+				D879626F1CED3189001E3069 /* CopaAmericaGroup.swift */,
+				D87962711CED334A001E3069 /* ChallengeTeam.swift */,
+				D8A1DF7B1CF191D30077AA5D /* SearchResultGroup.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D82E42861CE576F8004812FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D82E42621CE518EE004812FF /* Storyboards */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D8AB66611CCECF3A00B5C8FE /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,8 +529,6 @@
 		D8F2D0BA1CC5937F003F8465 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C24EE8FF1CDAF843003C9035 /* SplashScreenVC.h */,
-				C24EE9001CDAF843003C9035 /* SplashScreenVC.m */,
 				7BD056261CC7477000BCB113 /* HomeVC.h */,
 				7B3DB4331CD1DFA200EB00D3 /* HomeVC.m */,
 				D8F2D0C31CC5B6F9003F8465 /* GroupVC.h */,
@@ -496,9 +692,15 @@
 				7BC9FFA61CDB30F500711636 /* Localizable.strings in Resources */,
 				7BC9FFA41CDB30F500711636 /* Group.strings in Resources */,
 				7BC9FFA31CDB30F500711636 /* Localizable.strings in Resources */,
+				D8594CA21CE66DD1008965F0 /* CreateGroup.storyboard in Resources */,
 				7B1FF1DD1CD0218500B031B0 /* GOTHAM-MEDIUM.TTF in Resources */,
 				7BC9FFA81CDB30F500711636 /* Tourny.strings in Resources */,
+				D82E426F1CE5220E004812FF /* PickDetails.storyboard in Resources */,
+				C2F6D1B11CE515DB005F01FD /* Challenge.storyboard in Resources */,
 				D82BF4ED1CC5DCC200E80C51 /* Tourny.storyboard in Resources */,
+				D82E426D1CE521F7004812FF /* GroupDetails.storyboard in Resources */,
+				D82E42691CE52175004812FF /* PickGroup.storyboard in Resources */,
+				D82E426B1CE521B6004812FF /* BracketFinalize.storyboard in Resources */,
 				D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */,
 				7BC9FFA71CDB30F500711636 /* Main.strings in Resources */,
 				C2C5C01F1CC564D70010133B /* LaunchScreen.storyboard in Resources */,
@@ -506,6 +708,7 @@
 				C2C5C01C1CC564D70010133B /* Assets.xcassets in Resources */,
 				C2C5C0171CC564D70010133B /* Main.storyboard in Resources */,
 				D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */,
+				D82E42641CE52097004812FF /* GroupHome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,24 +781,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D82E428A1CE581E0004812FF /* ChallengeGroup.swift in Sources */,
+				C244BEFD1CE80F5B00C4371D /* DataService.swift in Sources */,
 				C2C5C01A1CC564D70010133B /* CopaRAJ.xcdatamodeld in Sources */,
 				D8F2D0CB1CC5B75F003F8465 /* GameVC.m in Sources */,
 				7B3DB4341CD1DFA200EB00D3 /* HomeVC.m in Sources */,
-				C24EE9011CDAF843003C9035 /* SplashScreenVC.m in Sources */,
 				C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */,
+				D8A1DF7E1CF192C80077AA5D /* SearchResultCell.swift in Sources */,
+				D86317ED1CEAF5C1009E9076 /* ChallengeUser.swift in Sources */,
 				D8F2D0BF1CC59537003F8465 /* HomeTableViewCell.m in Sources */,
+				D87962721CED334A001E3069 /* ChallengeTeam.swift in Sources */,
 				7BD056251CC73A9D00BCB113 /* Group.m in Sources */,
+				D8E631BD1CF12E8100E316AE /* SearchGroupsVC.swift in Sources */,
+				D879626E1CED138D001E3069 /* PickGroupVC.swift in Sources */,
 				7B1FF1D61CD0152700B031B0 /* Match.m in Sources */,
 				D8F2D0C51CC5B6F9003F8465 /* GroupVC.m in Sources */,
+				C20EB5C21CE67E10000E36B7 /* ChallengeLogInVC.swift in Sources */,
 				7B84DCFB1CC8421F0021524F /* Team+CoreDataProperties.m in Sources */,
+				D8A1DF7C1CF191D30077AA5D /* SearchResultGroup.swift in Sources */,
+				D88ED4FE1CF03EDB00A1A193 /* PickDetailsVC.swift in Sources */,
 				7B1FF1D51CD0152700B031B0 /* Match+CoreDataProperties.m in Sources */,
 				D8F2D0C21CC5B50F003F8465 /* GroupTableViewCell.m in Sources */,
+				D87962701CED3189001E3069 /* CopaAmericaGroup.swift in Sources */,
+				C2A09F3B1CE94DA500268544 /* CreateAccountVC.swift in Sources */,
 				C2C5C0111CC564D70010133B /* AppDelegate.m in Sources */,
 				C290DDFF1CD5FA18002FB7B6 /* EventCell.m in Sources */,
 				7BD056121CC70EA100BCB113 /* Team.m in Sources */,
+				D88ED4F81CEF79BA00A1A193 /* PlayerStandingCell.swift in Sources */,
 				D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */,
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
+				D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */,
+				D88ED4FA1CF02C2F00A1A193 /* GroupDetailsCell.swift in Sources */,
+				C2087A771CEF822400A53719 /* BracketFinalizeVC.swift in Sources */,
+				D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */,
 				7B84DCF91CC8421F0021524F /* Group+CoreDataProperties.m in Sources */,
+				D88ED4F61CEF77DA00A1A193 /* GroupDetailsVC.swift in Sources */,
+				C244BEFA1CE7E9E500C4371D /* GroupHomeVC.swift in Sources */,
 				D8AB66671CCED12100B5C8FE /* FBMatch.m in Sources */,
 				7B3DB4351CD1E01900EB00D3 /* FBGroup.m in Sources */,
 			);
@@ -739,6 +960,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -783,6 +1005,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -803,14 +1026,18 @@
 			baseConfigurationReference = 6E4AA48983C0140B5AE4CBC8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FacebookSDK";
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -819,14 +1046,17 @@
 			baseConfigurationReference = 920CE7D93A55FCC98810244D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FacebookSDK";
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";
 			};
 			name = Release;
 		};

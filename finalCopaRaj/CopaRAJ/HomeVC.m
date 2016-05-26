@@ -19,8 +19,8 @@
 #import <Firebase/Firebase.h>
 #import "GroupVC.h"
 #import "GameVC.h"
-
-
+//#import "ChallengeHomeVC.swift"
+#import "CopaRAJ-Swift.h"
 
 @interface HomeVC ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *groupStandingsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playOffMatchesButton;
 @property (weak, nonatomic) IBOutlet UIView *cupView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *challengeButton;
+
 
 @property NSMutableArray *mathches;
 @property NSMutableArray *sortedMatches;
@@ -43,11 +45,16 @@
 @property FBMatch *matchW26W28;
 @property FBMatch *matchL29L30;
 @property FBMatch *matchW29W30;
+@property Firebase *refMatches;
 @property NSDictionary *juneDates;
 @property BOOL didScrollToDate;
 @property UIButton *buttonRight;
 @property UIButton *buttonLeft;
+@property BOOL isLaunch;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *logoAnimationImageView;
+@property (weak, nonatomic) IBOutlet UIView *splashScreenView;
+
 @property int intCalls;
 @end
 
@@ -59,19 +66,39 @@
     self.intCalls = 0;
     self.navigationItem.hidesBackButton = YES;
     
-    [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
+    UIColor *unselectedButtonColor =  [UIColor colorWithWhite:0.606 alpha:1.000];
     [self.homeMatchesButton setImage: [UIImage imageNamed:NSLocalizedString(@"imageName", nil)]];
-    [self.groupStandingsButton setTintColor:[UIColor grayColor]];
-    [self.playOffMatchesButton setTintColor:[UIColor grayColor]];
+    [self.groupStandingsButton setTintColor:unselectedButtonColor];
+    [self.challengeButton setTintColor:unselectedButtonColor];
+    [self.playOffMatchesButton setTintColor:unselectedButtonColor];
+    [self.homeMatchesButton setTintColor:[UIColor whiteColor]];
     
     [self initNeededObjects];
     [self callFireBase];
+    
+    //Ali: Animation for splash Screen
+    NSArray *arrayOfLogoImages = [[NSArray alloc]initWithObjects:[UIImage imageNamed:@"LaunchScreen0.png"], [UIImage imageNamed:@"LaunchScreen1.png"], [UIImage imageNamed:@"LaunchScreen2.png"], [UIImage imageNamed:@"LaunchScreen3.png"], [UIImage imageNamed:@"LaunchScreen4.png"], [UIImage imageNamed:@"LaunchScreen5.png"], [UIImage imageNamed:@"LaunchScreen6.png"], [UIImage imageNamed:@"LaunchScreen7.png"], [UIImage imageNamed:@"LaunchScreen8.png"], [UIImage imageNamed:@"LaunchScreen9.png"], [UIImage imageNamed:@"LaunchScreen10.png"], [UIImage imageNamed:@"LaunchScreen11.png"], [UIImage imageNamed:@"LaunchScreen12.png"], [UIImage imageNamed:@"LaunchScreen13.png"], [UIImage imageNamed:@"LaunchScreen14.png"], [UIImage imageNamed:@"LaunchScreen15.png"], [UIImage imageNamed:@"LaunchScreen16.png"], [UIImage imageNamed:@"LaunchScreen17.png"], [UIImage imageNamed:@"LaunchScreen18.png"], [UIImage imageNamed:@"LaunchScreen19.png"], [UIImage imageNamed:@"LaunchScreen20.png"], [UIImage imageNamed:@"LaunchScreen21.png"], [UIImage imageNamed:@"LaunchScreen22.png"], [UIImage imageNamed:@"LaunchScreen23.png"], [UIImage imageNamed:@"LaunchScreen24.png"], [UIImage imageNamed:@"LaunchScreen23.png"], [UIImage imageNamed:@"LaunchScreen22.png"], [UIImage imageNamed:@"LaunchScreen21.png"], [UIImage imageNamed:@"LaunchScreen20.png"], [UIImage imageNamed:@"LaunchScreen19.png"], [UIImage imageNamed:@"LaunchScreen18.png"], [UIImage imageNamed:@"LaunchScreen17.png"], [UIImage imageNamed:@"LaunchScreen16.png"], [UIImage imageNamed:@"LaunchScreen15.png"], [UIImage imageNamed:@"LaunchScreen14.png"], [UIImage imageNamed:@"LaunchScreen13.png"], [UIImage imageNamed:@"LaunchScreen12.png"], [UIImage imageNamed:@"LaunchScreen11.png"], [UIImage imageNamed:@"LaunchScreen10.png"], [UIImage imageNamed:@"LaunchScreen9.png"], [UIImage imageNamed:@"LaunchScreen8.png"], [UIImage imageNamed:@"LaunchScreen7.png"], [UIImage imageNamed:@"LaunchScreen6.png"], [UIImage imageNamed:@"LaunchScreen5.png"], [UIImage imageNamed:@"LaunchScreen4.png"], [UIImage imageNamed:@"LaunchScreen3.png"], [UIImage imageNamed:@"LaunchScreen2.png"], [UIImage imageNamed:@"LaunchScreen1.png"], [UIImage imageNamed:@"LaunchScreen0.png"], nil];
+    
+    [self.logoAnimationImageView setAnimationImages:arrayOfLogoImages];
+    [self.logoAnimationImageView setAnimationDuration:3];
+    [self.logoAnimationImageView setAnimationRepeatCount:0];
+    self.splashScreenView.hidden = YES;
+    static dispatch_once_t once;
+    self.isLaunch = false;
+    dispatch_once(&once, ^{
+        self.splashScreenView.hidden = NO;
+       self.navigationController.navigationBarHidden = YES;
+        [self.logoAnimationImageView startAnimating];
+        self.isLaunch = true;
+    });
+    
     [self.activityIndicator startAnimating];
 }
 
-- (IBAction)testMethod:(id)sender {
-  
+- (IBAction)testButton:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"ChallengeHomeVC" sender:sender];
 }
+
 
 - (void) initNeededObjects {
   self.mathches = [NSMutableArray new];
@@ -103,8 +130,6 @@
     // FireBase Listener
     [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         
-        
-        
         self.matchA1B2.local = @"A1";
         self.matchA1B2.visitor = @"B2";
         self.matchA1B2.schedule = [snapshot.value objectForKey:@"A1B2"];
@@ -126,6 +151,7 @@
         //NSLog(@"b1: %@ a2: %@ schedule: %@", self.matchB1A2.local, self.matchB1A2.visitor, self.matchB1A2.schedule);
         [self addNSDateForMatch:self.matchB1A2];
         [self.playoffMatches addObject:self.matchB1A2];
+        
         
         self.matchD1C2.local = @"D1";
         self.matchD1C2.visitor = @"C2";
@@ -212,8 +238,8 @@
 }
 
 - (void)getMatchesFromFireBase {
-  Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
-  [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+  self.refMatches = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
+  [self.refMatches observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
     
     self.sortedMatches = [NSMutableArray new];
     self.finalArray = [NSMutableArray new];
@@ -243,7 +269,9 @@
     
     [self sortMatches];
     //reloading table view!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    [self matchesAreDoneLoading];
+    [self performSelector:@selector(matchesAreDoneLoading) withObject:nil afterDelay:1];
+      
+      //[self matchesAreDoneLoading];
     
     
   } withCancelBlock:^(NSError *error) {
@@ -286,8 +314,14 @@
 }
 
 - (void)matchesAreDoneLoading {
+    //if
   [self.activityIndicator stopAnimating];
   self.activityIndicator.hidden = true;
+    self.splashScreenView.hidden = true;
+    [self.logoAnimationImageView stopAnimating];
+  if (self.isLaunch == true) {
+    self.navigationController.navigationBarHidden = NO;
+  }
   [self createArraysForSectionHeaders];
   [self.tableView reloadData];
   
@@ -372,9 +406,9 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     NSArray *arr = [self.finalArray objectAtIndex:indexPath.section];
     destVC.match = [arr objectAtIndex:indexPath.row];
+  } else if([segue.identifier isEqualToString:@"ChallengeHomeVC"]) {
+
   }
-  
-  
 }
 
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
@@ -432,7 +466,7 @@
     cell.teamTwoScore.text = @"";
     cell.penaltiesLabel.text = @"";
   } else if ([match.status isEqualToString:@"0"]){
-    cell.timeLabel.text = match.live_minute;
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@'", match.live_minute];
     cell.teamOneScore.text = match.local_goals;
     cell.teamTwoScore.text = match.visitor_goals;
       if (match.pen1 == [NSNumber numberWithInteger:0] && match.pen2 == [NSNumber numberWithInteger:0] ) {
@@ -496,6 +530,9 @@
 
 - (UIStatusBarStyle)preferredStatusBar {
   return UIStatusBarStyleLightContent;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAYBE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -984,6 +1021,21 @@
 //@property NSMutableArray *m16;
 //@property NSMutableArray *m17;
 //@property NSMutableArray *m18;
+
+- (IBAction)goToChallengeVc:(UIBarButtonItem *)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
+    ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
+
+
+
+
+
+
+
+
 
 
 @end
