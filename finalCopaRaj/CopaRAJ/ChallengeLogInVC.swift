@@ -54,6 +54,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         
         self.navigationController?.navigationBarHidden = true
         self.navigationItem.hidesBackButton = true
+        
         //add facebook login subview to the view
         self.view.addSubview(loginButton)
         loginButton.center = self.view.center
@@ -197,17 +198,18 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                         self.textFieldLoginPassword.text = ""
                     } else {
                         print("regular pass was used")
+                        print(authData.uid)
+                        self.getUserNameFromFireBase(authData.uid)
+                        
                     }
-                    
                     // Enter the app!
-                    self.performSegueWithIdentifier(self.loggedIn, sender: nil)
                 }
             })
         } else {
             displayErrorAlert("Oops", message: "Dont foget to enter your email")
         }
     }
-
+    
     @IBAction func forgottenPassword(sender: AnyObject) {
         
         var loginTextField: UITextField?
@@ -237,11 +239,30 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
             // Enter the textfiled customization code here.
             loginTextField = textField
-            loginTextField?.placeholder = "Enter your login ID"
+            loginTextField?.placeholder = "Enter your Email Address"
         }
         presentViewController(alertController, animated: true, completion: nil)
         
     }
+    
+    //Mark:- Helper Methods
+    func getUserNameFromFireBase(uid: String) {
+        let ref = DataService.dataService.USER_REF.childByAppendingPath(uid)
+        ref.observeEventType(FEventType.Value, withBlock: { (snapshot) in
+            if let userInfo = snapshot.value as? NSDictionary{
+                let firstName = userInfo.valueForKey("firstName")
+                let lastName = userInfo.valueForKey("lastName")
+                NSUserDefaults.standardUserDefaults().setValue(uid, forKey: "uid")
+                NSUserDefaults.standardUserDefaults().setValue(firstName, forKey: "firstName")
+                NSUserDefaults.standardUserDefaults().setValue(lastName, forKey: "lastName")
+                self.performSegueWithIdentifier(self.loggedIn, sender: nil)
+
+            }
+            }) { (error) in
+                print(error.localizedDescription)
+        }
+    }
+    
     //MARK: Alerts
     func displayErrorAlert(title: String, message: String) {
         // Called upon login error to let the user know login didn't work.
@@ -260,7 +281,8 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
 
                 DataService.dataService.BASE_REF.changePasswordForUser(email, fromOld: oldPassword, toNew: newPasswordTextField?.text, withCompletionBlock: { (error) in
                     if (error == nil) {
-                        self.displayErrorAlert("New Password", message: "Pasword has been changed")                    } else {
+                        self.displayErrorAlert("New Password", message: "Pasword has been changed. Please re-enter your new password")
+                    } else {
                         print(error.localizedDescription)
                         self.displayErrorAlert("Error", message:  error.localizedDescription)
                     }
@@ -284,14 +306,8 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     }
     
     //Mark: textField work
-    
-    
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     
-    }
-        
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
   
   func dismissKeyboard() {
@@ -308,9 +324,12 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     super.viewWillDisappear(true)
     self.navigationController?.navigationBarHidden = false
   }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
   
 }
-
 
 
 //    override func viewDidAppear(animated: Bool) {
