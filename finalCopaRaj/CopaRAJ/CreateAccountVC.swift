@@ -9,7 +9,7 @@
 import UIKit
 //import DataService
 
-class CreateAccountVC: UIViewController, UINavigationBarDelegate {
+class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDelegate {
 
     //MARK: Segue Constant
     let newUserLoggedIn = "NewUserLoggedIn"
@@ -32,7 +32,13 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
+      let tap = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.dismissKeyboard))
+      
+      
+      
+      self.view.addGestureRecognizer(tap)
+      
         self.firstNameVisualEffectView.layer.cornerRadius = 5
         self.firstNameVisualEffectView.layer.masksToBounds = true
         self.firstNameTextField.backgroundColor = UIColor.clearColor()
@@ -52,7 +58,7 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate {
         self.emailVisualEffectView.layer.masksToBounds = true
         self.emailAddressTextField.backgroundColor = UIColor.clearColor()
         self.emailAddressTextField.textColor = UIColor.whiteColor()
-        self.emailAddressTextField.attributedPlaceholder = NSAttributedString(string:"Email Adress",
+        self.emailAddressTextField.attributedPlaceholder = NSAttributedString(string:"Email Address",
                                                                             attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
 
         
@@ -134,5 +140,17 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+  
+  func dismissKeyboard() {
+    self.firstNameTextField.resignFirstResponder()
+    self.lastNameTextField.resignFirstResponder()
+    self.emailAddressTextField.resignFirstResponder()
+    self.passwordTextField.resignFirstResponder()
+  }
 
 }

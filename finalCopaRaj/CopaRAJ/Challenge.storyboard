@@ -24,46 +24,7 @@
                                     <fragment content="TERMS &amp; CONDITION                                                                                            ">
                                         <attributes>
                                             <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="28">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="56">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="84">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="112">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="140">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="168">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="196">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="224">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="252">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="280">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="308">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="336">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -71,46 +32,7 @@
 </string>
                                         <attributes>
                                             <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="28">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="56">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="84">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="112">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="140">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="168">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="196">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="224">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="252">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="280">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="308">
-                                                        <options/>
-                                                    </textTab>
-                                                    <textTab alignment="left" location="336">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -1855,7 +1777,7 @@ ravelasquez99@gmail.com
 Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="Calibri"/>
+                                            <font key="NSFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -1903,9 +1825,9 @@ Cg
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9M-eK-Mvg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
+                                <rect key="frame" x="0.0" y="-44" width="600" height="584"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AK6-VR-hnq">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="584"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -1921,6 +1843,9 @@ Cg
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="CIU-BF-wDy" id="ogk-cC-1OH"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -1947,6 +1872,9 @@ Cg
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="CIU-BF-wDy" id="gqM-RC-9Uv"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -2076,10 +2004,6 @@ Cg
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Copa Challange" id="qxG-Fi-XlW"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.16470588235294117" green="0.77254901960784317" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </simulatedNavigationBarMetrics>
                     <connections>
                         <outlet property="RegularLogin" destination="zZB-IC-ePh" id="9ai-eq-Htj"/>
                         <outlet property="createNewAccountLogin" destination="Jct-pq-MY4" id="7ec-0c-gYI"/>
@@ -2136,6 +2060,9 @@ Cg
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="ZJK-Tw-B8c" id="Z3N-ik-yEi"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -2161,6 +2088,9 @@ Cg
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="ZJK-Tw-B8c" id="SeE-rP-x1g"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -2186,6 +2116,9 @@ Cg
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="ZJK-Tw-B8c" id="0X5-gA-NN6"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -2211,6 +2144,9 @@ Cg
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="ZJK-Tw-B8c" id="ByY-eW-0Ct"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>

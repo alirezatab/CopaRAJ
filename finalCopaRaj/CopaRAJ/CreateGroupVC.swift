@@ -14,12 +14,14 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   @IBOutlet weak var groupNameTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var passwordConfirmationTextField: UITextField!
-  @IBOutlet weak var finalizeButton: UIButton!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   @IBOutlet weak var groupHelpLabel: UILabel!
   
   @IBOutlet weak var groupImage: UIImageView!
+  
+  
+  @IBOutlet weak var finalizeButton: UIButton!
   
   var group : ChallengeGroup?
   var isUpdating : Bool?
@@ -38,6 +40,9 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       self.activityIndicator.hidden = true
       self.groupHelpLabel.hidden = true
       self.imageName = "avatar2"
+      
+      let tap = UITapGestureRecognizer(target: self, action: #selector(CreateGroupVC.dismissKeyboard))
+      self.view.addGestureRecognizer(tap)
   }
 
     override func didReceiveMemoryWarning() {
@@ -46,28 +51,35 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     }
   
   func checkIfFinalizeButtonShouldBeEnabled() {
+    //phone is updating web
     if self.isUpdating == true {
       self.groupHelpLabel.hidden = true
       self.groupHelpLabel.text = ""
       self.finalizeButton.enabled = false
       self.finalizeButton.backgroundColor = UIColor.grayColor()
     }
+     //success
     else if groupNameTextField.text?.characters.count > 0 &&
-      groupNameTextField.text?.characters.count < 70 &&
+      groupNameTextField.text?.characters.count < 36 &&
       passwordConfirmationTextField.text?.characters.count > 4 &&
       passwordTextField.text == passwordConfirmationTextField.text
     {
       self.finalizeButton.enabled = true
-      self.finalizeButton.backgroundColor = UIColor.greenColor()
+      self.finalizeButton.backgroundColor = UIColor(red: 28.0/255.0, green: 205.0/255.0, blue: 3.0/255.0, alpha: 1)
+      
       self.groupHelpLabel.hidden = true
     }
-    else if groupNameTextField.text?.characters.count > 70
+      
+      //group  name too lonh
+    else if groupNameTextField.text?.characters.count > 35
     {
       self.groupHelpLabel.hidden = false
-      self.groupHelpLabel.text = "Group Name Too Long. Settle down there buddy"
+      self.groupHelpLabel.text = "Group Name Too Long"
       self.finalizeButton.enabled = false
       self.finalizeButton.backgroundColor = UIColor.grayColor()
     }
+      
+      //group name not entered
     else if groupNameTextField.text?.characters.count < 1
     {
       self.groupHelpLabel.hidden = false
@@ -75,6 +87,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       self.finalizeButton.enabled = false
       self.finalizeButton.backgroundColor = UIColor.grayColor()
     }
+      //password is too short
     else if passwordTextField.text?.characters.count < 5 && passwordTextField.text?.characters.count > 0
     {
     
@@ -84,6 +97,8 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       self.finalizeButton.backgroundColor = UIColor.grayColor()
       
     }
+      
+      //confirmation not entered
     else if passwordTextField.text?.characters.count > 4 &&
       passwordConfirmationTextField.text == ""
     {
@@ -94,20 +109,10 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       self.finalizeButton.backgroundColor = UIColor.grayColor()
       
     }
-    else if groupNameTextField.text?.characters.count > 0 &&
-      groupNameTextField.text?.characters.count < 70 &&
-      passwordConfirmationTextField.text?.characters.count > 4 &&
-      passwordTextField.text != passwordConfirmationTextField.text
-    {
       
-      self.groupHelpLabel.hidden = false
-      self.groupHelpLabel.text = "Passwords do not match"
-      self.finalizeButton.enabled = false
-      self.finalizeButton.backgroundColor = UIColor.grayColor()
-    }
-    
+      //passwords don't match
     else if groupNameTextField.text?.characters.count > 0 &&
-      groupNameTextField.text?.characters.count < 70 &&
+      groupNameTextField.text?.characters.count < 36 &&
       passwordTextField.text?.characters.count > 4 &&
       passwordTextField.text != passwordConfirmationTextField.text
     {
@@ -118,8 +123,9 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       self.finalizeButton.backgroundColor = UIColor.grayColor()
     }
     
+    
     else if groupNameTextField.text?.characters.count > 0 &&
-      groupNameTextField.text?.characters.count < 70 &&
+      groupNameTextField.text?.characters.count < 36 &&
       passwordTextField.text?.characters.count == 0 &&
       passwordConfirmationTextField.text?.characters.count == 0
     {
@@ -220,6 +226,9 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   
   @IBAction func onAvatarButtonPressed(sender: UIButton) {
     let tag = sender.tag
+    self.passwordTextField.resignFirstResponder()
+    self.groupNameTextField.resignFirstResponder()
+    self.passwordConfirmationTextField.resignFirstResponder()
     if tag == 2 {
       self.groupImage.image = UIImage.init(named: "avatar2")
       self.imageName = "avatar2"
@@ -241,5 +250,24 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     }
   }
   
+  func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    
+    let currentCharacterCount = textField.text?.characters.count ?? 0
+    if (range.length + range.location > currentCharacterCount){
+      return false
+    }
+    let newLength = currentCharacterCount + string.characters.count - range.length
+    return newLength <= 35
+    
+  }
+  
+  func dismissKeyboard() {
+    self.groupNameTextField.resignFirstResponder()
+    self.passwordConfirmationTextField.resignFirstResponder()
+    self.passwordTextField.resignFirstResponder()
+    self.checkIfFinalizeButtonShouldBeEnabled()
+  }
+  
+
   
 }

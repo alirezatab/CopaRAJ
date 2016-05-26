@@ -84,8 +84,11 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         
         self.forgotPassword.layer.cornerRadius = 5
         self.forgotPassword.layer.masksToBounds = true
-        
-        
+      
+       let tap = UITapGestureRecognizer(target: self, action: #selector(ChallengeLogInVC.dismissKeyboard))
+      self.view.addGestureRecognizer(tap)
+
+      
     }
         
     override func viewWillAppear(animated: Bool) {
@@ -190,7 +193,8 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                     
                     if ((DataService.dataService.CURRENT_USER_REF.authData.providerData["isTemporaryPassword"]?.boolValue)! == true){
                         print("Temp Pass was used")
-                        self.displayChangePasswordAlert("Password Setup", message: "Please enter your new password", email: email!, oldPassword: password!)
+                        self.displayChangePasswordAlert("Password Setup", message: "Please enter a new password", email: email!, oldPassword: password!)
+                        self.textFieldLoginPassword.text = ""
                     } else {
                         print("regular pass was used")
                     }
@@ -256,8 +260,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
 
                 DataService.dataService.BASE_REF.changePasswordForUser(email, fromOld: oldPassword, toNew: newPasswordTextField?.text, withCompletionBlock: { (error) in
                     if (error == nil) {
-                        self.displayErrorAlert("New Password", message: "Pasword has been changed")
-                    } else {
+                        self.displayErrorAlert("New Password", message: "Pasword has been changed")                    } else {
                         print(error.localizedDescription)
                         self.displayErrorAlert("Error", message:  error.localizedDescription)
                     }
@@ -290,6 +293,22 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+  
+  func dismissKeyboard() {
+    self.textFieldLoginEmail.resignFirstResponder()
+    self.textFieldLoginPassword.resignFirstResponder()
+  }
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(true)
+    self.navigationController?.navigationBarHidden = false
+  }
+  
 }
 
 

@@ -45,10 +45,12 @@
 @property FBMatch *matchW26W28;
 @property FBMatch *matchL29L30;
 @property FBMatch *matchW29W30;
+@property Firebase *refMatches;
 @property NSDictionary *juneDates;
 @property BOOL didScrollToDate;
 @property UIButton *buttonRight;
 @property UIButton *buttonLeft;
+@property BOOL isLaunch;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIImageView *logoAnimationImageView;
 @property (weak, nonatomic) IBOutlet UIView *splashScreenView;
@@ -82,10 +84,12 @@
     [self.logoAnimationImageView setAnimationRepeatCount:0];
     self.splashScreenView.hidden = YES;
     static dispatch_once_t once;
+    self.isLaunch = false;
     dispatch_once(&once, ^{
         self.splashScreenView.hidden = NO;
-        self.navigationController.navigationBarHidden = YES;
+       self.navigationController.navigationBarHidden = YES;
         [self.logoAnimationImageView startAnimating];
+        self.isLaunch = true;
     });
     
     [self.activityIndicator startAnimating];
@@ -234,8 +238,8 @@
 }
 
 - (void)getMatchesFromFireBase {
-  Firebase *ref = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
-  [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+  self.refMatches = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
+  [self.refMatches observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
     
     self.sortedMatches = [NSMutableArray new];
     self.finalArray = [NSMutableArray new];
@@ -265,7 +269,7 @@
     
     [self sortMatches];
     //reloading table view!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    [self performSelector:@selector(matchesAreDoneLoading) withObject:nil afterDelay:2];
+    [self performSelector:@selector(matchesAreDoneLoading) withObject:nil afterDelay:1];
       
       //[self matchesAreDoneLoading];
     
@@ -315,7 +319,9 @@
   self.activityIndicator.hidden = true;
     self.splashScreenView.hidden = true;
     [self.logoAnimationImageView stopAnimating];
+  if (self.isLaunch == true) {
     self.navigationController.navigationBarHidden = NO;
+  }
   [self createArraysForSectionHeaders];
   [self.tableView reloadData];
   
@@ -524,6 +530,9 @@
 
 - (UIStatusBarStyle)preferredStatusBar {
   return UIStatusBarStyleLightContent;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAYBE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1016,7 +1025,7 @@
 - (IBAction)goToChallengeVc:(UIBarButtonItem *)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Challenge" bundle:nil];
     ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 
