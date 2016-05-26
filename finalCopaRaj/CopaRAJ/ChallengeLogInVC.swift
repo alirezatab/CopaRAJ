@@ -117,7 +117,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     func fetchProfile() {
         print("fetch Profile")
         if ((FBSDKAccessToken.currentAccessToken()) != nil) {
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, first_name, last_name, email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
                 if (error == nil){
                     self.fbEmail = result["email"] as? String
                     self.fbFirstName = result["first_name"] as? String

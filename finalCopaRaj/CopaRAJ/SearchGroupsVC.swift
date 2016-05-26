@@ -52,14 +52,19 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
           self.groupsFromSearchResults?.insertObject(newSearchResultGroup, atIndex: 0)
           } else {
             self.groupsFromSearchResults?.addObject(newSearchResultGroup)
-          }
+            }
+
           print(self.groupsFromSearchResults?.count)
         }
       }
-      self.noResultsLabel.hidden = true
+        if (self.groupsFromSearchResults?.count < 1) {
+            self.noResultsLabel.text = "No Result... Search Again"
+            self.noResultsLabel.hidden = false
+        } else {
+            self.noResultsLabel.hidden = true
+        }
       self.tableView.reloadData()
       self.activityIndicator.stopAnimating()
-      
       
       }) { (error) in
         print(error.localizedDescription)

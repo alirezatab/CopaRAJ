@@ -39,8 +39,8 @@
                                 <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ewJ-72-G4V">
-                                <rect key="frame" x="20" y="424" width="560" height="104"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ewJ-72-G4V">
+                                <rect key="frame" x="20" y="424" width="560" height="103"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbt-d9-bLF">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="45"/>
@@ -54,8 +54,8 @@
                                             <action selector="onSearchGroupsPressed:" destination="bgO-NI-rt8" eventType="touchUpInside" id="gbs-td-pB5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muL-Jy-OA7">
-                                        <rect key="frame" x="0.0" y="54" width="560" height="49.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muL-Jy-OA7">
+                                        <rect key="frame" x="0.0" y="54" width="560" height="49"/>
                                         <color key="backgroundColor" red="0.039215686274509803" green="0.37647058823529411" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                         <state key="normal" title="Create a Challenge"/>
@@ -64,6 +64,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="424" width="360" height="104"/>
+                                </variation>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4a-YE-8KC">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
@@ -107,6 +110,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="385" width="360" height="39"/>
+                                </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-7q-7nG">
                                 <rect key="frame" x="0.0" y="104" width="600" height="281"/>
@@ -119,17 +125,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UWR-2z-mQR">
-                                                    <rect key="frame" x="77" y="-3" width="302" height="100"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UWR-2z-mQR">
+                                                    <rect key="frame" x="77" y="-3" width="37669" height="18"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The league of juanes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axp-tM-GiD">
-                                                            <rect key="frame" x="20" y="20" width="262" height="38"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="The league of juanes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axp-tM-GiD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="18835" height="18"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by James Johnson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R75-4J-DXf">
-                                                            <rect key="frame" x="20" y="64" width="248" height="16"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Created by James Johnson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R75-4J-DXf">
+                                                            <rect key="frame" x="18835" y="0.0" width="18835" height="18"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -182,6 +188,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="100" width="400" height="285.5"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="bgO-NI-rt8" id="RhD-eh-fYp"/>
                                     <outlet property="delegate" destination="bgO-NI-rt8" id="Vnd-tm-ga3"/>
@@ -296,7 +305,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fja-Vp-m78" id="rfj-95-S8g">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="169.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Gol" translatesAutoresizingMaskIntoConstraints="NO" id="SAI-zK-Noq">
@@ -315,17 +324,17 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b3Y-8C-4Ji">
-                                                    <rect key="frame" x="67" y="-12" width="292" height="114.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b3Y-8C-4Ji">
+                                                    <rect key="frame" x="67" y="-12" width="41653" height="0.0"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="The league of juanes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oin-vD-pC6">
-                                                            <rect key="frame" x="20" y="20" width="248" height="27"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="20827" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Created by James Johnson" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP1-rQ-BeH">
-                                                            <rect key="frame" x="24" y="66" width="248" height="28.5"/>
+                                                            <rect key="frame" x="20827" y="0.0" width="20827" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -349,7 +358,8 @@
                                                             <exclude reference="yem-Ak-bgY"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="178" y="18" width="54" height="53.5"/>
                                                         <mask key="constraints">
                                                             <include reference="yem-Ak-bgY"/>
                                                         </mask>
@@ -363,6 +373,9 @@
                                                     <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="125" y="32" width="107" height="25.5"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -396,19 +409,19 @@
                                                     <exclude reference="jNh-zd-oeX"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="HfY-fZ-9AR"/>
+                                                    <exclude reference="Mwp-wY-duf"/>
+                                                    <exclude reference="poN-vL-t2J"/>
+                                                    <exclude reference="rjk-2g-r2U"/>
+                                                    <exclude reference="27s-4N-WJb"/>
+                                                    <exclude reference="3WP-Ij-Ts6"/>
+                                                    <exclude reference="nB6-ZV-Uat"/>
                                                     <exclude reference="6o0-SD-W8i"/>
                                                     <exclude reference="I6G-OH-Zg8"/>
                                                     <exclude reference="doW-4p-VCq"/>
                                                     <exclude reference="9Sf-Nx-PAe"/>
                                                     <exclude reference="TgS-yX-3BK"/>
                                                     <exclude reference="xAI-OB-mFn"/>
-                                                    <exclude reference="27s-4N-WJb"/>
-                                                    <exclude reference="3WP-Ij-Ts6"/>
-                                                    <exclude reference="nB6-ZV-Uat"/>
-                                                    <exclude reference="HfY-fZ-9AR"/>
-                                                    <exclude reference="Mwp-wY-duf"/>
-                                                    <exclude reference="poN-vL-t2J"/>
-                                                    <exclude reference="rjk-2g-r2U"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -417,19 +430,19 @@
                                                     <include reference="jNh-zd-oeX"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="HfY-fZ-9AR"/>
+                                                    <include reference="Mwp-wY-duf"/>
+                                                    <include reference="poN-vL-t2J"/>
+                                                    <include reference="rjk-2g-r2U"/>
+                                                    <include reference="27s-4N-WJb"/>
+                                                    <include reference="3WP-Ij-Ts6"/>
+                                                    <include reference="nB6-ZV-Uat"/>
                                                     <include reference="6o0-SD-W8i"/>
                                                     <include reference="I6G-OH-Zg8"/>
                                                     <include reference="doW-4p-VCq"/>
                                                     <include reference="9Sf-Nx-PAe"/>
                                                     <include reference="TgS-yX-3BK"/>
                                                     <include reference="xAI-OB-mFn"/>
-                                                    <include reference="27s-4N-WJb"/>
-                                                    <include reference="3WP-Ij-Ts6"/>
-                                                    <include reference="nB6-ZV-Uat"/>
-                                                    <include reference="HfY-fZ-9AR"/>
-                                                    <include reference="Mwp-wY-duf"/>
-                                                    <include reference="poN-vL-t2J"/>
-                                                    <include reference="rjk-2g-r2U"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -447,14 +460,14 @@
                                     <outlet property="delegate" destination="jqp-6w-yWQ" id="lax-ub-Xei"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Enter Challange Name" translatesAutoresizingMaskIntoConstraints="NO" id="ATW-9s-Ov6">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter Challange Name" translatesAutoresizingMaskIntoConstraints="NO" id="ATW-9s-Ov6">
                                 <rect key="frame" x="0.0" y="64" width="600" height="45"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="jqp-6w-yWQ" id="QnT-1F-gcx"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKz-c9-SfW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter A Challange Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKz-c9-SfW">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="R6D-b4-qgt"/>
@@ -499,15 +512,15 @@
                                 <exclude reference="tKz-c9-SfW"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="XIC-By-8Ty"/>
-                                <exclude reference="sHE-M0-2B9"/>
+                                <exclude reference="Kin-Pr-6VQ"/>
+                                <exclude reference="Kue-l0-HUa"/>
+                                <exclude reference="fDM-YJ-ZIh"/>
                                 <exclude reference="QCo-7X-blR"/>
                                 <exclude reference="jHx-qP-8fe"/>
                                 <exclude reference="rFI-Jt-CyZ"/>
                                 <exclude reference="uV2-DF-ISd"/>
-                                <exclude reference="Kin-Pr-6VQ"/>
-                                <exclude reference="Kue-l0-HUa"/>
-                                <exclude reference="fDM-YJ-ZIh"/>
+                                <exclude reference="XIC-By-8Ty"/>
+                                <exclude reference="sHE-M0-2B9"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -516,15 +529,15 @@
                                 <include reference="tKz-c9-SfW"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="XIC-By-8Ty"/>
-                                <include reference="sHE-M0-2B9"/>
+                                <include reference="Kin-Pr-6VQ"/>
+                                <include reference="Kue-l0-HUa"/>
+                                <include reference="fDM-YJ-ZIh"/>
                                 <include reference="QCo-7X-blR"/>
                                 <include reference="jHx-qP-8fe"/>
                                 <include reference="rFI-Jt-CyZ"/>
                                 <include reference="uV2-DF-ISd"/>
-                                <include reference="Kin-Pr-6VQ"/>
-                                <include reference="Kue-l0-HUa"/>
-                                <include reference="fDM-YJ-ZIh"/>
+                                <include reference="XIC-By-8Ty"/>
+                                <include reference="sHE-M0-2B9"/>
                             </mask>
                         </variation>
                     </view>

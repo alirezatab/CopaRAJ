@@ -74,6 +74,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
       if self.groups?.count > 0 {
         self.isMemberOfGroups = true
         self.tableView.reloadData()
+        self.tableView.userInteractionEnabled = true
       } else {
         self.isMemberOfGroups = false
         self.createDefaultTableViewSettings()
@@ -89,6 +90,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     let nonGroup = ChallengeGroup(name: "You're not in any challenges", imageName: "", createdBy: "Join or create a challenge below!", groupID: "none")
     self.groups?.addObject(nonGroup)
     self.tableView.reloadData()
+    self.tableView.userInteractionEnabled = false
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

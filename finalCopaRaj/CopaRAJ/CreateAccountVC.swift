@@ -92,7 +92,7 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
             //set username and password
             DataService.dataService.BASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, result) in
                 if error != nil{
-                    self.signupErrorAlert("Oops", message: error.localizedDescription)
+                    self.signupErrorAlert("ERROR", message: error.localizedDescription)
                     print(error.localizedDescription)
                 } else {
                     //create the username and password
@@ -124,7 +124,7 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
             })
 
         } else {
-            signupErrorAlert("Oops!", message: "Don't forget to enter your email, password and a username")
+            signupErrorAlert("Error", message: "Don't forget to enter your First Name, Last Name, Email Address and Password")
         }
     }
     
