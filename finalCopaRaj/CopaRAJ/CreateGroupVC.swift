@@ -179,7 +179,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
         let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName! as String, "lastName": lastName! as String]
         
         newUsersListFirstMember.setValue(userPickDetails)
-        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: passedGroup.imageName as! String, groupName: passedGroup.name as! String, createdBy: "\(firstName!) \(lastName!)", completionHandler: { (success) in
+        DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: passedGroup.imageName!, groupName: passedGroup.name as! String, createdBy: "\(firstName!) \(lastName!)", completionHandler: { (success) in
           
               self.activityIndicator.stopAnimating()
               self.presentGroupCreated(passedGroup)

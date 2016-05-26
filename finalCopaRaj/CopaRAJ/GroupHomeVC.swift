@@ -63,6 +63,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
             let groupName = groupDictionary.valueForKey("groupName") as! String
               
             let newGroup = ChallengeGroup(name: groupName, imageName: groupImage, createdBy: createdBy, groupID: groupID)
+            print(newGroup.imageName)
             self.groups?.addObject(newGroup)
          
             }
@@ -104,7 +105,8 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     cell?.groupNameLabel.text = group.name as? String
     let pointsLabelText = "Created by \(group.createdBy!)"
     cell?.ptsLabel.text! = pointsLabelText
-    cell?.groupImageView.image = UIImage.init(named: (group.imageName as? String)!)
+    cell?.groupImageView.image = UIImage.init(named: (group.imageName)!)
+    print(group.imageName)
     cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     return cell!
       

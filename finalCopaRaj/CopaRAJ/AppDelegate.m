@@ -36,7 +36,7 @@
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:@"GothamMedium" size:21.0], NSFontAttributeName, nil]];
   
-    [Firebase defaultConfig].persistenceEnabled = YES;
+    //[Firebase defaultConfig].persistenceEnabled = YES;
     
     return YES;
 }

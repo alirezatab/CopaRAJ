@@ -50,51 +50,45 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="epn-i4-6l0" id="lls-NM-bco">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jpu-lF-bRR">
-                                                    <rect key="frame" x="28" y="8" width="200" height="84"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jpu-lF-bRR">
+                                                    <rect key="frame" x="28" y="8" width="171" height="83"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created By Alireza Tabrizi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Qs-FuY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="34.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Created By Alireza Tabrizi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Qs-FuY">
+                                                            <rect key="frame" x="0.0" y="0.0" width="171" height="38"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDk-b0-Nh6">
-                                                            <rect key="frame" x="0.0" y="44.5" width="200" height="39.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDk-b0-Nh6">
+                                                            <rect key="frame" x="0.0" y="46" width="171" height="37"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="sVN-GV-7zg">
-                                                    <rect key="frame" x="253" y="8" width="339" height="84"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="sVN-GV-7zg">
+                                                    <rect key="frame" x="253" y="8" width="112" height="83"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kvm-Xu-HV3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="36"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kvm-Xu-HV3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="112" height="36"/>
                                                             <color key="backgroundColor" red="0.039215686274509803" green="0.37647058823529411" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                                             <state key="normal" title="Make Your Picks"/>
-                                                            <variation key="widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="37"/>
-                                                            </variation>
                                                             <connections>
                                                                 <segue destination="aMs-rV-8Fg" kind="show" identifier="makePicks" id="KAP-Zf-9pa"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhN-vf-Lud">
-                                                            <rect key="frame" x="0.0" y="46" width="339" height="38"/>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhN-vf-Lud">
+                                                            <rect key="frame" x="0.0" y="47" width="112" height="36"/>
                                                             <color key="backgroundColor" red="0.0078431372549019607" green="0.81960784313725488" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                                             <state key="normal" title="Invite Friends">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
-                                                            <variation key="widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="0.0" y="48" width="130" height="37"/>
-                                                            </variation>
                                                             <connections>
                                                                 <action selector="onInviteFriendsPressed:" destination="9eh-0w-2mu" eventType="touchUpInside" id="0Oc-mc-fKj"/>
                                                             </connections>
@@ -152,23 +146,29 @@
                                         <rect key="frame" x="0.0" y="192" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dnz-9R-fAE" id="xYu-dN-cjy">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="45f-Zs-ovq">
-                                                    <rect key="frame" x="28" y="8" width="544" height="84"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="45f-Zs-ovq">
+                                                    <rect key="frame" x="28" y="8" width="544" height="83"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZK-QW-rFR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="416" height="84"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZK-QW-rFR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="439" height="83"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="0.0" y="0.0" width="283" height="83"/>
+                                                            </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-nX-ONW">
-                                                            <rect key="frame" x="404" y="0.0" width="141" height="84"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-nX-ONW">
+                                                            <rect key="frame" x="427" y="0.0" width="117" height="83"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="271" y="0.0" width="83" height="83"/>
+                                                            </variation>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
@@ -311,7 +311,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yL2-gF-YIr" id="omN-gs-fL0">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="75.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Country" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="aNx-Zr-Kei">

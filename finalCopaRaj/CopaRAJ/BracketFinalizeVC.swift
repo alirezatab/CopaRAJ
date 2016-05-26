@@ -472,7 +472,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
   }
   
   func presentPicksAddedToGroup (group : ChallengeGroup) {
-    let alert = UIAlertController(title: "Success", message: "Your picks have been added to \(group.name!)", preferredStyle: .Alert)
+    let alert = UIAlertController(title: "Success", message: "Your picks have been added to \(group.name!). You can now see other member's picks!", preferredStyle: .Alert)
     let ok = UIAlertAction(title: "OK", style: .Cancel) { (action) in
       let count = self.navigationController?.viewControllers.count
       let groupDetails = self.navigationController?.viewControllers[(count!-3)]

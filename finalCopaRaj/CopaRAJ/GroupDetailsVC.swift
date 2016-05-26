@@ -147,7 +147,9 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     let user = self.group?.members?.objectAtIndex(indexPath.row) as! ChallengeUser
     cell.playerLabel.text = "\(user.firstName!)  \(user.lastName!)"
     cell.ptsLabel.text = "\(user.points) pts"
+      if self.group?.userHasMadePicks == true {
     cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+      }
     return cell
     }
   }
@@ -223,8 +225,10 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     if indexPath.section == 0 {
       return false
-    } else {
+    } else if self.group?.userHasMadePicks == true {
       return true
+    } else {
+      return false
     }
   }
   

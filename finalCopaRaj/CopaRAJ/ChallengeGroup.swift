@@ -11,7 +11,7 @@ import Foundation
 class ChallengeGroup: NSObject {
   var name : NSString?
   var password : NSString?
-  var imageName : NSString?
+  var imageName : String?
   var createdBy : NSString?
   var groupID : NSString?
   var members : NSMutableArray?
@@ -27,13 +27,13 @@ class ChallengeGroup: NSObject {
   init(name: NSString, password: NSString, imageName: NSString) {
     self.name = name
     self.password = password
-    self.imageName = imageName
+    self.imageName = imageName as String
     self.members  = NSMutableArray()
   }
   
   init(name: NSString, imageName: NSString, createdBy : NSString, groupID: NSString) {
     self.name = name
-    self.imageName = imageName
+    self.imageName = imageName as String
     self.createdBy = createdBy
     self.groupID = groupID
     self.members = NSMutableArray()

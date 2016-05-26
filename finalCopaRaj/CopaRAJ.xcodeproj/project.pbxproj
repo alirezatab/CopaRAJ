@@ -646,7 +646,7 @@
 				TargetAttributes = {
 					C2C5C0081CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = FYX37TYYH9;
+						DevelopmentTeam = W3R2G523R9;
 					};
 					C2C5C0241CC564D70010133B = {
 						CreatedOnToolsVersion = 7.3;
@@ -1033,7 +1033,7 @@
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";
@@ -1053,7 +1053,7 @@
 				INFOPLIST_FILE = CopaRAJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AR-T.CopaRAJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CopaRAJ/CopaRAJ-Bridging-Header.h";

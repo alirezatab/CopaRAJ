@@ -75,7 +75,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     let cell = tableView.dequeueReusableCellWithIdentifier("groupHomeCell") as! SearchResultCell
     cell.delegate = self
     let challengeGroup = self.groupsFromSearchResults?.objectAtIndex(indexPath.row) as! SearchResultGroup
-    cell.groupImageView.image = UIImage.init(named: challengeGroup.imageName as! String)
+    cell.groupImageView.image = UIImage.init(named: challengeGroup.imageName!)
     if let createdBy = challengeGroup.createdBy as? String {
       cell.ptsLabel.text = "created by \(createdBy)"
     } else {
@@ -194,6 +194,10 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     }
     
     
+  }
+  
+  func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return false
   }
 //    let userID = groupref.childByAppendingPath(DataService.dataService.CURRENT_USER_REF.key)
 //    

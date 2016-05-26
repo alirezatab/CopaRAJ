@@ -127,12 +127,12 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     let headerView = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, 18))
     
-    let groupLabel = UILabel.init(frame: CGRectMake(-20, 0, self.view.frame.size.width / 2, 45))
+    let groupLabel = UILabel.init(frame: CGRectMake(20, 0, self.view.frame.size.width / 2, 45))
     
     //CGRectMake(20, 5, screenwidth/2, 45)
     groupLabel.font = UIFont.init(name: "GothamMedium", size: 15)
     groupLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
-    groupLabel.textAlignment = NSTextAlignment.Center
+    groupLabel.textAlignment = NSTextAlignment.Natural
     
     headerView.backgroundColor = UIColor.init(white: 0.969, alpha: 1.000)//your background
     

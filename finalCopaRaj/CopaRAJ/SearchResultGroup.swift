@@ -24,7 +24,7 @@ class SearchResultGroup : ChallengeGroup {
       if key as! String == "password" {
         self.password = value as? NSString
       } else if key as! String == "imageName" {
-        self.imageName = value as? NSString
+        self.imageName = value as? String
       } else if key as! String == "name" {
         self.name = value as? NSString
       } else if key as! String == "createdBy" {
