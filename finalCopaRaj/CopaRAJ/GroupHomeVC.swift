@@ -13,6 +13,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
   
   var groups : NSMutableArray?
   var didAlreadySearchGroups : Bool?
+  var isMemberOfGroups :Bool?
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var joinChallange: UIButton!
@@ -71,8 +72,10 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
         }
        
       if self.groups?.count > 0 {
+        self.isMemberOfGroups = true
         self.tableView.reloadData()
       } else {
+        self.isMemberOfGroups = false
         self.createDefaultTableViewSettings()
       }
       }) { (error) in
@@ -83,7 +86,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
   
   func createDefaultTableViewSettings() {
     self.groups = NSMutableArray()
-    let nonGroup = ChallengeGroup(name: "You're not in any groups", imageName: "Argentina", createdBy: "Join/Create a group to get in to the fun", groupID: "none")
+    let nonGroup = ChallengeGroup(name: "You're not in any challenges", imageName: "", createdBy: "Join or create a challenge below!", groupID: "none")
     self.groups?.addObject(nonGroup)
     self.tableView.reloadData()
   }
@@ -103,11 +106,18 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
     if (group.name as? String) != nil {
       
     cell?.groupNameLabel.text = group.name as? String
-    let pointsLabelText = "Created by \(group.createdBy!)"
+    
+    var pointsLabelText = ""
+    if self.isMemberOfGroups == true{
+      pointsLabelText = "Created by \(group.createdBy!)"
+      cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    } else {
+       pointsLabelText = group.createdBy! as String
+    }
+      
     cell?.ptsLabel.text! = pointsLabelText
     cell?.groupImageView.image = UIImage.init(named: (group.imageName)!)
     print(group.imageName)
-    cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     return cell!
       
     } 
