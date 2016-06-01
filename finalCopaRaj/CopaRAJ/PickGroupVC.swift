@@ -27,7 +27,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     self.tableView.setEditing(true, animated: true)
     
     //dispatch_once(&token){
-    self.howToReorderAlert("ATTENTION!!", message: "Manage Reordering your picks by Clicking and holding \u{2261} located on the right hand side of each cell")
+    self.howToReorderAlert("How To Make Your Picks", message: "Drag and drop teams within each group then click finalize when you are done")
     //}
     
     //self.finalizeGroupStandingButton.layer.cornerRadius = 5
@@ -185,7 +185,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     //Ali added
     func howToReorderAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        let action = UIAlertAction(title: "Got It", style: .Default, handler: nil)
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
     }
