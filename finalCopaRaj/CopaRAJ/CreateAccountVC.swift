@@ -42,14 +42,14 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
         self.firstNameVisualEffectView.layer.cornerRadius = 5
         self.firstNameVisualEffectView.layer.masksToBounds = true
         self.firstNameTextField.backgroundColor = UIColor.clearColor()
-        self.firstNameTextField.textColor = UIColor.whiteColor()
+        self.firstNameTextField.textColor = UIColor.blackColor()
         self.firstNameTextField.attributedPlaceholder = NSAttributedString(string:"First Name",
                                                                             attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
         
         self.lastNameVisualEffectView.layer.cornerRadius = 5
         self.lastNameVisualEffectView.layer.masksToBounds = true
         self.lastNameTextField.backgroundColor = UIColor.clearColor()
-        self.lastNameTextField.textColor = UIColor.whiteColor()
+        self.lastNameTextField.textColor = UIColor.blackColor()
         self.lastNameTextField.attributedPlaceholder = NSAttributedString(string:"Last Name",
                                                                             attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
 
@@ -57,7 +57,7 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
         self.emailVisualEffectView.layer.cornerRadius = 5
         self.emailVisualEffectView.layer.masksToBounds = true
         self.emailAddressTextField.backgroundColor = UIColor.clearColor()
-        self.emailAddressTextField.textColor = UIColor.whiteColor()
+        self.emailAddressTextField.textColor = UIColor.blackColor()
         self.emailAddressTextField.attributedPlaceholder = NSAttributedString(string:"Email Address",
                                                                             attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
 
@@ -65,7 +65,7 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
         self.passwordVisualEffectView.layer.cornerRadius = 5
         self.passwordVisualEffectView.layer.masksToBounds = true
         self.passwordTextField.backgroundColor = UIColor.clearColor()
-        self.passwordTextField.textColor = UIColor.whiteColor()
+        self.passwordTextField.textColor = UIColor.blackColor()
         self.passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password",
                                                                             attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
         
@@ -98,10 +98,8 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
                     //create the username and password
                     DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { (err, authData) in
                         
-///                     let user = ["password": authData.provider!, "email": email!, "FirstName": firtstName!, "lastName": lastName!];
                         let user = ["provider": authData.provider!, "email": email!, "firstName": firtstName!, "lastName": lastName!];
-                        // Seal the deal in DataService.swift.
-                        //DataService.dataService.createNewAccount(authData.uid, user: user)
+                        
                         DataService.dataService.createNewAccount(authData.uid, user: user, completionHandler: { (success) in
                             if success == true {
                                 //store the uid for future access - handy!

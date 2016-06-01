@@ -39,8 +39,8 @@
                                 <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ewJ-72-G4V">
-                                <rect key="frame" x="20" y="424" width="560" height="103"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ewJ-72-G4V">
+                                <rect key="frame" x="20" y="423" width="560" height="104"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbt-d9-bLF">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="45"/>
@@ -54,8 +54,8 @@
                                             <action selector="onSearchGroupsPressed:" destination="bgO-NI-rt8" eventType="touchUpInside" id="gbs-td-pB5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muL-Jy-OA7">
-                                        <rect key="frame" x="0.0" y="54" width="560" height="49"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muL-Jy-OA7">
+                                        <rect key="frame" x="0.0" y="54" width="560" height="50"/>
                                         <color key="backgroundColor" red="0.039215686274509803" green="0.37647058823529411" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                         <state key="normal" title="Create a Challenge"/>
@@ -103,7 +103,7 @@
                                 <color key="barTintColor" red="0.062745098040000002" green="0.18823529410000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAY FOR FREE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mo7-vU-X8I">
-                                <rect key="frame" x="20" y="384.5" width="560" height="39"/>
+                                <rect key="frame" x="20" y="384" width="560" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="PZk-5E-YQ3"/>
                                 </constraints>
@@ -115,7 +115,7 @@
                                 </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-7q-7nG">
-                                <rect key="frame" x="0.0" y="104" width="600" height="281"/>
+                                <rect key="frame" x="0.0" y="104" width="600" height="280"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="groupHomeCell" rowHeight="90" id="rWe-Im-Myi" customClass="GroupHomeCell" customModule="CopaRAJ" customModuleProvider="target">
@@ -125,17 +125,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UWR-2z-mQR">
-                                                    <rect key="frame" x="77" y="-3" width="37669" height="18"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YR2-ba-ZHb">
+                                                    <rect key="frame" x="19" y="17" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="Lag-bn-Ccw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UWR-2z-mQR">
+                                                    <rect key="frame" x="87" y="28" width="455" height="33.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="The league of juanes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axp-tM-GiD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="18835" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The league of juanes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axp-tM-GiD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="455" height="17"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Created by James Johnson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R75-4J-DXf">
-                                                            <rect key="frame" x="18835" y="0.0" width="18835" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by James Johnson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R75-4J-DXf">
+                                                            <rect key="frame" x="0.0" y="17" width="455" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -143,12 +149,6 @@
                                                     </subviews>
                                                     <variation key="widthClass=compact" axis="vertical"/>
                                                 </stackView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YR2-ba-ZHb">
-                                                    <rect key="frame" x="19" y="17" width="60" height="60"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="Lag-bn-Ccw"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YR2-ba-ZHb" firstAttribute="top" secondItem="T9u-Jg-wiz" secondAttribute="topMargin" constant="9" id="18F-fO-Y05"/>
@@ -156,11 +156,15 @@
                                                 <constraint firstItem="UWR-2z-mQR" firstAttribute="top" secondItem="T9u-Jg-wiz" secondAttribute="topMargin" constant="10" id="LpL-VF-maB">
                                                     <variation key="widthClass=compact" constant="15"/>
                                                 </constraint>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UWR-2z-mQR" secondAttribute="trailing" constant="50" id="PM4-mB-fOh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="UWR-2z-mQR" secondAttribute="trailing" id="XtW-d8-Bu4"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="YR2-ba-ZHb" secondAttribute="bottom" constant="4.5" id="a2z-cn-AaQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UWR-2z-mQR" secondAttribute="bottom" constant="20" id="geh-Hw-WHM"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="UWR-2z-mQR" secondAttribute="bottom" constant="10" id="k4K-fI-d6v">
                                                     <variation key="widthClass=compact" constant="15"/>
                                                 </constraint>
+                                                <constraint firstItem="UWR-2z-mQR" firstAttribute="top" secondItem="T9u-Jg-wiz" secondAttribute="topMargin" constant="20" id="ods-2e-3VZ"/>
+                                                <constraint firstItem="UWR-2z-mQR" firstAttribute="leading" secondItem="YR2-ba-ZHb" secondAttribute="trailing" constant="8" id="vAH-qx-dCp"/>
                                                 <constraint firstItem="UWR-2z-mQR" firstAttribute="leading" secondItem="YR2-ba-ZHb" secondAttribute="trailing" constant="10" id="vML-QH-rkH"/>
                                             </constraints>
                                             <variation key="default">
@@ -325,16 +329,16 @@
                                                     </variation>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b3Y-8C-4Ji">
-                                                    <rect key="frame" x="67" y="-12" width="41653" height="0.0"/>
+                                                    <rect key="frame" x="67" y="-12" width="375" height="17"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="The league of juanes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oin-vD-pC6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="20827" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="188" height="17"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Created by James Johnson" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP1-rQ-BeH">
-                                                            <rect key="frame" x="20827" y="0.0" width="20827" height="0.0"/>
+                                                            <rect key="frame" x="188" y="0.0" width="188" height="17"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -460,8 +464,8 @@
                                     <outlet property="delegate" destination="jqp-6w-yWQ" id="lax-ub-Xei"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter Challange Name" translatesAutoresizingMaskIntoConstraints="NO" id="ATW-9s-Ov6">
-                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
+                            <searchBar contentMode="redraw" placeholder="Enter Challange Name" translatesAutoresizingMaskIntoConstraints="NO" id="ATW-9s-Ov6">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="jqp-6w-yWQ" id="QnT-1F-gcx"/>

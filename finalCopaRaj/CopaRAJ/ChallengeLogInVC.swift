@@ -61,13 +61,13 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         loginButton.delegate = self
         
         self.textFieldLoginEmail.backgroundColor = UIColor.clearColor()
-        self.textFieldLoginEmail.textColor = UIColor.whiteColor()
+        self.textFieldLoginEmail.textColor = UIColor.blackColor()
         self.textFieldLoginEmail.attributedPlaceholder = NSAttributedString(string:"Email",
                                                                             attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
         
         
         self.textFieldLoginPassword.backgroundColor = UIColor.clearColor()
-        self.textFieldLoginPassword.textColor = UIColor.whiteColor()
+        self.textFieldLoginPassword.textColor = UIColor.blackColor()
         self.textFieldLoginPassword.attributedPlaceholder = NSAttributedString(string:"Password",
                                                                                attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
 
@@ -103,14 +103,6 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil) {
             self.performSegueWithIdentifier(self.loggedIn, sender: nil)
         }
-        
-//        refUsers.observeAuthEventWithBlock { (authData) in
-//            if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
-//            {
-//                print("facebook logged already existing token!")
-//                self.performSegueWithIdentifier(self.loggedIn, sender: self)
-//            }
-//        }
     }
     
     // MARK: Facebook Login
@@ -330,19 +322,3 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     }
   
 }
-
-
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated);
-//        self.navigationController?.navigationBarHidden = false;
-//        refUsers.observeAuthEventWithBlock { (authData) in
-//            if (FBSDKAccessToken.currentAccessToken() != nil || self.fbLoginSuccess == true)
-//            {
-//                print("facebook logged already existing token!")
-//                self.performSegueWithIdentifier(self.loggedIn, sender: self)
-//            }
-//            if authData != nil {
-//                self.performSegueWithIdentifier(self.loggedIn, sender: nil)
-//            }
-//        }
-//    }
