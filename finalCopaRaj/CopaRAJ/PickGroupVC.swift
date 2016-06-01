@@ -15,7 +15,8 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
   
   var groups : NSMutableArray?
   var group : ChallengeGroup?
-  
+    //var token : dispatch_once_t = 0
+    
   override func viewDidLoad() {
     self.navigationController?.navigationBarHidden = false
     self.navigationItem.hidesBackButton = true
@@ -24,6 +25,10 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     self.tableView.userInteractionEnabled = true
     self.tableView.allowsSelection = true
     self.tableView.setEditing(true, animated: true)
+    
+    //dispatch_once(&token){
+    self.howToReorderAlert("ATTENTION!!", message: "Manage Reordering your picks by Clicking and holding \u{2261} located on the right hand side of each cell")
+    //}
     
     //self.finalizeGroupStandingButton.layer.cornerRadius = 5
     //self.finalizeGroupStandingButton.layer.masksToBounds = true
@@ -115,7 +120,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     groupLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
     groupLabel.textAlignment = NSTextAlignment.Center
    
-    instructionLabel.font = UIFont.init(name: "GothamMedium", size: 13)
+    instructionLabel.font = UIFont.init(name: "GothamMedium", size: 15)
     instructionLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
     instructionLabel.textAlignment = NSTextAlignment.Right
     
@@ -123,7 +128,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     let group = self.groups!.objectAtIndex(section) as! CopaAmericaGroup
     groupLabel.text = group.name as? String
-    instructionLabel.text = "Sort using ≣"
+    instructionLabel.text = "Sort using \u{2261}"
     
     headerView.addSubview(groupLabel)
     headerView.addSubview(instructionLabel)
@@ -174,6 +179,15 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
 
     @IBAction func finalizeButtonPressed(sender: UIButton) {
         self.performSegueWithIdentifier("BracketFinalize", sender: nil)
+    }
+    
+    //MARK: ALERT
+    //Ali added
+    func howToReorderAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
     }
   
   @IBAction func unwindToPickGroup(segue: UIStoryboardSegue) {

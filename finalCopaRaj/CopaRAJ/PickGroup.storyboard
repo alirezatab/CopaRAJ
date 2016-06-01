@@ -34,10 +34,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="75.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-jd-u6i">
-                                                    <rect key="frame" x="110" y="8" width="380" height="59"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-jd-u6i">
+                                                    <rect key="frame" x="232" y="8" width="258" height="59"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="380" id="2Ve-d6-N5s"/>
+                                                        <constraint firstAttribute="width" constant="258" id="2Ve-d6-N5s"/>
                                                         <constraint firstAttribute="height" constant="59" id="cDH-gr-HKV"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
@@ -59,7 +59,7 @@
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="bottom" secondItem="xy9-nY-cqJ" secondAttribute="bottomMargin" id="QrB-O7-aJ9"/>
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="bottom" secondItem="xy9-nY-cqJ" secondAttribute="bottomMargin" id="RJk-mx-EyS"/>
                                                 <constraint firstItem="jAH-jd-u6i" firstAttribute="centerY" secondItem="xy9-nY-cqJ" secondAttribute="centerY" id="ddr-nX-BUn"/>
-                                                <constraint firstItem="jAH-jd-u6i" firstAttribute="centerX" secondItem="xy9-nY-cqJ" secondAttribute="centerX" id="wUg-lk-3I9"/>
+                                                <constraint firstItem="jAH-jd-u6i" firstAttribute="centerX" secondItem="xy9-nY-cqJ" secondAttribute="centerX" constant="61" id="wUg-lk-3I9"/>
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="leading" secondItem="xy9-nY-cqJ" secondAttribute="leadingMargin" constant="8" id="wbi-5X-Ee9"/>
                                             </constraints>
                                         </tableViewCellContentView>

@@ -64,9 +64,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="424" width="360" height="104"/>
-                                </variation>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4a-YE-8KC">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
@@ -110,9 +107,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="385" width="360" height="39"/>
-                                </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-7q-7nG">
                                 <rect key="frame" x="0.0" y="104" width="600" height="280"/>
@@ -131,17 +125,17 @@
                                                         <constraint firstAttribute="width" constant="60" id="Lag-bn-Ccw"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UWR-2z-mQR">
-                                                    <rect key="frame" x="87" y="28" width="455" height="33.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="UWR-2z-mQR">
+                                                    <rect key="frame" x="87" y="28" width="455" height="34"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The league of juanes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axp-tM-GiD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="455" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="455" height="16"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by James Johnson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R75-4J-DXf">
-                                                            <rect key="frame" x="0.0" y="17" width="455" height="16.5"/>
+                                                            <rect key="frame" x="0.0" y="18" width="455" height="16"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -151,36 +145,34 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YR2-ba-ZHb" firstAttribute="top" secondItem="T9u-Jg-wiz" secondAttribute="topMargin" constant="9" id="18F-fO-Y05"/>
-                                                <constraint firstItem="YR2-ba-ZHb" firstAttribute="leading" secondItem="T9u-Jg-wiz" secondAttribute="leadingMargin" constant="11" id="8aJ-if-F8l"/>
-                                                <constraint firstItem="UWR-2z-mQR" firstAttribute="top" secondItem="T9u-Jg-wiz" secondAttribute="topMargin" constant="10" id="LpL-VF-maB">
-                                                    <variation key="widthClass=compact" constant="15"/>
-                                                </constraint>
-                                                <constraint firstAttribute="trailingMargin" secondItem="UWR-2z-mQR" secondAttribute="trailing" constant="50" id="PM4-mB-fOh"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="UWR-2z-mQR" secondAttribute="trailing" id="XtW-d8-Bu4"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YR2-ba-ZHb" secondAttribute="bottom" constant="4.5" id="a2z-cn-AaQ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="UWR-2z-mQR" secondAttribute="bottom" constant="20" id="geh-Hw-WHM"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="UWR-2z-mQR" secondAttribute="bottom" constant="10" id="k4K-fI-d6v">
-                                                    <variation key="widthClass=compact" constant="15"/>
-                                                </constraint>
-                                                <constraint firstItem="UWR-2z-mQR" firstAttribute="top" secondItem="T9u-Jg-wiz" secondAttribute="topMargin" constant="20" id="ods-2e-3VZ"/>
-                                                <constraint firstItem="UWR-2z-mQR" firstAttribute="leading" secondItem="YR2-ba-ZHb" secondAttribute="trailing" constant="8" id="vAH-qx-dCp"/>
-                                                <constraint firstItem="UWR-2z-mQR" firstAttribute="leading" secondItem="YR2-ba-ZHb" secondAttribute="trailing" constant="10" id="vML-QH-rkH"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YR2-ba-ZHb" secondAttribute="bottom" constant="8" id="16u-x0-EkZ"/>
+                                                <constraint firstItem="UWR-2z-mQR" firstAttribute="top" secondItem="T9u-Jg-wiz" secondAttribute="topMargin" constant="18.75" id="2wr-m8-wCI"/>
+                                                <constraint firstItem="YR2-ba-ZHb" firstAttribute="leading" secondItem="T9u-Jg-wiz" secondAttribute="leadingMargin" constant="8" id="D3A-sN-eFo"/>
+                                                <constraint firstItem="UWR-2z-mQR" firstAttribute="leading" secondItem="YR2-ba-ZHb" secondAttribute="trailing" constant="8" id="JZZ-6n-XCG"/>
+                                                <constraint firstItem="YR2-ba-ZHb" firstAttribute="top" secondItem="T9u-Jg-wiz" secondAttribute="topMargin" constant="8" id="MXo-J1-915"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UWR-2z-mQR" secondAttribute="trailing" constant="50" id="Mqf-J2-Ndn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UWR-2z-mQR" secondAttribute="bottom" constant="18.75" id="Vza-su-wCK"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="LpL-VF-maB"/>
-                                                    <exclude reference="XtW-d8-Bu4"/>
-                                                    <exclude reference="k4K-fI-d6v"/>
-                                                    <exclude reference="vML-QH-rkH"/>
+                                                    <exclude reference="16u-x0-EkZ"/>
+                                                    <exclude reference="D3A-sN-eFo"/>
+                                                    <exclude reference="MXo-J1-915"/>
+                                                    <exclude reference="2wr-m8-wCI"/>
+                                                    <exclude reference="JZZ-6n-XCG"/>
+                                                    <exclude reference="Mqf-J2-Ndn"/>
+                                                    <exclude reference="Vza-su-wCK"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="constraints">
-                                                    <include reference="LpL-VF-maB"/>
-                                                    <include reference="XtW-d8-Bu4"/>
-                                                    <include reference="k4K-fI-d6v"/>
-                                                    <include reference="vML-QH-rkH"/>
+                                                    <include reference="16u-x0-EkZ"/>
+                                                    <include reference="D3A-sN-eFo"/>
+                                                    <include reference="MXo-J1-915"/>
+                                                    <include reference="2wr-m8-wCI"/>
+                                                    <include reference="JZZ-6n-XCG"/>
+                                                    <include reference="Mqf-J2-Ndn"/>
+                                                    <include reference="Vza-su-wCK"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -192,9 +184,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="100" width="400" height="285.5"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="bgO-NI-rt8" id="RhD-eh-fYp"/>
                                     <outlet property="delegate" destination="bgO-NI-rt8" id="Vnd-tm-ga3"/>
@@ -240,7 +229,9 @@
                                     <action selector="logoutButtonPressed:" destination="bgO-NI-rt8" eventType="touchUpInside" id="Ipk-BC-RxS"/>
                                 </connections>
                             </button>
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="How to Play" id="dol-XC-P85"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -329,16 +320,16 @@
                                                     </variation>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b3Y-8C-4Ji">
-                                                    <rect key="frame" x="67" y="-12" width="375" height="17"/>
+                                                    <rect key="frame" x="67" y="-12" width="42019" height="15"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="The league of juanes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oin-vD-pC6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="188" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="21010" height="15"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Created by James Johnson" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP1-rQ-BeH">
-                                                            <rect key="frame" x="188" y="0.0" width="188" height="17"/>
+                                                            <rect key="frame" x="21010" y="0.0" width="21010" height="15"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -362,8 +353,7 @@
                                                             <exclude reference="yem-Ak-bgY"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="178" y="18" width="54" height="53.5"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="yem-Ak-bgY"/>
                                                         </mask>
@@ -377,9 +367,6 @@
                                                     <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="125" y="32" width="107" height="25.5"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -471,7 +458,7 @@
                                     <outlet property="delegate" destination="jqp-6w-yWQ" id="QnT-1F-gcx"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter A Challange Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKz-c9-SfW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter A Challenge Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKz-c9-SfW">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="R6D-b4-qgt"/>

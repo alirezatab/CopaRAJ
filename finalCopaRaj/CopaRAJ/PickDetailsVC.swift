@@ -65,7 +65,7 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     self.picksArray?.addObjectsFromArray([groupA, groupB, groupC, groupD, quarterfinalists, semifinalists, finalists, champion])
     
-    print("yolo")
+    //print("yolo")
     
 }
 
