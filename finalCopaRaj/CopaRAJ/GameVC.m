@@ -143,8 +143,7 @@
 
 - (void)listenToMatch {
   
-    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/374982"];
-                     //%@" , self.match.matchID];
+    NSString *url = [NSString stringWithFormat:@"https://fiery-inferno-5799.firebaseio.com/matches/%@" , self.match.matchID];
 
     Firebase *ref = [[Firebase alloc]initWithUrl:url];
     [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -192,8 +191,16 @@
             self.timeLabel.text = @"Extra Time";
             self.teamOneScore.text = self.match.local_goals;
             self.teamTwoScore.text = self.match.visitor_goals;
+        } else if ([self.match.live_minute isEqualToString:@"105"]){
+            self.timeLabel.text = @"Extra Time Break";
+            self.teamOneScore.text = self.match.local_goals;
+            self.teamTwoScore.text = self.match.visitor_goals;
         } else if ([self.match.live_minute isEqualToString:@"120"]){
             self.timeLabel.text = @"Penalty Kicks";
+            self.teamOneScore.text = self.match.local_goals;
+            self.teamTwoScore.text = self.match.visitor_goals;
+        } else {
+            self.timeLabel.text = self.match.live_minute;
             self.teamOneScore.text = self.match.local_goals;
             self.teamTwoScore.text = self.match.visitor_goals;
         }
