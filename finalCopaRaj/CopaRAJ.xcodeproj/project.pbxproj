@@ -44,6 +44,8 @@
 		C2C5C02A1CC564D70010133B /* CopaRAJTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0291CC564D70010133B /* CopaRAJTests.m */; };
 		C2C5C0351CC564D70010133B /* CopaRAJUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5C0341CC564D70010133B /* CopaRAJUITests.m */; };
 		C2C799FC1CC83B1A00D1BBBC /* BracketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C799FB1CC83B1A00D1BBBC /* BracketCell.m */; };
+		C2E3C3421CFFC48700AB98E8 /* HowToPlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E3C3411CFFC48700AB98E8 /* HowToPlayVC.swift */; };
+		C2E3C3441D00A34700AB98E8 /* Terms&Condition&PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E3C3431D00A34700AB98E8 /* Terms&Condition&PrivacyVC.swift */; };
 		C2F6D1B11CE515DB005F01FD /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F6D1B01CE515DB005F01FD /* Challenge.storyboard */; };
 		D82BF4E71CC5DC2A00E80C51 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */; };
 		D82BF4EA1CC5DC9000E80C51 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82BF4E81CC5DC9000E80C51 /* Group.storyboard */; };
@@ -148,6 +150,8 @@
 		C2C5C0361CC564D70010133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2C799FA1CC83B1A00D1BBBC /* BracketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketCell.h; sourceTree = "<group>"; };
 		C2C799FB1CC83B1A00D1BBBC /* BracketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketCell.m; sourceTree = "<group>"; };
+		C2E3C3411CFFC48700AB98E8 /* HowToPlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayVC.swift; sourceTree = "<group>"; };
+		C2E3C3431D00A34700AB98E8 /* Terms&Condition&PrivacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Terms&Condition&PrivacyVC.swift"; sourceTree = "<group>"; };
 		C2F6D1AD1CE5102A005F01FD /* CopaRAJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CopaRAJ-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2F6D1B01CE515DB005F01FD /* Challenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Challenge.storyboard; sourceTree = "<group>"; };
 		D82BF4E61CC5DC2A00E80C51 /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
@@ -431,6 +435,8 @@
 				D88ED4F51CEF77D900A1A193 /* GroupDetailsVC.swift */,
 				D8E631BC1CF12E8100E316AE /* SearchGroupsVC.swift */,
 				C2087A761CEF822400A53719 /* BracketFinalizeVC.swift */,
+				C2E3C3411CFFC48700AB98E8 /* HowToPlayVC.swift */,
+				C2E3C3431D00A34700AB98E8 /* Terms&Condition&PrivacyVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -811,6 +817,8 @@
 				D8F2D0CE1CC5B777003F8465 /* TourneyVC.m in Sources */,
 				C2C5C00E1CC564D70010133B /* main.m in Sources */,
 				D82E42711CE5683E004812FF /* CreateGroupVC.swift in Sources */,
+				C2E3C3421CFFC48700AB98E8 /* HowToPlayVC.swift in Sources */,
+				C2E3C3441D00A34700AB98E8 /* Terms&Condition&PrivacyVC.swift in Sources */,
 				D88ED4FA1CF02C2F00A1A193 /* GroupDetailsCell.swift in Sources */,
 				C2087A771CEF822400A53719 /* BracketFinalizeVC.swift in Sources */,
 				D8EB584C1CEE482B008D78FD /* GroupHomeCell.swift in Sources */,

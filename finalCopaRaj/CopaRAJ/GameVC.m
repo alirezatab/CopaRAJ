@@ -181,6 +181,12 @@
     self.timeLabel.text = [NSString stringWithFormat:@"%@'", self.match.live_minute];
     self.teamOneScore.text = self.match.local_goals;
     self.teamTwoScore.text = self.match.visitor_goals;
+  } //MARK: Ali Added Status
+    else if ([self.match.status isEqualToString:@"5"]){
+        self.timeLabel.text = @"Half Time";
+        self.teamOneScore.text = self.match.local_goals;
+        self.teamTwoScore.text = self.match.visitor_goals;
+    //MARK: Rickys original code
   } else if ([self.match.status isEqualToString:@"1"])  {
     self.timeLabel.text = @"Final";
     self.teamOneScore.text = self.match.local_goals;

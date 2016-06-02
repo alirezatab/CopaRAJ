@@ -27,7 +27,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     self.tableView.setEditing(true, animated: true)
     
     //dispatch_once(&token){
-    self.howToReorderAlert("How To Make Your Picks", message: "Drag and drop teams within each group then click finalize when you are done")
+    self.howToReorderAlert("How To Make Your Picks", message: "Drag and drop teams within each group using \u{2261}. Then click finalize when you are done.")
     //}
     
     //self.finalizeGroupStandingButton.layer.cornerRadius = 5

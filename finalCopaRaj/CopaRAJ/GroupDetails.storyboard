@@ -50,20 +50,20 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="epn-i4-6l0" id="lls-NM-bco">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jpu-lF-bRR">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jpu-lF-bRR">
                                                     <rect key="frame" x="28" y="8" width="171" height="83"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Created By Alireza Tabrizi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Qs-FuY">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created By Alireza Tabrizi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Qs-FuY">
                                                             <rect key="frame" x="0.0" y="0.0" width="171" height="38"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDk-b0-Nh6">
-                                                            <rect key="frame" x="0.0" y="46" width="171" height="37"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDk-b0-Nh6">
+                                                            <rect key="frame" x="0.0" y="46" width="171" height="38"/>
                                                             <fontDescription key="fontDescription" name="GothamNarrow-Book" family="Gotham Narrow" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -73,7 +73,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="sVN-GV-7zg">
                                                     <rect key="frame" x="253" y="8" width="112" height="83"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kvm-Xu-HV3">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kvm-Xu-HV3">
                                                             <rect key="frame" x="0.0" y="0.0" width="112" height="36"/>
                                                             <color key="backgroundColor" red="0.039215686274509803" green="0.37647058823529411" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
@@ -82,7 +82,7 @@
                                                                 <segue destination="aMs-rV-8Fg" kind="show" identifier="makePicks" id="KAP-Zf-9pa"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhN-vf-Lud">
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhN-vf-Lud">
                                                             <rect key="frame" x="0.0" y="47" width="112" height="36"/>
                                                             <color key="backgroundColor" red="0.0078431372549019607" green="0.81960784313725488" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
@@ -146,46 +146,76 @@
                                         <rect key="frame" x="0.0" y="192" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dnz-9R-fAE" id="xYu-dN-cjy">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="45f-Zs-ovq">
-                                                    <rect key="frame" x="28" y="8" width="544" height="83"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZK-QW-rFR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="439" height="83"/>
-                                                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <variation key="widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="0.0" y="0.0" width="283" height="83"/>
-                                                            </variation>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-nX-ONW">
-                                                            <rect key="frame" x="427" y="0.0" width="117" height="83"/>
-                                                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <variation key="widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="271" y="0.0" width="83" height="83"/>
-                                                            </variation>
-                                                        </label>
-                                                    </subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZK-QW-rFR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="439" height="83"/>
+                                                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-nX-ONW">
+                                                    <rect key="frame" x="427" y="0.0" width="117" height="83"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="KZK-QW-rFR" secondAttribute="bottom" id="82d-Lm-6Mr"/>
-                                                        <constraint firstItem="KZK-QW-rFR" firstAttribute="leading" secondItem="45f-Zs-ovq" secondAttribute="leading" id="BTM-Wl-Bje"/>
-                                                        <constraint firstItem="KZK-QW-rFR" firstAttribute="top" secondItem="45f-Zs-ovq" secondAttribute="top" id="gm5-SY-fB4"/>
+                                                        <constraint firstAttribute="width" constant="50" id="yrs-zN-GJ4"/>
                                                     </constraints>
-                                                </stackView>
+                                                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="yrs-zN-GJ4"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="yrs-zN-GJ4"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="45f-Zs-ovq" secondAttribute="bottom" id="DO3-VK-m4h"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="45f-Zs-ovq" secondAttribute="trailing" constant="20" id="JrI-dY-CoE"/>
-                                                <constraint firstItem="45f-Zs-ovq" firstAttribute="top" secondItem="xYu-dN-cjy" secondAttribute="topMargin" id="UC8-J6-T3R"/>
-                                                <constraint firstItem="45f-Zs-ovq" firstAttribute="leading" secondItem="xYu-dN-cjy" secondAttribute="leadingMargin" constant="20" id="k2r-O1-Yb5">
-                                                    <variation key="widthClass=compact" constant="10"/>
+                                                <constraint firstItem="5Pq-nX-ONW" firstAttribute="leading" secondItem="KZK-QW-rFR" secondAttribute="trailing" constant="83" id="3b1-g9-vz0">
+                                                    <variation key="widthClass=compact" constant="25"/>
                                                 </constraint>
+                                                <constraint firstItem="KZK-QW-rFR" firstAttribute="top" secondItem="xYu-dN-cjy" secondAttribute="topMargin" id="G0s-yY-pBl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5Pq-nX-ONW" secondAttribute="bottom" constant="0.5" id="Szf-Ri-Fyi"/>
+                                                <constraint firstItem="5Pq-nX-ONW" firstAttribute="top" secondItem="xYu-dN-cjy" secondAttribute="topMargin" id="TnR-vi-8iE"/>
+                                                <constraint firstItem="KZK-QW-rFR" firstAttribute="leading" secondItem="xYu-dN-cjy" secondAttribute="leadingMargin" id="U0E-iq-h95"/>
+                                                <constraint firstItem="5Pq-nX-ONW" firstAttribute="trailing" secondItem="xYu-dN-cjy" secondAttribute="trailingMargin" id="lTR-hr-qc5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="KZK-QW-rFR" secondAttribute="bottom" id="nVd-1e-FND"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="KZK-QW-rFR"/>
+                                                    <exclude reference="5Pq-nX-ONW"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="G0s-yY-pBl"/>
+                                                    <exclude reference="U0E-iq-h95"/>
+                                                    <exclude reference="nVd-1e-FND"/>
+                                                    <exclude reference="3b1-g9-vz0"/>
+                                                    <exclude reference="Szf-Ri-Fyi"/>
+                                                    <exclude reference="TnR-vi-8iE"/>
+                                                    <exclude reference="lTR-hr-qc5"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="KZK-QW-rFR"/>
+                                                    <include reference="5Pq-nX-ONW"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="G0s-yY-pBl"/>
+                                                    <include reference="U0E-iq-h95"/>
+                                                    <include reference="nVd-1e-FND"/>
+                                                    <include reference="3b1-g9-vz0"/>
+                                                    <include reference="Szf-Ri-Fyi"/>
+                                                    <include reference="TnR-vi-8iE"/>
+                                                    <include reference="lTR-hr-qc5"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="playerLabel" destination="KZK-QW-rFR" id="qwJ-et-X1T"/>
@@ -311,7 +341,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yL2-gF-YIr" id="omN-gs-fL0">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Country" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="aNx-Zr-Kei">

@@ -35,11 +35,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-jd-u6i">
-                                                    <rect key="frame" x="232" y="8" width="258" height="59"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="258" id="2Ve-d6-N5s"/>
-                                                        <constraint firstAttribute="height" constant="59" id="cDH-gr-HKV"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="151" y="8" width="441" height="59"/>
                                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -58,8 +54,10 @@
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="top" secondItem="xy9-nY-cqJ" secondAttribute="topMargin" id="Om6-qc-sSE"/>
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="bottom" secondItem="xy9-nY-cqJ" secondAttribute="bottomMargin" id="QrB-O7-aJ9"/>
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="bottom" secondItem="xy9-nY-cqJ" secondAttribute="bottomMargin" id="RJk-mx-EyS"/>
-                                                <constraint firstItem="jAH-jd-u6i" firstAttribute="centerY" secondItem="xy9-nY-cqJ" secondAttribute="centerY" id="ddr-nX-BUn"/>
-                                                <constraint firstItem="jAH-jd-u6i" firstAttribute="centerX" secondItem="xy9-nY-cqJ" secondAttribute="centerX" constant="61" id="wUg-lk-3I9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jAH-jd-u6i" secondAttribute="bottom" id="TAw-Ls-QYo"/>
+                                                <constraint firstItem="jAH-jd-u6i" firstAttribute="top" secondItem="xy9-nY-cqJ" secondAttribute="topMargin" id="Tgf-Ll-KFj"/>
+                                                <constraint firstItem="jAH-jd-u6i" firstAttribute="trailing" secondItem="xy9-nY-cqJ" secondAttribute="trailingMargin" id="WM7-9A-WM6"/>
+                                                <constraint firstItem="jAH-jd-u6i" firstAttribute="leading" relation="lessThanOrEqual" secondItem="JDq-Rk-8yp" secondAttribute="trailing" constant="75" id="sXi-bp-50A"/>
                                                 <constraint firstItem="JDq-Rk-8yp" firstAttribute="leading" secondItem="xy9-nY-cqJ" secondAttribute="leadingMargin" constant="8" id="wbi-5X-Ee9"/>
                                             </constraints>
                                         </tableViewCellContentView>

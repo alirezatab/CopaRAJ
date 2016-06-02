@@ -15,10 +15,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Terms Condition PrivacyVC-->
         <scene sceneID="phs-mY-cgL">
             <objects>
-                <viewController id="fLH-Fb-8TK" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fLH-Fb-8TK" customClass="Terms_Condition_PrivacyVC" customModule="CopaRAJ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9vT-IS-gxq"/>
                         <viewControllerLayoutGuide type="bottom" id="hf1-ix-czQ"/>
@@ -34,7 +34,7 @@
                                     <fragment content="TERMS &amp; CONDITION                                                                                            ">
                                         <attributes>
                                             <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -42,7 +42,7 @@
 </string>
                                         <attributes>
                                             <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -1813,6 +1813,9 @@ Cg
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="termTexView" destination="PX4-Ob-7hT" id="KDr-KR-Eve"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsf-bn-H5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="B00-9X-cTv" userLabel="Exit" sceneMemberID="exit"/>
@@ -2312,10 +2315,10 @@ Cg
             </objects>
             <point key="canvasLocation" x="3862" y="-82"/>
         </scene>
-        <!--View Controller-->
+        <!--How To PlayVC-->
         <scene sceneID="ssu-Ig-uoo">
             <objects>
-                <viewController storyboardIdentifier="ChallangeRules" id="mu6-nX-KWC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChallangeRules" automaticallyAdjustsScrollViewInsets="NO" id="mu6-nX-KWC" customClass="HowToPlayVC" customModule="CopaRAJ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BoK-NC-56w"/>
                         <viewControllerLayoutGuide type="bottom" id="UUL-OR-oMt"/>
@@ -2325,1096 +2328,46 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaC-mv-ycj">
-                                <rect key="frame" x="20" y="84" width="560" height="496"/>
+                                <rect key="frame" x="20" y="64" width="560" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="TERMS &amp; CONDITION                                                                                            ">
+                                    <fragment content="What is Copa Challenge?">
                                         <attributes>
-                                            <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Welcome to Copa Club!
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">These terms and conditions outline the rules and regulations for the use of Copa Club's Website.  Copa Club is located at:
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">274 40th street way unit 35 ,  Oakland, California 94611 United States
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia-Italic"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">By accessing this website we assume you accept these terms and conditions in full. Do not continue to use Copa Club's website if you do not accept all of the terms and conditions stated on this page.</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="TimesNewRomanPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and any or all Agreements: "Client", “You” and “Your” refers to you, the person accessing this website and accepting the Company’s terms and conditions. "The Company", “Ourselves”, “We”, “Our” and "Us", refers to our Company. “Party”, “Parties”, or “Us”, refers to both the Client and ourselves, or either the Client or ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner, whether by formal meetings of a fixed duration, or any other means, for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services/products, in accordance with and subject to, prevailing law of United States. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Cookies
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="We employ the use of cookies. By using ">
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Copa Club">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.45098039215686275" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <url key="NSLink" string="https://www.facebook.com/CopaClubCA2016/%22%20%5Co%20%22Copa%20Club"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                            <integer key="NSUnderline" value="1"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="'s ">
-                                        <attributes>
-                                            <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">website you consent to the use of cookies in accordance with Copa Club’s privacy policy.
-Most of the modern day interactive web sites use cookies to enable us to retrieve user details for each visit. Cookies are used in some areas of our site to enable the functionality of this area and ease of use for those people visiting. Some of our affiliate / advertising partners may also use cookies.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">License
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Unless otherwise stated, Copa Club and/or it’s licensors own the intellectual property rights for all material on Copa Club All intellectual property rights are reserved. You may view and/or print pages from https://www.facebook.com/CopaClubCA2016/ for your own personal use subject to restrictions set in these terms and conditions.
-You must not:
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">•	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="Symbol"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Republish material from https://www.facebook.com/CopaClubCA2016/
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">•	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="Symbol"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Sell, rent or sub-license material from https://www.facebook.com/CopaClubCA2016/
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">•	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="Symbol"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Reproduce, duplicate or copy material from https://www.facebook.com/CopaClubCA2016/
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Redistribute content from Copa Club (unless content is specifically made for redistribution).
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">User Comments
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="13.5" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="13.5" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">1.	This Agreement shall begin on the date hereof.
-2.	Certain parts of this website offer the opportunity for users to post and exchange opinions, information, material and data ('Comments') in areas of the website. Copa Club does not screen, edit, publish or review Comments prior to their appearance on the website and Comments do not reflect the views or opinions of Copa Club, its agents or affiliates. Comments reflect the view and opinion of the person who posts such view or opinion. To the extent permitted by applicable laws Copa Club shall not be responsible or liable for the Comments or for any loss cost, liability, damages or expenses caused and or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.
-3.	Copa Club reserves the right to monitor all Comments and to remove any comments, which it considers in its absolute discretion to be inappropriate, offensive or otherwise in breach of these Terms and Conditions.
-4.	You warrant and represent that:
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">1.	You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;
-2.	The Comments do not infringe any intellectual property right, including without limitation copyright, patent or trademark, or other proprietary right of any third party;
-3.	The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material or material which is an invasion of privacy
-4.	The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">5.	You hereby grant to </string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Copa Club">
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> a non-exclusive royalty-free license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Hyperlinking to our Content
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">1.	The following organizations may link to our Web site without prior written approval:
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Government agencies;
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Search engines;
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">News organizations;
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Online directory distributors when they list us in the directory may link to our Web site in the same manner as they hyperlink to the Web sites of other listed businesses; and
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">2.	These organizations may link to our home page, to publications or to other Web site information so long as the link: (a) is not in any way misleading; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party's site.
-3.	We may consider and approve in our sole discretion other link requests from the following types of organizations:
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Commonly-known consumer and/or business information sources such as Chambers of Commerce, American Automobile Association, AARP and Consumers Union;
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Dot.com community sites;
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Associations or other groups representing charities, including charity giving sites,
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Online directory distributors;
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Internet portals;
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Accounting, law and consulting firms whose primary clients are businesses; and
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">o	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="CourierNewPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Educational institutions and trade associations.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="72">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">We will approve link requests from these organizations if we determine that: (a) the link would not reflect unfavorably on us or our accredited businesses (for example, trade associations or other organizations representing inherently suspect types of business, such as work-at-home opportunities, shall not be allowed to link); (b) the organization does not have an unsatisfactory record with us; (c) the benefit to us from the visibility associated with the hyperlink outweighs the absence of Copa Club; and (d) where the link is in the context of general resource information or is otherwise consistent with editorial content in a newsletter or similar product furthering the mission of the organization.
-These organizations may link to our home page, to publications or to other Web site information so long as the link: (a) is not in any way misleading; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and it products or services; and (c) fits within the context of the linking party's site.
-If you are among the organizations listed in paragraph 2 above and are interested in linking to our website, you must notify us by sending an e-mail to</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="ravelasquez99@gmail.com">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.45098039215686275" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <url key="NSLink" string="mailto:ravelasquez99@gmail.com%22%20%5Co%20%22send%20an%20email%20to%20ravelasquez99@gmail.com"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">. Please include your name, your organization name, contact information (such as a phone number and/or e-mail address) as well as the URL of your site, a list of any URLs from which you intend to link to our Web site, and a list of the URL(s) on our site to which you would like to link. Allow 2-3 weeks for a response.
-Approved organizations may hyperlink to our Web site as follows:
+                                        <string key="content" base64-UTF8="YES">
+Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">•	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="Symbol"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">By use of our corporate name; or
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">•	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="Symbol"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">By use of the uniform resource locator (Web address) being linked to; or
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">•	</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10" name="Symbol"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">By use of any other description of our Web site or material being linked to that makes sense within the context and format of content on the linking party's site.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="No use of (">
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Copa Club">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.45098039215686275" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <url key="NSLink" string="https://www.facebook.com/CopaClubCA2016/%22%20%5Co%20%22Copa%20Club"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <font key="NSFont" size="12" name="Calibri-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">)’s logo or other artwork will be allowed for linking absent a trademark license agreement.
+                                        <string key="content" base64-UTF8="YES">
+Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Iframes
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Without prior approval and express written permission, you may not create frames around our Web pages or use other techniques that alter in any way the visual presentation or appearance of our Web site.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Content Liability
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">We shall have no responsibility or liability for any content appearing on your Web site. You agree to indemnify and defend us against all claims arising out of or based upon your Website. No link(s) may appear on any page on your Web site or within any context containing content or materials that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Reservation of Rights
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">We reserve the right at any time and in its sole discretion to request that you remove all links or any particular link to our Web site. You agree to immediately remove all links to our Web site upon such request. We also reserve the right to amend these terms and conditions and its linking policy at any time. By continuing to link to our Web site, you agree to be bound to and abide by these linking terms and conditions.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Removal of links from our website
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">If you find any link on our Web site or any linked web site objectionable for any reason, you may contact us about this. We will consider requests to remove links but will have no obligation to do so or to respond directly to you.
-Whilst we endeavor to ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we commit to ensuring that the website remains available or that the material on the website is kept up to date.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Disclaimer
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website (including, without limitation, any warranties implied by law in respect of satisfactory quality, fitness for purpose and/or the use of reasonable care and skill). Nothing in this disclaimer will:
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">1.	limit or exclude our or your liability for death or personal injury resulting from negligence;
-2.	limit or exclude our or your liability for fraud or fraudulent misrepresentation;
-3.	limit any of our or your liabilities in any way that is not permitted under applicable law; or
-4.	exclude any of our or your liabilities that may not be excluded under applicable law.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="5" paragraphSpacingBefore="5" firstLineHeadIndent="-18" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="36">
-                                                        <options/>
-                                                    </textTab>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">The limitations and exclusions of liability set out in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer or in relation to the subject matter of this disclaimer, including liabilities arising in contract, in tort (including negligence) and for breach of statutory duty.
-To the extent that the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Credit
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="18.75" tailIndent="468" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="This Terms and conditions page was created at ">
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="terms and conditions template">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.45098039215686275" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <url key="NSLink" string="http://termsandconditionstemplate.com/"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <font key="NSFont" size="12" name="Calibri-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="generator.">
-                                        <attributes>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
                                     <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
+                                        <string key="content">Copa Challenge is a challenge where you compete against your friends to see who can best predict what will happen in the Copa America.</string>
                                         <attributes>
-                                            <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="10.5" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="11.25" paragraphSpacingBefore="11.25" tailIndent="468" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Copa Club Privacy Policy
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="21" name="Verdana"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">This privacy policy has been compiled to better serve those who are concerned with how their 'Personally identifiable information' (PII) is being used online. PII, as used in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="What personal information do we collect from the people that visit our blog, website or app?">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-
-When ordering or registering on our site, as appropriate, you may be asked to enter your name, email address or other details to help you with your experience.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="When do we collect information?">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-
-We collect information from you when you register on our site or enter information on our site.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="How do we use your information?">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -3425,118 +2378,19 @@ Cg
 Cgo
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
+                                            <font key="NSFont" size="12" name="Calibri"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment>
-                                        <string key="content">We may use the information we collect from you when you register, make a purchase, sign up for our newsletter, respond to a survey or marketing communication, surf the website, or use certain other site features in the following ways:
-</string>
+                                    <fragment content="Rules">
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="      ">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> To personalize user's experience and to allow us to deliver the type of content and product offerings in which you are most interested.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="How do we protect visitor information?">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-
-We do not use vulnerability scanning and/or scanning to PCI standards.
-We only provide articles and information. We never ask for credit card numbers.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">We use regular Malware Scanning.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology.
-
-We implement a variety of security measures when a user enters, submits, or accesses their information to maintain the safety of your personal information.
-
-All transactions are processed through a gateway provider and are not stored or processed on our servers.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Do we use 'cookies'?">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-
-We do not use cookies for tracking purposes
- You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser (like Internet Explorer) settings. Each browser is a little different, so look at your browser's Help menu to learn the correct way to modify your cookies.
-
-If you disable cookies off, some features will be disabled that make your site experience more efficient and some of our services will not function properly.
-
-However, you can still place orders .
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
+                                            <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -3544,57 +2398,17 @@ However, you can still place orders .
 Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <font key="NSFont" size="12" name="Calibri-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Third-party disclosure">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
+                                            <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">
-
-We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information.
-
-</string>
+                                        <string key="content">There are 5 stages in this year’s tournament (group stage, quarterfinals, semifinals, finals, and champion). At each stage the best possible score is 64 points. For example, if you picked every team that will make the quarterfinals correctly you will get 64 points. However, if you get 4/8 of the teams correctly, you will get 32 points added to your total score. </string>
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Third-party links">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-
-We do not include or offer third-party products or services on our website.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Google">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -3605,76 +2419,32 @@ We do not include or offer third-party products or services on our website.
 Cgo
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
+                                            <font key="NSFont" size="12" name="Calibri"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment>
-                                        <string key="content">Google's advertising requirements can be summed up by Google's Advertising Principles. They are put in place to provide a positive experience for users. https://support.google.com/adwordspolicy/answer/1316548?hl=en 
-</string>
+                                    <fragment content="Picks can be made until June 7">
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">We have not enabled Google AdSense on our app but we may do so in the future.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="COPPA (Children Online Privacy Protection Act)">
+                                    <fragment content="th">
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
+                                            <integer key="NSSuperScript" value="1"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cgo
-</string>
+                                    <fragment content=". Then challenges will not be able to be created, nor will users be able to make their picks.">
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">When it comes to the collection of personal information from children under 13, the Children's Online Privacy Protection Act (COPPA) puts parents in control. The Federal Trade Commission, the nation's consumer protection agency, enforces the COPPA Rule, which spells out what operators of websites and online services must do to protect children's privacy and safety online.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">We do not specifically market to children under 13.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Fair Information Practices">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -3685,311 +2455,54 @@ Cgo
 Cgo
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
+                                            <font key="NSFont" size="12" name="Calibri"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment>
-                                        <string key="content">The Fair Information Practices Principles form the backbone of privacy law in the United States and the concepts they include have played a significant role in the development of data protection laws around the globe. Understanding the Fair Information Practice Principles and how they should be implemented is critical to comply with the various privacy laws that protect personal information.
-</string>
+                                    <fragment content="How Scoring Works">
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">In order to be in line with Fair Information Practices we will take the following responsive action, should a data breach occur:</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-We will notify the users via email
-      </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> Within 7 business days
- We also agree to the Individual Redress Principle, which requires that individuals have a right to pursue legally enforceable rights against data collectors and processors who fail to adhere to the law. This principle requires not only that individuals have enforceable rights against data users, but also that individuals have recourse to courts or government agencies to investigate and/or prosecute non-compliance by data processors.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="CAN SPAM Act">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
+                                            <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content" base64-UTF8="YES">
-Cgo
+Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <font key="NSFont" size="12" name="Calibri-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
+                                            <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">The CAN-SPAM Act is a law that sets the rules for commercial email, establishes requirements for commercial messages, gives recipients the right to have emails stopped from being sent to them, and spells out tough penalties for violations.
+                                        <string key="content" base64-UTF8="YES">
+Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="We collect your email address in order to:">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
+                                            <font key="NSFont" size="12" name="Calibri-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
+                                            <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">
-      </string>
+                                        <string key="content">-	Group Stage – For every team correctly predicted the user will receive 4 points
+-	Quarterfinals – For each team that the user picks that actually makes it to the quarterfinals, the user will receive 8 points
+-	Semi Finals - For each team that the user picks that actually makes it to the semi -finals, the user will receive 16 points
+-	Finals - For each team that the user picks that actually makes it to the finals, the user will receive 32 points
+-	Champion – If the user correctly picks the champion, the user will receive 64 points</string>
                                         <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> Send information, respond to inquiries, and/or other requests or questions.
- </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="To be in accordance with CANSPAM we agree to the following:">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-      </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> NOT use false or misleading subjects or email addresses.
-      </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> Identify the message as an advertisement in some reasonable way.
-      </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> Include the physical address of our business or site headquarters.
-      </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> Monitor third-party email marketing services for compliance, if one is used.
-      </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> Honor opt-out/unsubscribe requests quickly.
-      </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> Allow users to unsubscribe by using the link at the bottom of each email.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" If at any time you would like to unsubscribe from receiving future emails, you can email us at">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-      </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="•">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> Follow the instructions at the bottom of each email.
-and we will promptly remove you from </string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="ALL">
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> correspondence.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="11" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <font key="NSFont" size="13.5" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="18" headIndent="36" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
@@ -3999,93 +2512,8 @@ and we will promptly remove you from </string>
 Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="12" name="TimesNewRomanPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Contacting Us">
-                                        <attributes>
-                                            <font key="NSFont" size="13.5" name="Times-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="13.5" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="TimesNewRomanPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">If there are any questions regarding this privacy policy you may contact us using the information below.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="13.5" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="13.5" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">https://www.facebook.com/CopaClubCA2016/
-274 40th street way apt 35
-Oakland, CA 94611</string>
-                                        <attributes>
-                                            <font key="NSFont" size="13.5" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="TimesNewRomanPSMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">United States
-ravelasquez99@gmail.com
- Last Edited on 2016-05-24
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="13.5" name="Times-Roman"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" metaFont="cellTitle"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <font key="NSFont" size="13" name="Calibri"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="18" headIndent="36" tailIndent="468" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
@@ -4095,12 +2523,12 @@ Cg
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.69227139261744963" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YaC-mv-ycj" firstAttribute="leading" secondItem="l0y-oO-T4b" secondAttribute="leadingMargin" id="7SE-em-0da"/>
                             <constraint firstItem="YaC-mv-ycj" firstAttribute="trailing" secondItem="l0y-oO-T4b" secondAttribute="trailingMargin" id="A9r-Ih-Crz"/>
-                            <constraint firstItem="UUL-OR-oMt" firstAttribute="top" secondItem="YaC-mv-ycj" secondAttribute="bottom" constant="20" id="KDY-bm-PeU"/>
-                            <constraint firstItem="YaC-mv-ycj" firstAttribute="top" secondItem="BoK-NC-56w" secondAttribute="bottom" constant="20" id="Kmr-GL-kMV"/>
+                            <constraint firstItem="UUL-OR-oMt" firstAttribute="top" secondItem="YaC-mv-ycj" secondAttribute="bottom" id="KDY-bm-PeU"/>
+                            <constraint firstItem="YaC-mv-ycj" firstAttribute="top" secondItem="BoK-NC-56w" secondAttribute="bottom" id="Kmr-GL-kMV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JzQ-ni-75c">
@@ -4110,6 +2538,9 @@ Cg
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="RulesTextView" destination="YaC-mv-ycj" id="bcm-JL-wyy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cw4-g7-vCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rNf-Qc-TMl" userLabel="Exit" sceneMemberID="exit"/>
