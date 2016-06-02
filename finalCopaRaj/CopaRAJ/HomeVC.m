@@ -475,10 +475,20 @@
       cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
       }
   } //MARK: Ali Change
-  else if ([match.status isEqualToString:@"5"]) {
-      cell.timeLabel.text = @"Half Time";
-      cell.teamOneScore.text = match.local_goals;
-      cell.teamTwoScore.text = match.visitor_goals;
+  else if ([match.status isEqualToString:@"5"]){
+      if ([match.live_minute isEqualToString:@"45"]) {
+          cell.timeLabel.text = @"Half Time";
+          cell.teamOneScore.text = match.local_goals;
+          cell.teamTwoScore.text = match.visitor_goals;
+      } else if ([match.live_minute isEqualToString:@"90"]){
+          cell.timeLabel.text = @"Extra Time";
+          cell.teamOneScore.text = match.local_goals;
+          cell.teamTwoScore.text = match.visitor_goals;
+      } else if ([match.live_minute isEqualToString:@"120"]){
+          cell.timeLabel.text = @"Penalty Kicks";
+          cell.teamOneScore.text = match.local_goals;
+          cell.teamTwoScore.text = match.visitor_goals;
+      }
   } else if ([match.status isEqualToString:@"1"])  {
     cell.timeLabel.text = @"Final";
     cell.teamOneScore.text = match.local_goals;

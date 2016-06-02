@@ -2,7 +2,7 @@
 //  ChallengeLogInVC.swift
 //  CopaRAJ
 //
-//  Created by ALIREZA TABRIZI & Nader Saffari on 5/13/16.
+//  Created by ALIREZA TABRIZI
 //  Copyright © 2016 AR-T.com, Inc. All rights reserved.
 //
 
