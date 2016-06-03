@@ -27,7 +27,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     var fbEmail : String?
     var fbFirstName : String?
     var fbLastName : String?
-    var fbID: String?
+    //var fbID: String?
     
     var dict : NSDictionary!
     
@@ -107,18 +107,18 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     
     // MARK: Facebook Login
     func fetchProfile() {
-        print("fetch Profile")
+        //print("fetch Profile")
         if ((FBSDKAccessToken.currentAccessToken()) != nil) {
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, first_name, last_name, email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
                 if (error == nil){
                     self.fbEmail = result["email"] as? String
                     self.fbFirstName = result["first_name"] as? String
                     self.fbLastName = result["last_name"] as? String
-                    self.fbID = result["id"] as? String
-                    print(self.fbEmail)
-                    print(self.fbFirstName)
-                    print(self.fbLastName)
-                    print(self.fbID)
+                    //self.fbID = result["id"] as? String
+//                    print(self.fbEmail)
+//                    print(self.fbFirstName)
+//                    print(self.fbLastName)
+                    //print(self.fbID)
                 }
             })
         }
@@ -136,12 +136,12 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
             DataService.dataService.BASE_REF.authWithOAuthProvider("facebook", token: token, withCompletionBlock: { (error, authData) in
                     
                 if error != nil {
-                    print("login Failed")
+                    //print("login Failed")
                 } else {
-                    print(self.fbEmail)
-                    print(self.fbFirstName)
-                    print(self.fbLastName)
-                    let user: Dictionary<String, String> = ["provider": authData.provider!, "email": self.fbEmail!, "firstName": self.fbFirstName!, "lastName": self.fbLastName!, "id": self.fbID!];
+//                    print(self.fbEmail)
+//                    print(self.fbFirstName)
+//                    print(self.fbLastName)
+                    let user: Dictionary<String, String> = ["provider": authData.provider!, "email": self.fbEmail!, "firstName": self.fbFirstName!, "lastName": self.fbLastName!];//, "id": self.fbID!];
                         
                     DataService.dataService.createNewAccount(authData.uid, user: user, completionHandler: { (success) in
                             if success == true {
@@ -149,7 +149,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                                 NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                                 NSUserDefaults.standardUserDefaults().setValue(self.fbFirstName, forKey: "firstName")
                                 NSUserDefaults.standardUserDefaults().setValue(self.fbLastName, forKey: "lastName")
-                                NSUserDefaults.standardUserDefaults().setValue(self.fbID, forKey: "id")
+                                //NSUserDefaults.standardUserDefaults().setValue(self.fbID, forKey: "id")
                                 self.performSegueWithIdentifier(self.loggedIn, sender: nil)
                             } else {
                                 print(success)
@@ -166,7 +166,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("User logged out...")
+        //print("User logged out...")
     }
 
     // MARK: Actions
@@ -185,11 +185,11 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     
                     if ((DataService.dataService.CURRENT_USER_REF.authData.providerData["isTemporaryPassword"]?.boolValue)! == true){
-                        print("Temp Pass was used")
+                        //print("Temp Pass was used")
                         self.displayChangePasswordAlert("Password Setup", message: "Please enter a new password", email: email!, oldPassword: password!)
                         self.textFieldLoginPassword.text = ""
                     } else {
-                        print("regular pass was used")
+                        //print("regular pass was used")
                         print(authData.uid)
                         self.getUserNameFromFireBase(authData.uid)
                         
@@ -220,7 +220,8 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                     }
                 })
             }
-            print("textfield is empty")
+            
+            //print("textfield is empty")
             
         })
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
