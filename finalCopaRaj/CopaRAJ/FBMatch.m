@@ -218,7 +218,7 @@
         //NSLog(@"%@ is local poss", match.local_pos);
         match.local_off = [localExtra objectForKey:@"off"];
         //NSLog(@"%@ is local soff", match.local_soff);
-        match.local_frk = [localExtra objectForKey:@"frk"];
+        match.local_frk = [localExtra objectForKey:@"fou"];
         //NSLog(@"%@ is local frk", smatch.local_frk);
         match.local_blk = [localExtra objectForKey:@"blk"];
         //NSLog(@"%@ is local blk", match.local_blk);
@@ -240,7 +240,7 @@
         //NSLog(@"%@ is visitor poss", match.visitor_pos);
         match.visitor_off = [visitorExtra objectForKey:@"off"];
         //NSLog(@"%@ is visitor soff", match.visitor_soff);
-        match.visitor_frk = [visitorExtra objectForKey:@"frk"];
+        match.visitor_frk = [visitorExtra objectForKey:@"fou"];
         //NSLog(@"%@ is visitor frk", smatch.visitor_frk);
         match.visitor_blk = [visitorExtra objectForKey:@"blk"];
         //NSLog(@"%@ is visitor blk", match.visitor_blk);

@@ -248,6 +248,7 @@
     if (self.isScrolling == true) {
       
     }else {
+      self.tableView.userInteractionEnabled = false;
       self.sortedMatches = [NSMutableArray new];
       self.finalArray = [NSMutableArray new];
       for (id match in snapshot.value) {
@@ -278,6 +279,7 @@
       //reloading table view!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       dispatch_async(dispatch_get_main_queue(), ^{
         [self performSelector:@selector(matchesAreDoneLoading) withObject:nil afterDelay:1];
+        
         
       });
       
@@ -352,6 +354,7 @@
     self.isScrolling = false;
   };
   self.cupView.hidden = false;
+  self.tableView.userInteractionEnabled = true;
 }
 
 

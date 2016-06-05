@@ -81,7 +81,7 @@
     [self.shotsLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Shots", nil)]];
     [self.shotsTargetLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Shots on target", nil)]];
     [self.offSideLabel setText:[NSString stringWithFormat:NSLocalizedString(@"offsides", nil)]];
-    [self.freeKickLabel setText:[NSString stringWithFormat:NSLocalizedString(@"free kicks", nil)]];
+    [self.freeKickLabel setText:[NSString stringWithFormat:NSLocalizedString(@"fouls", nil)]];
     [self.savesLabel setText:[NSString stringWithFormat:NSLocalizedString(@"saves", nil)]];
     [self.yellowCardLabel setText:[NSString stringWithFormat:NSLocalizedString(@"yellow cards", nil)]];
     [self.redCardLabel setText:[NSString stringWithFormat:NSLocalizedString(@"red cards", nil)]];
