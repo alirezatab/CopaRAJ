@@ -168,7 +168,7 @@
         [self eventsTableViewAppears];
       
     } withCancelBlock:^(NSError *error) {
-        NSLog(@"%@", error.description);
+        //NSLog(@"%@", error.description);
     }];
 }
 
@@ -293,7 +293,7 @@
     //TEAM B
     int x = 0;
     NSArray *lineUpVisitLabels = @[self.teamBPLayer1,self.teamBPlayer2,self.teamBPlayer3,self.teamBPlayer4,self.teamBPlayer5,self.teamBPlayer6,self.teamBPlayer7,self.teamBPlayer8,self.teamBPlayer9,self.teamBPlayer10,self.teamBPlayer11];
-    NSLog(@"LINEUPS %@" , self.match.visitor_Lineup);
+   // NSLog(@"LINEUPS %@" , self.match.visitor_Lineup);
     
     if ([self.match.visitor isEqualToString:@"Haití"]) {
         self.lineUpVisitorFlag.image = [UIImage imageNamed:@"Haiti"];
@@ -316,7 +316,7 @@
             [label setTextColor:[UIColor whiteColor]];
         }
     }
-    NSLog(@"%@ vs %@" , self.match.local , self.match.visitor);
+   // NSLog(@"%@ vs %@" , self.match.local , self.match.visitor);
     
 }
 
@@ -478,7 +478,7 @@
   
     NSString *eventLowerCase = [[event valueForKey:@"action"] lowercaseString];
     cell.actionImage.image = [UIImage imageNamed:eventLowerCase];
-    NSLog(@"%@", [event valueForKey:@"action"]);
+   // NSLog(@"%@", [event valueForKey:@"action"]);
     cell.inLabel.text = [event valueForKey:@"playerOut"];
     cell.outLabel.text = [event valueForKey:@"playerIn"];
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.contentView.frame.size.height - 1.0, cell.contentView.frame.size.width, 1)];
@@ -489,7 +489,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%lu", (unsigned long)self.match.timeline.count);
+   // NSLog(@"%lu", (unsigned long)self.match.timeline.count);
     return self.match.timeline.count;
 }
 
@@ -542,7 +542,7 @@
         
         UIAlertAction *dontSaveDate = [UIAlertAction actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Cancel", nil)]
                                                                style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                                   NSLog(@"date dont saved");
+                                                                  // NSLog(@"date dont saved");
                                                                    
                                                                }];
         [modalAlert addAction:saveDate];
@@ -570,11 +570,11 @@
         BOOL save =  [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
         self.eventSavedId = event.eventIdentifier;
         if (save) {
-            NSLog(@"event saved this is the id %@" , self.eventSavedId);
+           // NSLog(@"event saved this is the id %@" , self.eventSavedId);
             [self alertUserThatMatchIsSaved];
         }
     }else{
-        NSLog(@"this event is already saved %@ ", event.title);
+       // NSLog(@"this event is already saved %@ ", event.title);
         [self alertUserThatMatchWasAlreadySaved];
     }
 }
@@ -622,14 +622,14 @@
 
 - (void)ifUserDontAllowCallendarPermission {
     
-    NSLog(@"Permission not allowed");
+  //  NSLog(@"Permission not allowed");
     dispatch_async(dispatch_get_main_queue(), ^(void){
         UIAlertController *settingAlert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Please go to your app settings and allow Copa Club to acces your calendar", nil)]
                                                                               message:[NSString stringWithFormat:NSLocalizedString(@"You don't want to miss this game, do you?", nil)]
                                                                        preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Cancel", nil)]
                                                          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                             NSLog(@"ill do it later");
+                                                             //NSLog(@"ill do it later");
                                                          }];
         UIAlertAction *go = [UIAlertAction actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Go", nil)]
                                                      style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {

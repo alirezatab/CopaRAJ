@@ -226,7 +226,7 @@
         [self getMatchesFromFireBase];
         
     } withCancelBlock:^(NSError *error) {
-        NSLog(@"%@", error.localizedDescription);
+      //  NSLog(@"%@", error.localizedDescription);
         [self presentErrorWithString:error.localizedDescription];
     }];
 }
@@ -244,7 +244,7 @@
   [self.refMatches observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
     
     
-    NSLog(@"%d scrolling", self.isScrolling);
+   // NSLog(@"%d scrolling", self.isScrolling);
     if (self.isScrolling == true) {
       
     }else {
@@ -258,7 +258,7 @@
           
           if ([self match:matchData alreadyExistsInArray:self.mathches]) {
             //self.intCalls++;
-            NSLog(@"%i", self.intCalls);
+           // NSLog(@"%i", self.intCalls);
             [FBMatch updateMatchInArray:self.mathches withData:matchData];
           } else if ([self.setMatchIDS containsObject:match]){
             FBMatch *newFoundMatch = [FBMatch new];
@@ -318,7 +318,7 @@
                                                ascending:YES];
   NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
   self.sortedMatches = [[self.mathches sortedArrayUsingDescriptors:sortDescriptors]mutableCopy];
-  NSLog(@"count of sorted matches: %lu",(unsigned long)self.sortedMatches.count);
+  //NSLog(@"count of sorted matches: %lu",(unsigned long)self.sortedMatches.count);
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -361,11 +361,11 @@
   NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setDateFormat:@"yyyy-MM-dd"];
   NSString *date = [dateFormatter stringFromDate:[NSDate date]];
-  NSLog(@"%@ is the current date", date);
+  //NSLog(@"%@ is the current date", date);
   
    for (id juneDate in self.juneDates) {
      if ([juneDate isEqualToString:date]) {
-       NSLog(@"passEd");
+      // NSLog(@"passEd");
        NSInteger section = [[self.juneDates objectForKey:juneDate]integerValue];
        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]atScrollPosition:UITableViewScrollPositionTop animated:NO];
        [self loadUpButtons];
@@ -411,7 +411,7 @@
 - (void)presentErrorWithString: (NSString *)string {
   UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Error" message:string preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    NSLog(@"ok");
+   // NSLog(@"ok");
   }];
   
   [controller addAction:action];
@@ -500,7 +500,7 @@
   else if ([match.status isEqualToString:@"5"]){
     //ricky change
     if (match.pen1 == [NSNumber numberWithInteger:0] && match.pen2 == [NSNumber numberWithInteger:0] ) {
-      NSLog(@"%@", match.local);
+      //NSLog(@"%@", match.local);
       cell.penaltiesLabel.text = @"";
       cell.teamOneScore.text = match.local_goals;
       cell.teamTwoScore.text = match.visitor_goals;

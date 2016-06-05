@@ -101,7 +101,7 @@
     
     [self.matchesObject addObjectsFromArray:@[@[self.matchA1B2, self.matchD1C2, self.matchB1A2, self.matchC1D2], @[self.matchW25W27, self.matchW26W28], @[self.matchL29L30, self.matchW29W30], @[]]];
     
-    NSLog(@"%lu", (unsigned long)self.matchesObject.count);
+    //NSLog(@"%lu", (unsigned long)self.matchesObject.count);
 }
 
 #pragma mark - CollectionView
@@ -191,7 +191,7 @@
     if (section == 0) {
         return UIEdgeInsetsMake(self.topInset, 30, self.bottomInset, 0);
     } else if (section == 1){
-        NSLog(@"%f", self.minimumInteritemSpacing);
+       // NSLog(@"%f", self.minimumInteritemSpacing);
         return UIEdgeInsetsMake((self.topInset+(self.cellHeight/2)+self.minimumInteritemSpacing), 50, self.bottomInset + self.cellHeight/2 + self.minimumInteritemSpacing, 0);
     } else if (section == 2){
         return UIEdgeInsetsMake(self.view.frame.size.height/3, 50, 50, 0);
@@ -202,7 +202,7 @@
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     
     if (section == 0) {
-        NSLog(@"cell Height: %f", self.cellHeight);
+       // NSLog(@"cell Height: %f", self.cellHeight);
         self.minimumInteritemSpacing = 10;
         return self.minimumInteritemSpacing;
     } else if (section == 1){
@@ -240,12 +240,12 @@
         [ref observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
             NSNumber *isPlayoffsNum = snapshot.value[@"playoffs"];
             self.isPlayOff = isPlayoffsNum.boolValue;
-            NSLog(@"%d", self.isPlayOff);
+          //  NSLog(@"%d", self.isPlayOff);
             NSMutableArray *playoffTeams = [NSMutableArray new];
             
             if (self.isPlayOff) {
-                NSLog(@"%@", snapshot.value[@"schedule"]);
-                NSLog(@"%@", self.matchA1B2.schedule);
+                //NSLog(@"%@", snapshot.value[@"schedule"]);
+                //NSLog(@"%@", self.matchA1B2.schedule);
                 if ([self.matchA1B2.schedule isEqualToString: snapshot.value[@"schedule"]]) {
                     self.matchA1B2.matchID = snapshot.value[@"id"];
                     self.matchA1B2.status = snapshot.value[@"status"];
@@ -352,28 +352,28 @@
                     self.matchW29W30.local_goals = snapshot.value[@"local_goals"];
                     self.matchW29W30.pen1 = snapshot.value[@"pen1"];
                     BOOL isStrig = [self.matchW29W30.pen1 isKindOfClass:[NSNumber class]];
-                    NSLog(@"%d", isStrig);
-                    NSLog(@"FireBase gave pen1: %@", self.matchW29W30.pen1);
+                    //NSLog(@"%d", isStrig);
+                    //NSLog(@"FireBase gave pen1: %@", self.matchW29W30.pen1);
                     
                     self.matchW29W30.visitor = snapshot.value[@"visitor"];
                     self.matchW29W30.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchW29W30.visitor_goals = snapshot.value[@"visitor_goals"];
                     self.matchW29W30.pen2 = snapshot.value[@"pen2"];
                     BOOL strig = [self.matchW29W30.pen2 isKindOfClass:[NSNumber class]];
-                    NSLog(@"%d", strig);
-                    NSLog(@"FireBase gave pen2: %@", self.matchW29W30.pen2);
+                   // NSLog(@"%d", strig);
+                    //NSLog(@"FireBase gave pen2: %@", self.matchW29W30.pen2);
                 }
               
                 
-                NSLog(@"%@", snapshot.value[@"id"]);
+                //NSLog(@"%@", snapshot.value[@"id"]);
                 [playoffTeams addObject:snapshot.value[@"id"]];
-                NSLog(@"%lu", (unsigned long)self.playoffTeams.count);
+                //NSLog(@"%lu", (unsigned long)self.playoffTeams.count);
                 [self.collectionView reloadData];
               [self.activityIndicator stopAnimating];
             }
             
         } withCancelBlock:^(NSError *error) {
-            NSLog(@"%@", error.description);
+           // NSLog(@"%@", error.description);
         }];
 }
 
@@ -467,7 +467,7 @@
         [self populatePlayoffTeams];
         
     } withCancelBlock:^(NSError *error) {
-        NSLog(@"%@", error.description);
+        //NSLog(@"%@", error.description);
     }];
     //});
 }

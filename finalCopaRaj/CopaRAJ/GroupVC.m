@@ -71,7 +71,7 @@
     
   } withCancelBlock:^(NSError *error) {
     
-      NSLog(@"%@", error.description);
+      //NSLog(@"%@", error.description);
       //tell user to reconnect to internet
   }];
 }

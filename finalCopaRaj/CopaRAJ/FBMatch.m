@@ -398,7 +398,7 @@
   NSSortDescriptor *minute= [[NSSortDescriptor alloc] initWithKey:@"minuteF" ascending:YES];
   NSArray *sortDescriptors = [NSArray arrayWithObject:minute];
   NSMutableArray *returnArray = [NSMutableArray arrayWithArray:[nonsortedArray sortedArrayUsingDescriptors:sortDescriptors]];
-  NSLog(@"RETURN THE CRAKEN!!!!! %@", returnArray);
+ // NSLog(@"RETURN THE CRAKEN!!!!! %@", returnArray);
   return returnArray;
   
 }
