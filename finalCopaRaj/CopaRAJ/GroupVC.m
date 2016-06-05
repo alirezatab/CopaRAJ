@@ -110,9 +110,18 @@
   GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"teamCell" forIndexPath:indexPath];
   FBGroup *group = [self.groups objectAtIndex:indexPath.section];
   
+  
   if (indexPath.row == 0) {
+    if ([group.team1Team isEqualToString:@"Haití"]){
+      cell.teamImage.image = [UIImage imageNamed:@"Haiti"];
+    } else {
     cell.teamImage.image = [UIImage imageNamed:group.team1Team];
-    cell.teamGoals.text = group.team1Round;
+    }
+    int wins = [group.team1Wins intValue];
+    int ties = [group.team1Draws intValue];
+    int losses = [group.team1Losses intValue];
+    int gp = wins + ties + losses;
+    cell.teamGoals.text = [NSString stringWithFormat:@"%d", gp];
       
       if ([group.team1Team isEqualToString:@"United States"]) {
           cell.teamCountry.text = [NSString stringWithFormat:NSLocalizedString(@"United States", nil)];
@@ -131,8 +140,17 @@
       } else {
           cell.teamCountry.text = group.team2Team;
       }
-    cell.teamImage.image = [UIImage imageNamed:group.team2Team];
-    cell.teamGoals.text = group.team2Round;
+    if ([group.team2Team isEqualToString:@"Haití"]){
+      cell.teamImage.image = [UIImage imageNamed:@"Haiti"];
+    } else {
+      cell.teamImage.image = [UIImage imageNamed:group.team2Team];
+    }
+    
+    int wins = [group.team2Wins intValue];
+    int ties = [group.team2Draws intValue];
+    int losses = [group.team2Losses intValue];
+    int gp = wins + ties + losses;
+    cell.teamGoals.text = [NSString stringWithFormat:@"%d", gp];
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team2Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team2Draws];
     cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team2Losses];
@@ -144,8 +162,16 @@
     } else {
         cell.teamCountry.text = group.team3Team;
     }
-    cell.teamImage.image = [UIImage imageNamed:group.team3Team];
-    cell.teamGoals.text = group.team3Round;
+    if ([group.team3Team isEqualToString:@"Haití"]){
+      cell.teamImage.image = [UIImage imageNamed:@"Haiti"];
+    } else {
+      cell.teamImage.image = [UIImage imageNamed:group.team3Team];
+    }
+  int wins = [group.team3Wins intValue];
+  int ties = [group.team3Draws intValue];
+  int losses = [group.team3Losses intValue];
+  int gp = wins + ties + losses;
+  cell.teamGoals.text = [NSString stringWithFormat:@"%d", gp];
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team3Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team3Draws];
     cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team3Losses];
@@ -157,8 +183,17 @@
       } else {
           cell.teamCountry.text = group.team4Team;
       }
-    cell.teamImage.image = [UIImage imageNamed:group.team4Team];
-    cell.teamGoals.text = group.team4Round;
+    if ([group.team4Team isEqualToString:@"Haití"]){
+      cell.teamImage.image = [UIImage imageNamed:@"Haiti"];
+    } else {
+      cell.teamImage.image = [UIImage imageNamed:group.team4Team];
+    }
+    
+    int wins = [group.team4Wins intValue];
+    int ties = [group.team4Draws intValue];
+    int losses = [group.team4Losses intValue];
+    int gp = wins + ties + losses;
+    cell.teamGoals.text = [NSString stringWithFormat:@"%d", gp];
     cell.teamWins.text = [NSString stringWithFormat:@"%@", group.team4Wins];
     cell.teamTies.text = [NSString stringWithFormat:@"%@", group.team4Draws];
     cell.teamLosses.text = [NSString stringWithFormat:@"%@", group.team4Losses];

@@ -55,10 +55,17 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     self.date = self.match.nsdate;
-    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+  
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter) userInfo:nil repeats:YES];
     [[self.eventsCalendarButton layer] setBorderWidth:2.0f];
     [[self.eventsCalendarButton layer] setBorderColor:[UIColor whiteColor].CGColor];
     self.eventsCalendarButton.titleLabel.font = [UIFont fontWithName:@"Gotham Narrow" size:17];
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated {
+  [self.timer invalidate];
+  self.timer = nil;
 }
 
 - (void)localizeStrings {
@@ -116,29 +123,31 @@
     }
 }
 
-- (void)updateCounter:(NSTimer *)tmr
+- (void)updateCounter
 {
-    NSTimeInterval iv = [self.date  timeIntervalSinceNow];
-    
-    int days = iv / (60 * 60 * 24);
-    iv -= days * (60 * 60 * 24);
-    int hours = iv / (60 * 60);
-    iv -= hours * (60 * 60);
-    int minutes = iv / 60;
-    iv -= minutes *60;
-    int seconds = iv;
-    
-    NSString *countdown = [NSString stringWithFormat:@"%02d d : %02d h : %02d m : %02d s\n", days, hours, minutes, seconds];
-    NSString *countDownText =[NSString stringWithFormat:NSLocalizedString(@"until kickoff", nil)];
-    self.countDownTextView.text = [NSString stringWithFormat:@"%@ %@", countdown ,countDownText];
-    
-    [self.countDownTextView setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:23]];
-    [self.countDownTextView setTextColor:[UIColor whiteColor]];
-    [self.countDownTextView setTextAlignment:NSTextAlignmentCenter];
-    
-    if (days + hours + minutes + seconds <= 0) {
-        [tmr invalidate];
-    }
+  NSTimeInterval iv = [self.date  timeIntervalSinceNow];
+  
+  int days = iv / (60 * 60 * 24);
+  iv -= days * (60 * 60 * 24);
+  int hours = iv / (60 * 60);
+  iv -= hours * (60 * 60);
+  int minutes = iv / 60;
+  iv -= minutes *60;
+  int seconds = iv;
+  
+  NSString *countdown = [NSString stringWithFormat:@"%02d d : %02d h : %02d m : %02d s\n", days, hours, minutes, seconds];
+  NSString *countDownText =[NSString stringWithFormat:NSLocalizedString(@"until kickoff", nil)];
+  self.countDownTextView.text = [NSString stringWithFormat:@"%@ %@", countdown ,countDownText];
+  
+  [self.countDownTextView setFont:[UIFont fontWithName:@"GOTHAM MEDIUM" size:23]];
+  [self.countDownTextView setTextColor:[UIColor whiteColor]];
+  [self.countDownTextView setTextAlignment:NSTextAlignmentCenter];
+  
+  if (days + hours + minutes + seconds <= 0) {
+    [self.timer invalidate];
+    self.timer = nil;
+    self.countDownTextView.text = [NSString stringWithFormat:NSLocalizedString(@"The game is about to start!", nil)];
+  }
 }
 
 - (void)listenToMatch {
@@ -156,7 +165,8 @@
         [self displayStatsLabels];
 
         [self.tableView reloadData];
-        
+        [self eventsTableViewAppears];
+      
     } withCancelBlock:^(NSError *error) {
         NSLog(@"%@", error.description);
     }];
@@ -466,7 +476,8 @@
     
     cell.backgroundColor = [UIColor colorWithRed:0.063 green:0.188 blue:0.231 alpha:0.9];
   
-    cell.actionImage.image = [UIImage imageNamed:[event valueForKey:@"action"]];
+    NSString *eventLowerCase = [[event valueForKey:@"action"] lowercaseString];
+    cell.actionImage.image = [UIImage imageNamed:eventLowerCase];
     NSLog(@"%@", [event valueForKey:@"action"]);
     cell.inLabel.text = [event valueForKey:@"playerOut"];
     cell.outLabel.text = [event valueForKey:@"playerIn"];

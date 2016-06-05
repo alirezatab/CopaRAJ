@@ -54,6 +54,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIImageView *logoAnimationImageView;
 @property (weak, nonatomic) IBOutlet UIView *splashScreenView;
+@property BOOL isScrolling;
 
 @property int intCalls;
 @end
@@ -75,7 +76,8 @@
     
     [self initNeededObjects];
     [self callFireBase];
-    
+    self.isScrolling = false;
+  
     //Ali: Animation for splash Screen
     NSArray *arrayOfLogoImages = [[NSArray alloc]initWithObjects:[UIImage imageNamed:@"LaunchScreen0.png"], [UIImage imageNamed:@"LaunchScreen1.png"], [UIImage imageNamed:@"LaunchScreen2.png"], [UIImage imageNamed:@"LaunchScreen3.png"], [UIImage imageNamed:@"LaunchScreen4.png"], [UIImage imageNamed:@"LaunchScreen5.png"], [UIImage imageNamed:@"LaunchScreen6.png"], [UIImage imageNamed:@"LaunchScreen7.png"], [UIImage imageNamed:@"LaunchScreen8.png"], [UIImage imageNamed:@"LaunchScreen9.png"], [UIImage imageNamed:@"LaunchScreen10.png"], [UIImage imageNamed:@"LaunchScreen11.png"], [UIImage imageNamed:@"LaunchScreen12.png"], [UIImage imageNamed:@"LaunchScreen13.png"], [UIImage imageNamed:@"LaunchScreen14.png"], [UIImage imageNamed:@"LaunchScreen15.png"], [UIImage imageNamed:@"LaunchScreen16.png"], [UIImage imageNamed:@"LaunchScreen17.png"], [UIImage imageNamed:@"LaunchScreen18.png"], [UIImage imageNamed:@"LaunchScreen19.png"], [UIImage imageNamed:@"LaunchScreen20.png"], [UIImage imageNamed:@"LaunchScreen21.png"], [UIImage imageNamed:@"LaunchScreen22.png"], [UIImage imageNamed:@"LaunchScreen23.png"], [UIImage imageNamed:@"LaunchScreen24.png"], [UIImage imageNamed:@"LaunchScreen23.png"], [UIImage imageNamed:@"LaunchScreen22.png"], [UIImage imageNamed:@"LaunchScreen21.png"], [UIImage imageNamed:@"LaunchScreen20.png"], [UIImage imageNamed:@"LaunchScreen19.png"], [UIImage imageNamed:@"LaunchScreen18.png"], [UIImage imageNamed:@"LaunchScreen17.png"], [UIImage imageNamed:@"LaunchScreen16.png"], [UIImage imageNamed:@"LaunchScreen15.png"], [UIImage imageNamed:@"LaunchScreen14.png"], [UIImage imageNamed:@"LaunchScreen13.png"], [UIImage imageNamed:@"LaunchScreen12.png"], [UIImage imageNamed:@"LaunchScreen11.png"], [UIImage imageNamed:@"LaunchScreen10.png"], [UIImage imageNamed:@"LaunchScreen9.png"], [UIImage imageNamed:@"LaunchScreen8.png"], [UIImage imageNamed:@"LaunchScreen7.png"], [UIImage imageNamed:@"LaunchScreen6.png"], [UIImage imageNamed:@"LaunchScreen5.png"], [UIImage imageNamed:@"LaunchScreen4.png"], [UIImage imageNamed:@"LaunchScreen3.png"], [UIImage imageNamed:@"LaunchScreen2.png"], [UIImage imageNamed:@"LaunchScreen1.png"], [UIImage imageNamed:@"LaunchScreen0.png"], nil];
     
@@ -241,37 +243,48 @@
   self.refMatches = [[Firebase alloc]initWithUrl:@"https://fiery-inferno-5799.firebaseio.com/matches"];
   [self.refMatches observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
     
-    self.sortedMatches = [NSMutableArray new];
-    self.finalArray = [NSMutableArray new];
-    for (id match in snapshot.value) {
+    
+    NSLog(@"%d scrolling", self.isScrolling);
+    if (self.isScrolling == true) {
       
-      
-      NSDictionary *matchData = [snapshot.value valueForKey:match];
-      if ([[matchData valueForKey:@"category_id"] isEqualToString:@"177"]) {
+    }else {
+      self.sortedMatches = [NSMutableArray new];
+      self.finalArray = [NSMutableArray new];
+      for (id match in snapshot.value) {
         
-        if ([self match:matchData alreadyExistsInArray:self.mathches]) {
-          //self.intCalls++;
-          NSLog(@"%i", self.intCalls);
-          [FBMatch updateMatchInArray:self.mathches withData:matchData];
-        } else if ([self.setMatchIDS containsObject:match]){
-          FBMatch *newFoundMatch = [FBMatch new];
-          [newFoundMatch updateMatch:newFoundMatch WithData:matchData];
-          [self.mathches addObject:newFoundMatch];
-        } else if ([[matchData valueForKey:@"category_id"]isEqualToString:@"177"]) {
-          [FBMatch updateMatchInArray:self.playoffMatches withData:matchData];
+        
+        NSDictionary *matchData = [snapshot.value valueForKey:match];
+        if ([[matchData valueForKey:@"category_id"] isEqualToString:@"177"]) {
+          
+          if ([self match:matchData alreadyExistsInArray:self.mathches]) {
+            //self.intCalls++;
+            NSLog(@"%i", self.intCalls);
+            [FBMatch updateMatchInArray:self.mathches withData:matchData];
+          } else if ([self.setMatchIDS containsObject:match]){
+            FBMatch *newFoundMatch = [FBMatch new];
+            [newFoundMatch updateMatch:newFoundMatch WithData:matchData];
+            [self.mathches addObject:newFoundMatch];
+          } else if ([[matchData valueForKey:@"category_id"]isEqualToString:@"177"]) {
+            [FBMatch updateMatchInArray:self.playoffMatches withData:matchData];
+          }
         }
       }
-    }
-    
-    if (self.mathches.count == 24) {
-      [self.mathches addObjectsFromArray:self.playoffMatches];
-    }
-    
-    [self sortMatches];
-    //reloading table view!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    [self performSelector:@selector(matchesAreDoneLoading) withObject:nil afterDelay:1];
       
-      //[self matchesAreDoneLoading];
+      if (self.mathches.count == 24) {
+        [self.mathches addObjectsFromArray:self.playoffMatches];
+      }
+      
+      [self sortMatches];
+      //reloading table view!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSelector:@selector(matchesAreDoneLoading) withObject:nil afterDelay:1];
+        
+      });
+      
+
+    }
+    
+          //[self matchesAreDoneLoading];
     
     
   } withCancelBlock:^(NSError *error) {
@@ -311,6 +324,13 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
   self.buttonRight.hidden = true;
   self.buttonLeft.hidden = true;
+  self.isScrolling = true;
+  
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+  self.isScrolling = false;
+  
 }
 
 - (void)matchesAreDoneLoading {
@@ -323,11 +343,13 @@
     self.navigationController.navigationBarHidden = NO;
   }
   [self createArraysForSectionHeaders];
+  
   [self.tableView reloadData];
   
   if (!self.didScrollToDate && self.finalArray.count >= 18) {
     [self scrollToDate];
     self.didScrollToDate = true;
+    self.isScrolling = false;
   };
   self.cupView.hidden = false;
 }
@@ -478,9 +500,17 @@
   else if ([match.status isEqualToString:@"5"]){
     //ricky change
     if (match.pen1 == [NSNumber numberWithInteger:0] && match.pen2 == [NSNumber numberWithInteger:0] ) {
+      NSLog(@"%@", match.local);
       cell.penaltiesLabel.text = @"";
+      cell.teamOneScore.text = match.local_goals;
+      cell.teamTwoScore.text = match.visitor_goals;
+      cell.timeLabel.text = @"Break";
+      
     } else {
       cell.penaltiesLabel.text = [NSString stringWithFormat:@"(%@-%@)", match.pen1, match.pen2];
+      cell.teamOneScore.text = match.local_goals;
+      cell.teamTwoScore.text = match.visitor_goals;
+      cell.timeLabel.text = @"Penalties";
     }
   } else if ([match.status isEqualToString:@"1"])  {
     cell.timeLabel.text = @"Final";
@@ -498,11 +528,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
--(void)initializeRefreshControl
-{
- 
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -1034,6 +1059,8 @@
     ChallengeLogInVC *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
     [self.navigationController pushViewController:vc animated:NO];
 }
+
+
 
 
 
