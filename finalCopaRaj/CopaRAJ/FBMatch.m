@@ -300,7 +300,7 @@
       match.occasions = [NSMutableArray new];
       
       for (NSMutableDictionary *occasion in occasions) {
-        if (![[occasion valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Tiro al palo"]) {
+        if (![[occasion valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Hombre del partido"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[occasion valueForKey:@"action"] isEqualToString:@"Tiro al palo"])  {
           
           NSInteger minute = [[occasion objectForKey:@"minute"] integerValue];
           NSNumber *num = [NSNumber numberWithInteger:minute];
@@ -314,7 +314,7 @@
       NSArray *others = [events valueForKey:@"others"];
       match.others = [NSMutableArray new];
       for (NSMutableDictionary *other in others) {
-        if (![[other valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[other valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[other valueForKey:@"action"] isEqualToString:@"Tiro al palo"]) {
+        if (![[other valueForKey:@"action"] isEqualToString:@"Penalti parado"] && ![[other valueForKey:@"action"] isEqualToString:@"Asistencia"] && ![[other valueForKey:@"action"] isEqualToString:@"Tiro al palo"] && ![[other valueForKey:@"action"] isEqualToString:@"Hombre del partido"]) {
           
           NSInteger minute = [[other objectForKey:@"minute"] integerValue];
           NSNumber *num = [NSNumber numberWithInteger:minute];

@@ -465,8 +465,9 @@
     }
     
     cell.backgroundColor = [UIColor colorWithRed:0.063 green:0.188 blue:0.231 alpha:0.9];
-    
+  
     cell.actionImage.image = [UIImage imageNamed:[event valueForKey:@"action"]];
+    NSLog(@"%@", [event valueForKey:@"action"]);
     cell.inLabel.text = [event valueForKey:@"playerOut"];
     cell.outLabel.text = [event valueForKey:@"playerIn"];
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.contentView.frame.size.height - 1.0, cell.contentView.frame.size.width, 1)];
