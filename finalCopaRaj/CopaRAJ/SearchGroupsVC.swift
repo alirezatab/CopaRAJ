@@ -45,7 +45,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
     ref.queryOrderedByChild("name").queryStartingAtValue(text).queryLimitedToFirst(50).observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) in
       if let newResults = snapshot.value as? NSDictionary {
         for (key, groupDictionary) in newResults {
-          print(groupDictionary)
+          //print(groupDictionary)
           let newSearchResultGroup = SearchResultGroup()
           newSearchResultGroup.returnGroupWithResult(groupDictionary as! NSDictionary, groupID: key as! String)
           if ((newSearchResultGroup.name?.containsString(text)) == true){
@@ -54,7 +54,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
             self.groupsFromSearchResults?.addObject(newSearchResultGroup)
             }
 
-          print(self.groupsFromSearchResults?.count)
+          //print(self.groupsFromSearchResults?.count)
         }
       }
         if (self.groupsFromSearchResults?.count < 1) {
@@ -67,7 +67,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
       self.activityIndicator.stopAnimating()
       
       }) { (error) in
-        print(error.localizedDescription)
+        //print(error.localizedDescription)
         self.searchGroupsWith(text)
     }
 
@@ -129,7 +129,7 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
       alert -> Void in
       
       let firstTextField = alertController.textFields![0] as UITextField
-      print(firstTextField.text)
+      //print(firstTextField.text)
       self.checkGroupPassword(group, password: firstTextField.text!)
     })
     
@@ -176,9 +176,9 @@ class SearchGroupsVC: UIViewController, UISearchBarDelegate, UITableViewDataSour
         DataService.dataService.updateCurrentUserWithGroupID(group.uniqueID!, groupImage: group.imageName!, groupName: group.name as! String, createdBy: group.createdBy! as String, completionHandler: { (success) in
           if success == true {
             self.presentAddedToGroup(group)
-            print("success")
+            //print("success")
           } else if success == false {
-            print("fail")
+            //print("fail")
           }
           })
 

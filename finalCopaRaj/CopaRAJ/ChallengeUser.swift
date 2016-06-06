@@ -262,8 +262,8 @@ class ChallengeUser: NSObject {
     var count = 0
     for team in actualSemifinalists {
       for pick in userSemifinalistPicks {
-        print("actual team : \(team)")
-        print("pick: \(pick)")
+        //print("actual team : \(team)")
+        //print("pick: \(pick)")
         
         if pick! == team as! String {
           pointsScored = pointsScored + semiFinalsCorrectPick
@@ -273,7 +273,7 @@ class ChallengeUser: NSObject {
       }
     }
     
-    print(count)
+    //print(count)
     let finalistTeam1Actual = results.valueForKey("FinalistTeam1") as! String
     let finalistTeam2Actual = results.valueForKey("FinalistTeam2") as! String
     let finalistsActual = NSMutableArray()

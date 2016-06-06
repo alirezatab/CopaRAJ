@@ -93,7 +93,7 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
             DataService.dataService.BASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, result) in
                 if error != nil{
                     self.signupErrorAlert("ERROR", message: error.localizedDescription)
-                    print(error.localizedDescription)
+                    //print(error.localizedDescription)
                 } else {
                     //create the username and password
                     DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { (err, authData) in
@@ -113,7 +113,7 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
                                 self.performSegueWithIdentifier("unwindToLoginFromCreateUser", sender: self)
 
                             } else {
-                                print(success)
+                                //print(success)
                             }
                         })
                     })

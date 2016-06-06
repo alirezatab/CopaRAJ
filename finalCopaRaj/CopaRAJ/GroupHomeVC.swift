@@ -64,7 +64,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
             let groupName = groupDictionary.valueForKey("groupName") as! String
               
             let newGroup = ChallengeGroup(name: groupName, imageName: groupImage, createdBy: createdBy, groupID: groupID)
-            print(newGroup.imageName)
+            //print(newGroup.imageName)
             self.groups?.addObject(newGroup)
          
             }
@@ -80,7 +80,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
         self.createDefaultTableViewSettings()
       }
       }) { (error) in
-        print(error.localizedDescription)
+        //print(error.localizedDescription)
     }
 
     }
@@ -119,7 +119,7 @@ class GroupHomeVC: UIViewController, UINavigationBarDelegate, UITableViewDelegat
       
     cell?.ptsLabel.text! = pointsLabelText
     cell?.groupImageView.image = UIImage.init(named: (group.imageName)!)
-    print(group.imageName)
+    //print(group.imageName)
     return cell!
       
     } 

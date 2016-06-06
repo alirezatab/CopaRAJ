@@ -464,7 +464,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     let ref = DataService.dataService.CHALLENGEGROUPS_REF.childByAppendingPath(self.group!.groupID as! String).childByAppendingPath(uid)
     ref.setValue(picks) { (error, ref) in
       if let wasAnError = error {
-        print(wasAnError.localizedDescription)
+        //print(wasAnError.localizedDescription)
       } else {
         self.presentPicksAddedToGroup(group)
       }

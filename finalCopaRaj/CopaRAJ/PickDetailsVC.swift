@@ -41,9 +41,9 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let groupC = CopaAmericaGroup(name: "Group C")
     let groupCTeams = NSMutableArray()
     self.updtateArray(groupCTeams, team1: self.member!.GroupCWinner!, team2: self.member!.GroupCRunnerUP!, team3: self.member!.GroupCThirdPlace!, team4: self.member!.GroupCFourthPlace!)
-    print(self.member?.GroupCWinner)
+    //print(self.member?.GroupCWinner)
     groupC.teams = groupCTeams
-    print(groupC.teams?.objectAtIndex(0))
+    //print(groupC.teams?.objectAtIndex(0))
     
     
     let groupD = CopaAmericaGroup(name: "Group D")

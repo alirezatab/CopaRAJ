@@ -88,7 +88,10 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
       
        let tap = UITapGestureRecognizer(target: self, action: #selector(ChallengeLogInVC.dismissKeyboard))
       self.view.addGestureRecognizer(tap)
-
+        //Ali testing
+        if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil) {
+            self.performSegueWithIdentifier(self.loggedIn, sender: nil)
+        }
       
     }
         
@@ -127,9 +130,9 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
     func loginButton(loginButton: FBSDKLoginButton?, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         
         if error != nil {
-            print(error.localizedDescription)
+            //print(error.localizedDescription)
         } else if result.isCancelled{
-            print(result.isCancelled.description)
+            //print(result.isCancelled.description)
         } else {
             let token = FBSDKAccessToken.currentAccessToken().tokenString
             self.fetchProfile()
@@ -152,7 +155,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                                 //NSUserDefaults.standardUserDefaults().setValue(self.fbID, forKey: "id")
                                 self.performSegueWithIdentifier(self.loggedIn, sender: nil)
                             } else {
-                                print(success)
+                                //print(success)
                             }
                         })
                     }
@@ -176,7 +179,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
         if email != "" && password != ""{
             DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { error, authData in
                 if error != nil {
-                    print(error.localizedDescription);
+                    //print(error.localizedDescription);
                     
                     self.displayErrorAlert("Oops", message: error.localizedDescription)
                     
@@ -190,7 +193,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                         self.textFieldLoginPassword.text = ""
                     } else {
                         //print("regular pass was used")
-                        print(authData.uid)
+                        //print(authData.uid)
                         self.getUserNameFromFireBase(authData.uid)
                         
                     }
@@ -215,7 +218,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                         self.displayErrorAlert("Password reset", message: "Check your inbox to reset your password")
                         
                     } else {
-                        print(error)
+                        //print(error)
                         self.displayErrorAlert("Unidentified email address", message:  "Please re-enter the email you registered with")
                     }
                 })
@@ -252,7 +255,7 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
 
             }
             }) { (error) in
-                print(error.localizedDescription)
+                //print(error.localizedDescription)
         }
     }
     
@@ -276,12 +279,12 @@ class ChallengeLogInVC: UIViewController, FBSDKLoginButtonDelegate, UINavigation
                     if (error == nil) {
                         self.displayErrorAlert("New Password", message: "Pasword has been changed. Please re-enter your new password")
                     } else {
-                        print(error.localizedDescription)
+                        //print(error.localizedDescription)
                         self.displayErrorAlert("Error", message:  error.localizedDescription)
                     }
                 })
             }
-            print("textfield is empty")
+            //print("textfield is empty")
             
         })
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in

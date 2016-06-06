@@ -351,7 +351,7 @@
                     self.matchW29W30.local_abbr = snapshot.value[@"local_abbr"];
                     self.matchW29W30.local_goals = snapshot.value[@"local_goals"];
                     self.matchW29W30.pen1 = snapshot.value[@"pen1"];
-                    BOOL isStrig = [self.matchW29W30.pen1 isKindOfClass:[NSNumber class]];
+                    //BOOL isStrig = [self.matchW29W30.pen1 isKindOfClass:[NSNumber class]];
                     //NSLog(@"%d", isStrig);
                     //NSLog(@"FireBase gave pen1: %@", self.matchW29W30.pen1);
                     
@@ -359,7 +359,7 @@
                     self.matchW29W30.visitor_abbr = snapshot.value[@"visitor_abbr"];
                     self.matchW29W30.visitor_goals = snapshot.value[@"visitor_goals"];
                     self.matchW29W30.pen2 = snapshot.value[@"pen2"];
-                    BOOL strig = [self.matchW29W30.pen2 isKindOfClass:[NSNumber class]];
+                    //BOOL strig = [self.matchW29W30.pen2 isKindOfClass:[NSNumber class]];
                    // NSLog(@"%d", strig);
                     //NSLog(@"FireBase gave pen2: %@", self.matchW29W30.pen2);
                 }

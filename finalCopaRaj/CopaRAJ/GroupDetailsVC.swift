@@ -47,7 +47,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         let ref2 = DataService.dataService.BASE_REF.childByAppendingPath("ChallengeResults")
         ref2.observeEventType(FEventType.Value, withBlock: { (snapshot2) in
           if let tournyResults = snapshot2.value as? NSDictionary {
-            print(tournyResults.valueForKey("Champion"))
+            //print(tournyResults.valueForKey("Champion"))
           self.activityIndicator.stopAnimating()
           self.group?.updateGroupWithDictionary(returnValue, currentResults: tournyResults)
           let sortDescriptor = NSSortDescriptor(key: "points", ascending: false)
@@ -56,7 +56,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
           self.tableView.reloadData()
           }
           }, withCancelBlock: { (error2) in
-            print(error2.localizedDescription)
+            //print(error2.localizedDescription)
         })
         
         
@@ -247,7 +247,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     } else if segue.identifier == "makePicks" {
       let destVC = segue.destinationViewController as! PickGroupVC
       destVC.group = self.group
-      print(self.group!.name)
+      //print(self.group!.name)
     }
   }
   

@@ -40,7 +40,7 @@ class ChallengeGroup: NSObject {
   }
   
   func updateGroupWithDictionary(dictionary : NSDictionary, currentResults : NSDictionary) {
-    print(currentResults)
+    //print(currentResults)
     self.members = NSMutableArray()
     for id in dictionary {
       let idKey = id.key as! String

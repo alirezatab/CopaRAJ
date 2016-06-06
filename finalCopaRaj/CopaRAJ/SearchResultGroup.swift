@@ -35,7 +35,7 @@ class SearchResultGroup : ChallengeGroup {
         if userID == key as! String {
           self.userIsAlreadyMember = true
         }
-        print("\(key) is key \(value) is value")
+        //print("\(key) is key \(value) is value")
       }
     }
   }

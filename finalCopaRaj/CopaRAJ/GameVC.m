@@ -193,27 +193,9 @@
     self.teamTwoScore.text = self.match.visitor_goals;
   } //MARK: Ali Added Status
     else if ([self.match.status isEqualToString:@"5"]){
-        if ([self.match.live_minute isEqualToString:@"45"]) {
-            self.timeLabel.text = @"Half Time";
-            self.teamOneScore.text = self.match.local_goals;
-            self.teamTwoScore.text = self.match.visitor_goals;
-        } else if ([self.match.live_minute isEqualToString:@"90"]){
-            self.timeLabel.text = @"Extra Time";
-            self.teamOneScore.text = self.match.local_goals;
-            self.teamTwoScore.text = self.match.visitor_goals;
-        } else if ([self.match.live_minute isEqualToString:@"105"]){
-            self.timeLabel.text = @"Extra Time Break";
-            self.teamOneScore.text = self.match.local_goals;
-            self.teamTwoScore.text = self.match.visitor_goals;
-        } else if ([self.match.live_minute isEqualToString:@"120"]){
-            self.timeLabel.text = @"Penalty Kicks";
-            self.teamOneScore.text = self.match.local_goals;
-            self.teamTwoScore.text = self.match.visitor_goals;
-        } else {
-            self.timeLabel.text = self.match.live_minute;
-            self.teamOneScore.text = self.match.local_goals;
-            self.teamTwoScore.text = self.match.visitor_goals;
-        }
+        self.timeLabel.text = @"Break";
+        self.teamOneScore.text = self.match.local_goals;
+        self.teamTwoScore.text = self.match.visitor_goals;
     //MARK: Rickys original code
   } else if ([self.match.status isEqualToString:@"1"])  {
     self.timeLabel.text = @"Final";
