@@ -14,6 +14,30 @@
 
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
   @IBOutlet weak var tableView: UITableView!
@@ -31,7 +55,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
 
   
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidesWhenStopped = true
@@ -41,21 +65,21 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   func getGroupDetailsFromFirebase() {
     let groupID = self.group?.groupID as! String
     let ref = Firebase(url: "https://fiery-inferno-5799.firebaseio.com/ChallengeGroups/\(groupID)")
-    ref.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) in
-      if let returnValue = snapshot.value as? NSDictionary {
+    ref?.observeSingleEvent(of: FEventType.value, with: { (snapshot) in
+      if let returnValue = snapshot?.value as? NSDictionary {
         
-        let ref2 = DataService.dataService.BASE_REF.childByAppendingPath("ChallengeResults")
-        ref2.observeEventType(FEventType.Value, withBlock: { (snapshot2) in
-          if let tournyResults = snapshot2.value as? NSDictionary {
+        let ref2 = DataService.dataService.BASE_REF.child(byAppendingPath: "ChallengeResults")
+        ref2?.observe(FEventType.value, with: { (snapshot2) in
+          if let tournyResults = snapshot2?.value as? NSDictionary {
             //print(tournyResults.valueForKey("Champion"))
           self.activityIndicator.stopAnimating()
           self.group?.updateGroupWithDictionary(returnValue, currentResults: tournyResults)
           let sortDescriptor = NSSortDescriptor(key: "points", ascending: false)
           let descriptors = [sortDescriptor]
-          self.group?.members?.sortUsingDescriptors(descriptors)
+          self.group?.members?.sort(using: descriptors)
           self.tableView.reloadData()
           }
-          }, withCancelBlock: { (error2) in
+          }, withCancel: { (error2) in
             //print(error2.localizedDescription)
         })
         
@@ -70,7 +94,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
   
   
-  @IBAction func onInviteFriendsPressed(sender: UIButton) {
+  @IBAction func onInviteFriendsPressed(_ sender: UIButton) {
     self.displayShareSheet()
   }
  
@@ -82,11 +106,11 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     let shareContent = "Downlaod Copa Club https://appsto.re/us/rhspcb.i and join my Copa Challenge \"\(groupName!)\". The password is \"\(password!)\""
     let shareSheet = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
     
-    presentViewController(shareSheet, animated: true, completion: nil)
+    present(shareSheet, animated: true, completion: nil)
     
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if section == 0 {
       return 1
     } else {
@@ -98,13 +122,13 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
   }
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return 2
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if indexPath.section == 0  {
-      let cell = tableView.dequeueReusableCellWithIdentifier("GroupDetailsCell") as! GroupDetailsCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: "GroupDetailsCell") as! GroupDetailsCell
       let shouldAllowSharing = self.shouldAllowSharing()
     cell.createdBy.text = "Created by \(self.group!.createdBy as! String) "
 
@@ -121,48 +145,48 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.makePicksButton.layer.masksToBounds = true
         
       if shouldAllowSharing == false {
-        cell.inviteButton.enabled = false
+        cell.inviteButton.isEnabled = false
         //cell.inviteButton.hidden = true
-        cell.inviteButton.backgroundColor = UIColor.clearColor()
-        cell.inviteButton.tintColor = UIColor.clearColor()
+        cell.inviteButton.backgroundColor = UIColor.clear
+        cell.inviteButton.tintColor = UIColor.clear
       } else {
-        cell.inviteButton.enabled = true
-        cell.inviteButton.hidden = false
+        cell.inviteButton.isEnabled = true
+        cell.inviteButton.isHidden = false
       }
       
       let shouldBeAllowedToStillMakePicks = self.checkDate()
       if shouldBeAllowedToStillMakePicks == false || self.group?.userHasMadePicks == true {
-        cell.makePicksButton.enabled = false
+        cell.makePicksButton.isEnabled = false
         //cell.makePicksButton.hidden = true
-        cell.makePicksButton.backgroundColor = UIColor.clearColor()
-        cell.makePicksButton.tintColor = UIColor.clearColor()
+        cell.makePicksButton.backgroundColor = UIColor.clear
+        cell.makePicksButton.tintColor = UIColor.clear
       } else if shouldBeAllowedToStillMakePicks == true && self.group?.userHasMadePicks == false {
-        cell.makePicksButton.enabled = true
-        cell.makePicksButton.hidden = false
+        cell.makePicksButton.isEnabled = true
+        cell.makePicksButton.isHidden = false
       }
       return cell
     } else {
     
-    let cell = tableView.dequeueReusableCellWithIdentifier("playerCell") as! PlayerStandingCell
-    let user = self.group?.members?.objectAtIndex(indexPath.row) as! ChallengeUser
+    let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell") as! PlayerStandingCell
+    let user = self.group?.members?.object(at: indexPath.row) as! ChallengeUser
     cell.playerLabel.text = "\(user.firstName!)  \(user.lastName!)"
     cell.ptsLabel.text = "\(user.points) pts"
       if self.group?.userHasMadePicks == true {
-    cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
       }
     return cell
     }
   }
   
   func shouldAllowSharing() -> Bool {
-    let date1 = NSDate()
+    let date1 = Date()
     
     let dateString = "2016-06-07" // change to your date format
     
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
     
-    let date2 = dateFormatter.dateFromString(dateString)!
+    let date2 = dateFormatter.date(from: dateString)!
     
     if date1.timeIntervalSinceReferenceDate > date2.timeIntervalSinceReferenceDate {
       return false
@@ -182,7 +206,7 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
   }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section != 0 {
             return 50
         } else {
@@ -191,19 +215,19 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //let screenBound = UIScreen.mainScreen().bounds
         //let screensize = screenBound.size
         //let screenwidth = screensize.width
         
-        let headerView = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, 18))
+        let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 18))
         
-        let groupDetailsLabel = UILabel.init(frame: CGRectMake(20, 0, self.view.frame.size.width / 2, 45))
+        let groupDetailsLabel = UILabel.init(frame: CGRect(x: 20, y: 0, width: self.view.frame.size.width / 2, height: 45))
         
         //CGRectMake(20, 5, screenwidth/2, 45)
         groupDetailsLabel.font = UIFont.init(name: "GothamMedium", size: 15)
         groupDetailsLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
-        groupDetailsLabel.textAlignment = NSTextAlignment.Left
+        groupDetailsLabel.textAlignment = NSTextAlignment.left
         
         headerView.backgroundColor = UIColor.init(white: 0.969, alpha: 1.000)//your background
         
@@ -218,11 +242,11 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return headerView;
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
   
-  func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+  func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
     if indexPath.section == 0 {
       return false
     } else if self.group?.userHasMadePicks == true {
@@ -232,45 +256,45 @@ class GroupDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
   }
   
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if indexPath.section != 0 {
-      self.performSegueWithIdentifier("pickDetails", sender: indexPath)
+      self.performSegue(withIdentifier: "pickDetails", sender: indexPath)
     }
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "pickDetails" {
-      let indexPath = sender as! NSIndexPath
-      let user = self.group?.members?.objectAtIndex(indexPath.row) as! ChallengeUser
-      let destVC = segue.destinationViewController as! PickDetailsVC
+      let indexPath = sender as! IndexPath
+      let user = self.group?.members?.object(at: indexPath.row) as! ChallengeUser
+      let destVC = segue.destination as! PickDetailsVC
       destVC.member = user
     } else if segue.identifier == "makePicks" {
-      let destVC = segue.destinationViewController as! PickGroupVC
+      let destVC = segue.destination as! PickGroupVC
       destVC.group = self.group
       //print(self.group!.name)
     }
   }
   
-  override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     
   }
   
     
     
-  @IBAction func unwindToGroupDetails(segue: UIStoryboardSegue) {
+  @IBAction func unwindToGroupDetails(_ segue: UIStoryboardSegue) {
     
   }
   
   func checkDate() -> Bool {
     var returnVal = false
-    let date1 = NSDate()
+    let date1 = Date()
     
     let dateString = "2016-06-07" // change to your date format
     
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
     
-    let date2 = dateFormatter.dateFromString(dateString)!
+    let date2 = dateFormatter.date(from: dateString)!
     
     //print("\(date1)  \(date2)")
     

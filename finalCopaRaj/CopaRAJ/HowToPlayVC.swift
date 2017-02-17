@@ -16,16 +16,16 @@ class HowToPlayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.RulesTextView?.scrollEnabled = false
+        self.RulesTextView?.isScrollEnabled = false
         
-        self.rulesInGroupHomeTextView?.scrollEnabled = false
+        self.rulesInGroupHomeTextView?.isScrollEnabled = false
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        RulesTextView?.scrollEnabled = true
+    override func viewDidAppear(_ animated: Bool) {
+        RulesTextView?.isScrollEnabled = true
     
-        self.rulesInGroupHomeTextView?.scrollEnabled = true
+        self.rulesInGroupHomeTextView?.isScrollEnabled = true
     }
 
     override func didReceiveMemoryWarning() {

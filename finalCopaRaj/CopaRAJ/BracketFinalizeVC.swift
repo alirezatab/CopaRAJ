@@ -87,17 +87,17 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
       self.navigationItem.hidesBackButton = true
       
        // print(groupsPassedOver)
-        let group1 = self.groupsPassedOver.objectAtIndex(0) as! CopaAmericaGroup
-        let group2 = self.groupsPassedOver.objectAtIndex(1) as! CopaAmericaGroup
-        let group3 = self.groupsPassedOver.objectAtIndex(2) as! CopaAmericaGroup
-        let group4 = self.groupsPassedOver.objectAtIndex(3) as! CopaAmericaGroup
+        let group1 = self.groupsPassedOver.object(at: 0) as! CopaAmericaGroup
+        let group2 = self.groupsPassedOver.object(at: 1) as! CopaAmericaGroup
+        let group3 = self.groupsPassedOver.object(at: 2) as! CopaAmericaGroup
+        let group4 = self.groupsPassedOver.object(at: 3) as! CopaAmericaGroup
         
         //groupA
-        self.teamA1 = group1.teams?.objectAtIndex(0) as? ChallengeTeam
-        self.teamA2 = group1.teams?.objectAtIndex(1) as? ChallengeTeam
+        self.teamA1 = group1.teams?.object(at: 0) as? ChallengeTeam
+        self.teamA2 = group1.teams?.object(at: 1) as? ChallengeTeam
         //groupB
-        self.teamB1 = group2.teams?.objectAtIndex(0) as? ChallengeTeam
-        self.teamB2 = group2.teams?.objectAtIndex(1) as? ChallengeTeam
+        self.teamB1 = group2.teams?.object(at: 0) as? ChallengeTeam
+        self.teamB2 = group2.teams?.object(at: 1) as? ChallengeTeam
         
          self.A1B2Winner = ChallengeTeam(name: "Pick Your Team")
         self.B1A2Winner = ChallengeTeam(name: "Pick Your Team")
@@ -111,11 +111,11 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
 
 
         //groupC
-        self.teamC1 = group3.teams?.objectAtIndex(0) as? ChallengeTeam
-        self.teamC2 = group3.teams?.objectAtIndex(1) as? ChallengeTeam
+        self.teamC1 = group3.teams?.object(at: 0) as? ChallengeTeam
+        self.teamC2 = group3.teams?.object(at: 1) as? ChallengeTeam
         //groupD
-        self.teamD1 = group4.teams?.objectAtIndex(0) as? ChallengeTeam
-        self.teamD2 = group4.teams?.objectAtIndex(1) as? ChallengeTeam
+        self.teamD1 = group4.teams?.object(at: 0) as? ChallengeTeam
+        self.teamD2 = group4.teams?.object(at: 1) as? ChallengeTeam
         
         self.teamW25 = ChallengeTeam(name: "Pick Your Team")
         self.teamW26 = ChallengeTeam(name: "Pick Your Team")
@@ -142,9 +142,9 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         self.playOffMatches = NSMutableArray()
       
       //double check
-        self.playOffMatches?.addObjectsFromArray([self.matchA1B2!, self.matchD1C2!, self.matchB1A2!,  self.matchC1D2!, self.matchW25W27!, self.matchW26W28!, self.matchW29W30!, self.tournmentChampion!])
+        self.playOffMatches?.addObjects(from: [self.matchA1B2!, self.matchD1C2!, self.matchB1A2!,  self.matchC1D2!, self.matchW25W27!, self.matchW26W28!, self.matchW29W30!, self.tournmentChampion!])
         
-        self.finalizeButton.enabled = false
+        self.finalizeButton.isEnabled = false
     }
     
     func resetNonWinner() {
@@ -152,10 +152,10 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     // MARK: UICollectionViewDelegate, UICollectionViewDataSource
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = self.BrackeChallangeCollectionView.dequeueReusableCellWithReuseIdentifier("ChallangeCell", forIndexPath: indexPath) as! BracketCell
-        let cellFinal = self.BrackeChallangeCollectionView.dequeueReusableCellWithReuseIdentifier("ChallangeFinalCell", forIndexPath: indexPath) as! BracketCell
+        let cell = self.BrackeChallangeCollectionView.dequeueReusableCell(withReuseIdentifier: "ChallangeCell", for: indexPath) as! BracketCell
+        let cellFinal = self.BrackeChallangeCollectionView.dequeueReusableCell(withReuseIdentifier: "ChallangeFinalCell", for: indexPath) as! BracketCell
         
         cell.layer.cornerRadius = 10.0
         cell.contentView.layer.masksToBounds = true
@@ -166,47 +166,47 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         switch indexPath.section {
         case 0:
             self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex(indexPath.row) as! NSMutableArray)
+            self.miniArray = (self.playOffMatches?.object(at: indexPath.row) as! NSMutableArray)
             
-            let homeTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            let homeTeam = self.miniArray?.object(at: 0) as! ChallengeTeam
             cell.homeTeamImageView.image = UIImage.init(named: homeTeam.name as! String)
             cell.homeTeamLabel.text = homeTeam.name as? String
             
-            let visitorTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+            let visitorTeam = self.miniArray?.object(at: 1) as! ChallengeTeam
             cell.visitorTeamImageView.image = UIImage(named: visitorTeam.name as! String)
             cell.visitorTeamLabel.text = visitorTeam.name as? String
             
             return cell
         case 1:
             self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex(indexPath.row+4) as! NSMutableArray)
+            self.miniArray = (self.playOffMatches?.object(at: indexPath.row+4) as! NSMutableArray)
             
-            let homeTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            let homeTeam = self.miniArray?.object(at: 0) as! ChallengeTeam
             cell.homeTeamImageView.image = UIImage.init(named: homeTeam.name as! String)
             cell.homeTeamLabel.text = homeTeam.name as? String
             
-            let visitorTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+            let visitorTeam = self.miniArray?.object(at: 1) as! ChallengeTeam
             cell.visitorTeamImageView.image = UIImage(named: visitorTeam.name as! String)
             cell.visitorTeamLabel.text = visitorTeam.name as? String
             
             return cell
         case 2:
             self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex(indexPath.row+6) as! NSMutableArray)
+            self.miniArray = (self.playOffMatches?.object(at: indexPath.row+6) as! NSMutableArray)
             
-            let homeTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            let homeTeam = self.miniArray?.object(at: 0) as! ChallengeTeam
             cell.homeTeamImageView.image = UIImage(named: homeTeam.name as! String)
             cell.homeTeamLabel.text = homeTeam.name as? String
             
-            let visitorTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+            let visitorTeam = self.miniArray?.object(at: 1) as! ChallengeTeam
             cell.visitorTeamImageView.image = UIImage(named: visitorTeam.name as! String)
             cell.visitorTeamLabel.text = visitorTeam.name as? String
             return cell
         case 3:
             self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex(indexPath.row+7) as! NSMutableArray)
+            self.miniArray = (self.playOffMatches?.object(at: indexPath.row+7) as! NSMutableArray)
             
-            let teamChampion = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            let teamChampion = self.miniArray?.object(at: 0) as! ChallengeTeam
             
             cellFinal.winnerTeamImageView.image = UIImage(named: teamChampion.name as! String)
             cellFinal.winnerTeamLabel.text = teamChampion.name as? String
@@ -219,7 +219,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return (self.groupsPassedOver?.count)!
         } else if section == 1 {
@@ -228,18 +228,18 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
             return ((self.groupsPassedOver?.count)!/(self.groupsPassedOver?.count)!)
         }
     }
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return (self.groupsPassedOver?.count)!
     }
 
     // MARK: UICollectionViewDelegateFlowLayout
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         self.cellHeight = (self.BrackeChallangeCollectionView.bounds.size.height-self.topInset-self.bottomInset-60)/4;
         self.cellWidth = self.BrackeChallangeCollectionView.bounds.size.width/1.5;
-        return CGSizeMake(self.cellWidth, self.cellHeight);
+        return CGSize(width: self.cellWidth, height: self.cellHeight);
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         if section == 0 {
             return UIEdgeInsetsMake(self.topInset, 30, self.bottomInset, 0)
         } else if section == 1 {
@@ -249,7 +249,7 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         }
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         if section == 0 {
             self.minimumInteritemSpacing = 10
             return self.minimumInteritemSpacing
@@ -262,17 +262,17 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         }
     }
     
-    @IBAction func onPickPossiblePlayoffHomeTeamsButtonPressed(sender: UIButton) {
+    @IBAction func onPickPossiblePlayoffHomeTeamsButtonPressed(_ sender: UIButton) {
         
-        let buttonPoint = sender.convertPoint(CGPointZero, toView: BrackeChallangeCollectionView)
+        let buttonPoint = sender.convert(CGPoint.zero, to: BrackeChallangeCollectionView)
         //print(buttonPoint)
-        let indexPath = BrackeChallangeCollectionView.indexPathForItemAtPoint(buttonPoint)
+        let indexPath = BrackeChallangeCollectionView.indexPathForItem(at: buttonPoint)
         
         if indexPath?.section == 0 {
             self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!) as! NSMutableArray)
+            self.miniArray = (self.playOffMatches?.object(at: (indexPath?.row)!) as! NSMutableArray)
             
-            let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            let selectedTeam = self.miniArray?.object(at: 0) as! ChallengeTeam
            // print(selectedTeam.name)
             if indexPath?.row == 0 {
                 self.A1B2Winner?.name = selectedTeam.name
@@ -285,9 +285,9 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
             }
         } else if indexPath?.section == 1 {
             self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+4) as! NSMutableArray)
+            self.miniArray = (self.playOffMatches?.object(at: (indexPath?.row)!+4) as! NSMutableArray)
             
-            let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            let selectedTeam = self.miniArray?.object(at: 0) as! ChallengeTeam
             if indexPath?.row == 0 {
                 self.W25W27Winner?.name = selectedTeam.name
             } else if indexPath?.row == 1 {
@@ -295,9 +295,9 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
             }
         } else {
             self.miniArray = NSMutableArray()
-            self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+6) as! NSMutableArray)
+            self.miniArray = (self.playOffMatches?.object(at: (indexPath?.row)!+6) as! NSMutableArray)
             
-            let selectedTeam = self.miniArray?.objectAtIndex(0) as! ChallengeTeam
+            let selectedTeam = self.miniArray?.object(at: 0) as! ChallengeTeam
             //print(selectedTeam.name)
             self.W29W30Winner?.name = selectedTeam.name
         }
@@ -312,35 +312,35 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     }
     let finalizeEnabled = self.checkFinalize()
     if finalizeEnabled {
-      self.finalizeButton.enabled = true
-        self.finalizeButton.tintColor = UIColor.whiteColor()
+      self.finalizeButton.isEnabled = true
+        self.finalizeButton.tintColor = UIColor.white
     } else {
-      self.finalizeButton.enabled = false
-        self.finalizeButton.tintColor = UIColor.lightGrayColor()
+      self.finalizeButton.isEnabled = false
+        self.finalizeButton.tintColor = UIColor.lightGray
       
     }
   }
   
-  func checkMatchArrayForWinnerMatch(match: NSMutableArray) {
-    let winner = match.objectAtIndex(2) as! ChallengeTeam
-    let local = match.objectAtIndex(0) as! ChallengeTeam
-    let visitor = match.objectAtIndex(1) as! ChallengeTeam
+  func checkMatchArrayForWinnerMatch(_ match: NSMutableArray) {
+    let winner = match.object(at: 2) as! ChallengeTeam
+    let local = match.object(at: 0) as! ChallengeTeam
+    let visitor = match.object(at: 1) as! ChallengeTeam
     if winner.name != local.name && winner.name != visitor.name{
       self.resetNonWinner()
       winner.name = self.nonWinnner?.name
     }
   }
     
-    @IBAction func onPickPossiblePlayoffVisitorTeamsButtonPressed(sender: UIButton) {
-      let buttonPoint = sender.convertPoint(CGPointZero, toView: BrackeChallangeCollectionView)
+    @IBAction func onPickPossiblePlayoffVisitorTeamsButtonPressed(_ sender: UIButton) {
+      let buttonPoint = sender.convert(CGPoint.zero, to: BrackeChallangeCollectionView)
       //print(buttonPoint)
-      let indexPath = BrackeChallangeCollectionView.indexPathForItemAtPoint(buttonPoint)
+      let indexPath = BrackeChallangeCollectionView.indexPathForItem(at: buttonPoint)
       
       if indexPath?.section == 0 {
         self.miniArray = NSMutableArray()
-        self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!) as! NSMutableArray)
+        self.miniArray = (self.playOffMatches?.object(at: (indexPath?.row)!) as! NSMutableArray)
         
-        let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+        let selectedTeam = self.miniArray?.object(at: 1) as! ChallengeTeam
         //print(selectedTeam.name)
         if indexPath?.row == 0 {
           self.A1B2Winner?.name = selectedTeam.name
@@ -353,9 +353,9 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         }
       } else if indexPath?.section == 1 {
         self.miniArray = NSMutableArray()
-        self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+4) as! NSMutableArray)
+        self.miniArray = (self.playOffMatches?.object(at: (indexPath?.row)!+4) as! NSMutableArray)
         
-        let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+        let selectedTeam = self.miniArray?.object(at: 1) as! ChallengeTeam
         if indexPath?.row == 0 {
           self.W25W27Winner?.name = selectedTeam.name
         } else if indexPath?.row == 1 {
@@ -363,9 +363,9 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
         }
       } else {
         self.miniArray = NSMutableArray()
-        self.miniArray = (self.playOffMatches?.objectAtIndex((indexPath?.row)!+6) as! NSMutableArray)
+        self.miniArray = (self.playOffMatches?.object(at: (indexPath?.row)!+6) as! NSMutableArray)
         
-        let selectedTeam = self.miniArray?.objectAtIndex(1) as! ChallengeTeam
+        let selectedTeam = self.miniArray?.object(at: 1) as! ChallengeTeam
         //print(selectedTeam.name)
         self.W29W30Winner?.name = selectedTeam.name
       }
@@ -396,38 +396,38 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     return enableButton
   }
   
-    @IBAction func onFinalizeButtonPressed(sender: UIBarButtonItem) {
+    @IBAction func onFinalizeButtonPressed(_ sender: UIBarButtonItem) {
         let finalPicks = self.createFinalPicks()
         self.updateUserPicksToGroup(finalPicks, group: self.group!)
     }
   
   func createFinalPicks() -> NSDictionary {
     
-    let firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as? String
-    let lastName = NSUserDefaults.standardUserDefaults().valueForKey("lastName") as? String
-    let groupA = self.groupsPassedOver.objectAtIndex(0) as! CopaAmericaGroup
-    let GroupAWinner = groupA.teams?.objectAtIndex(0) as! ChallengeTeam
-    let GroupARunnerUP = groupA.teams?.objectAtIndex(1) as! ChallengeTeam
-    let GroupAThirdPlace = groupA.teams?.objectAtIndex(2) as! ChallengeTeam
-    let GroupAFourthPlace = groupA.teams?.objectAtIndex(3) as! ChallengeTeam
+    let firstName = UserDefaults.standard.value(forKey: "firstName") as? String
+    let lastName = UserDefaults.standard.value(forKey: "lastName") as? String
+    let groupA = self.groupsPassedOver.object(at: 0) as! CopaAmericaGroup
+    let GroupAWinner = groupA.teams?.object(at: 0) as! ChallengeTeam
+    let GroupARunnerUP = groupA.teams?.object(at: 1) as! ChallengeTeam
+    let GroupAThirdPlace = groupA.teams?.object(at: 2) as! ChallengeTeam
+    let GroupAFourthPlace = groupA.teams?.object(at: 3) as! ChallengeTeam
     
-    let groupB = self.groupsPassedOver.objectAtIndex(1) as! CopaAmericaGroup
-    let GroupBWinner = groupB.teams?.objectAtIndex(0) as! ChallengeTeam
-    let GroupBRunnerUP = groupB.teams?.objectAtIndex(1) as! ChallengeTeam
-    let GroupBThirdPlace = groupB.teams?.objectAtIndex(2) as! ChallengeTeam
-    let GroupBFourthPlace = groupB.teams?.objectAtIndex(3) as! ChallengeTeam
+    let groupB = self.groupsPassedOver.object(at: 1) as! CopaAmericaGroup
+    let GroupBWinner = groupB.teams?.object(at: 0) as! ChallengeTeam
+    let GroupBRunnerUP = groupB.teams?.object(at: 1) as! ChallengeTeam
+    let GroupBThirdPlace = groupB.teams?.object(at: 2) as! ChallengeTeam
+    let GroupBFourthPlace = groupB.teams?.object(at: 3) as! ChallengeTeam
     
-    let groupC = self.groupsPassedOver.objectAtIndex(2) as! CopaAmericaGroup
-    let GroupCWinner = groupC.teams?.objectAtIndex(0) as! ChallengeTeam
-    let GroupCRunnerUP = groupC.teams?.objectAtIndex(1) as! ChallengeTeam
-    let GroupCThirdPlace = groupC.teams?.objectAtIndex(2) as! ChallengeTeam
-    let GroupCFourthPlace = groupC.teams?.objectAtIndex(3) as! ChallengeTeam
+    let groupC = self.groupsPassedOver.object(at: 2) as! CopaAmericaGroup
+    let GroupCWinner = groupC.teams?.object(at: 0) as! ChallengeTeam
+    let GroupCRunnerUP = groupC.teams?.object(at: 1) as! ChallengeTeam
+    let GroupCThirdPlace = groupC.teams?.object(at: 2) as! ChallengeTeam
+    let GroupCFourthPlace = groupC.teams?.object(at: 3) as! ChallengeTeam
     
-    let groupD = self.groupsPassedOver.objectAtIndex(3) as! CopaAmericaGroup
-    let GroupDWinner = groupD.teams?.objectAtIndex(0) as! ChallengeTeam
-    let GroupDRunnerUP = groupD.teams?.objectAtIndex(1) as! ChallengeTeam
-    let GroupDThirdPlace = groupD.teams?.objectAtIndex(2) as! ChallengeTeam
-    let GroupDFourthPlace = groupD.teams?.objectAtIndex(3) as! ChallengeTeam
+    let groupD = self.groupsPassedOver.object(at: 3) as! CopaAmericaGroup
+    let GroupDWinner = groupD.teams?.object(at: 0) as! ChallengeTeam
+    let GroupDRunnerUP = groupD.teams?.object(at: 1) as! ChallengeTeam
+    let GroupDThirdPlace = groupD.teams?.object(at: 2) as! ChallengeTeam
+    let GroupDFourthPlace = groupD.teams?.object(at: 3) as! ChallengeTeam
     
     let userPickDetails = ["GroupAWinner": GroupAWinner.name as! String,
                            "GroupARunnerUP": GroupARunnerUP.name as! String,
@@ -455,14 +455,14 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
                            "firstName":firstName! as String,
                            "lastName": lastName! as String]
     
-    return userPickDetails
+    return userPickDetails as NSDictionary
   }
   
-  func updateUserPicksToGroup(picks : NSDictionary,group: ChallengeGroup) {
+  func updateUserPicksToGroup(_ picks : NSDictionary,group: ChallengeGroup) {
     //print(self.group?.groupID as! String)
-    let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
-    let ref = DataService.dataService.CHALLENGEGROUPS_REF.childByAppendingPath(self.group!.groupID as! String).childByAppendingPath(uid)
-    ref.setValue(picks) { (error, ref) in
+    let uid = UserDefaults.standard.value(forKey: "uid") as! String
+    let ref = DataService.dataService.CHALLENGEGROUPS_REF.child(byAppendingPath: self.group!.groupID as! String).child(byAppendingPath: uid)
+    ref?.setValue(picks) { (error, ref) in
       if let wasAnError = error {
         //print(wasAnError.localizedDescription)
       } else {
@@ -471,15 +471,15 @@ class BracketFinalizeVC: UIViewController, UICollectionViewDelegate, UICollectio
     }
   }
   
-  func presentPicksAddedToGroup (group : ChallengeGroup) {
-    let alert = UIAlertController(title: "Success", message: "Your picks have been added to \(group.name!). You can now see other member's picks!", preferredStyle: .Alert)
-    let ok = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+  func presentPicksAddedToGroup (_ group : ChallengeGroup) {
+    let alert = UIAlertController(title: "Success", message: "Your picks have been added to \(group.name!). You can now see other member's picks!", preferredStyle: .alert)
+    let ok = UIAlertAction(title: "OK", style: .cancel) { (action) in
       let count = self.navigationController?.viewControllers.count
       let groupDetails = self.navigationController?.viewControllers[(count!-3)]
       self.navigationController?.popToViewController(groupDetails!, animated: false)
     }
     alert.addAction(ok)
-    self.presentViewController(alert, animated: true) {
+    self.present(alert, animated: true) {
     }
   
   }

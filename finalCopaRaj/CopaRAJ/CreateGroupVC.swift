@@ -7,6 +7,30 @@
 //
 //fix cell for row for the groups home
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 
 
@@ -33,12 +57,12 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     // Ali: hides white bar that shows on top of naagation Bar
     //self.navigationItem.hidesBackButton = true;
         
-      self.finalizeButton.backgroundColor = UIColor.grayColor()
-      self.finalizeButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
+      self.finalizeButton.backgroundColor = UIColor.gray
+      self.finalizeButton.setTitleColor(UIColor.white, for: UIControlState.disabled)
       self.title = "Create Challenge"
-      self.finalizeButton.enabled = false
-      self.activityIndicator.hidden = true
-      self.groupHelpLabel.hidden = true
+      self.finalizeButton.isEnabled = false
+      self.activityIndicator.isHidden = true
+      self.groupHelpLabel.isHidden = true
       self.imageName = "avatar2"
       
       let tap = UITapGestureRecognizer(target: self, action: #selector(CreateGroupVC.dismissKeyboard))
@@ -53,10 +77,10 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   func checkIfFinalizeButtonShouldBeEnabled() {
     //phone is updating web
     if self.isUpdating == true {
-      self.groupHelpLabel.hidden = true
+      self.groupHelpLabel.isHidden = true
       self.groupHelpLabel.text = ""
-      self.finalizeButton.enabled = false
-      self.finalizeButton.backgroundColor = UIColor.grayColor()
+      self.finalizeButton.isEnabled = false
+      self.finalizeButton.backgroundColor = UIColor.gray
     }
      //success
     else if groupNameTextField.text?.characters.count > 0 &&
@@ -64,37 +88,37 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       passwordConfirmationTextField.text?.characters.count > 4 &&
       passwordTextField.text == passwordConfirmationTextField.text
     {
-      self.finalizeButton.enabled = true
+      self.finalizeButton.isEnabled = true
       self.finalizeButton.backgroundColor = UIColor(red: 28.0/255.0, green: 205.0/255.0, blue: 3.0/255.0, alpha: 1)
       
-      self.groupHelpLabel.hidden = true
+      self.groupHelpLabel.isHidden = true
     }
       
       //group  name too lonh
     else if groupNameTextField.text?.characters.count > 35
     {
-      self.groupHelpLabel.hidden = false
+      self.groupHelpLabel.isHidden = false
       self.groupHelpLabel.text = "Group Name Too Long"
-      self.finalizeButton.enabled = false
-      self.finalizeButton.backgroundColor = UIColor.grayColor()
+      self.finalizeButton.isEnabled = false
+      self.finalizeButton.backgroundColor = UIColor.gray
     }
       
       //group name not entered
     else if groupNameTextField.text?.characters.count < 1
     {
-      self.groupHelpLabel.hidden = false
+      self.groupHelpLabel.isHidden = false
       self.groupHelpLabel.text = "Please enter a group name"
-      self.finalizeButton.enabled = false
-      self.finalizeButton.backgroundColor = UIColor.grayColor()
+      self.finalizeButton.isEnabled = false
+      self.finalizeButton.backgroundColor = UIColor.gray
     }
       //password is too short
     else if passwordTextField.text?.characters.count < 5 && passwordTextField.text?.characters.count > 0
     {
     
-      self.groupHelpLabel.hidden = false
+      self.groupHelpLabel.isHidden = false
       self.groupHelpLabel.text = "Password is too short"
-      self.finalizeButton.enabled = false
-      self.finalizeButton.backgroundColor = UIColor.grayColor()
+      self.finalizeButton.isEnabled = false
+      self.finalizeButton.backgroundColor = UIColor.gray
       
     }
       
@@ -103,10 +127,10 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       passwordConfirmationTextField.text == ""
     {
       
-      self.groupHelpLabel.hidden = false
+      self.groupHelpLabel.isHidden = false
       self.groupHelpLabel.text = "Please confirm the password"
-      self.finalizeButton.enabled = false
-      self.finalizeButton.backgroundColor = UIColor.grayColor()
+      self.finalizeButton.isEnabled = false
+      self.finalizeButton.backgroundColor = UIColor.gray
       
     }
       
@@ -117,10 +141,10 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       passwordTextField.text != passwordConfirmationTextField.text
     {
       
-      self.groupHelpLabel.hidden = false
+      self.groupHelpLabel.isHidden = false
       self.groupHelpLabel.text = "Passwords do not match"
-      self.finalizeButton.enabled = false
-      self.finalizeButton.backgroundColor = UIColor.grayColor()
+      self.finalizeButton.isEnabled = false
+      self.finalizeButton.backgroundColor = UIColor.gray
     }
     
     
@@ -130,55 +154,55 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
       passwordConfirmationTextField.text?.characters.count == 0
     {
       
-      self.groupHelpLabel.hidden = true
+      self.groupHelpLabel.isHidden = true
       self.groupHelpLabel.text = ""
-      self.finalizeButton.enabled = false
-      self.finalizeButton.backgroundColor = UIColor.grayColor()
+      self.finalizeButton.isEnabled = false
+      self.finalizeButton.backgroundColor = UIColor.gray
     }
 
   }
   
-  func textFieldDidEndEditing(textField: UITextField) {
+  func textFieldDidEndEditing(_ textField: UITextField) {
     self.checkIfFinalizeButtonShouldBeEnabled()
   }
   
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
     return true
   }
 
-  @IBAction func onFinalizeButtonPressed(sender: AnyObject) {
-    let newGroup = ChallengeGroup(name: self.groupNameTextField.text!, password: self.passwordTextField.text!, imageName: self.imageName!)
-    self.activityIndicator.hidden = false
+  @IBAction func onFinalizeButtonPressed(_ sender: AnyObject) {
+    let newGroup = ChallengeGroup(name: self.groupNameTextField.text! as NSString, password: self.passwordTextField.text! as NSString, imageName: self.imageName!)
+    self.activityIndicator.isHidden = false
     self.activityIndicator.startAnimating()
     self.createFireBaseGroup(newGroup)
     
   }
   
-  func createFireBaseGroup(passedGroup: ChallengeGroup) {
+  func createFireBaseGroup(_ passedGroup: ChallengeGroup) {
     self.isUpdating = true
     self.checkIfFinalizeButtonShouldBeEnabled()
     let ref = DataService.dataService.CHALLENGEGROUPS_REF
-    ref.queryOrderedByChild("name").queryEqualToValue(passedGroup.name)
-    .observeSingleEventOfType (FEventType.Value, withBlock: { (snapshot) in
+    ref.queryOrdered(byChild: "name").queryEqual(toValue: passedGroup.name)
+    .observeSingleEvent (of: FEventType.value, with: { (snapshot) in
       
       //print(snapshot.value)
       
-      if (snapshot.value) === NSNull() {
+      if (snapshot?.value) === NSNull() {
         
-        let firstName = NSUserDefaults.standardUserDefaults().valueForKey("firstName") as? String
-        let lastName = NSUserDefaults.standardUserDefaults().valueForKey("lastName") as? String
+        let firstName = UserDefaults.standard.value(forKey: "firstName") as? String
+        let lastName = UserDefaults.standard.value(forKey: "lastName") as? String
         
         let newFBGroup = ref.childByAutoId()
-        let newGroupDetails = ["name": passedGroup.name!, "password": passedGroup.password!, "imageName": passedGroup.imageName!, "admin":DataService.dataService.CURRENT_USER_REF.key, "createdBy": "\(firstName! as String) \(lastName! as String)"]
-        newFBGroup.setValue(newGroupDetails)
+        let newGroupDetails = ["name": passedGroup.name!, "password": passedGroup.password!, "imageName": passedGroup.imageName!, "admin":DataService.dataService.CURRENT_USER_REF.key, "createdBy": "\(firstName! as String) \(lastName! as String)"] as [String : Any]
+        newFBGroup?.setValue(newGroupDetails)
         
-        let newUsersListFirstMember = newFBGroup.childByAppendingPath(DataService.dataService.CURRENT_USER_REF.key)
+        let newUsersListFirstMember = newFBGroup?.child(byAppendingPath: DataService.dataService.CURRENT_USER_REF.key)
         
        
         let userPickDetails = ["GroupAWinner": "", "GroupARunnerUP": "", "GroupAThirdPlace": "", "GroupAFourthPlace": "", "GroupBWinner": "", "GroupBRunnerUP": "", "GroupBThirdPlace": "", "GroupBFourthPlace": "", "GroupCWinner": "", "GroupCRunnerUP": "", "GroupCThirdPlace": "", "GroupCFourthPlace": "", "GroupDWinner": "", "GroupDRunnerUP": "", "GroupDThirdPlace": "", "GroupDFourthPlace": "", "SemifinalistTeam1":"", "SemifinalistTeam2":"", "SemifinalistTeam3":"", "SemifinalistTeam4":"", "FinalistTeam1": "", "FinalistTeam2":"", "Champion": "", "firstName":firstName! as String, "lastName": lastName! as String]
         
-        newUsersListFirstMember.setValue(userPickDetails)
+        newUsersListFirstMember?.setValue(userPickDetails)
         DataService.dataService.updateCurrentUserWithGroupID(newFBGroup.key, groupImage: passedGroup.imageName!, groupName: passedGroup.name as! String, createdBy: "\(firstName!) \(lastName!)", completionHandler: { (success) in
           
               self.activityIndicator.stopAnimating()
@@ -198,33 +222,33 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
   }
   
   func presentAlertGroupAlreadyExists() {
-    let alert = UIAlertController(title: "This Group Name Already Exists", message: "Create a new name or go back to search for and join this group", preferredStyle: .Alert)
-    let action = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+    let alert = UIAlertController(title: "This Group Name Already Exists", message: "Create a new name or go back to search for and join this group", preferredStyle: .alert)
+    let action = UIAlertAction(title: "OK", style: .cancel) { (action) in
     }
     alert.addAction(action)
-    self.presentViewController(alert, animated: false, completion: nil)
+    self.present(alert, animated: false, completion: nil)
   }
   
   func presentGroupSaveFailure() {
-    let alert = UIAlertController(title: "Something went wrong when saving your information", message: "Please try again", preferredStyle: .Alert)
-    let action = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+    let alert = UIAlertController(title: "Something went wrong when saving your information", message: "Please try again", preferredStyle: .alert)
+    let action = UIAlertAction(title: "OK", style: .cancel) { (action) in
     }
     alert.addAction(action)
-    self.presentViewController(alert, animated: false, completion: nil)
+    self.present(alert, animated: false, completion: nil)
   }
   
-  func presentGroupCreated (group : ChallengeGroup) {
-    let alert = UIAlertController(title: "Success", message: "\(group.name!) has been created", preferredStyle: .Alert)
-    let ok = UIAlertAction(title: "OK", style: .Cancel) { (action) in
-      self.dismissViewControllerAnimated(true, completion: nil)
+  func presentGroupCreated (_ group : ChallengeGroup) {
+    let alert = UIAlertController(title: "Success", message: "\(group.name!) has been created", preferredStyle: .alert)
+    let ok = UIAlertAction(title: "OK", style: .cancel) { (action) in
+      self.dismiss(animated: true, completion: nil)
     }
     alert.addAction(ok)
-    self.presentViewController(alert, animated: true) {
+    self.present(alert, animated: true) {
     }
   }
   
   
-  @IBAction func onAvatarButtonPressed(sender: UIButton) {
+  @IBAction func onAvatarButtonPressed(_ sender: UIButton) {
     let tag = sender.tag
     self.passwordTextField.resignFirstResponder()
     self.groupNameTextField.resignFirstResponder()
@@ -250,7 +274,7 @@ class CreateGroupVC: UIViewController, UITextFieldDelegate, UINavigationBarDeleg
     }
   }
   
-  func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     
     let currentCharacterCount = textField.text?.characters.count ?? 0
     if (range.length + range.location > currentCharacterCount){

@@ -15,7 +15,7 @@ class SearchResultGroup : ChallengeGroup {
     super.init()
   }
   
-  func returnGroupWithResult(newResult: NSDictionary, groupID: String)  {
+  func returnGroupWithResult(_ newResult: NSDictionary, groupID: String)  {
     self.uniqueID = groupID
     self.userIsAlreadyMember = false
 
@@ -31,7 +31,7 @@ class SearchResultGroup : ChallengeGroup {
         self.createdBy = value as? NSString
       }else if key as! String == "admin"{
       } else {
-        let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+        let userID = UserDefaults.standard.value(forKey: "uid") as! String
         if userID == key as! String {
           self.userIsAlreadyMember = true
         }

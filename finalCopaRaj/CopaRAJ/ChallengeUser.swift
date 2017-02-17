@@ -83,7 +83,7 @@ class ChallengeUser: NSObject {
     return returnedArray
   }
   
-  func updatePointsWithResults (results : NSDictionary) {
+  func updatePointsWithResults (_ results : NSDictionary) {
     var pointsScored = 0
     let pointsPerRound = 64
     let teamsInFirstRound  = 16
@@ -101,8 +101,8 @@ class ChallengeUser: NSObject {
     let championTeams = 1
     let championCorrectPick = pointsPerRound / championTeams
     
-    let groupAWinnerActual = results.valueForKey("GroupAWinner") as! String
-    let groupARunnerUPActual = results.valueForKey("GroupARunnerUP") as! String
+    let groupAWinnerActual = results.value(forKey: "GroupAWinner") as! String
+    let groupARunnerUPActual = results.value(forKey: "GroupARunnerUP") as! String
 
     if groupAWinnerActual != "GroupAWinner"{
       if groupAWinnerActual == self.GroupAWinner! {
@@ -111,19 +111,19 @@ class ChallengeUser: NSObject {
       if groupARunnerUPActual  == self.GroupARunnerUP! {
         pointsScored = pointsScored + firstRoundCorrectPick
       }
-      let groupAThirdPlace = results.valueForKey("GroupAThirdPlace") as! String
+      let groupAThirdPlace = results.value(forKey: "GroupAThirdPlace") as! String
       if groupAThirdPlace == self.GroupAThirdPlace! {
         pointsScored = pointsScored + firstRoundCorrectPick
       }
-      let groupAFourthPlace = results.valueForKey("GroupAFourthPlace") as! String
+      let groupAFourthPlace = results.value(forKey: "GroupAFourthPlace") as! String
       if groupAFourthPlace == self.GroupAFourthPlace! {
         pointsScored = pointsScored + firstRoundCorrectPick
       }
     }
     
     
-    let groupBWinnerActual = results.valueForKey("GroupBWinner") as! String
-    let groupBRunnerUPActual = results.valueForKey("GroupBRunnerUP") as! String
+    let groupBWinnerActual = results.value(forKey: "GroupBWinner") as! String
+    let groupBRunnerUPActual = results.value(forKey: "GroupBRunnerUP") as! String
 
     if groupBWinnerActual != "GroupBWinner" {
       if groupBWinnerActual == self.GroupBWinner! {
@@ -132,22 +132,22 @@ class ChallengeUser: NSObject {
       if groupBRunnerUPActual == self.GroupBRunnerUP! {
         pointsScored = pointsScored + firstRoundCorrectPick
       }
-      let groupBThirdPlace = results.valueForKey("GroupBThirdPlace") as! String
+      let groupBThirdPlace = results.value(forKey: "GroupBThirdPlace") as! String
       if groupBThirdPlace == self.GroupBThirdPlace! {
         pointsScored = pointsScored + firstRoundCorrectPick
       }
-      let groupBFourthPlace = results.valueForKey("GroupBFourthPlace") as! String
+      let groupBFourthPlace = results.value(forKey: "GroupBFourthPlace") as! String
       if groupBFourthPlace == self.GroupBFourthPlace! {
         pointsScored = pointsScored + firstRoundCorrectPick
       }
     }
     
-    let groupCWinnerActual = results.valueForKey("GroupCWinner") as! String
-    let groupCRunnerUPActual = results.valueForKey("GroupCRunnerUP") as! String
+    let groupCWinnerActual = results.value(forKey: "GroupCWinner") as! String
+    let groupCRunnerUPActual = results.value(forKey: "GroupCRunnerUP") as! String
 
     if groupCWinnerActual != "GroupCWinner" {
-      let groupCThirdPlace = results.valueForKey("GroupCThirdPlace") as! String
-      let groupCFourthPlace = results.valueForKey("GroupCFourthPlace") as! String
+      let groupCThirdPlace = results.value(forKey: "GroupCThirdPlace") as! String
+      let groupCFourthPlace = results.value(forKey: "GroupCFourthPlace") as! String
       
       if groupCWinnerActual == self.GroupCWinner! {
         pointsScored = pointsScored + firstRoundCorrectPick
@@ -165,16 +165,16 @@ class ChallengeUser: NSObject {
     }
  
     
-    let groupDWinnerActual = results.valueForKey("GroupDWinner") as! String
-    let groupDRunnerUPActual = results.valueForKey("GroupDRunnerUP") as! String
+    let groupDWinnerActual = results.value(forKey: "GroupDWinner") as! String
+    let groupDRunnerUPActual = results.value(forKey: "GroupDRunnerUP") as! String
 
     if groupDWinnerActual != "GroupDWinner" {
      
       if groupDWinnerActual == self.GroupDWinner! {
         pointsScored = pointsScored + firstRoundCorrectPick
       }
-      let groupDThirdPlace = results.valueForKey("GroupDThirdPlace") as! String
-      let groupDFourthPlace = results.valueForKey("GroupDFourthPlace") as! String
+      let groupDThirdPlace = results.value(forKey: "GroupDThirdPlace") as! String
+      let groupDFourthPlace = results.value(forKey: "GroupDFourthPlace") as! String
       
       if groupDRunnerUPActual == self.GroupDRunnerUP! {
         pointsScored = pointsScored + firstRoundCorrectPick
@@ -194,34 +194,34 @@ class ChallengeUser: NSObject {
     let actualQuarterFinalists = NSMutableArray()
     
     if groupAWinnerActual != "GroupAWinner" {
-      actualQuarterFinalists.addObject(groupAWinnerActual)
+      actualQuarterFinalists.add(groupAWinnerActual)
     }
     
     if groupBWinnerActual != "GroupBWinner" {
-      actualQuarterFinalists.addObject(groupBWinnerActual)
+      actualQuarterFinalists.add(groupBWinnerActual)
     }
     
     if groupCWinnerActual != "GroupCWinner" {
-      actualQuarterFinalists.addObject(groupCWinnerActual)
+      actualQuarterFinalists.add(groupCWinnerActual)
     }
     if groupDWinnerActual !=  "GroupDWinner"{
-      actualQuarterFinalists.addObject(groupDWinnerActual)
+      actualQuarterFinalists.add(groupDWinnerActual)
     }
     
     if groupARunnerUPActual != "GroupARunnerUP"  {
-      actualQuarterFinalists.addObject(groupARunnerUPActual)
+      actualQuarterFinalists.add(groupARunnerUPActual)
     }
     
     if groupBRunnerUPActual != "GroupBRunnerUP" {
-      actualQuarterFinalists.addObject(groupBRunnerUPActual)
+      actualQuarterFinalists.add(groupBRunnerUPActual)
     }
     
     if groupCRunnerUPActual != "GroupCRunnerUP" {
-      actualQuarterFinalists.addObject(groupCRunnerUPActual)
+      actualQuarterFinalists.add(groupCRunnerUPActual)
     }
     
     if groupDRunnerUPActual != "GroupDRunnerUP" {
-      actualQuarterFinalists.addObject(groupDRunnerUPActual)
+      actualQuarterFinalists.add(groupDRunnerUPActual)
     }
     
     let userQuarterFinalistPicks = [self.GroupAWinner, self.GroupARunnerUP, self.GroupBWinner, self.GroupBRunnerUP, self.GroupCWinner, self.GroupCRunnerUP, self.GroupDWinner, self.GroupDRunnerUP]
@@ -237,25 +237,25 @@ class ChallengeUser: NSObject {
     }
     
     
-    let semifinalistTeam1Actual = results.valueForKey("SemifinalistTeam1") as! String
-    let semifinalistTeam2Actual = results.valueForKey("SemifinalistTeam2") as! String
-    let semifinalistTeam3Actual = results.valueForKey("SemifinalistTeam3") as! String
-    let semifinalistTeam4Actual = results.valueForKey("SemifinalistTeam4") as! String
+    let semifinalistTeam1Actual = results.value(forKey: "SemifinalistTeam1") as! String
+    let semifinalistTeam2Actual = results.value(forKey: "SemifinalistTeam2") as! String
+    let semifinalistTeam3Actual = results.value(forKey: "SemifinalistTeam3") as! String
+    let semifinalistTeam4Actual = results.value(forKey: "SemifinalistTeam4") as! String
     
     let actualSemifinalists = NSMutableArray()
     if semifinalistTeam1Actual != "SemifinalistTeam1"  {
-      actualSemifinalists.addObject(semifinalistTeam1Actual)
+      actualSemifinalists.add(semifinalistTeam1Actual)
     }
     
     if semifinalistTeam2Actual != "SemifinalistTeam2" {
-      actualSemifinalists.addObject(semifinalistTeam2Actual)
+      actualSemifinalists.add(semifinalistTeam2Actual)
     }
     if semifinalistTeam3Actual != "SemifinalistTeam3" {
-      actualSemifinalists.addObject(semifinalistTeam3Actual)
+      actualSemifinalists.add(semifinalistTeam3Actual)
     }
     
     if semifinalistTeam4Actual != "SemifinalistTeam4" {
-      actualSemifinalists.addObject(semifinalistTeam4Actual)
+      actualSemifinalists.add(semifinalistTeam4Actual)
     }
     
     let userSemifinalistPicks = [self.SemifinalistTeam1, self.SemifinalistTeam2, self.SemifinalistTeam3, self.SemifinalistTeam4]
@@ -274,16 +274,16 @@ class ChallengeUser: NSObject {
     }
     
     //print(count)
-    let finalistTeam1Actual = results.valueForKey("FinalistTeam1") as! String
-    let finalistTeam2Actual = results.valueForKey("FinalistTeam2") as! String
+    let finalistTeam1Actual = results.value(forKey: "FinalistTeam1") as! String
+    let finalistTeam2Actual = results.value(forKey: "FinalistTeam2") as! String
     let finalistsActual = NSMutableArray()
     let userPickedFinalists = [self.FinalistTeam1, self.FinalistTeam2]
     
     if finalistTeam1Actual != "FinalistTeam1" {
-      finalistsActual.addObject(finalistTeam1Actual)
+      finalistsActual.add(finalistTeam1Actual)
     }
     if finalistTeam2Actual != "FinalistTeam2" {
-      finalistsActual.addObject(finalistTeam2Actual)
+      finalistsActual.add(finalistTeam2Actual)
     }
     for actualFinalist in finalistsActual {
       for pick in userPickedFinalists {
@@ -294,14 +294,14 @@ class ChallengeUser: NSObject {
       }
     }
     
-    let champion = results.valueForKey("Champion") as! String
+    let champion = results.value(forKey: "Champion") as! String
     if champion == self.Champion! {
       pointsScored = pointsScored + championCorrectPick
     }
     self.points = pointsScored as NSNumber
   }
   
-  func addPointsForStageTeams(stageTeams : NSArray) {
+  func addPointsForStageTeams(_ stageTeams : NSArray) {
     
   }
   

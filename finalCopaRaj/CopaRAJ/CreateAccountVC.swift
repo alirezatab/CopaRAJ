@@ -41,33 +41,33 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
       
         self.firstNameVisualEffectView.layer.cornerRadius = 5
         self.firstNameVisualEffectView.layer.masksToBounds = true
-        self.firstNameTextField.backgroundColor = UIColor.clearColor()
-        self.firstNameTextField.textColor = UIColor.blackColor()
+        self.firstNameTextField.backgroundColor = UIColor.clear
+        self.firstNameTextField.textColor = UIColor.black
         self.firstNameTextField.attributedPlaceholder = NSAttributedString(string:"First Name",
-                                                                            attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+                                                                            attributes:[NSForegroundColorAttributeName: UIColor.lightGray])
         
         self.lastNameVisualEffectView.layer.cornerRadius = 5
         self.lastNameVisualEffectView.layer.masksToBounds = true
-        self.lastNameTextField.backgroundColor = UIColor.clearColor()
-        self.lastNameTextField.textColor = UIColor.blackColor()
+        self.lastNameTextField.backgroundColor = UIColor.clear
+        self.lastNameTextField.textColor = UIColor.black
         self.lastNameTextField.attributedPlaceholder = NSAttributedString(string:"Last Name",
-                                                                            attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+                                                                            attributes:[NSForegroundColorAttributeName: UIColor.lightGray])
 
         
         self.emailVisualEffectView.layer.cornerRadius = 5
         self.emailVisualEffectView.layer.masksToBounds = true
-        self.emailAddressTextField.backgroundColor = UIColor.clearColor()
-        self.emailAddressTextField.textColor = UIColor.blackColor()
+        self.emailAddressTextField.backgroundColor = UIColor.clear
+        self.emailAddressTextField.textColor = UIColor.black
         self.emailAddressTextField.attributedPlaceholder = NSAttributedString(string:"Email Address",
-                                                                            attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+                                                                            attributes:[NSForegroundColorAttributeName: UIColor.lightGray])
 
         
         self.passwordVisualEffectView.layer.cornerRadius = 5
         self.passwordVisualEffectView.layer.masksToBounds = true
-        self.passwordTextField.backgroundColor = UIColor.clearColor()
-        self.passwordTextField.textColor = UIColor.blackColor()
+        self.passwordTextField.backgroundColor = UIColor.clear
+        self.passwordTextField.textColor = UIColor.black
         self.passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password",
-                                                                            attributes:[NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+                                                                            attributes:[NSForegroundColorAttributeName: UIColor.lightGray])
         
         self.createButton.layer.cornerRadius = 5
         self.createButton.layer.masksToBounds = true
@@ -76,13 +76,13 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
         self.cancelButton.layer.masksToBounds = true
     }
     
-    override func viewDidAppear(animated: Bool) {
-        self.navigationController?.navigationBar.hidden = true
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     
 
-    @IBAction func createAccountButtonPressed(sender: AnyObject) {
+    @IBAction func createAccountButtonPressed(_ sender: AnyObject) {
         let firtstName = firstNameTextField.text
         let lastName = lastNameTextField.text
         let email = emailAddressTextField.text
@@ -92,25 +92,25 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
             //set username and password
             DataService.dataService.BASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, result) in
                 if error != nil{
-                    self.signupErrorAlert("ERROR", message: error.localizedDescription)
+                    self.signupErrorAlert("ERROR", message: (error?.localizedDescription)!)
                     //print(error.localizedDescription)
                 } else {
                     //create the username and password
                     DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { (err, authData) in
                         
-                        let user = ["provider": authData.provider!, "email": email!, "firstName": firtstName!, "lastName": lastName!];
+                        let user = ["provider": authData?.provider!, "email": email!, "firstName": firtstName!, "lastName": lastName!];
                         
                         DataService.dataService.createNewAccount(authData.uid, user: user, completionHandler: { (success) in
                             if success == true {
                                 //store the uid for future access - handy!
-                                NSUserDefaults.standardUserDefaults().setValue(result["uid"], forKey: "uid")
-                                NSUserDefaults.standardUserDefaults().setValue(firtstName, forKey: "firstName")
-                                NSUserDefaults.standardUserDefaults().setValue(lastName, forKey: "lastName")
+                                UserDefaults.standard.setValue(result["uid"], forKey: "uid")
+                                UserDefaults.standard.setValue(firtstName, forKey: "firstName")
+                                UserDefaults.standard.setValue(lastName, forKey: "lastName")
                                 
                                 //enter the app
                                 //self.performSegueWithIdentifier(self.newUserLoggedIn, sender: nil);
                                 
-                                self.performSegueWithIdentifier("unwindToLoginFromCreateUser", sender: self)
+                                self.performSegue(withIdentifier: "unwindToLoginFromCreateUser", sender: self)
 
                             } else {
                                 //print(success)
@@ -126,11 +126,11 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
         }
     }
     
-    func signupErrorAlert(title: String, message: String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+    func signupErrorAlert(_ title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil);
+        present(alert, animated: true, completion: nil);
     }
     
     
@@ -139,7 +139,7 @@ class CreateAccountVC: UIViewController, UINavigationBarDelegate, UITextFieldDel
         // Dispose of any resources that can be recreated.
     }
   
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
     return true
   }

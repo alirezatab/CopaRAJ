@@ -39,7 +39,7 @@ class ChallengeGroup: NSObject {
     self.members = NSMutableArray()
   }
   
-  func updateGroupWithDictionary(dictionary : NSDictionary, currentResults : NSDictionary) {
+  func updateGroupWithDictionary(_ dictionary : NSDictionary, currentResults : NSDictionary) {
     //print(currentResults)
     self.members = NSMutableArray()
     for id in dictionary {
@@ -47,51 +47,51 @@ class ChallengeGroup: NSObject {
       if idKey  == "password" {
         self.password = id.value as? NSString
       } else if idKey == "createdBy" {
-        self.createdBy = id.value as! String
+        self.createdBy = id.value as! String as NSString?
       } else if idKey != "imageName" && idKey != "name" && idKey != "admin" && idKey != "password" && idKey != "createdBy" {
         let member = self.createMemberforGroup(id.value as! NSDictionary, key: idKey, tournyResults: currentResults)
-        self.members?.addObject(member)
+        self.members?.add(member)
       }
     }
   }
   
-  func createMemberforGroup(dictionary: NSDictionary, key : String, tournyResults : NSDictionary) -> ChallengeUser {
+  func createMemberforGroup(_ dictionary: NSDictionary, key : String, tournyResults : NSDictionary) -> ChallengeUser {
     let user = ChallengeUser()
-    user.Champion = dictionary.valueForKey("Champion") as? String
-    user.FinalistTeam1 = dictionary.valueForKey("FinalistTeam1") as? String
-    user.FinalistTeam2 = dictionary.valueForKey("FinalistTeam2") as? String
+    user.Champion = dictionary.value(forKey: "Champion") as? String
+    user.FinalistTeam1 = dictionary.value(forKey: "FinalistTeam1") as? String
+    user.FinalistTeam2 = dictionary.value(forKey: "FinalistTeam2") as? String
     
-    user.GroupAFourthPlace = dictionary.valueForKey("GroupAFourthPlace") as? String
-    user.GroupARunnerUP = dictionary.valueForKey("GroupARunnerUP") as? String
-    user.GroupAThirdPlace = dictionary.valueForKey("GroupAThirdPlace") as? String
-    user.GroupAWinner = dictionary.valueForKey("GroupAWinner") as? String
+    user.GroupAFourthPlace = dictionary.value(forKey: "GroupAFourthPlace") as? String
+    user.GroupARunnerUP = dictionary.value(forKey: "GroupARunnerUP") as? String
+    user.GroupAThirdPlace = dictionary.value(forKey: "GroupAThirdPlace") as? String
+    user.GroupAWinner = dictionary.value(forKey: "GroupAWinner") as? String
     
-    user.GroupBFourthPlace = dictionary.valueForKey("GroupBFourthPlace") as? String
-    user.GroupBRunnerUP = dictionary.valueForKey("GroupBRunnerUP") as? String
-    user.GroupBThirdPlace = dictionary.valueForKey("GroupBThirdPlace") as? String
-    user.GroupBWinner = dictionary.valueForKey("GroupBWinner") as? String
+    user.GroupBFourthPlace = dictionary.value(forKey: "GroupBFourthPlace") as? String
+    user.GroupBRunnerUP = dictionary.value(forKey: "GroupBRunnerUP") as? String
+    user.GroupBThirdPlace = dictionary.value(forKey: "GroupBThirdPlace") as? String
+    user.GroupBWinner = dictionary.value(forKey: "GroupBWinner") as? String
     
-    user.GroupCFourthPlace = dictionary.valueForKey("GroupCFourthPlace") as? String
-    user.GroupCRunnerUP = dictionary.valueForKey("GroupCRunnerUP") as? String
-    user.GroupCThirdPlace = dictionary.valueForKey("GroupCThirdPlace") as? String
-    user.GroupCWinner = dictionary.valueForKey("GroupCWinner") as? String
+    user.GroupCFourthPlace = dictionary.value(forKey: "GroupCFourthPlace") as? String
+    user.GroupCRunnerUP = dictionary.value(forKey: "GroupCRunnerUP") as? String
+    user.GroupCThirdPlace = dictionary.value(forKey: "GroupCThirdPlace") as? String
+    user.GroupCWinner = dictionary.value(forKey: "GroupCWinner") as? String
     
-    user.GroupDFourthPlace = dictionary.valueForKey("GroupDFourthPlace") as? String
-    user.GroupDRunnerUP = dictionary.valueForKey("GroupDRunnerUP") as? String
-    user.GroupDThirdPlace = dictionary.valueForKey("GroupDThirdPlace") as? String
-    user.GroupDWinner = dictionary.valueForKey("GroupDWinner") as? String
+    user.GroupDFourthPlace = dictionary.value(forKey: "GroupDFourthPlace") as? String
+    user.GroupDRunnerUP = dictionary.value(forKey: "GroupDRunnerUP") as? String
+    user.GroupDThirdPlace = dictionary.value(forKey: "GroupDThirdPlace") as? String
+    user.GroupDWinner = dictionary.value(forKey: "GroupDWinner") as? String
     
-    user.SemifinalistTeam1 = dictionary.valueForKey("SemifinalistTeam1") as? String
-    user.SemifinalistTeam2 = dictionary.valueForKey("SemifinalistTeam2") as? String
-    user.SemifinalistTeam3 = dictionary.valueForKey("SemifinalistTeam3") as? String
-    user.SemifinalistTeam4 = dictionary.valueForKey("SemifinalistTeam4") as? String
+    user.SemifinalistTeam1 = dictionary.value(forKey: "SemifinalistTeam1") as? String
+    user.SemifinalistTeam2 = dictionary.value(forKey: "SemifinalistTeam2") as? String
+    user.SemifinalistTeam3 = dictionary.value(forKey: "SemifinalistTeam3") as? String
+    user.SemifinalistTeam4 = dictionary.value(forKey: "SemifinalistTeam4") as? String
     
-    user.firstName = dictionary.valueForKey("firstName") as? String
-    user.lastName = dictionary.valueForKey("lastName") as? String
+    user.firstName = dictionary.value(forKey: "firstName") as? String
+    user.lastName = dictionary.value(forKey: "lastName") as? String
     
     //self.calculatePointsUser
     
-    let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+    let userID = UserDefaults.standard.value(forKey: "uid") as! String
     if userID == key {
       self.userIsAlreadyMember = true
       if user.Champion == "" {

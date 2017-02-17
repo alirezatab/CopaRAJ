@@ -18,11 +18,11 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     //var token : dispatch_once_t = 0
     
   override func viewDidLoad() {
-    self.navigationController?.navigationBarHidden = false
+    self.navigationController?.isNavigationBarHidden = false
     self.navigationItem.hidesBackButton = true
     self.title = "Group Selections"
     self.createGroups()
-    self.tableView.userInteractionEnabled = true
+    self.tableView.isUserInteractionEnabled = true
     self.tableView.allowsSelection = true
     self.tableView.setEditing(true, animated: true)
     
@@ -51,14 +51,14 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
       let Team2 = ChallengeTeam (name: "United States")
       let Team3 = ChallengeTeam (name: "Costa Rica")
       let Team4 = ChallengeTeam (name: "Paraguay")
-      groupATeams.addObjectsFromArray([Team1,Team2,Team3,Team4])
+      groupATeams.addObjects(from: [Team1,Team2,Team3,Team4])
       groupA.teams = groupATeams
     } else if i == 2 {
       let Team1 = ChallengeTeam (name: "Brazil")
       let Team2 = ChallengeTeam (name: "Ecuador")
       let Team3 = ChallengeTeam (name: "Haiti")
       let Team4 = ChallengeTeam (name: "Peru")
-      groupBTeams.addObjectsFromArray([Team1,Team2,Team3,Team4])
+      groupBTeams.addObjects(from: [Team1,Team2,Team3,Team4])
       groupB.teams = groupBTeams
 
     } else if i == 3 {
@@ -66,7 +66,7 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
       let Team2 = ChallengeTeam (name: "Mexico")
       let Team3 = ChallengeTeam (name: "Uruguay")
       let Team4 = ChallengeTeam (name: "Venezuela")
-      groupCTeams.addObjectsFromArray([Team1,Team2,Team3,Team4])
+      groupCTeams.addObjects(from: [Team1,Team2,Team3,Team4])
       groupC.teams = groupCTeams
 
     } else {
@@ -74,24 +74,24 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
       let Team2 = ChallengeTeam (name: "Bolivia")
       let Team3 = ChallengeTeam (name: "Chile")
       let Team4 = ChallengeTeam (name: "Panama")
-      groupDTeams.addObjectsFromArray([Team1,Team2,Team3,Team4])
+      groupDTeams.addObjects(from: [Team1,Team2,Team3,Team4])
       groupD.teams = groupDTeams
 
     }
     }
-    self.groups?.addObjectsFromArray([groupA, groupB, groupC, groupD])
+    self.groups?.addObjects(from: [groupA, groupB, groupC, groupD])
     self.tableView.reloadData()
-    self.tableView.editing = true
+    self.tableView.isEditing = true
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 4
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("team") as! GroupTableViewCell
-    let cellGroup = self.groups?.objectAtIndex(indexPath.section) as! CopaAmericaGroup
-    let team = cellGroup.teams?.objectAtIndex(indexPath.row) as! ChallengeTeam
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "team") as! GroupTableViewCell
+    let cellGroup = self.groups?.object(at: indexPath.section) as! CopaAmericaGroup
+    let team = cellGroup.teams?.object(at: indexPath.row) as! ChallengeTeam
     cell.teamImage.image = UIImage.init(named: team.name as! String)
     cell.teamCountry.text = team.name as? String
     
@@ -101,32 +101,32 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     return cell
   }
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return (self.groups?.count)!
   }
   
-  func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let screenBound = UIScreen.mainScreen().bounds
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let screenBound = UIScreen.main.bounds
     let screensize = screenBound.size
     let screenwidth = screensize.width
     
-    let headerView = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, 18))
+    let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 18))
     
-    let groupLabel = UILabel.init(frame: CGRectMake(0, 0, self.view.frame.size.width / 4, 40))
-    let instructionLabel = UILabel.init(frame: CGRectMake(self.view.frame.size.width/2, 0, self.view.frame.size.width/2, 40))
+    let groupLabel = UILabel.init(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 4, height: 40))
+    let instructionLabel = UILabel.init(frame: CGRect(x: self.view.frame.size.width/2, y: 0, width: self.view.frame.size.width/2, height: 40))
     
-    CGRectMake(20, 5, screenwidth/2, 45)
+    CGRect(x: 20, y: 5, width: screenwidth/2, height: 45)
     groupLabel.font = UIFont.init(name: "GothamMedium", size: 17)
     groupLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
-    groupLabel.textAlignment = NSTextAlignment.Center
+    groupLabel.textAlignment = NSTextAlignment.center
    
     instructionLabel.font = UIFont.init(name: "GothamMedium", size: 15)
     instructionLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
-    instructionLabel.textAlignment = NSTextAlignment.Right
+    instructionLabel.textAlignment = NSTextAlignment.right
     
     headerView.backgroundColor = UIColor.init(white: 0.969, alpha: 1.000)//your background
     
-    let group = self.groups!.objectAtIndex(section) as! CopaAmericaGroup
+    let group = self.groups!.object(at: section) as! CopaAmericaGroup
     groupLabel.text = group.name as? String
     instructionLabel.text = "Sort using \u{2261}"
     
@@ -136,66 +136,66 @@ class PickGroupVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     return headerView;
   }
   
-  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 40
   }
   
-  func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+  func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
     return true
   }
   
-  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return true
   }
   
-   func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+   func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
     return false
   }
   
-   func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-    return .None
+   func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    return .none
   }
   
-  func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-    let group = self.groups?.objectAtIndex(sourceIndexPath.section) as! CopaAmericaGroup
-    let team = group.teams?.objectAtIndex(sourceIndexPath.row)
-    group.teams?.removeObjectAtIndex(sourceIndexPath.row)
-    group.teams?.insertObject(team!, atIndex: destinationIndexPath.row)
+  func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    let group = self.groups?.object(at: sourceIndexPath.section) as! CopaAmericaGroup
+    let team = group.teams?.object(at: sourceIndexPath.row)
+    group.teams?.removeObject(at: sourceIndexPath.row)
+    group.teams?.insert(team!, at: destinationIndexPath.row)
     
   }
   
   
   
-    func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
     if sourceIndexPath.section != proposedDestinationIndexPath.section {
       var row = 0 as NSInteger
       if sourceIndexPath.section < proposedDestinationIndexPath.section {
-        row = tableView.numberOfRowsInSection(sourceIndexPath.section) - 1
+        row = tableView.numberOfRows(inSection: sourceIndexPath.section) - 1
       }
-      return NSIndexPath.init(forRow: row, inSection: sourceIndexPath.section)
+      return IndexPath.init(row: row, section: sourceIndexPath.section)
     }
     return proposedDestinationIndexPath
     }
 
-    @IBAction func finalizeButtonPressed(sender: UIButton) {
-        self.performSegueWithIdentifier("BracketFinalize", sender: nil)
+    @IBAction func finalizeButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "BracketFinalize", sender: nil)
     }
     
     //MARK: ALERT
     //Ali added
-    func howToReorderAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "Got It", style: .Default, handler: nil)
+    func howToReorderAlert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Got It", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
   
-  @IBAction func unwindToPickGroup(segue: UIStoryboardSegue) {
+  @IBAction func unwindToPickGroup(_ segue: UIStoryboardSegue) {
     
   }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let desVC = segue.destinationViewController as? BracketFinalizeVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let desVC = segue.destination as? BracketFinalizeVC {
             desVC.groupsPassedOver = self.groups
             desVC.group = self.group
         }

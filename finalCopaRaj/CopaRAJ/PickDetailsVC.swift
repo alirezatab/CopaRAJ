@@ -20,7 +20,7 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     self.createGroups()
     //self.navigationController?.navigationBarHidden = false
     //self.navigationItem.hidesBackButton = true
-    self.tableView.userInteractionEnabled = true
+    self.tableView.isUserInteractionEnabled = true
     self.tableView.reloadData()
     
   }
@@ -63,31 +63,31 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let champion = CopaAmericaGroup(name: "Champion")
     champion.teams = [self.member!.Champion!]
     
-    self.picksArray?.addObjectsFromArray([groupA, groupB, groupC, groupD, quarterfinalists, semifinalists, finalists, champion])
+    self.picksArray?.addObjects(from: [groupA, groupB, groupC, groupD, quarterfinalists, semifinalists, finalists, champion])
     
     //print("yolo")
     
 }
 
-  func updtateArray(groupArray: NSMutableArray, team1: String, team2: String, team3: String, team4: String ) {
+  func updtateArray(_ groupArray: NSMutableArray, team1: String, team2: String, team3: String, team4: String ) {
     let winner = team1
     let runnerUp = team2
     let thirdPlace = team3
     let fourthPlace = team4
-    groupArray.addObjectsFromArray([winner, runnerUp, thirdPlace, fourthPlace])
+    groupArray.addObjects(from: [winner, runnerUp, thirdPlace, fourthPlace])
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let group = self.picksArray?.objectAtIndex(section) as! CopaAmericaGroup
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    let group = self.picksArray?.object(at: section) as! CopaAmericaGroup
     let numberOfRows = group.teams?.count
     
     return numberOfRows!
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("team") as! GroupTableViewCell
-    let cellGroup = self.picksArray?.objectAtIndex(indexPath.section) as! CopaAmericaGroup
-    let teamName = cellGroup.teams?.objectAtIndex(indexPath.row) as! String
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "team") as! GroupTableViewCell
+    let cellGroup = self.picksArray?.object(at: indexPath.section) as! CopaAmericaGroup
+    let teamName = cellGroup.teams?.object(at: indexPath.row) as! String
     if teamName == "" {
         cell.teamCountry.text = "Challange Team Not Picked!"
     } else {
@@ -108,7 +108,7 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     return cell
   }
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     if let count = self.picksArray?.count {
       return count
     } else {
@@ -116,27 +116,27 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
   }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }
   
-  func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //    let screenBound = UIScreen.mainScreen().bounds
 //    let screensize = screenBound.size
 //    let screenwidth = screensize.width
     
-    let headerView = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, 18))
+    let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 18))
     
-    let groupLabel = UILabel.init(frame: CGRectMake(20, 0, self.view.frame.size.width / 2, 45))
+    let groupLabel = UILabel.init(frame: CGRect(x: 20, y: 0, width: self.view.frame.size.width / 2, height: 45))
     
     //CGRectMake(20, 5, screenwidth/2, 45)
     groupLabel.font = UIFont.init(name: "GothamMedium", size: 15)
     groupLabel.textColor = UIColor.init(white: 0.600, alpha: 1.000)
-    groupLabel.textAlignment = NSTextAlignment.Natural
+    groupLabel.textAlignment = NSTextAlignment.natural
     
     headerView.backgroundColor = UIColor.init(white: 0.969, alpha: 1.000)//your background
     
-    let group = self.picksArray!.objectAtIndex(section) as! CopaAmericaGroup
+    let group = self.picksArray!.object(at: section) as! CopaAmericaGroup
     if section != 7 {
     groupLabel.text = "\(group.name as! String) picks"
     } else {
@@ -148,7 +148,7 @@ class PickDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     return headerView;
   }
   
-  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 40
   }
   

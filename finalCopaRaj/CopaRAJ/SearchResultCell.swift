@@ -10,7 +10,7 @@ import Foundation
 
   protocol SearchResultCellDelegate {
     
-    func userDidRequestJoin(sender: UIButton)
+    func userDidRequestJoin(_ sender: UIButton)
 
   }
 
@@ -25,7 +25,7 @@ class SearchResultCell: GroupHomeCell {
 
   
   
-  @IBAction func onJoinButtonPressed(sender: UIButton) {
+  @IBAction func onJoinButtonPressed(_ sender: UIButton) {
       delegate?.userDidRequestJoin(sender)
   }
 

@@ -13,11 +13,11 @@ class Terms_Condition_PrivacyVC: UIViewController {
     @IBOutlet weak var termTexView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.termTexView?.scrollEnabled = false
+        self.termTexView?.isScrollEnabled = false
     }
 
-    override func viewDidAppear(animated: Bool) {
-        self.termTexView?.scrollEnabled = true
+    override func viewDidAppear(_ animated: Bool) {
+        self.termTexView?.isScrollEnabled = true
     }
     
     override func didReceiveMemoryWarning() {
